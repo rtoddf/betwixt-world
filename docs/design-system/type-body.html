@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Type — Body</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); padding: 22px 28px; box-sizing: border-box; }
+  .row { display: grid; grid-template-columns: 1fr 200px; gap: 28px; align-items: center; }
+  .specimen { font-family: var(--font-body); color: var(--fg); }
+  .specimen .big { font-size: 32px; font-weight: 500; line-height: 1.2; }
+  .specimen .body { font-size: 16px; line-height: 1.55; margin-top: 10px; max-width: 52ch; }
+  .weights { display: flex; gap: 18px; margin-top: 10px; align-items: baseline; }
+  .weights span { font-size: 18px; }
+  .w3 { font-weight: 300; } .w4 { font-weight: 400; } .w5 { font-weight: 500; } .w6 { font-weight: 600; } .w7 { font-weight: 700; }
+  .meta { font-size: 13px; color: var(--fg-muted); line-height: 1.5; }
+  .meta strong { font-family: var(--font-display); color: var(--fg); font-size: 18px; letter-spacing: 0.04em; font-weight: 400; display: block; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="specimen">
+      <div class="big">Approachable &amp; wise.</div>
+      <div class="body">Worry's pockets are full of small important things. Acorns, mostly. A bottle cap. The phone number of someone she loves.</div>
+      <div class="weights">
+        <span class="w3">Light</span><span class="w4">Regular</span><span class="w5">Medium</span><span class="w6">Semibold</span><span class="w7">Bold</span>
+      </div>
+    </div>
+    <div class="meta">
+      <strong>Quicksand</strong>
+      Variable · 300–700 · all body copy · line-height ≥ 1.5 · Deep Navy on Cream
+    </div>
+  </div>
+</body>
+</html>

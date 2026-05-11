@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Type — Display</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    padding: 24px 28px;
+    box-sizing: border-box;
+  }
+  .row { display: flex; align-items: flex-end; gap: 28px; }
+  .specimen {
+    font-family: var(--font-display);
+    color: var(--fg-display);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    font-size: 96px;
+    flex: 1;
+  }
+  .meta { font-size: 13px; color: var(--fg-muted); line-height: 1.5; min-width: 180px; }
+  .meta strong { font-family: var(--font-display); color: var(--fg); font-size: 18px; letter-spacing: 0.04em; font-weight: 400; display: block; margin-bottom: 4px; }
+  .ab { display: flex; align-items: baseline; gap: 16px; margin-top: 14px; font-family: var(--font-display); color: var(--fg); letter-spacing: 0.05em; }
+  .ab span:nth-child(1) { font-size: 22px; }
+  .ab span:nth-child(2) { font-size: 16px; color: var(--fg-muted); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="specimen">Betwixt</div>
+    <div class="meta">
+      <strong>Architects Daughter</strong>
+      Display only · 400 only · letter-spacing 0.05–0.10em · size + color carry hierarchy
+    </div>
+  </div>
+  <div class="ab">
+    <span>Aa Bb Cc Dd Ee Ff Gg</span>
+    <span>0 1 2 3 4 5 6 7 8 9 &amp; — ?</span>
+  </div>
+</body>
+</html>

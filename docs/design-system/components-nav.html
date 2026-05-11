@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Components — Nav</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); padding: 0; box-sizing: border-box; }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1.5px solid rgba(26,74,74,.18); }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 22px; letter-spacing: 0.05em; color: #2A7F7F; }
+  .brand img { width: 28px; height: 28px; }
+  ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
+  a { font-size: 14px; font-weight: 600; color: #1A4A4A; text-decoration: none; padding: 8px 4px; border-bottom: 2px solid transparent; }
+  a:hover { border-bottom-color: #F0A500; }
+  a.active { border-bottom-color: #2A7F7F; }
+  .cta { background: #2A7F7F; color: #F5EDD6; padding: 9px 16px; border-radius: 8px; font-weight: 700; font-size: 14px; box-shadow: 0 3px 0 #1A4A4A; }
+  .footer-strip { background: #1A4A4A; color: #F5EDD6; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .footer-strip .links { display: flex; gap: 18px; opacity: .85; }
+</style>
+</head>
+<body>
+  <div class="nav">
+    <div class="brand"><img src="../assets/logo-icon-primary.svg" alt=""/>Betwixt</div>
+    <ul>
+      <li><a href="#" class="active">Neighbors</a></li>
+      <li><a href="#">Field notes</a></li>
+      <li><a href="#">Visit</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <a class="cta" href="#">Say hello</a>
+  </div>
+  <div class="footer-strip">
+    <span>© Betwixt 2026</span>
+    <div class="links"><span>Press</span><span>Careers</span><span>Privacy</span></div>
+  </div>
+</body>
+</html>
