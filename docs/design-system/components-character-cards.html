@@ -1,88 +1,150 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<title>Components — Character Card</title>
-<link rel="stylesheet" href="../colors_and_type.css" />
-<style>
-  html, body { margin: 0; }
-  body { background: var(--bg); color: var(--fg); font-family: var(--font-body); padding: 20px 24px; box-sizing: border-box; }
-  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: flex-start; }
-  .card {
-    background: #FBF6E5; border-radius: 8px;
-    box-shadow: inset 0 0 0 1.5px #1A4A4A, 0 4px 0 rgba(26,74,74,.10);
-    overflow: hidden;
-    display: flex; flex-direction: column;
-  }
-  .card:nth-child(1) { transform: rotate(-0.6deg); }
-  .card:nth-child(2) { transform: rotate(0.8deg);  }
-  .card:nth-child(3) { transform: rotate(-0.3deg); }
+  <head>
+    <meta charset="utf-8" />
+    <title>Components — Character Card</title>
+    <link rel="stylesheet" href="../colors_and_type.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-body);
+        padding: 20px 24px;
+        box-sizing: border-box;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        align-items: flex-start;
+      }
+      .card {
+        background: #fbf6e5;
+        border-radius: 8px;
+        box-shadow:
+          inset 0 0 0 1.5px #1a4a4a,
+          0 4px 0 rgba(26, 74, 74, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .card:nth-child(1) {
+        transform: rotate(-0.6deg);
+      }
+      .card:nth-child(2) {
+        transform: rotate(0.8deg);
+      }
+      .card:nth-child(3) {
+        transform: rotate(-0.3deg);
+      }
 
-  /* 2:3 portrait image at the top of the card */
-  .portrait {
-    aspect-ratio: 2 / 3;
-    width: 100%;
-    background: var(--accent, #F0A500);
-    border-bottom: 1.5px solid #1A4A4A;
-    display: grid; place-items: center;
-    color: #1A4A4A;
-    font-family: var(--font-display);
-    font-size: 64px; line-height: 1; letter-spacing: 0;
-    position: relative;
-  }
-  .portrait::after {
-    content: "SVG 2:3"; position: absolute; bottom: 8px; right: 10px;
-    font-family: ui-monospace, Menlo, monospace; font-size: 9px;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: #1A4A4A; opacity: .45;
-  }
-  .card.dark .portrait { color: #F5EDD6; }
-  .card.dark .portrait::after { color: #F5EDD6; }
+      /* 2:3 portrait image at the top of the card */
+      .portrait {
+        aspect-ratio: 2 / 3;
+        width: 100%;
+        background: var(--accent, #f0a500);
+        border-bottom: 1.5px solid #1a4a4a;
+        display: grid;
+        place-items: center;
+        color: #1a4a4a;
+        font-family: var(--font-display);
+        font-size: 64px;
+        line-height: 1;
+        letter-spacing: 0;
+        position: relative;
+      }
+      .portrait::after {
+        content: 'SVG 2:3';
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 9px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #1a4a4a;
+        opacity: 0.45;
+      }
+      .card.dark .portrait {
+        color: #f5edd6;
+      }
+      .card.dark .portrait::after {
+        color: #f5edd6;
+      }
 
-  .body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; }
-  .tag  { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: #D4622A; }
-  .name { font-family: var(--font-display); font-size: 22px; color: #2A7F7F; letter-spacing: 0.05em; line-height: 1; margin: 0; }
-  .bio  { font-size: 12px; line-height: 1.45; color: #1A4A4A; margin: 2px 0 0; font-style: italic; white-space: pre-line; }
-</style>
-</head>
-<body>
-  <div class="row">
-    <div class="card">
-      <div class="portrait" style="--accent:#F0A500;">W</div>
-      <div class="body">
-        <h3 class="name">Worry</h3>
-        <span class="tag">Resident</span>
-        <p class="bio">There once was a girl with deep pockets,
-Full of acorns and string and old lockets.
-She'd count them by name,
-Each evening the same,
-Then sleep with them tucked in their sockets.</p>
+      .body {
+        padding: 14px 16px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .tag {
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #d4622a;
+      }
+      .name {
+        font-family: var(--font-display);
+        font-size: 22px;
+        color: #2a7f7f;
+        letter-spacing: 0.05em;
+        line-height: 1;
+        margin: 0;
+      }
+      .bio {
+        font-size: 12px;
+        line-height: 1.45;
+        color: #1a4a4a;
+        margin: 2px 0 0;
+        font-style: italic;
+        white-space: pre-line;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="card">
+        <div class="portrait" style="--accent: #f0a500">W</div>
+        <div class="body">
+          <h3 class="name">Worry</h3>
+          <span class="tag">Resident</span>
+          <p class="bio">
+            There once was a girl with deep pockets, Full of acorns and string
+            and old lockets. She'd count them by name, Each evening the same,
+            Then sleep with them tucked in their sockets.
+          </p>
+        </div>
+      </div>
+      <div class="card dark">
+        <div class="portrait" style="--accent: #e8442a">B</div>
+        <div class="body">
+          <h3 class="name">Big Feeling</h3>
+          <span class="tag">Resident</span>
+          <p class="bio">
+            There once was a kid named Big Feeling, Whose shoulders kept
+            brushing the ceiling. He'd duck through the door And sit on the
+            floor — The chairs always found it appealing.
+          </p>
+        </div>
+      </div>
+      <div class="card dark">
+        <div class="portrait" style="--accent: #2a7f7f">Q</div>
+        <div class="body">
+          <h3 class="name">The Quiet One</h3>
+          <span class="tag">Resident</span>
+          <p class="bio">
+            There once was a kid no one heard, Who never quite said the loud
+            word. But she'd notice the rain On the bedroom-side pane Before
+            anyone else had concurred.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="card dark">
-      <div class="portrait" style="--accent:#E8442A;">B</div>
-      <div class="body">
-        <h3 class="name">Big Feeling</h3>
-        <span class="tag">Resident</span>
-        <p class="bio">There once was a kid named Big Feeling,
-Whose shoulders kept brushing the ceiling.
-He'd duck through the door
-And sit on the floor —
-The chairs always found it appealing.</p>
-      </div>
-    </div>
-    <div class="card dark">
-      <div class="portrait" style="--accent:#2A7F7F;">Q</div>
-      <div class="body">
-        <h3 class="name">The Quiet One</h3>
-        <span class="tag">Resident</span>
-        <p class="bio">There once was a kid no one heard,
-Who never quite said the loud word.
-But she'd notice the rain
-On the bedroom-side pane
-Before anyone else had concurred.</p>
-      </div>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
