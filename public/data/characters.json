@@ -1,0 +1,22 @@
+{
+  "characters": [
+    {
+      "image": "zaman.png",
+      "name": "Zaman",
+      "tag": "Time",
+      "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
+    },
+    {
+      "image": "aella.png",
+      "name": "Aella",
+      "tag": "Mischief",
+      "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
+    },
+    {
+      "image": "azreal.png",
+      "name": "Azrael",
+      "tag": "Death",
+      "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
+    }
+  ]
+}
