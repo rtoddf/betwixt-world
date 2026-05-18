@@ -1,21 +1,57 @@
 {
   "characters": [
     {
-      "image": "zaman.png",
-      "name": "Zaman",
-      "tag": "Time",
-      "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
-    },
-    {
-      "image": "aella.png",
-      "name": "Aella",
-      "tag": "Mischief",
+      "image": "art.png",
+      "name": "Art",
+      "tag": "Creativity",
+      "nationality": "Greek American",
+      "pronouns": "him",
+      "age": "12",
       "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
     },
     {
       "image": "azrael.png",
       "name": "Azrael",
       "tag": "Death",
+      "nationality": "Mexican American",
+      "pronouns": "him",
+      "age": "12",
+      "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
+    },
+    {
+      "image": "blaze.png",
+      "name": "Blaze",
+      "tag": "Chaos",
+      "nationality": "Filipino American",
+      "pronouns": "they",
+      "age": "10",
+      "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
+    },
+    {
+      "image": "qismat.png",
+      "name": "Qismat",
+      "tag": "Fate",
+      "nationality": "Nigerian American",
+      "pronouns": "him",
+      "age": "10",
+      "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
+    },
+    {
+      "image": "zaman.png",
+      "name": "Zaman",
+      "tag": "Time",
+      "nationality": "Mixed",
+      "pronouns": "him",
+      "age": "12",
+      "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
+    },
+    {
+      "image": "aella.png",
+      "name": "Aella",
+      "tag": "Mischief",
+      "nationality": "Puerto Rican",
+      "pronouns": "her",
+      "age": "9",
       "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
     }
   ]
