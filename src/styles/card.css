@@ -13,15 +13,15 @@
 }
 
 /* to do: nth-childs need to be more dynamice regardless of how many */
-/* .card:nth-child(1) {
+.card-holder:nth-child(1n) {
   transform: rotate(-0.6deg);
 }
-.card:nth-child(2) {
+.card-holder:nth-child(2n) {
   transform: rotate(0.8deg);
 }
-.card:nth-child(3) {
+.card-holder:nth-child(3n) {
   transform: rotate(-0.3deg);
-} */
+}
 
 /* 2:3 portrait image at the top of the card */
 .portrait {
