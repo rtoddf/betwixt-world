@@ -1,7 +1,7 @@
 {
   "characters": [
     {
-      "image": "art.png",
+      "image": "art.svg",
       "name": "Art",
       "tag": "Creativity",
       "nationality": "Greek American",
@@ -10,7 +10,7 @@
       "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
     },
     {
-      "image": "azrael.png",
+      "image": "azrael.svg",
       "name": "Azrael",
       "tag": "Death",
       "nationality": "Mexican American",
@@ -19,7 +19,7 @@
       "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
     },
     {
-      "image": "blaze.png",
+      "image": "blaze.svg",
       "name": "Blaze",
       "tag": "Chaos",
       "nationality": "Filipino American",
@@ -28,7 +28,7 @@
       "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
     },
     {
-      "image": "qismat.png",
+      "image": "qismat.svg",
       "name": "Qismat",
       "tag": "Fate",
       "nationality": "Nigerian American",
@@ -37,7 +37,7 @@
       "bio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets."
     },
     {
-      "image": "zaman.png",
+      "image": "zaman.svg",
       "name": "Zaman",
       "tag": "Time",
       "nationality": "Mixed",

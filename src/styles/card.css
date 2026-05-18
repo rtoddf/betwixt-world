@@ -12,7 +12,8 @@
   flex-direction: column; */
 }
 
-.card:nth-child(1) {
+/* to do: nth-childs need to be more dynamice regardless of how many */
+/* .card:nth-child(1) {
   transform: rotate(-0.6deg);
 }
 .card:nth-child(2) {
@@ -20,7 +21,7 @@
 }
 .card:nth-child(3) {
   transform: rotate(-0.3deg);
-}
+} */
 
 /* 2:3 portrait image at the top of the card */
 .portrait {
