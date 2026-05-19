@@ -19,11 +19,15 @@ function Card({
           <img src={`/assets/characters/${image}`} alt={name} />
         </div>
         <div className="flex flex-col gap-[6px] pt-[14px] px-[16px] pb-[16px] bg-(--bw-navy-soft) font-(family-name:--font-body)">
-          <h3 className="name font-(family-name:--font-display)">{name}</h3>
-          <span className="color-(--bw-amber) text-[14px] font-bold tracking-[0.16em] uppercase">
+          <h3 className="m-0 pb-[10px] text-(--bw-cream) font-(family-name:--font-display) border-b border-b-solid border-b-(--bw-cream) text-[64px] tracking-[0.05em] leading-[1]">
+            {name}
+          </h3>
+          <span className="text-(--bw-amber) text-[14px] font-bold tracking-[0.16em] uppercase">
             {tag}
           </span>
-          <p className="bio">{bio}</p>
+          <p className="m-[2px 0 0] text-[12px] text-(--bw-cream) leading-[1.45] italic whitespace-pre-line">
+            {bio}
+          </p>
         </div>
       </div>
     </div>
