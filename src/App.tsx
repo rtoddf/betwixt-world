@@ -6,7 +6,7 @@ import Card from './components/Card';
 
 interface Card {
   name: string;
-  bio: string;
+  miniBio: string;
   tag: string;
   image: string;
 }
@@ -41,14 +41,14 @@ function App() {
   return (
     <>
       <section id="center">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {characters.map(function (character) {
             // console.log('character: ', character.name);
             return (
               <Card
                 name={character.name}
                 tag={character.tag}
-                bio={character.bio}
+                miniBio={character.miniBio}
                 image={character.image}
               />
             );

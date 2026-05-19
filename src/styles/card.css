@@ -1,11 +1,11 @@
 @import 'tailwindcss';
 @import './colors-and-type.css';
 
-.card {
+/* .card {
   box-shadow:
     inset 0 0 0 1.5px var(--bw-navy),
     0 4px 0 rgba(26, 74, 74, 0.1);
-}
+} */
 
 /* .card.dark .portrait {
   color: #f5edd6;
