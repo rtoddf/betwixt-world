@@ -23,33 +23,6 @@
   transform: rotate(-0.3deg);
 }
 
-/* 2:3 portrait image at the top of the card */
-.portrait {
-  aspect-ratio: 2 / 3;
-  width: 100%;
-  /* background: var(--accent, #f0a500); */
-  border-bottom: 1.5px solid var(--bw-navy);
-  display: grid;
-  place-items: center;
-  color: var(--bw-navy);
-  /* font-family: var(--font-display); */
-  font-size: 64px;
-  line-height: 1;
-  letter-spacing: 0;
-  position: relative;
-}
-/* .portrait::after {
-  content: 'SVG 2:3';
-  position: absolute;
-  bottom: 8px;
-  right: 10px;
-  font-family: ui-monospace, Menlo, monospace;
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #1a4a4a;
-  opacity: 0.45;
-} */
 .card.dark .portrait {
   color: #f5edd6;
 }
@@ -57,22 +30,8 @@
   color: #f5edd6;
 }
 
-.body {
-  background: var(--bw-navy-soft);
-  padding: 14px 16px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.tag {
-  font-size: 14px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--bw-amber);
-}
 .name {
-  /* font-family: var(--font-display); */
+  font-family: var(--font-display);
   font-size: 62px;
   color: var(--bw-cream);
   letter-spacing: 0.05em;
