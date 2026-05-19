@@ -43,7 +43,7 @@ function App() {
       <section id="center">
         <div className="grid grid-cols-3 gap-4">
           {characters.map(function (character) {
-            console.log('character: ', character.name);
+            // console.log('character: ', character.name);
             return (
               <Card
                 name={character.name}

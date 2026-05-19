@@ -13,7 +13,7 @@ function Card({
   image: string;
 }) {
   return (
-    <div className="card-holder p-[10px]">
+    <div className="p-[10px] nth-[1n]:rotate-[-0.6deg] nth-[2n]:rotate-[0.8deg] nth-[3n]:rotate-[-0.3deg]">
       <div className="card rounded-[8px] flex flex-col overflow-hidden bg-(--bw-cream)">
         <div className="relative w-full grid aspect-[2/3] place-items-center p-8 color-(--bw-navy) border-b-[1.5px] border-b-solid border-b-(--bw-navy) text-[64px] leading-none tracking-normal">
           <img src={`/assets/characters/${image}`} alt={name} />

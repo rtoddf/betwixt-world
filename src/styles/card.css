@@ -2,39 +2,14 @@
 @import './colors-and-type.css';
 
 .card {
-  /* background: var(--bw-cream); */
-  /* border-radius: rounded-[8px]; */
   box-shadow:
     inset 0 0 0 1.5px var(--bw-navy),
     0 4px 0 rgba(26, 74, 74, 0.1);
-  /* overflow: hidden; */
-  /* display: flex;
-  flex-direction: column; */
 }
 
-/* to do: nth-childs need to be more dynamice regardless of how many */
-.card-holder:nth-child(1n) {
-  transform: rotate(-0.6deg);
-}
-.card-holder:nth-child(2n) {
-  transform: rotate(0.8deg);
-}
-.card-holder:nth-child(3n) {
-  transform: rotate(-0.3deg);
-}
-
-.card.dark .portrait {
+/* .card.dark .portrait {
   color: #f5edd6;
 }
 .card.dark .portrait::after {
   color: #f5edd6;
-}
-
-.bio {
-  /* font-size: 12px; */
-  /* line-height: 1.45; */
-  /* color: var(--bw-cream); */
-  /* margin: 2px 0 0; */
-  /* font-style: italic; */
-  white-space: pre-line;
-}
+} */
