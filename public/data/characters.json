@@ -1,6 +1,7 @@
 {
   "characters": [
     {
+      "slug": "art",
       "image": "art.svg",
       "name": "Art",
       "tag": "Creativity",
@@ -12,6 +13,7 @@
       "shortBio": ""
     },
     {
+      "slug": "azrael",
       "image": "azrael.svg",
       "name": "Azrael",
       "tag": "Death",
@@ -23,6 +25,7 @@
       "shortBio": ""
     },
     {
+      "slug": "blaze",
       "image": "blaze.svg",
       "name": "Blaze",
       "tag": "Chaos",
@@ -34,6 +37,7 @@
       "shortBio": ""
     },
     {
+      "slug": "qismat",
       "image": "qismat.svg",
       "name": "Qismat",
       "tag": "Fate",
@@ -45,6 +49,7 @@
       "shortBio": ""
     },
     {
+      "slug": "zaman",
       "image": "zaman.svg",
       "name": "Zaman",
       "tag": "Time",
@@ -56,6 +61,7 @@
       "shortBio": "<p>His name is Zaman. Or ZAH-mahn if you want to be Arabic about it.</p><p>Sun dials? Clocks? Watches? He never had a need. And between me and you, he can't read them anyway.</p><p>Zaman is the kid who knows the secret everyone else is trying to figure out - Time is an illusion. The present moment is right now, and it's exactly where you need to be.</p><p>You're not late. You're making an entrance.</p><p>You can't \"run out of time\". Why hurry? You'll get there eventually.</p><p>Seeds don't stress about becoming trees.</p><p>Sunsets don't apologize for taking their time.</p><p>Now is NOT a four letter word.</p><p>Relax.</p><p>You've got Time.</p><p>If he could just figure out what to do about the guy who keeps opening and closing his doors...</p>"
     },
     {
+      "slug": "aella",
       "image": "aella.svg",
       "name": "Aella",
       "tag": "Mischief",
@@ -67,6 +73,7 @@
       "shortBio": ""
     },
     {
+      "slug": "mohan",
       "image": "mohan.svg",
       "name": "Mohan",
       "tag": "Charisma",
@@ -78,6 +85,7 @@
       "shortBio": ""
     },
     {
+      "slug": "zach",
       "image": "zach.svg",
       "name": "Zach",
       "tag": "Memory/Nostalgia",
