@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import './styles/colors-and-type.css';
-import './styles/character-details.css';
+import './styles/colors-and-type.scss';
+import './styles/character-details.scss';
 
 interface Character {
   slug: string;

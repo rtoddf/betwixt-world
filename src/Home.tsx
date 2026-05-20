@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import './styles/colors-and-type.css';
-import './styles/card.css';
+import './styles/colors-and-type.scss';
+import './styles/card.scss';
 
 import Card from './components/Card';
 
