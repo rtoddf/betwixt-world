@@ -37,6 +37,18 @@
       "shortBio": ""
     },
     {
+      "slug": "maya",
+      "image": "maya.svg",
+      "name": "Maya",
+      "tag": "Magic",
+      "category": "The Intanglibles",
+      "nationality": "Indian American",
+      "pronouns": "her",
+      "age": "9",
+      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": ""
+    },
+    {
       "slug": "qismat",
       "image": "qismat.svg",
       "name": "Qismat",
@@ -45,7 +57,7 @@
       "nationality": "Nigerian American",
       "pronouns": "him",
       "age": "10",
-      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "miniBio": "<p>There once was a kid who played everything straight.<br />He knew that his destiny was up for debate.<br />He saw every twist<br />Yet refused to resist<br />For he know it was all up to fate.</p>",
       "shortBio": ""
     },
     {
