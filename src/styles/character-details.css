@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+@import './colors-and-type.css';
+
+.short-bio p {
+  color: pink;
+}

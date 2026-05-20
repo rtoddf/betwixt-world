@@ -93,7 +93,7 @@
 
   @media (max-width: 1024px) {
     flex-direction: column;
-    text-align: center;
+    /* text-align: center; */
   }
 }
 
@@ -124,7 +124,7 @@
     background: var(--social-bg);
     display: flex;
     padding: 6px 12px;
-    align-items: center;
+    /* align-items: center; */
     gap: 8px;
     text-decoration: none;
     transition: box-shadow 0.3s;
@@ -141,7 +141,7 @@
   @media (max-width: 1024px) {
     margin-top: 20px;
     flex-wrap: wrap;
-    justify-content: center;
+    /* justify-content: center; */
 
     li {
       flex: 1 1 calc(50% - 8px);
@@ -149,7 +149,7 @@
 
     a {
       width: 100%;
-      justify-content: center;
+      /* justify-content: center; */
       box-sizing: border-box;
     }
   }

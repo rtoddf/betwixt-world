@@ -5,6 +5,7 @@ import './styles/card.css';
 import Card from './components/Card';
 
 interface Card {
+  slug: string;
   name: string;
   miniBio: string;
   tag: string;
@@ -46,6 +47,8 @@ function Home() {
             // console.log('character: ', character.name);
             return (
               <Card
+                key={character.slug}
+                slug={character.slug}
                 name={character.name}
                 tag={character.tag}
                 miniBio={character.miniBio}
