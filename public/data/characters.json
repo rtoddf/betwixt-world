@@ -21,7 +21,7 @@
       "nationality": "Mexican American",
       "pronouns": "him",
       "age": "12",
-      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "miniBio": "<p>I met a young man who was fond of all doors.<br />Walls were just separators, and so were the floors.<br />Though death was his title,<br />His duties were vital.<br />He just never quite knew what the fuss was all for.</p>",
       "shortBio": ""
     },
     {
@@ -106,6 +106,54 @@
       "pronouns": "him",
       "age": "10",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": ""
+    },
+    {
+      "slug": "alyan",
+      "image": "alyan.svg",
+      "name": "Alyan",
+      "tag": "Dreams",
+      "category": "The Gimmes",
+      "nationality": "Middle Eastern American",
+      "pronouns": "him",
+      "age": "11",
+      "miniBio": "<p>I once met a boy who went to extremes.<br />His wings resembled gossamer streams.<br />My secrets he'd keep.<br />For it was only in sleep,<br />He'd visit my nightmares and dreams.</p>",
+      "shortBio": ""
+    },
+    {
+      "slug": "desiree",
+      "image": "desiree.svg",
+      "name": "Desiree",
+      "tag": "Desire",
+      "category": "The Gimmes",
+      "nationality": "French American",
+      "pronouns": "her",
+      "age": "14",
+      "miniBio": "<p>I met a girl whose hair was like fire.<br />Her presence alone could make you fly higher.<br />On affairs of the heart,<br />She could not tell them apart.<br />She only knew want and desire.</p>",
+      "shortBio": ""
+    },
+    {
+      "slug": "gelilah",
+      "image": "gelilah.svg",
+      "name": "Gelilah",
+      "tag": "Flirtation",
+      "category": "The Gimmes",
+      "nationality": "Native American",
+      "pronouns": "they/them",
+      "age": "9",
+      "miniBio": "<p>I once met a they who was a true extrovert.<br />Their brazen advances were hard to avert.<br />For you have to remember<br />That no matter the gender,<br />Everyone loves a good flirt.</p>",
+      "shortBio": ""
+    },
+    {
+      "slug": "tripp",
+      "image": "tripp.svg",
+      "name": "Tripp",
+      "tag": "Wanderlust",
+      "category": "The Gimmes",
+      "nationality": "Latino American",
+      "pronouns": "he/him",
+      "age": "11",
+      "miniBio": "",
       "shortBio": ""
     }
   ]
