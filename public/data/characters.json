@@ -1,0 +1,112 @@
+{
+  "characters": [
+    {
+      "slug": "art",
+      "image": "art.svg",
+      "name": "Art",
+      "tag": "Creativity",
+      "category": "The Intanglibles",
+      "nationality": "Greek American",
+      "pronouns": "him",
+      "age": "12",
+      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": ""
+    },
+    {
+      "slug": "azrael",
+      "image": "azrael.svg",
+      "name": "Azrael",
+      "tag": "Death",
+      "category": "The Intanglibles",
+      "nationality": "Mexican American",
+      "pronouns": "him",
+      "age": "12",
+      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": ""
+    },
+    {
+      "slug": "blaze",
+      "image": "blaze.svg",
+      "name": "Blaze",
+      "tag": "Chaos",
+      "category": "The Intanglibles",
+      "nationality": "Filipino American",
+      "pronouns": "they",
+      "age": "10",
+      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": ""
+    },
+    {
+      "slug": "maya",
+      "image": "maya.svg",
+      "name": "Maya",
+      "tag": "Magic",
+      "category": "The Intanglibles",
+      "nationality": "Indian American",
+      "pronouns": "her",
+      "age": "9",
+      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": ""
+    },
+    {
+      "slug": "qismat",
+      "image": "qismat.svg",
+      "name": "Qismat",
+      "tag": "Fate",
+      "category": "The Intanglibles",
+      "nationality": "Nigerian American",
+      "pronouns": "him",
+      "age": "10",
+      "miniBio": "<p>There once was a kid who played everything straight.<br />He knew that his destiny was up for debate.<br />He saw every twist<br />Yet refused to resist<br />For he know it was all up to fate.</p>",
+      "shortBio": ""
+    },
+    {
+      "slug": "zaman",
+      "image": "zaman.svg",
+      "name": "Zaman",
+      "tag": "Time",
+      "category": "The Intanglibles",
+      "nationality": "Mixed",
+      "pronouns": "him",
+      "age": "12",
+      "miniBio": "<p>I once met a kid who was truly sublime.<br />He saw every tick, and he heard every chime.<br />The clock on the wall<br />Meant nothing at all<br />Cause he never learned how to tell time.</p>",
+      "shortBio": "<p>His name is Zaman. Or ZAH-mahn if you want to be Arabic about it.</p><p>Sun dials? Clocks? Watches? He never had a need. And between me and you, he can't read them anyway.</p><p>Zaman is the kid who knows the secret everyone else is trying to figure out - Time is an illusion. The present moment is right now, and it's exactly where you need to be.</p><p>You're not late. You're making an entrance.</p><p>You can't \"run out of time\". Why hurry? You'll get there eventually.</p><p>Seeds don't stress about becoming trees.</p><p>Sunsets don't apologize for taking their time.</p><p>Now is NOT a four letter word.</p><p>Relax.</p><p>You've got Time.</p><p>If he could just figure out what to do about the guy who keeps opening and closing his doors...</p>"
+    },
+    {
+      "slug": "aella",
+      "image": "aella.svg",
+      "name": "Aella",
+      "tag": "Mischief",
+      "category": "The Drama",
+      "nationality": "Puerto Rican",
+      "pronouns": "her",
+      "age": "9",
+      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": ""
+    },
+    {
+      "slug": "mohan",
+      "image": "mohan.svg",
+      "name": "Mohan",
+      "tag": "Charisma",
+      "category": "The Drama",
+      "nationality": "Indian American",
+      "pronouns": "him",
+      "age": "10",
+      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": ""
+    },
+    {
+      "slug": "zach",
+      "image": "zach.svg",
+      "name": "Zach",
+      "tag": "Memory/Nostalgia",
+      "category": "The Ache",
+      "nationality": "Mixed",
+      "pronouns": "him",
+      "age": "10",
+      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": ""
+    }
+  ]
+}

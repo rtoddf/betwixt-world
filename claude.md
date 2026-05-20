@@ -29,7 +29,7 @@ have kids who personify them.
 
 ## Design System
 
-- Style guide: see /docs/style-guide.md
+- Design system: see /docs/design-system/ (HTML files, generated from Claude Design)
 - Colors: see /src/styles/colors_and_type.css
 - Display font: Architects Daughter (Google Fonts)
 - Body font: Quicksand (Google Fonts)
