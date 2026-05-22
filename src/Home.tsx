@@ -10,11 +10,12 @@ interface Card {
   tag: string;
   image: string;
   hood: string[];
+  hoodslug: string;
 }
 
 function Home() {
   const [characters, setCharacters] = useState<Card[]>([]);
-  const [hoods, setHoods] = useState<string[]>([]);
+  const [hoods, setHoods] = useState<{ name: string; slug: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,10 +26,17 @@ function Home() {
         console.log('data: ', data);
 
         setCharacters(data.characters);
-        const allHoods: string[] = data.characters.map(
-          (character: Card) => character.hood,
+        const allHoods: { name: string; slug: string }[] = data.characters.map(
+          (character: Card) => ({
+            name: character.hood,
+            slug: character.hoodslug,
+          }),
         );
-        setHoods([...new Set(allHoods)]);
+        const unique: { name: string; slug: string }[] = allHoods.filter(
+          (hood, index, self) =>
+            self.findIndex((h) => h.slug === hood.slug) === index,
+        );
+        setHoods(unique);
 
         setLoading(false);
       } catch (error) {
@@ -42,17 +50,17 @@ function Home() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('characters: ', characters);
-    console.log('hoods: ', hoods);
+    // console.log('characters: ', characters);
+    // console.log('hoods: ', hoods);
   }
 
   return (
     <>
-      {hoods.map(function (hood) {
+      {hoods.map(function (n) {
         return (
-          <p>
-            <Link to={`/neighborhood`} className="">
-              Go to neighborhoods
+          <p key={n.slug}>
+            <Link to={`/${n.slug}`} className="">
+              {n.name}
             </Link>
           </p>
         );
