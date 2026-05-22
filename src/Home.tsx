@@ -1,18 +1,21 @@
 import { useState, useEffect } from 'react';
-import './styles/colors-and-type.css';
-import './styles/card.css';
-
-import Card from './components/Card';
+import { Link } from 'react-router';
+import './styles/colors-and-type.scss';
+import './styles/card.scss';
 
 interface Card {
+  slug: string;
   name: string;
   miniBio: string;
   tag: string;
   image: string;
+  hood: string[];
+  hoodslug: string;
 }
 
 function Home() {
   const [characters, setCharacters] = useState<Card[]>([]);
+  const [hoods, setHoods] = useState<{ name: string; slug: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,6 +26,18 @@ function Home() {
         console.log('data: ', data);
 
         setCharacters(data.characters);
+        const allHoods: { name: string; slug: string }[] = data.characters.map(
+          (character: Card) => ({
+            name: character.hood,
+            slug: character.hoodslug,
+          }),
+        );
+        const unique: { name: string; slug: string }[] = allHoods.filter(
+          (hood, index, self) =>
+            self.findIndex((h) => h.slug === hood.slug) === index,
+        );
+        setHoods(unique);
+
         setLoading(false);
       } catch (error) {
         console.error('Error loading data:', error);
@@ -35,31 +50,21 @@ function Home() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('characters: ', characters);
+    // console.log('characters: ', characters);
+    // console.log('hoods: ', hoods);
   }
 
   return (
     <>
-      <section id="center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {characters.map(function (character) {
-            // console.log('character: ', character.name);
-            return (
-              <Card
-                name={character.name}
-                tag={character.tag}
-                miniBio={character.miniBio}
-                image={character.image}
-              />
-            );
-          })}
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      {hoods.map(function (n) {
+        return (
+          <p key={n.slug}>
+            <Link to={`/hoods/${n.slug}`} className="">
+              {n.name}
+            </Link>
+          </p>
+        );
+      })}
     </>
   );
 }
