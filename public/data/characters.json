@@ -6,12 +6,14 @@
       "name": "Art",
       "pronunciation": "ART",
       "tag": "Creativity",
-      "category": "The Intanglibles",
+      "hood": "The Intangibles",
+      "hood-slug": "intangibles",
       "nationality": "Greek American",
       "pronouns": "him",
       "age": "12",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "azrael",
@@ -19,12 +21,14 @@
       "name": "Azrael",
       "pronunciation": "AZ-ree-el",
       "tag": "Death",
-      "category": "The Intanglibles",
+      "hood": "The Intangibles",
+      "hood-slug": "intangibles",
       "nationality": "Mexican American",
       "pronouns": "him",
       "age": "12",
       "miniBio": "<p>I met a young man who was fond of all doors.<br />Walls were just separators, and so were the floors.<br />Though death was his title,<br />His duties were vital.<br />He just never quite knew what the fuss was all for.</p>",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "blaze",
@@ -32,12 +36,14 @@
       "name": "Blaze",
       "pronunciation": "BLAYZ",
       "tag": "Chaos",
-      "category": "The Intanglibles",
+      "hood": "The Intangibles",
+      "hood-slug": "intangibles",
       "nationality": "Filipino American",
       "pronouns": "they",
       "age": "10",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "maya",
@@ -45,12 +51,14 @@
       "name": "Maya",
       "pronunciation": "MAY-ah",
       "tag": "Magic",
-      "category": "The Intanglibles",
+      "hood": "The Intangibles",
+      "hood-slug": "intangibles",
       "nationality": "Indian American",
       "pronouns": "her",
       "age": "9",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "qismat",
@@ -58,12 +66,14 @@
       "name": "Qismat",
       "pronunciation": "KIZ-mat",
       "tag": "Fate",
-      "category": "The Intanglibles",
+      "hood": "The Intangibles",
+      "hood-slug": "intangibles",
       "nationality": "Nigerian American",
       "pronouns": "him",
       "age": "10",
       "miniBio": "<p>There once was a kid who played everything straight.<br />He knew that his destiny was up for debate.<br />He saw every twist<br />Yet refused to resist<br />For he know it was all up to fate.</p>",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "zaman",
@@ -71,12 +81,14 @@
       "name": "Zaman",
       "pronunciation": "ZAH-mahn",
       "tag": "Time",
-      "category": "The Intanglibles",
+      "hood": "The Intangibles",
+      "hood-slug": "intangibles",
       "nationality": "Mixed",
       "pronouns": "him",
       "age": "12",
       "miniBio": "<p>I once met a kid who was truly sublime.<br />He saw every tick, and he heard every chime.<br />The clock on the wall<br />Meant nothing at all<br />Cause he never learned how to tell time.</p>",
-      "shortBio": "<p>His name is Zaman. Or ZAH-mahn if you want to be Arabic about it.</p><p>Sun dials? Clocks? Watches? He never had a need. And between me and you, he can't read them anyway.</p><p>Zaman is the kid who knows the secret everyone else is trying to figure out - Time is an illusion. The present moment is right now, and it's exactly where you need to be.</p><p>You're not late. You're making an entrance.</p><p>You can't \"run out of time\". Why hurry? You'll get there eventually.</p><p>Seeds don't stress about becoming trees.</p><p>Sunsets don't apologize for taking their time.</p><p>Now is NOT a four letter word.</p><p>Relax.</p><p>You've got Time.</p><p>If he could just figure out what to do about the guy who keeps opening and closing his doors...</p>"
+      "shortBio": "<p>His name is Zaman. Or ZAH-mahn if you want to be Arabic about it.</p><p>Sun dials? Clocks? Watches? He never had a need. And between me and you, he can't read them anyway.</p><p>Zaman is the kid who knows the secret everyone else is trying to figure out - Time is an illusion. The present moment is right now, and it's exactly where you need to be.</p><p>You're not late. You're making an entrance.</p><p>You can't \"run out of time\". Why hurry? You'll get there eventually.</p><p>Seeds don't stress about becoming trees.</p><p>Sunsets don't apologize for taking their time.</p><p>Now is NOT a four letter word.</p><p>Relax.</p><p>You've got Time.</p><p>If he could just figure out what to do about the guy who keeps opening and closing his doors...</p>",
+      "active": true
     },
     {
       "slug": "aella",
@@ -84,12 +96,14 @@
       "name": "Aella",
       "pronunciation": "AY-el-ah",
       "tag": "Mischief",
-      "category": "The Drama",
+      "hood": "The Drama",
+      "hood-slug": "drama",
       "nationality": "Puerto Rican",
       "pronouns": "her",
       "age": "9",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "mohan",
@@ -97,12 +111,14 @@
       "name": "Mohan",
       "pronunciation": "MOH-hahn",
       "tag": "Charisma",
-      "category": "The Drama",
+      "hood": "The Drama",
+      "hood-slug": "drama",
       "nationality": "Indian American",
       "pronouns": "him",
       "age": "10",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "zach",
@@ -110,12 +126,14 @@
       "name": "Zach",
       "pronunciation": "ZAK",
       "tag": "Memory/Nostalgia",
-      "category": "The Ache",
+      "hood": "The Ache",
+      "hood-slug": "ache",
       "nationality": "Mixed",
       "pronouns": "him",
       "age": "10",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "alyan",
@@ -123,12 +141,14 @@
       "name": "Alyan",
       "pronunciation": "AL-ee-ahn",
       "tag": "Dreams",
-      "category": "The Gimmes",
+      "hood": "The Gimmes",
+      "hood-slug": "gimmes",
       "nationality": "Middle Eastern American",
       "pronouns": "him",
       "age": "11",
       "miniBio": "<p>I once met a boy who went to extremes.<br />His wings resembled gossamer streams.<br />My secrets he'd keep.<br />For it was only in sleep,<br />He'd visit my nightmares and dreams.</p>",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "desiree",
@@ -136,12 +156,14 @@
       "name": "Desiree",
       "pronunciation": "deh-zuh-RAY",
       "tag": "Desire",
-      "category": "The Gimmes",
+      "hood": "The Gimmes",
+      "hood-slug": "gimmes",
       "nationality": "French American",
       "pronouns": "her",
       "age": "14",
       "miniBio": "<p>I met a girl whose hair was like fire.<br />Her presence alone could make you fly higher.<br />On affairs of the heart,<br />She could not tell them apart.<br />She only knew want and desire.</p>",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "gelilah",
@@ -149,12 +171,14 @@
       "name": "Gelilah",
       "pronunciation": "gel-LEE-lah",
       "tag": "Flirtation",
-      "category": "The Gimmes",
+      "hood": "The Gimmes",
+      "hood-slug": "gimmes",
       "nationality": "Native American",
       "pronouns": "they/them",
       "age": "9",
       "miniBio": "<p>I once met a they who was a true extrovert.<br />Their brazen advances were hard to avert.<br />For you have to remember<br />That no matter the gender,<br />Everyone loves a good flirt.</p>",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "tripp",
@@ -162,12 +186,14 @@
       "name": "Tripp",
       "pronunciation": "TRIP",
       "tag": "Wanderlust",
-      "category": "The Gimmes",
+      "hood": "The Gimmes",
+      "hood-slug": "gimmes",
       "nationality": "Latino American",
       "pronouns": "he/him",
       "age": "11",
       "miniBio": "<p>I met a boy whose moral compass was just.<br />Who viewed sitting still with signs of disgust.<br />Armed with a map and a chart,<br />He considered travel as art.<br />For nothing could satiate his wanderlust.</p>",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "sphen",
@@ -175,12 +201,14 @@
       "name": "Sphen",
       "pronunciation": "SFEN",
       "tag": "Brain Freeze",
-      "category": "The Weids",
+      "hood": "The Weirds",
+      "hood-slug": "weirds",
       "nationality": "",
       "pronouns": "he/him",
       "age": "9",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "the-morrigan",
@@ -188,12 +216,14 @@
       "name": "The Morrigan",
       "pronunciation": "MOR-ih-gan",
       "tag": "",
-      "category": "Yore - Celtic",
+      "hood": "Yore - Celtic",
+      "hood-slug": "yore-celtic",
       "nationality": "Irish",
       "pronouns": "she/her",
       "age": "",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "odin",
@@ -201,12 +231,14 @@
       "name": "Odin",
       "pronunciation": "OH-din",
       "tag": "",
-      "category": "Yore - Norse",
+      "hood": "Yore - Norse",
+      "hood-slug": "yore-norse",
       "nationality": "Scandinavian",
       "pronouns": "he/him",
       "age": "",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "anubis",
@@ -214,12 +246,14 @@
       "name": "Anubis",
       "pronunciation": "ah-NOO-bis",
       "tag": "",
-      "category": "Yore - Egyptian",
+      "hood": "Yore - Egyptian",
+      "hood-slug": "yore-egypt",
       "nationality": "Egytpian",
       "pronouns": "he/him",
       "age": "",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "bastet",
@@ -227,12 +261,14 @@
       "name": "Bastet",
       "pronunciation": "BAS-tet",
       "tag": "",
-      "category": "Yore - Egyptian",
+      "hood": "Yore - Egyptian",
+      "hood-slug": "yore-egypt",
       "nationality": "Egytpian",
       "pronouns": "he/him",
       "age": "",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "horus",
@@ -240,12 +276,14 @@
       "name": "Horus",
       "pronunciation": "HOR-us",
       "tag": "",
-      "category": "Yore - Egyptian",
+      "hood": "Yore - Egyptian",
+      "hood-slug": "yore-egypt",
       "nationality": "Egytpian",
       "pronouns": "he/him",
       "age": "",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     },
     {
       "slug": "ra",
@@ -253,12 +291,14 @@
       "name": "Ra",
       "pronunciation": "RAH",
       "tag": "",
-      "category": "Yore - Egyptian",
+      "hood": "Yore - Egyptian",
+      "hood-slug": "yore-egypt",
       "nationality": "Egytpian",
       "pronouns": "he/him",
       "age": "",
       "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
-      "shortBio": ""
+      "shortBio": "",
+      "active": true
     }
   ]
 }

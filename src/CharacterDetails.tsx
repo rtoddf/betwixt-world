@@ -7,7 +7,7 @@ interface Character {
   slug: string;
   name: string;
   pronunciation: string;
-  category: string;
+  hood: string;
   nationality: string;
   pronouns: string;
   age: string;
@@ -66,7 +66,7 @@ function CharacterDetails() {
           </h1>
           <h3 className="font-(family-name:--font-body)">{character.tag}</h3>
           <div>{character.pronunciation}</div>
-          <div>{character.category}</div>
+          <div>{character.hood}</div>
           <div>{character.nationality}</div>
           <div>{character.pronouns}</div>
           <div>{character.age}</div>
