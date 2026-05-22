@@ -6,6 +6,7 @@ import './styles/styles.css';
 import './styles/character.css';
 
 import Card from './components/Card';
+import Player from './components/Player';
 
 interface Card {
   slug: string;
@@ -90,6 +91,23 @@ function Hood() {
             </div>
           </div>
         </header>
+
+        {/* Theme song — fat audio band */}
+        <section className="bw-theme-song">
+          <div className="bw-theme-song-eyebrow">
+            <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
+            <span className="bw-theme-song-subtitle">
+              A two-minute walk through the block.
+            </span>
+          </div>
+          <Player />
+          {/* <VoicePlayer
+            label={n.themeSong.title}
+            duration={n.themeSong.duration}
+            palette="theme"
+          /> */}
+          <div className="bw-theme-song-credit">Artist</div>
+        </section>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {hoodCharacters.map(function (character) {

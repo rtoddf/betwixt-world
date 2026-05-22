@@ -14,7 +14,8 @@ interface Card {
 }
 
 function Home() {
-  const [characters, setCharacters] = useState<Card[]>([]);
+  // an underscore will stop the ts error that it's declared but never used
+  const [_characters, setCharacters] = useState<Card[]>([]);
   const [hoods, setHoods] = useState<{ name: string; slug: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
