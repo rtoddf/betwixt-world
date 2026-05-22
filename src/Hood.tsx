@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import './styles/colors-and-type.scss';
 import './styles/card.scss';
+import './styles/styles.css';
+import './styles/character.css';
 
 import Card from './components/Card';
 
@@ -11,6 +13,7 @@ interface Card {
   miniBio: string;
   tag: string;
   image: string;
+  hood: string;
   hoodslug: string;
 }
 
@@ -55,8 +58,39 @@ function Hood() {
 
   return (
     <>
-      <section id="center">
-        <h1>hood characters</h1>
+      <section className="bw-hood">
+        <header className="bw-hood-head">
+          <div className="bw-hood-head-grid">
+            <div className="bw-hood-badge">
+              <img src={`/assets/logo-hood.svg`} alt="" />
+            </div>
+            <div className="bw-hood-head-text">
+              <div className="bw-eyebrow">Neighborhood No. 02</div>
+              <h1 className="bw-hood-name">{hoodCharacters[0].hood}</h1>
+              <p className="bw-hood-desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac
+                ullamcorper libero, id eleifend nulla. Maecenas posuere, risus
+                nec congue imperdiet, nisl ante facilisis diam, vel semper leo
+                dolor a ligula. Vivamus malesuada sagittis erat, eu vestibulum
+                enim elementum vitae.
+              </p>
+              <div className="bw-hood-stats">
+                <span className="bw-hood-stat">
+                  <strong>{hoodCharacters.length}</strong> residents
+                </span>
+                <span className="bw-hood-stat-sep">·</span>
+                <span className="bw-hood-stat">
+                  moved in <strong>spring 2026</strong>
+                </span>
+                <span className="bw-hood-stat-sep">·</span>
+                <span className="bw-hood-stat">
+                  porch light <strong>on</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+        </header>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {hoodCharacters.map(function (character) {
             return (
