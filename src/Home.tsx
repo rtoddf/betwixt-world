@@ -59,7 +59,7 @@ function Home() {
       {hoods.map(function (n) {
         return (
           <p key={n.slug}>
-            <Link to={`/${n.slug}`} className="">
+            <Link to={`/hoods/${n.slug}`} className="">
               {n.name}
             </Link>
           </p>
