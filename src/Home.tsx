@@ -56,15 +56,18 @@ function Home() {
 
   return (
     <>
-      {hoods.map(function (n) {
-        return (
-          <p key={n.slug}>
-            <Link to={`/hoods/${n.slug}`} className="">
-              {n.name}
-            </Link>
-          </p>
-        );
-      })}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {hoods.map(function (n) {
+          return (
+            <div key={n.slug} className="text-center">
+              <Link to={`/hoods/${n.slug}`} className="">
+                <img src={`/assets/logo-hood.svg`} alt={n.name} />
+                <p>{n.name}</p>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

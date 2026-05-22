@@ -72,7 +72,7 @@ function Hood() {
           })}
         </div>
       </section>
-      <section id="center">
+      {/* <section id="center">
         <h1>all active characters</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {characters.map(function (character) {
@@ -88,7 +88,7 @@ function Hood() {
             );
           })}
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
