@@ -97,6 +97,22 @@
       "active": true
     },
     {
+      "slug": "Zu",
+      "image": "art.svg",
+      "name": "Zu",
+      "pronunciation": "Zu",
+      "tag": "Creativity",
+      "hood": "Intangimere",
+      "hoodslug": "intangimere",
+      "hooddescription": "The block where the things you can't quite hold live. Time forgets to hurry. Death knocks as a courtesy. Fate leaves threads on the doorstep. Magic doesn't explain itself. Their porch lights are on. Whether anyone's home is entirely up to you.",
+      "nationality": "Greek American",
+      "pronouns": "him",
+      "age": "12",
+      "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+      "shortBio": "",
+      "active": false
+    },
+    {
       "slug": "aella",
       "image": "aella.svg",
       "name": "Aella",

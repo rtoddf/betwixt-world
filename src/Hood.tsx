@@ -18,6 +18,7 @@ interface Card {
   hood: string;
   hoodslug: string;
   hooddescription: string;
+  active: string;
 }
 
 function Hood() {
@@ -144,6 +145,7 @@ function Hood() {
                   tag={character.tag}
                   miniBio={character.miniBio}
                   image={character.image}
+                  active={character.active}
                 />
               );
             })}
