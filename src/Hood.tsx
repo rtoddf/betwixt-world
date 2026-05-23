@@ -49,7 +49,7 @@ function Hood() {
       }
     }
     getData();
-  }, []);
+  }, [slug]);
 
   if (loading) {
     return <div>Loading...</div>;
