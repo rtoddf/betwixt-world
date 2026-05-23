@@ -63,16 +63,24 @@ function Hood() {
       <section className="bw-hood w-[1024px] p-[0 auto]">
         <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[48px] rounded-[var(--r)] overflow-hidden">
           <div className="bw-hood-head-grid grid grid-cols-[auto_1fr] gap-[32px] relative items-center z-[1]">
-            <div className="bw-hood-badge relative w-[168px] h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
-              <img
-                className="block w-full h-full drop-shadow-[0_3px_0_rgba(26,74,74,0.18)]"
-                src={`/assets/hoods/badge-${hoodCharacters[0].hoodslug}.svg`}
-                alt={hoodCharacters[0].hood}
-              />
+            <div className="relative w-[168px] h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
+              {hoodCharacters[0].hoodslug ? (
+                <img
+                  className="block w-full h-full drop-shadow-[0_3px_0_rgba(26,74,74,0.18)]"
+                  src={`/assets/hoods/badge-${hoodCharacters[0].hoodslug}.svg`}
+                  alt={hoodCharacters[0].hood}
+                />
+              ) : (
+                <p className="w-[128px] h-[128px] bg-[var(--hood-accent)] shadow-[0_0_0_6px var(--bg-elevated),0_0_07.5px var(--bw-navy);]">
+                  filler image
+                </p>
+              )}
             </div>
             <div className="bw-hood-head-text">
               <div className="bw-eyebrow">Neighborhood No. 02</div>
-              <h1 className="bw-hood-name">{hoodCharacters[0].hood}</h1>
+              <h1 className="bw-hood-name font-[family-name:var(--font-display)] leading-[0.95] tracking-[0.05em]">
+                {hoodCharacters[0].hood}
+              </h1>
               <p className="bw-hood-desc">
                 {hoodCharacters[0].hooddescription}
               </p>
