@@ -16,6 +16,7 @@ interface Card {
   image: string;
   hood: string;
   hoodslug: string;
+  hooddescription: string;
 }
 
 function Hood() {
@@ -59,21 +60,21 @@ function Hood() {
 
   return (
     <>
-      <section className="bw-hood">
-        <header className="bw-hood-head">
-          <div className="bw-hood-head-grid">
-            <div className="bw-hood-badge">
-              <img src={`/assets/logo-hood.svg`} alt="" />
+      <section className="bw-hood w-[1024px] p-[0 auto]">
+        <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[48px] rounded-[var(--r)] overflow-hidden">
+          <div className="bw-hood-head-grid grid grid-cols-[auto_1fr] gap-[32px] relative items-center z-[1]">
+            <div className="bw-hood-badge relative w-[168px] h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
+              <img
+                className="block w-full h-full drop-shadow-[0_3px_0_rgba(26,74,74,0.18)]"
+                src={`/assets/hoods/badge-${hoodCharacters[0].hoodslug}.svg`}
+                alt={hoodCharacters[0].hood}
+              />
             </div>
             <div className="bw-hood-head-text">
               <div className="bw-eyebrow">Neighborhood No. 02</div>
               <h1 className="bw-hood-name">{hoodCharacters[0].hood}</h1>
               <p className="bw-hood-desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac
-                ullamcorper libero, id eleifend nulla. Maecenas posuere, risus
-                nec congue imperdiet, nisl ante facilisis diam, vel semper leo
-                dolor a ligula. Vivamus malesuada sagittis erat, eu vestibulum
-                enim elementum vitae.
+                {hoodCharacters[0].hooddescription}
               </p>
               <div className="bw-hood-stats">
                 <span className="bw-hood-stat">
@@ -109,20 +110,27 @@ function Hood() {
           <div className="bw-theme-song-credit">Artist</div>
         </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {hoodCharacters.map(function (character) {
-            return (
-              <Card
-                key={character.slug}
-                slug={character.slug}
-                name={character.name}
-                tag={character.tag}
-                miniBio={character.miniBio}
-                image={character.image}
-              />
-            );
-          })}
-        </div>
+        {/* Residents */}
+        <section className="bw-hood-residents">
+          <header className="bw-section-header bw-section-header-l">
+            <div className="bw-eyebrow">Who lives here</div>
+            <h2>Meet the residents.</h2>
+          </header>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {hoodCharacters.map(function (character) {
+              return (
+                <Card
+                  key={character.slug}
+                  slug={character.slug}
+                  name={character.name}
+                  tag={character.tag}
+                  miniBio={character.miniBio}
+                  image={character.image}
+                />
+              );
+            })}
+          </div>
+        </section>
       </section>
       {/* <section id="center">
         <h1>all active characters</h1>

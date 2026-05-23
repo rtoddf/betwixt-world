@@ -61,7 +61,7 @@ function Home() {
             >
               <Link to={`/hoods/${n.slug}`} className="">
                 <img
-                  className="w-[80%] my-0 mx-auto drop-shadow-[0px_3px_1px_rgba(0,0,0,0.2)] hover:animate-wiggle-hood"
+                  className="w-[80%] my-0 mx-auto drop-shadow-[0_3px_0_rgba(26,74,74,0.18)] hover:animate-wiggle-hood"
                   src={`/assets/hoods/badge-${n.slug}.svg`}
                   alt={n.name}
                 />
