@@ -99,7 +99,8 @@ function Hood() {
                   moved in <strong>spring 2026</strong>
                 </span>
                 <span className="bw-hood-stat">
-                  porch light <strong>on</strong>
+                  streetlights{' '}
+                  <strong>{hoodCharacters[0].active ? `yes` : `no`}</strong>
                 </span>
               </div>
             </div>

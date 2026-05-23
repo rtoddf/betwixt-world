@@ -46,7 +46,7 @@ function Neighborhood({
               </span>
               <span className="bw-hood-stat-sep">·</span>
               <span className="bw-hood-stat">
-                porch light <strong>on</strong>
+                street light <strong>on</strong>
               </span>
             </div>
           </div>
