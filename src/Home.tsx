@@ -57,17 +57,20 @@ function Home() {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
         {hoods.map(function (n) {
           return (
-            <div key={n.slug} className="text-center">
+            <div
+              key={n.slug}
+              className="text-center p-[10px] nth-[1n]:rotate-[-1deg] nth-[2n]:rotate-[0.8deg] nth-[3n]:rotate-[-0.3deg]"
+            >
               <Link to={`/hoods/${n.slug}`} className="">
                 <img
-                  className="w-[80%] my-0 mx-auto"
+                  className="w-[80%] my-0 mx-auto drop-shadow-[0px_3px_1px_rgba(0,0,0,0.2)] hover:animate-wiggle-hood"
                   src={`/assets/hoods/badge-${n.slug}.svg`}
                   alt={n.name}
                 />
-                <p>{n.name}</p>
+                {/* <p>{n.name}</p> */}
               </Link>
             </div>
           );
