@@ -15,7 +15,6 @@ interface Card {
 
 function Home() {
   // an underscore will stop the ts error that it's declared but never used
-  const [_characters, setCharacters] = useState<Card[]>([]);
   const [hoods, setHoods] = useState<{ name: string; slug: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +25,6 @@ function Home() {
         const data = await response.json();
         console.log('data: ', data);
 
-        setCharacters(data.characters);
         const allHoods: { name: string; slug: string }[] = data.characters.map(
           (character: Card) => ({
             name: character.hood,
@@ -50,9 +48,6 @@ function Home() {
 
   if (loading) {
     return <div>Loading...</div>;
-  } else {
-    // console.log('characters: ', characters);
-    // console.log('hoods: ', hoods);
   }
 
   return (
