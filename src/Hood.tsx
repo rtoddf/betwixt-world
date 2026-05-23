@@ -77,13 +77,15 @@ function Hood() {
               )}
             </div>
             <div className="bw-hood-head-text">
-              <div className="bw-eyebrow">Neighborhood No. 02</div>
+              <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
+                Neighborhood No. 02
+              </div>
               <div className="font-[family-name:var(--font-display)] text-[48px] md:text-[80px] text-[clamp(48px, 6.5vw, 80px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
                 {hoodCharacters[0].hood}
               </div>
-              <p className="bw-hood-desc text-[var(--fg)] text-[17px]">
+              <div className="max-w-[56ch] m-0 mb-[20px] text-[var(--fg)] text-[17px] leading-[1.55] text-center md:text-left">
                 {hoodCharacters[0].hooddescription}
-              </p>
+              </div>
               <div className="bw-hood-stats">
                 <span className="bw-hood-stat">
                   <strong>{hoodCharacters.length}</strong> residents
@@ -121,8 +123,12 @@ function Hood() {
         {/* Residents */}
         <section className="bw-hood-residents">
           <header className="bw-section-header bw-section-header-l">
-            <div className="bw-eyebrow">Who lives here</div>
-            <h2>Meet the residents.</h2>
+            <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
+              Who lives here
+            </div>
+            <div className="font-[family-name:var(--font-display)] text-[30px] md:text-[48px] text-[clamp(30px, 6.5vw, 56px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
+              Meet the residents.
+            </div>
           </header>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {hoodCharacters.map(function (character) {
