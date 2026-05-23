@@ -62,7 +62,11 @@ function Home() {
           return (
             <div key={n.slug} className="text-center">
               <Link to={`/hoods/${n.slug}`} className="">
-                <img src={`/assets/logo-hood.svg`} alt={n.name} />
+                <img
+                  className="w-[80%] my-0 mx-auto"
+                  src={`/assets/hoods/badge-${n.slug}.svg`}
+                  alt={n.name}
+                />
                 <p>{n.name}</p>
               </Link>
             </div>
