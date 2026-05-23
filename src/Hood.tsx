@@ -60,10 +60,10 @@ function Hood() {
 
   return (
     <>
-      <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto]">
-        <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[48px] rounded-[var(--r)] overflow-hidden">
-          <div className="bw-hood-head-grid grid grid-cols-[auto_1fr] gap-[32px] relative items-center z-[1]">
-            <div className="relative w-[168px] h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
+      <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
+        <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden">
+          <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-[32px] relative items-center z-[1]">
+            <div className="relative w-full h-full lg:w-[168px] lg:h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
               {hoodCharacters[0].hoodslug ? (
                 <img
                   className="block w-full h-full drop-shadow-[0_3px_0_rgba(26,74,74,0.18)]"
@@ -78,9 +78,9 @@ function Hood() {
             </div>
             <div className="bw-hood-head-text">
               <div className="bw-eyebrow">Neighborhood No. 02</div>
-              <h1 className="bw-hood-name font-[family-name:var(--font-display)] leading-[0.95] tracking-[0.05em] mt-[var(--s-2)] mx-0 mb-[var(--s-3)]">
+              <div className="font-[family-name:var(--font-display)] text-[80px] text-[clamp(48px, 6.5vw, 80px)] leading-[0.95] tracking-[0.05em] mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
                 {hoodCharacters[0].hood}
-              </h1>
+              </div>
               <p className="bw-hood-desc">
                 {hoodCharacters[0].hooddescription}
               </p>
