@@ -78,7 +78,7 @@ function Hood() {
             </div>
             <div className="bw-hood-head-text">
               <div className="bw-eyebrow">Neighborhood No. 02</div>
-              <h1 className="bw-hood-name font-[family-name:var(--font-display)] leading-[0.95] tracking-[0.05em]">
+              <h1 className="bw-hood-name font-[family-name:var(--font-display)] leading-[0.95] tracking-[0.05em] mt-[var(--s-2)] mx-0 mb-[var(--s-3)]">
                 {hoodCharacters[0].hood}
               </h1>
               <p className="bw-hood-desc">
