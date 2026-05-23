@@ -60,7 +60,7 @@ function Hood() {
 
   return (
     <>
-      <section className="bw-hood w-[1024px] p-[0 auto]">
+      <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto]">
         <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[48px] rounded-[var(--r)] overflow-hidden">
           <div className="bw-hood-head-grid grid grid-cols-[auto_1fr] gap-[32px] relative items-center z-[1]">
             <div className="relative w-[168px] h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
