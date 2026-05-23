@@ -78,10 +78,10 @@ function Hood() {
             </div>
             <div className="bw-hood-head-text">
               <div className="bw-eyebrow">Neighborhood No. 02</div>
-              <div className="font-[family-name:var(--font-display)] text-[80px] text-[clamp(48px, 6.5vw, 80px)] leading-[0.95] tracking-[0.05em] mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
+              <div className="font-[family-name:var(--font-display)] text-[48px] md:text-[80px] text-[clamp(48px, 6.5vw, 80px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
                 {hoodCharacters[0].hood}
               </div>
-              <p className="bw-hood-desc">
+              <p className="bw-hood-desc text-[var(--fg)] text-[17px]">
                 {hoodCharacters[0].hooddescription}
               </p>
               <div className="bw-hood-stats">

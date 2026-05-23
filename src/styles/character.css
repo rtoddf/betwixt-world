@@ -568,9 +568,9 @@
 }
 
 .bw-hood-desc {
-  font-size: 17px;
+  /* font-size: 17px; */
   line-height: 1.55;
-  color: var(--fg);
+  /* color: var(--fg); */
   margin: 0 0 var(--s-4);
   max-width: 56ch;
 }
