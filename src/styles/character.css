@@ -568,20 +568,20 @@
 }
 
 .bw-hood-stats {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   gap: var(--s-2) var(--s-3);
-  align-items: baseline;
-  font-size: 13px;
-  color: var(--fg-muted);
+  align-items: baseline; */
+  /* font-size: 13px;
+  color: var(--fg-muted); */
 }
 .bw-hood-stat strong {
   color: var(--fg);
   font-weight: 700;
 }
-.bw-hood-stat-sep {
+/* .bw-hood-stat-sep {
   opacity: 0.5;
-}
+} */
 
 /* Theme song band */
 .bw-theme-song {
