@@ -7,7 +7,7 @@ import './styles/homepage.css';
 import './styles/card.scss';
 
 function Home() {
-  const [hoods, setHoods] = useState<HoodType[]>([]);
+  const [hood, setHood] = useState<HoodType | null>(null);
   const [residents, setResidents] = useState<ResidentType[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -16,7 +16,7 @@ function Home() {
       try {
         const response = await fetch('/data/hoods.json');
         const data = await response.json();
-        setHoods(data);
+        setHood(data[Math.floor(Math.random() * data.length)]);
 
         const responseRes = await fetch('/data/residents.json');
 
@@ -41,9 +41,10 @@ function Home() {
     // console.log('hoods: ', hoods);
   }
 
-  const hood = hoods[0];
   console.log('hood: ', hood);
   console.log('residents: ', residents);
+
+  if (!hood) return null;
 
   return (
     <>
