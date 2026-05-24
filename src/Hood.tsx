@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from './types';
+import HoodStatus from './components/HoodStatus';
 import './styles/colors-and-type.scss';
 import './styles/hoods.scss';
 import './styles/styles.css';
@@ -80,28 +81,12 @@ function Hood() {
               <div className="max-w-[56ch] m-0 mb-[20px] text-[var(--fg)] text-[17px] leading-[1.55] text-center md:text-left">
                 {hood.description}
               </div>
-              <div className="bw-hood-stats grid grid-cols-3 place-items-center text-[13px] text-[var(--fg-muted)]">
-                <div className="grid items-center w-full p-[5px] text-center">
-                  <div className="leading-[1.5]">residents</div>
-                  <div className="font-semibold leading-[1.5]">
-                    {residents.filter((r) => r.active).length}
-                  </div>
-                </div>
-                <div className="w-full p-[5px] border-l-[1px] border-r-[1px] border-[var(--bw-burnt)] text-center">
-                  <div className="leading-[1.5]">
-                    {hood.active ? 'broke ground' : 'breaking ground'}
-                  </div>
-                  <div className="font-semibold leading-[1.5]">
-                    {hood.date !== '' ? hood.date : 'soon'}
-                  </div>
-                </div>
-                <div className="w-full p-[5px] text-center">
-                  <div className="leading-[1.5]">utilities on</div>
-                  <div className="font-semibold leading-[1.5]">
-                    {hood.active ? `yes` : `no`}
-                  </div>
-                </div>
-              </div>
+
+              <HoodStatus
+                date={hood.date}
+                res={residents.filter((r) => r.active).length}
+                active={hood.active}
+              />
             </div>
           </div>
         </header>
