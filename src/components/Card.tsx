@@ -15,7 +15,7 @@ function Card({
   tag: string;
   miniBio: string;
   image: string;
-  active: string;
+  active: boolean;
 }) {
   console.log('active: ', active);
   return (

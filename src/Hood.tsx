@@ -18,7 +18,9 @@ interface Card {
   hood: string;
   hoodslug: string;
   hooddescription: string;
-  active: string;
+  hoodcutline: string;
+  hooddate: string;
+  active: boolean;
 }
 
 function Hood() {
@@ -83,7 +85,7 @@ function Hood() {
             </div>
             <div className="bw-hood-head-text">
               <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
-                Catchphrase
+                {hoodCharacters[0].hoodcutline}
               </div>
               {/* <div className="font-[family-name:var(--font-display)] text-[48px] md:text-[80px] text-[clamp(48px, 6.5vw, 80px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
                 {hoodCharacters[0].hood}
@@ -92,16 +94,28 @@ function Hood() {
                 {hoodCharacters[0].hooddescription}
               </div>
               <div className="bw-hood-stats grid grid-cols-3 place-items-center text-[13px] text-[var(--fg-muted)]">
-                <span className="bw-hood-stat">
-                  <strong>{hoodCharacters.length}</strong> residents
-                </span>
-                <span className="bw-hood-stat">
-                  moved in <strong>spring 2026</strong>
-                </span>
-                <span className="bw-hood-stat">
-                  streetlights{' '}
-                  <strong>{hoodCharacters[0].active ? `yes` : `no`}</strong>
-                </span>
+                <div className="text-center">
+                  <div className="leading-2">residents</div>
+                  <div className="font-semibold">{hoodCharacters.length}</div>
+                </div>
+                <div className="text-center">
+                  <div className="leading-2">
+                    {hoodCharacters[0].active
+                      ? 'broke ground'
+                      : 'breaking ground'}
+                  </div>
+                  <div className="font-semibold">
+                    {hoodCharacters[0].hooddate !== ''
+                      ? hoodCharacters[0].hooddate
+                      : ''}
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="leading-2">utilities on</div>
+                  <div className="font-semibold">
+                    {hoodCharacters[0].active ? `yes` : `no`}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
