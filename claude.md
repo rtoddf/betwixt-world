@@ -40,6 +40,7 @@ have kids who personify them.
 ## Claude Behavior Rules
 
 - For lint rules: talk Todd through how to do them himself. Do NOT write them for him.
+- Do NOT edit source files. Explain what to change and let Todd make the edit.
 
 ## Key Rules
 

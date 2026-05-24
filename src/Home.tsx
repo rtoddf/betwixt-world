@@ -3,39 +3,25 @@ import { Link } from 'react-router';
 import './styles/colors-and-type.scss';
 import './styles/card.scss';
 
-interface Card {
+interface Hood {
   slug: string;
   name: string;
-  miniBio: string;
-  tag: string;
-  image: string;
-  hood: string[];
-  hoodslug: string;
+  tagline: string;
+  description: string;
+  date: string;
+  active: boolean;
 }
 
 function Home() {
-  // an underscore will stop the ts error that it's declared but never used
-  const [hoods, setHoods] = useState<{ name: string; slug: string }[]>([]);
+  const [hoods, setHoods] = useState<Hood[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch('/data/characters.json');
+        const response = await fetch('/data/hoods.json');
         const data = await response.json();
-        console.log('data: ', data);
-
-        const allHoods: { name: string; slug: string }[] = data.characters.map(
-          (character: Card) => ({
-            name: character.hood,
-            slug: character.hoodslug,
-          }),
-        );
-        const unique: { name: string; slug: string }[] = allHoods.filter(
-          (hood, index, self) =>
-            self.findIndex((h) => h.slug === hood.slug) === index,
-        );
-        setHoods(unique);
+        setHoods(data);
 
         setLoading(false);
       } catch (error) {
@@ -48,24 +34,25 @@ function Home() {
 
   if (loading) {
     return <div>Loading...</div>;
+  } else {
+    console.log('hoods: ', hoods);
   }
 
   return (
     <>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-        {hoods.map(function (n) {
+        {hoods.map(function (hood: Hood) {
           return (
             <div
-              key={n.slug}
+              key={hood.slug}
               className="text-center p-[10px] nth-[1n]:rotate-[-1deg] nth-[2n]:rotate-[0.8deg] nth-[3n]:rotate-[-0.3deg]"
             >
-              <Link to={`/hoods/${n.slug}`} className="">
+              <Link to={`/hoods/${hood.slug}`} className="">
                 <img
                   className="w-[80%] my-0 mx-auto drop-shadow-[0_3px_0_rgba(26,74,74,0.18)] hover:animate-wiggle-hood"
-                  src={`/assets/hoods/badge-${n.slug}.svg`}
-                  alt={n.name}
+                  src={`/assets/hoods/badge-${hood.slug}.svg`}
+                  alt={hood.name}
                 />
-                {/* <p>{n.name}</p> */}
               </Link>
             </div>
           );
