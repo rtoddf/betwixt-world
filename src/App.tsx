@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router';
 import Home from './Home';
 import Hood from './Hood';
-import CharacterDetails from './CharacterDetails';
+import Resident from './Resident';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/hoods/:slug" element={<Hood />} />
-      <Route path="/characters/:slug" element={<CharacterDetails />} />
+      <Route path="/:slug" element={<Hood />} />
+      <Route path="/:hood/:slug" element={<Resident />} />
     </Routes>
   );
 }

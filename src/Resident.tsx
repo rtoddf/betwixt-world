@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import './styles/colors-and-type.scss';
 import './styles/character-details.scss';
 
-interface Character {
+interface Resident {
   slug: string;
   name: string;
   pronunciation: string;
@@ -19,8 +19,8 @@ interface Character {
   image: string;
 }
 
-function CharacterDetails() {
-  const [character, setCharacter] = useState<Character | null>(null);
+function Resident() {
+  const [resident, setResident] = useState<Resident | null>(null);
   const [loading, setLoading] = useState(true);
 
   const { slug } = useParams();
@@ -30,13 +30,12 @@ function CharacterDetails() {
       try {
         const response = await fetch('/data/characters.json');
         const data = await response.json();
-        console.log('data: ', data);
 
         const thisCharacter = data.characters.find(
-          (char: Character) => char.slug === slug,
+          (char: Resident) => char.slug === slug,
         );
 
-        setCharacter(thisCharacter);
+        setResident(thisCharacter);
         setLoading(false);
       } catch (error) {
         console.error('Error loading data:', error);
@@ -49,39 +48,37 @@ function CharacterDetails() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('character: ', character);
+    console.log('resident: ', resident);
   }
 
-  if (!character) return null;
+  if (!resident) return null;
   return (
     <section>
       <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
-        <Link to={`/hoods/${character.hoodslug}`}>← Back to the hood</Link>
+        <Link to={`/${resident.hoodslug}`}>← Back to the hood</Link>
       </button>
       <div className="grid grid-cols-3">
         <div className="image-holder p-[10px]">
           <img
-            src={`/assets/characters/${character.image}`}
-            alt={character.name}
+            src={`/assets/characters/${resident.image}`}
+            alt={resident.name}
           />
         </div>
         <div className="content-holder col-span-2 p-[10px]">
-          <h1 className="font-(family-name:--font-display)">
-            {character.name}
-          </h1>
-          <h3 className="font-(family-name:--font-body)">{character.tag}</h3>
-          <div>{character.pronunciation}</div>
-          <div>{character.hood}</div>
-          <div>{character.nationality}</div>
-          <div>{character.pronouns}</div>
-          <div>{character.age}</div>
+          <h1 className="font-(family-name:--font-display)">{resident.name}</h1>
+          <h3 className="font-(family-name:--font-body)">{resident.tag}</h3>
+          <div>{resident.pronunciation}</div>
+          <div>{resident.hood}</div>
+          <div>{resident.nationality}</div>
+          <div>{resident.pronouns}</div>
+          <div>{resident.age}</div>
           <div
             className=""
-            dangerouslySetInnerHTML={{ __html: character.miniBio }}
+            dangerouslySetInnerHTML={{ __html: resident.miniBio }}
           />
           <div
             className="short-bio"
-            dangerouslySetInnerHTML={{ __html: character.shortBio }}
+            dangerouslySetInnerHTML={{ __html: resident.shortBio }}
           />
         </div>
       </div>
@@ -89,4 +86,4 @@ function CharacterDetails() {
   );
 }
 
-export default CharacterDetails;
+export default Resident;
