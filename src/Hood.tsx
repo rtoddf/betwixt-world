@@ -18,24 +18,19 @@ interface Hood {
   active: boolean;
 }
 
-interface Card {
+interface Resident {
   slug: string;
   name: string;
   miniBio: string;
   tag: string;
   image: string;
   hood: string;
-  hoodslug: string;
-  hooddescription: string;
-  hoodcutline: string;
-  hooddate: string;
   active: boolean;
 }
 
 function Hood() {
   const [hood, setHood] = useState<Hood | null>(null);
-  const [characters, setCharacters] = useState<Card[]>([]);
-  const [hoodCharacters, setHoodCharacters] = useState<Card[]>([]);
+  const [residents, setResidents] = useState<Resident[]>([]);
   const [loading, setLoading] = useState(true);
   const { slug } = useParams();
 
@@ -44,18 +39,19 @@ function Hood() {
       try {
         const response = await fetch('/data/hoods.json');
         const data = await response.json();
-        const thisHood = data.filter((hood: Hood) => hood.slug === slug);
-
+        const thisHood = data.filter((h: Hood) => h.slug === slug);
         setHood(thisHood[0]);
 
-        // setHoodCharacters(
-        //   names.sort((a: Card, b: Card) => a.name.localeCompare(b.name)),
-        // );
-        // setCharacters(
-        //   data.characters.sort((a: Card, b: Card) =>
-        //     a.name.localeCompare(b.name),
-        //   ),
-        // );
+        const responseRes = await fetch('/data/residents.json');
+        const dataRes = await responseRes.json();
+        const hoodResidents = dataRes.filter(
+          (resident: Resident) => resident.hood === slug,
+        );
+        setResidents(
+          hoodResidents.sort((a: Resident, b: Resident) =>
+            a.name.localeCompare(b.name),
+          ),
+        );
         setLoading(false);
       } catch (error) {
         console.error('Error loading data:', error);
@@ -68,7 +64,7 @@ function Hood() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('characters: ', characters);
+    console.log('residents: ', residents);
     console.log('hood: ', hood);
   }
 
@@ -106,7 +102,7 @@ function Hood() {
                 <div className="grid items-center w-full p-[5px] text-center">
                   <div className="leading-[1.5]">residents</div>
                   <div className="font-semibold leading-[1.5]">
-                    {hood.active ? hoodCharacters.length : '0'}
+                    {hood.active ? residents.length : '0'}
                   </div>
                 </div>
                 <div className="w-full p-[5px] border-l-[1px] border-r-[1px] border-[var(--bw-burnt)] text-center">
@@ -127,70 +123,53 @@ function Hood() {
             </div>
           </div>
         </header>
-        <div className="bw-theme-song-credit">Artist</div>
       </section>
 
       {/* Theme song — fat audio band */}
-      {/* <section className="bw-theme-song">
-          <div className="bw-theme-song-eyebrow">
-            <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
-            <span className="bw-theme-song-subtitle">
-              A two-minute walk through the block.
-            </span>
-          </div>
-          <Player /> */}
-      {/* <VoicePlayer
+      <section className="bw-theme-song">
+        <div className="bw-theme-song-eyebrow">
+          <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
+          <span className="bw-theme-song-subtitle">
+            A two-minute walk through the block.
+          </span>
+        </div>
+        <Player />
+        {/* <VoicePlayer
             label={n.themeSong.title}
             duration={n.themeSong.duration}
             palette="theme"
           /> */}
+        <div className="bw-theme-song-credit">Artist</div>
+      </section>
 
       {/* Residents */}
-      {/* <section className="bw-hood-residents">
-          <header className="bw-section-header bw-section-header-l">
-            <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
-              Who lives here
-            </div>
-            <div className="font-[family-name:var(--font-display)] text-[30px] md:text-[48px] text-[clamp(30px, 6.5vw, 56px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
-              Meet the residents
-            </div>
-          </header>
-          <div
-            className={`grid grid-cols-${hoodCharacters.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
-          >
-            {hoodCharacters.map(function (character) {
-              return (
-                <Card
-                  key={character.slug}
-                  slug={character.slug}
-                  name={character.name}
-                  tag={character.tag}
-                  miniBio={character.miniBio}
-                  image={character.image}
-                  active={character.active}
-                />
-              );
-            })}
+      <section className="bw-hood-residents">
+        <header className="bw-section-header bw-section-header-l">
+          <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
+            Who lives here
           </div>
-        </section>
-      </section> */}
-      {/* <section id="center">
-        <h1>all active characters</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {characters.map(function (character) {
+          <div className="font-[family-name:var(--font-display)] text-[30px] md:text-[48px] text-[clamp(30px, 6.5vw, 56px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
+            Meet the residents
+          </div>
+        </header>
+        <div
+          className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
+        >
+          {residents.map(function (resident) {
             return (
               <Card
-                key={character.slug}
-                slug={character.slug}
-                name={character.name}
-                tag={character.tag}
-                miniBio={character.miniBio}
-                image={character.image}
+                key={resident.slug}
+                slug={resident.slug}
+                name={resident.name}
+                tag={resident.tag}
+                miniBio={resident.miniBio}
+                image={resident.image}
+                active={resident.active}
               />
             );
           })}
         </div>
-      </section> */}
+      </section>
     </>
   );
 }
