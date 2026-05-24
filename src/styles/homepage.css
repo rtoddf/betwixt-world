@@ -17,7 +17,7 @@
   background: var(--bg);
   box-shadow:
     inset 0 0 0 1.5px var(--bw-navy),
-    0 3px 0 rgba(26, 74, 74, 0.10);
+    0 3px 0 rgba(26, 74, 74, 0.1);
 }
 .bw-hood-stamp-dashed {
   position: absolute;
@@ -39,7 +39,7 @@
     0 4px 0 rgba(26, 74, 74, 0.15);
 }
 .bw-hood-stamp-plate::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 3.5px;
   border-radius: 5px;
@@ -68,7 +68,7 @@
   position: relative;
   background: var(--bg-elevated);
   border-radius: var(--r-lg);
-  padding: var(--s-8) var(--s-8) var(--s-7);
+  /* padding: var(--s-8) var(--s-8) var(--s-7); */
   box-shadow:
     inset 0 0 0 1.5px var(--bw-navy),
     var(--sh-card);
@@ -76,10 +76,12 @@
 }
 /* Soft amber wash sweeping across the back, like the hood page header. */
 .bw-featured-hood-card::after {
-  content: "";
+  content: '';
   position: absolute;
-  right: -120px; top: -80px;
-  width: 380px; height: 380px;
+  right: -120px;
+  top: -80px;
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
   background: var(--bw-amber);
   opacity: 0.12;
@@ -95,7 +97,12 @@
   align-items: center;
 }
 @media (max-width: 760px) {
-  .bw-featured-hood-grid { grid-template-columns: 1fr; gap: var(--s-6); justify-items: center; text-align: center; }
+  .bw-featured-hood-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-6);
+    justify-items: center;
+    text-align: center;
+  }
 }
 
 .bw-featured-hood-mark {
@@ -175,12 +182,15 @@
   font-size: 15px;
   font-weight: 700;
   color: var(--bw-navy);
-  display: flex; align-items: center; gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .bw-porch-dot {
   display: inline-block;
-  width: 9px; height: 9px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--bw-amber);
   box-shadow:
@@ -189,13 +199,24 @@
   animation: bw-porch-flicker 2.4s var(--ease-out) infinite;
 }
 @keyframes bw-porch-flicker {
-  0%, 100% { opacity: 1; }
-  48% { opacity: 0.85; }
-  52% { opacity: 1; }
-  70% { opacity: 0.92; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0.85;
+  }
+  52% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.92;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .bw-porch-dot { animation: none; }
+  .bw-porch-dot {
+    animation: none;
+  }
 }
 
 .bw-featured-hood-ctas {
@@ -204,7 +225,9 @@
   gap: var(--s-5);
   flex-wrap: wrap;
 }
-.bw-featured-hood-link { font-size: 14px; }
+.bw-featured-hood-link {
+  font-size: 14px;
+}
 
 /* The tilted postmark — circular ink stamp in the top-right. */
 .bw-featured-stamp {
@@ -245,7 +268,16 @@
   margin: 3px 0 2px;
 }
 @media (max-width: 760px) {
-  .bw-featured-stamp { width: 80px; height: 80px; padding: 12px 6px; }
-  .bw-featured-stamp-mid { font-size: 15px; }
-  .bw-featured-stamp-top, .bw-featured-stamp-bot { font-size: 8px; }
+  .bw-featured-stamp {
+    width: 80px;
+    height: 80px;
+    padding: 12px 6px;
+  }
+  .bw-featured-stamp-mid {
+    font-size: 15px;
+  }
+  .bw-featured-stamp-top,
+  .bw-featured-stamp-bot {
+    font-size: 8px;
+  }
 }

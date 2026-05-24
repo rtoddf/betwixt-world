@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 import type { HoodType, ResidentType } from './types';
 import HoodStatus from './components/HoodStatus';
 import './styles/colors-and-type.scss';
@@ -47,9 +47,9 @@ function Home() {
 
   return (
     <>
-      <section className="bw-hood w-full p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
+      <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
         {/* <section className="bw-featured-hood"> */}
-        <article className="bw-featured-hood-card">
+        <article className="bw-featured-hood-card p-[0 auto] p-[24px] ">
           {/* Tilted postmark — the "this is the one right now" mark */}
           <div className="bw-featured-stamp" aria-hidden="true">
             <span className="bw-featured-stamp-top">Now on</span>
@@ -57,7 +57,7 @@ function Home() {
             <span className="bw-featured-stamp-bot">No. 01</span>
           </div>
 
-          <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-[32px] relative items-center z-[1]">
+          <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-[32px] relative items-center z-[2]">
             <div className="relative w-full h-full lg:w-[168px] lg:h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
               {hood.slug ? (
                 <img
@@ -84,24 +84,21 @@ function Home() {
                 res={residents.filter((r) => r.active).length}
                 active={hood.active}
               />
-
-              {/* <div className="bw-featured-hood-ctas">
-                  <button
-                    type="button"
-                    className="bw-btn bw-btn-primary"
-                    onClick={goHood}
-                  >
-                    Walk {placename.charAt(0) + placename.slice(1).toLowerCase()}
-                  </button>
-                  <button
-                    type="button"
-                    className="bw-link bw-featured-hood-link"
-                    onClick={goHood}
-                  >
-                    Every hood →
-                  </button>
-                </div> */}
             </div>
+          </div>
+          <div className="grid grid-cols-2 gap-[10px] justify-items-center mt-[30px]">
+            <Link to={`/${hood.slug}`}>
+              <button type="button" className="bw-btn bw-btn-primary">
+                Visit{' '}
+                <span className="hidden md:inline-block">{hood.name}</span>
+              </button>
+            </Link>
+
+            <Link to={`/hoods`}>
+              <button type="button" className="bw-btn bw-btn-primary">
+                All Hoods
+              </button>
+            </Link>
           </div>
         </article>
         {/* </section> */}
