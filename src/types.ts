@@ -20,4 +20,5 @@ export interface ResidentType {
   shortBio: string;
   tag: string;
   image: string;
+  active: boolean;
 }
