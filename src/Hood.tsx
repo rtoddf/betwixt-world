@@ -84,7 +84,7 @@ function Hood() {
                 <div className="grid items-center w-full p-[5px] text-center">
                   <div className="leading-[1.5]">residents</div>
                   <div className="font-semibold leading-[1.5]">
-                    {hood.active ? residents.length : '0'}
+                    {residents.filter((r) => r.active).length}
                   </div>
                 </div>
                 <div className="w-full p-[5px] border-l-[1px] border-r-[1px] border-[var(--bw-burnt)] text-center">
@@ -105,53 +105,53 @@ function Hood() {
             </div>
           </div>
         </header>
-      </section>
 
-      {/* Theme song — fat audio band */}
-      <section className="bw-theme-song">
-        <div className="bw-theme-song-eyebrow">
-          <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
-          <span className="bw-theme-song-subtitle">
-            A two-minute walk through the block.
-          </span>
-        </div>
-        <Player />
-        {/* <VoicePlayer
+        {/* Theme song — fat audio band */}
+        <section className="bw-theme-song">
+          <div className="bw-theme-song-eyebrow">
+            <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
+            <span className="bw-theme-song-subtitle">
+              A two-minute walk through the block.
+            </span>
+          </div>
+          <Player />
+          {/* <VoicePlayer
             label={n.themeSong.title}
             duration={n.themeSong.duration}
             palette="theme"
           /> */}
-        <div className="bw-theme-song-credit">Artist</div>
-      </section>
+          <div className="bw-theme-song-credit">Artist</div>
+        </section>
 
-      {/* Residents */}
-      <section className="bw-hood-residents">
-        <header className="bw-section-header bw-section-header-l">
-          <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
-            Who lives here
+        {/* Residents */}
+        <section className="bw-hood-residents">
+          <header className="bw-section-header bw-section-header-l">
+            <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
+              Who lives here
+            </div>
+            <div className="font-[family-name:var(--font-display)] text-[30px] md:text-[48px] text-[clamp(30px, 6.5vw, 56px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
+              Meet the residents
+            </div>
+          </header>
+          <div
+            className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
+          >
+            {residents.map(function (resident) {
+              return (
+                <Card
+                  key={resident.slug}
+                  slug={resident.slug}
+                  hood={resident.hood}
+                  name={resident.name}
+                  tag={resident.tag}
+                  miniBio={resident.miniBio}
+                  image={resident.image}
+                  active={resident.active}
+                />
+              );
+            })}
           </div>
-          <div className="font-[family-name:var(--font-display)] text-[30px] md:text-[48px] text-[clamp(30px, 6.5vw, 56px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
-            Meet the residents
-          </div>
-        </header>
-        <div
-          className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
-        >
-          {residents.map(function (resident) {
-            return (
-              <Card
-                key={resident.slug}
-                slug={resident.slug}
-                hood={resident.hood}
-                name={resident.name}
-                tag={resident.tag}
-                miniBio={resident.miniBio}
-                image={resident.image}
-                active={resident.active}
-              />
-            );
-          })}
-        </div>
+        </section>
       </section>
     </>
   );
