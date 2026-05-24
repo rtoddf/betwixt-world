@@ -1,26 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
+import type { ResidentType } from './types';
 import './styles/colors-and-type.scss';
 import './styles/character-details.scss';
 
-interface Resident {
-  slug: string;
-  name: string;
-  pronunciation: string;
-  hood: string;
-  hoodslug: string;
-  nationality: string;
-  pronouns: string;
-  age: string;
-  miniBio: string;
-  shortBio: string;
-  tag: string;
-  image: string;
-}
-
 function Resident() {
-  const [resident, setResident] = useState<Resident | null>(null);
+  const [resident, setResident] = useState<ResidentType | null>(null);
   const [loading, setLoading] = useState(true);
 
   const { slug } = useParams();
@@ -28,14 +14,12 @@ function Resident() {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch('/data/characters.json');
+        const response = await fetch('/data/residents.json');
         const data = await response.json();
 
-        const thisCharacter = data.characters.find(
-          (char: Resident) => char.slug === slug,
-        );
+        const thisResident = data.find((r: ResidentType) => r.slug === slug);
 
-        setResident(thisCharacter);
+        setResident(thisResident);
         setLoading(false);
       } catch (error) {
         console.error('Error loading data:', error);
@@ -55,7 +39,7 @@ function Resident() {
   return (
     <section>
       <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
-        <Link to={`/${resident.hoodslug}`}>← Back to the hood</Link>
+        <Link to={`/${resident.hood}`}>← Back to the hood</Link>
       </button>
       <div className="grid grid-cols-3">
         <div className="image-holder p-[10px]">

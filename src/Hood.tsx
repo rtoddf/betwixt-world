@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
+import type { HoodType, ResidentType } from './types';
 import './styles/colors-and-type.scss';
 import './styles/hoods.scss';
 import './styles/styles.css';
@@ -9,28 +10,9 @@ import './styles/character.css';
 import Card from './components/Card';
 import Player from './components/Player';
 
-interface Hood {
-  slug: string;
-  name: string;
-  tagline: string;
-  description: string;
-  date: string;
-  active: boolean;
-}
-
-interface Resident {
-  slug: string;
-  name: string;
-  miniBio: string;
-  tag: string;
-  image: string;
-  hood: string;
-  active: boolean;
-}
-
 function Hood() {
-  const [hood, setHood] = useState<Hood | null>(null);
-  const [residents, setResidents] = useState<Resident[]>([]);
+  const [hood, setHood] = useState<HoodType | null>(null);
+  const [residents, setResidents] = useState<ResidentType[]>([]);
   const [loading, setLoading] = useState(true);
   const { slug } = useParams();
 
@@ -39,16 +21,16 @@ function Hood() {
       try {
         const response = await fetch('/data/hoods.json');
         const data = await response.json();
-        const thisHood = data.filter((h: Hood) => h.slug === slug);
+        const thisHood = data.filter((h: HoodType) => h.slug === slug);
         setHood(thisHood[0]);
 
         const responseRes = await fetch('/data/residents.json');
         const dataRes = await responseRes.json();
         const hoodResidents = dataRes.filter(
-          (resident: Resident) => resident.hood === slug,
+          (resident: ResidentType) => resident.hood === slug,
         );
         setResidents(
-          hoodResidents.sort((a: Resident, b: Resident) =>
+          hoodResidents.sort((a: ResidentType, b: ResidentType) =>
             a.name.localeCompare(b.name),
           ),
         );
@@ -74,7 +56,7 @@ function Hood() {
     <>
       <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
         <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
-          <Link to={`/`}>← Back to the neighborhood map</Link>
+          <Link to={`/hoods`}>← Back to the neighborhood map</Link>
         </button>
         <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden">
           <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-[32px] relative items-center z-[1]">
