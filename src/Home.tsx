@@ -16,13 +16,13 @@ function Home() {
       try {
         const response = await fetch('/data/hoods.json');
         const data = await response.json();
-        setHood(data[Math.floor(Math.random() * data.length)]);
+        const randomHood = data[Math.floor(Math.random() * data.length)];
+        setHood(randomHood);
 
         const responseRes = await fetch('/data/residents.json');
-
         const dataRes = await responseRes.json();
         const hoodResidents = dataRes.filter(
-          (resident: ResidentType) => resident.hood === data[0].slug,
+          (resident: ResidentType) => resident.hood === randomHood.slug,
         );
         setResidents(hoodResidents);
 
