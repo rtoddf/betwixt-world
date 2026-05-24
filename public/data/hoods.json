@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "intangimere",
+    "name": "Intangimere",
+    "tagline": "We feel you",
+    "description": "The block where the things you can't quite hold live. Time forgets to hurry. Death knocks as a courtesy. Fate leaves threads on the doorstep. Magic doesn't explain itself. Their porch lights are on. Whether anyone's home is entirely up to you.",
+    "date": "summer 2026",
+    "active": true
+  },
+  {
+    "slug": "dramaside",
+    "name": "Dramaside",
+    "tagline": "Everyone's got something to say about it",
+    "description": "Nobody moves to Dramaside by accident. They audition. The streets are loud, the neighbors are louder, and someone is always watching from behind that fence. Every argument is a performance. Every reconciliation deserves applause.",
+    "date": "summer 2026",
+    "active": true
+  },
+  {
+    "slug": "achey-hollow",
+    "name": "Achey Hollow",
+    "tagline": "Where feelings come to sit a while",
+    "description": "Some neighborhoods you visit. Achey Hollow finds you. It's the quiet street where the lights stay on a little too long and the rocking chair moves when nobody's sitting in it. Nothing's wrong here. Nothing's quite right either. It just... aches.",
+    "date": "summer 2026",
+    "active": true
+  },
+  {
+    "slug": "gimmewood",
+    "name": "Gimmewood",
+    "tagline": "We want you!",
+    "description": "More.More. That's the only word anyone in Gimmewood knows. More stars. More trees with things carved in them. More of whatever you just had. The street smells like want and fresh wood shavings. Nobody's unhappy here. Nobody's finished either.",
+    "date": "summer 2026",
+    "active": true
+  },
+  {
+    "slug": "weirdford",
+    "name": "Weirdford",
+    "tagline": "Where normal lost its footing",
+    "description": "Nobody planned to cross the bridge into Weirdford. Nobody plans anything in Weirdford. Your body just does a thing — hiccups, sneezes, shivers for no reason — and suddenly you're here. The bridge is slightly wrong. The houses lean. Don't worry. It passes. Probably.",
+    "date": "summer 2026",
+    "active": true
+  },
+  {
+    "slug": "buffer-zone",
+    "name": "Buffer Zone",
+    "tagline": "Somewhere between here and there",
+    "description": "Not every block is ready for visitors. Some hoods are still figuring out who lives there. The lights are on. The porch is swept. Somebody's moving in soon. Mind the dust.",
+    "date": "",
+    "active": false
+  }
+]
