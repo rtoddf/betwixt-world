@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import { Link } from 'react-router';
 import './styles/colors-and-type.scss';
 import './styles/character-details.scss';
 
@@ -8,6 +9,7 @@ interface Character {
   name: string;
   pronunciation: string;
   hood: string;
+  hoodslug: string;
   nationality: string;
   pronouns: string;
   age: string;
@@ -42,7 +44,7 @@ function CharacterDetails() {
       }
     }
     getData();
-  }, []);
+  }, [slug]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -53,6 +55,9 @@ function CharacterDetails() {
   if (!character) return null;
   return (
     <section>
+      <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
+        <Link to={`/hoods/${character.hoodslug}`}>← Back to the hood</Link>
+      </button>
       <div className="grid grid-cols-3">
         <div className="image-holder p-[10px]">
           <img

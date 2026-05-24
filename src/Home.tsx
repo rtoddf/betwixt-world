@@ -14,7 +14,7 @@ interface Card {
 }
 
 function Home() {
-  const [characters, setCharacters] = useState<Card[]>([]);
+  // an underscore will stop the ts error that it's declared but never used
   const [hoods, setHoods] = useState<{ name: string; slug: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -25,7 +25,6 @@ function Home() {
         const data = await response.json();
         console.log('data: ', data);
 
-        setCharacters(data.characters);
         const allHoods: { name: string; slug: string }[] = data.characters.map(
           (character: Card) => ({
             name: character.hood,
@@ -49,22 +48,29 @@ function Home() {
 
   if (loading) {
     return <div>Loading...</div>;
-  } else {
-    // console.log('characters: ', characters);
-    // console.log('hoods: ', hoods);
   }
 
   return (
     <>
-      {hoods.map(function (n) {
-        return (
-          <p key={n.slug}>
-            <Link to={`/hoods/${n.slug}`} className="">
-              {n.name}
-            </Link>
-          </p>
-        );
-      })}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        {hoods.map(function (n) {
+          return (
+            <div
+              key={n.slug}
+              className="text-center p-[10px] nth-[1n]:rotate-[-1deg] nth-[2n]:rotate-[0.8deg] nth-[3n]:rotate-[-0.3deg]"
+            >
+              <Link to={`/hoods/${n.slug}`} className="">
+                <img
+                  className="w-[80%] my-0 mx-auto drop-shadow-[0_3px_0_rgba(26,74,74,0.18)] hover:animate-wiggle-hood"
+                  src={`/assets/hoods/badge-${n.slug}.svg`}
+                  alt={n.name}
+                />
+                {/* <p>{n.name}</p> */}
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

@@ -37,6 +37,10 @@ have kids who personify them.
 - Border radius: 8px
 - 508/WCAG AA compliance required on all color combinations
 
+## Claude Behavior Rules
+
+- For lint rules: talk Todd through how to do them himself. Do NOT write them for him.
+
 ## Key Rules
 
 - Deep Navy #1A4A4A on Cream #F5EDD6 for all body text (AAA)

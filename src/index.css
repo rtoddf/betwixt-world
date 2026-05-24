@@ -1,5 +1,35 @@
 @import 'tailwindcss';
 
+/* animations */
+
+@theme {
+  --animate-wiggle-card: wiggle 0.85s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+@theme {
+  --animate-wiggle-hood: wiggle 0.75s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
