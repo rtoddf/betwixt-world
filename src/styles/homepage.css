@@ -1,0 +1,251 @@
+/* ============================================================
+   Betwixt — Homepage styles
+   Only the styles that the homepage uses on top of the base
+   website kit (styles.css). Right now this is the FeaturedHood
+   section + the hood-stamp atom it relies on.
+   ============================================================ */
+
+/* ---------- Hood stamp atom (circle + sign plate) ----------
+   The placeholder badge — cream circle with a dashed inner ring,
+   double-bordered sign plate overlapping the bottom. Used by
+   FeaturedHood; safe to reuse elsewhere on the homepage. */
+.bw-hood-stamp-circle {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow:
+    inset 0 0 0 1.5px var(--bw-navy),
+    0 3px 0 rgba(26, 74, 74, 0.10);
+}
+.bw-hood-stamp-dashed {
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(26, 74, 74, 0.42);
+  pointer-events: none;
+}
+.bw-hood-stamp-plate {
+  position: relative;
+  margin-top: -28px;
+  min-width: 78%;
+  max-width: 100%;
+  padding: 10px 16px;
+  background: var(--bg);
+  border-radius: var(--r);
+  box-shadow:
+    inset 0 0 0 1.5px var(--bw-navy),
+    0 4px 0 rgba(26, 74, 74, 0.15);
+}
+.bw-hood-stamp-plate::before {
+  content: "";
+  position: absolute;
+  inset: 3.5px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 1.5px var(--bw-navy);
+  pointer-events: none;
+}
+.bw-hood-stamp-plate-text {
+  display: block;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--bw-navy);
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+/* ---------- Featured Hood ---------- */
+.bw-featured-hood {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--s-8) var(--s-7);
+}
+.bw-featured-hood-card {
+  position: relative;
+  background: var(--bg-elevated);
+  border-radius: var(--r-lg);
+  padding: var(--s-8) var(--s-8) var(--s-7);
+  box-shadow:
+    inset 0 0 0 1.5px var(--bw-navy),
+    var(--sh-card);
+  overflow: hidden;
+}
+/* Soft amber wash sweeping across the back, like the hood page header. */
+.bw-featured-hood-card::after {
+  content: "";
+  position: absolute;
+  right: -120px; top: -80px;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: var(--bw-amber);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.bw-featured-hood-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-8);
+  align-items: center;
+}
+@media (max-width: 760px) {
+  .bw-featured-hood-grid { grid-template-columns: 1fr; gap: var(--s-6); justify-items: center; text-align: center; }
+}
+
+.bw-featured-hood-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  transform: rotate(-1.2deg);
+}
+.bw-featured-hood-circle {
+  width: 188px;
+  height: 188px;
+  overflow: hidden;
+}
+.bw-featured-hood-circle-art {
+  position: absolute;
+  inset: 18px;
+  width: calc(100% - 36px);
+  height: calc(100% - 36px);
+  object-fit: contain;
+  opacity: 0.85;
+}
+.bw-featured-hood-plate {
+  min-width: 88%;
+}
+
+.bw-featured-hood-body {
+  max-width: 56ch;
+}
+.bw-featured-hood-slogan {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.2vw, 60px);
+  line-height: 1.04;
+  letter-spacing: var(--ls-display);
+  color: var(--fg-display);
+  margin: var(--s-2) 0 var(--s-4);
+  font-weight: 400;
+}
+.bw-featured-hood-desc {
+  font-size: 17px;
+  line-height: var(--lh-body);
+  color: var(--fg);
+  margin: 0 0 var(--s-6);
+}
+
+/* Stat strip — three labelled facts separated by amber rules. */
+.bw-featured-hood-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) 0;
+  margin: 0 0 var(--s-7);
+  padding: 0;
+}
+.bw-featured-hood-stat {
+  flex: 1 1 0;
+  min-width: 120px;
+  padding: 0 var(--s-5);
+  border-left: 1.5px solid var(--bw-amber);
+  margin: 0;
+}
+.bw-featured-hood-stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.bw-featured-hood-stat dt {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--ls-allcaps);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin: 0 0 var(--s-1);
+}
+.bw-featured-hood-stat dd {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--bw-navy);
+  display: flex; align-items: center; gap: 6px;
+}
+
+.bw-porch-dot {
+  display: inline-block;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--bw-amber);
+  box-shadow:
+    0 0 0 2px rgba(240, 165, 0, 0.28),
+    0 0 10px rgba(240, 165, 0, 0.55);
+  animation: bw-porch-flicker 2.4s var(--ease-out) infinite;
+}
+@keyframes bw-porch-flicker {
+  0%, 100% { opacity: 1; }
+  48% { opacity: 0.85; }
+  52% { opacity: 1; }
+  70% { opacity: 0.92; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bw-porch-dot { animation: none; }
+}
+
+.bw-featured-hood-ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+}
+.bw-featured-hood-link { font-size: 14px; }
+
+/* The tilted postmark — circular ink stamp in the top-right. */
+.bw-featured-stamp {
+  position: absolute;
+  top: var(--s-6);
+  right: var(--s-6);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  grid-auto-flow: row;
+  text-align: center;
+  transform: rotate(8deg);
+  box-shadow:
+    inset 0 0 0 1.5px var(--bw-burnt),
+    inset 0 0 0 5px var(--bg-elevated),
+    inset 0 0 0 6.5px var(--bw-burnt);
+  color: var(--bw-burnt);
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  padding: 18px 10px;
+  z-index: 2;
+  pointer-events: none;
+}
+.bw-featured-stamp-top,
+.bw-featured-stamp-bot {
+  font-size: 10px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: var(--ls-allcaps);
+  text-transform: uppercase;
+}
+.bw-featured-stamp-mid {
+  font-size: 18px;
+  margin: 3px 0 2px;
+}
+@media (max-width: 760px) {
+  .bw-featured-stamp { width: 80px; height: 80px; padding: 12px 6px; }
+  .bw-featured-stamp-mid { font-size: 15px; }
+  .bw-featured-stamp-top, .bw-featured-stamp-bot { font-size: 8px; }
+}
