@@ -497,62 +497,10 @@
   color: var(--fg-muted);
 }
 
-.bw-hood-head {
-  box-shadow:
-    inset 0 0 0 1.5px var(--bw-navy),
-    0 4px 0 rgba(26, 74, 74, 0.1);
-}
-
-.bw-hood-head::before {
-  content: '';
-  position: absolute;
-  right: -80px;
-  top: -60px;
-  width: 240px;
-  height: 280px;
-  background: var(--bw-amber);
-  opacity: 0.1;
-  transform: rotate(8deg);
-  border-radius: 12px;
-}
-.bw-hood-head::after {
-  content: '';
-  position: absolute;
-  right: -40px;
-  bottom: -90px;
-  width: 200px;
-  height: 220px;
-  background: var(--bw-burnt);
-  opacity: 0.1;
-  transform: rotate(-6deg);
-  border-radius: 12px;
-}
-
 .bw-hood-badge {
   --hood-accent: var(--bw-burnt);
-  /* width: 168px;
-  height: 168px; */
-  /* border-radius: 50%; */
-  /* background: transparent; */
-  /* display: grid; */
-  /* place-items: center; */
-  /* position: relative; */
-  /* flex-shrink: 0; */
 }
-/* .bw-hood-badge-img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  filter: drop-shadow(0 3px 0 rgba(26, 74, 74, 0.18));
-} */
-/* .bw-hood-badge:has(.bw-hood-badge-mark) { */
-/* background: var(--hood-accent); */
-/* box-shadow:
-    0 0 0 6px var(--bg-elevated),
-    0 0 0 7.5px var(--bw-navy); */
-/* width: 128px;
-  height: 128px; */
-/* } */
+
 .bw-hood-badge:has(.bw-hood-badge-mark)::before {
   content: '';
   position: absolute;
@@ -566,22 +514,6 @@
   color: var(--bw-cream);
   line-height: 1;
 }
-
-.bw-hood-stats {
-  /* display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-2) var(--s-3);
-  align-items: baseline; */
-  /* font-size: 13px;
-  color: var(--fg-muted); */
-}
-/* .bw-hood-stat strong {
-  color: var(--fg);
-  font-weight: 700;
-} */
-/* .bw-hood-stat-sep {
-  opacity: 0.5;
-} */
 
 /* Theme song band */
 .bw-theme-song {

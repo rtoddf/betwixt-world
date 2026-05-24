@@ -140,11 +140,6 @@ body.bw-root {
 } */
 
 /* ---------- Eyebrows / chips / tags ---------- */
-/* .bw-eyebrow {
-  font-family: var(--font-body); font-size: 12px; font-weight: 700;
-  letter-spacing: var(--ls-allcaps); text-transform: uppercase;
-  color: var(--bw-burnt);
-} */
 .bw-eyebrow-amber {
   color: var(--bw-amber);
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import './styles/colors-and-type.scss';
-import './styles/card.scss';
+import './styles/hoods.scss';
 import './styles/styles.css';
 import './styles/character.css';
 
@@ -94,27 +94,27 @@ function Hood() {
                 {hoodCharacters[0].hooddescription}
               </div>
               <div className="bw-hood-stats grid grid-cols-3 place-items-center text-[13px] text-[var(--fg-muted)]">
-                <div className="text-center">
-                  <div className="leading-2">residents</div>
-                  <div className="font-semibold">
+                <div className="grid items-center w-full p-[5px] text-center">
+                  <div className="leading-[1.5]">residents</div>
+                  <div className="font-semibold leading-[1.5]">
                     {hoodCharacters[0].active ? hoodCharacters.length : '0'}
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="leading-2">
+                <div className="w-full p-[5px] border-l-[1px] border-r-[1px] border-[var(--bw-burnt)] text-center">
+                  <div className="leading-[1.5]">
                     {hoodCharacters[0].active
                       ? 'broke ground'
                       : 'breaking ground'}
                   </div>
-                  <div className="font-semibold">
+                  <div className="font-semibold leading-[1.5]">
                     {hoodCharacters[0].hooddate !== ''
                       ? hoodCharacters[0].hooddate
                       : 'soon'}
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="leading-2">utilities on</div>
-                  <div className="font-semibold">
+                <div className="w-full p-[5px] text-center">
+                  <div className="leading-[1.5]">utilities on</div>
+                  <div className="font-semibold leading-[1.5]">
                     {hoodCharacters[0].active ? `yes` : `no`}
                   </div>
                 </div>
