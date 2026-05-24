@@ -9,6 +9,15 @@ import './styles/character.css';
 import Card from './components/Card';
 import Player from './components/Player';
 
+interface Hood {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  date: string;
+  active: boolean;
+}
+
 interface Card {
   slug: string;
   name: string;
@@ -24,6 +33,7 @@ interface Card {
 }
 
 function Hood() {
+  const [hood, setHood] = useState<Hood | null>(null);
   const [characters, setCharacters] = useState<Card[]>([]);
   const [hoodCharacters, setHoodCharacters] = useState<Card[]>([]);
   const [loading, setLoading] = useState(true);
@@ -32,20 +42,20 @@ function Hood() {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch('/data/characters.json');
+        const response = await fetch('/data/hoods.json');
         const data = await response.json();
-        const names = data.characters.filter(
-          (char: Card) => char.hoodslug === slug,
-        );
+        const thisHood = data.filter((hood: Hood) => hood.slug === slug);
 
-        setHoodCharacters(
-          names.sort((a: Card, b: Card) => a.name.localeCompare(b.name)),
-        );
-        setCharacters(
-          data.characters.sort((a: Card, b: Card) =>
-            a.name.localeCompare(b.name),
-          ),
-        );
+        setHood(thisHood[0]);
+
+        // setHoodCharacters(
+        //   names.sort((a: Card, b: Card) => a.name.localeCompare(b.name)),
+        // );
+        // setCharacters(
+        //   data.characters.sort((a: Card, b: Card) =>
+        //     a.name.localeCompare(b.name),
+        //   ),
+        // );
         setLoading(false);
       } catch (error) {
         console.error('Error loading data:', error);
@@ -58,9 +68,11 @@ function Hood() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('characters: ', characters);
-    console.log('hoodCharacters: ', hoodCharacters);
+    // console.log('characters: ', characters);
+    console.log('hood: ', hood);
   }
+
+  if (!hood) return null;
 
   return (
     <>
@@ -71,11 +83,11 @@ function Hood() {
         <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden">
           <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-[32px] relative items-center z-[1]">
             <div className="relative w-full h-full lg:w-[168px] lg:h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
-              {hoodCharacters[0].hoodslug ? (
+              {hood.slug ? (
                 <img
                   className="block w-full h-full drop-shadow-[0_3px_0_rgba(26,74,74,0.18)]"
-                  src={`/assets/hoods/badge-${hoodCharacters[0].hoodslug}.svg`}
-                  alt={hoodCharacters[0].hood}
+                  src={`/assets/hoods/badge-${hood.slug}.svg`}
+                  alt={hood.name}
                 />
               ) : (
                 <p className="w-[128px] h-[128px] bg-[var(--hood-accent)] shadow-[0_0_0_6px var(--bg-elevated),0_0_07.5px var(--bw-navy);]">
@@ -85,63 +97,56 @@ function Hood() {
             </div>
             <div className="bw-hood-head-text">
               <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
-                {hoodCharacters[0].hoodcutline}
+                {hood.tagline}
               </div>
-              {/* <div className="font-[family-name:var(--font-display)] text-[48px] md:text-[80px] text-[clamp(48px, 6.5vw, 80px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
-                {hoodCharacters[0].hood}
-              </div> */}
               <div className="max-w-[56ch] m-0 mb-[20px] text-[var(--fg)] text-[17px] leading-[1.55] text-center md:text-left">
-                {hoodCharacters[0].hooddescription}
+                {hood.description}
               </div>
               <div className="bw-hood-stats grid grid-cols-3 place-items-center text-[13px] text-[var(--fg-muted)]">
                 <div className="grid items-center w-full p-[5px] text-center">
                   <div className="leading-[1.5]">residents</div>
                   <div className="font-semibold leading-[1.5]">
-                    {hoodCharacters[0].active ? hoodCharacters.length : '0'}
+                    {hood.active ? hoodCharacters.length : '0'}
                   </div>
                 </div>
                 <div className="w-full p-[5px] border-l-[1px] border-r-[1px] border-[var(--bw-burnt)] text-center">
                   <div className="leading-[1.5]">
-                    {hoodCharacters[0].active
-                      ? 'broke ground'
-                      : 'breaking ground'}
+                    {hood.active ? 'broke ground' : 'breaking ground'}
                   </div>
                   <div className="font-semibold leading-[1.5]">
-                    {hoodCharacters[0].hooddate !== ''
-                      ? hoodCharacters[0].hooddate
-                      : 'soon'}
+                    {hood.date !== '' ? hood.date : 'soon'}
                   </div>
                 </div>
                 <div className="w-full p-[5px] text-center">
                   <div className="leading-[1.5]">utilities on</div>
                   <div className="font-semibold leading-[1.5]">
-                    {hoodCharacters[0].active ? `yes` : `no`}
+                    {hood.active ? `yes` : `no`}
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </header>
+        <div className="bw-theme-song-credit">Artist</div>
+      </section>
 
-        {/* Theme song — fat audio band */}
-        <section className="bw-theme-song">
+      {/* Theme song — fat audio band */}
+      {/* <section className="bw-theme-song">
           <div className="bw-theme-song-eyebrow">
             <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
             <span className="bw-theme-song-subtitle">
               A two-minute walk through the block.
             </span>
           </div>
-          <Player />
-          {/* <VoicePlayer
+          <Player /> */}
+      {/* <VoicePlayer
             label={n.themeSong.title}
             duration={n.themeSong.duration}
             palette="theme"
           /> */}
-          <div className="bw-theme-song-credit">Artist</div>
-        </section>
 
-        {/* Residents */}
-        <section className="bw-hood-residents">
+      {/* Residents */}
+      {/* <section className="bw-hood-residents">
           <header className="bw-section-header bw-section-header-l">
             <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
               Who lives here
@@ -168,7 +173,7 @@ function Hood() {
             })}
           </div>
         </section>
-      </section>
+      </section> */}
       {/* <section id="center">
         <h1>all active characters</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
