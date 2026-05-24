@@ -96,7 +96,9 @@ function Hood() {
               <div className="bw-hood-stats grid grid-cols-3 place-items-center text-[13px] text-[var(--fg-muted)]">
                 <div className="text-center">
                   <div className="leading-2">residents</div>
-                  <div className="font-semibold">{hoodCharacters.length}</div>
+                  <div className="font-semibold">
+                    {hoodCharacters[0].active ? hoodCharacters.length : '0'}
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="leading-2">
@@ -107,7 +109,7 @@ function Hood() {
                   <div className="font-semibold">
                     {hoodCharacters[0].hooddate !== ''
                       ? hoodCharacters[0].hooddate
-                      : ''}
+                      : 'soon'}
                   </div>
                 </div>
                 <div className="text-center">
