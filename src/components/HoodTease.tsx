@@ -17,15 +17,18 @@ function HoodTease({
     <article className="bw-featured-hood-card p-[0 auto] p-[24px] ">
       {/* Tilted postmark — the "this is the one right now" mark */}
       {usage === 'tease' && (
-        <div className="bw-featured-stamp" aria-hidden="true">
+        <div
+          className="bw-featured-stamp top-[var(--s-4)] right-[var(--s-4)]"
+          aria-hidden="true"
+        >
           <span className="bw-featured-stamp-top">Now on</span>
           <span className="bw-featured-stamp-mid">the Block</span>
-          <span className="bw-featured-stamp-bot">No. 01</span>
+          {/* <span className="bw-featured-stamp-bot">No. 01</span> */}
         </div>
       )}
 
-      <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-[32px] relative items-center z-[2]">
-        <div className="relative w-full h-full lg:w-[168px] lg:h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
+      <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-0 md:gap-[32px] relative items-center z-[2]">
+        <div className="relative w-[200px] h-[200px] lg:w-[168px] lg:h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent mt-0 mb-0 ml-[auto] mr-[auto]">
           {hood.slug && usage === 'tease' ? (
             <Link to={`/${hood.slug}`}>
               <img
@@ -45,18 +48,20 @@ function HoodTease({
 
         <div className="bw-featured-hood-body">
           {usage === 'tease' && (
-            <div className="bw-eyebrow font-(family-name:--font-body) text-(--bw-burnt) text-[14px] font-semibold uppercase">
+            <div className="bw-eyebrow font-(family-name:--font-body) text-(--bw-burnt) text-[14px] font-semibold uppercase text-center md:text-left">
               Featured neighborhood
             </div>
           )}
 
-          <div className="mt-[var(--s-4)] mx-0 text-[var(--fg-display)] text-[48px] font-(family-name:--font-display) font-normal tracking-[var(--ls-display] leading-[1.04]">
+          <div className="my-[var(--s-4)] mx-0 text-[var(--fg-display)] text-[48px] font-(family-name:--font-display) font-normal tracking-[var(--ls-display] leading-[1.04] text-center md:text-left">
             {hood.name}
           </div>
-          <div className="my-[var(--s-1)] mx-0 text-[var(--bw-burnt)] font-(family-name:--font-body) font-bold tracking-[var(--ls-display] leading-[1.04]">
+          <div className="my-[var(--s-1)] mx-0 text-[var(--bw-burnt)] font-(family-name:--font-body) font-bold tracking-[var(--ls-display] leading-[1.04] text-center md:text-left">
             {hood.tagline || 'Come on in.'}
           </div>
-          <p className="bw-featured-hood-desc">{hood.description}</p>
+          <p className="bw-featured-hood-desc text-center md:text-left">
+            {hood.description}
+          </p>
 
           <HoodStatus
             date={hood.date}

@@ -232,8 +232,8 @@
 /* The tilted postmark — circular ink stamp in the top-right. */
 .bw-featured-stamp {
   position: absolute;
-  top: var(--s-6);
-  right: var(--s-6);
+  /* top: var(--s-6); */
+  /* right: var(--s-6); */
   width: 96px;
   height: 96px;
   border-radius: 50%;
