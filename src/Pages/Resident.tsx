@@ -53,6 +53,7 @@ function Resident() {
   }
 
   if (!resident) return null;
+
   return (
     <article className="bw-detail w-full">
       <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
@@ -83,7 +84,7 @@ function Resident() {
 
           {/* Meta grid — 2x2 pinboard */}
           <dl className="bw-meta-grid">
-            <MetaPin label="Hood" value={neighborhood?.name} />
+            <MetaPin label="Hood" value={neighborhood?.name || 'Buffer Zone'} />
             <MetaPin label="Ethnicity / mix" value={resident.nationality} />
             <MetaPin label="Pronouns" value={resident.pronouns} />
             <MetaPin label="Age" value={`${resident.age} years`} />
