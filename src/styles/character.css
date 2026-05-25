@@ -4,6 +4,15 @@
    rectangles behind the illustration, teal footer panel.
    ============================================================ */
 
+.bw-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--t-small);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-allcaps);
+  color: var(--bw-burnt);
+}
+
 .bw-card-v2 {
   background: var(--bg);
   border-radius: var(--r);
@@ -135,7 +144,7 @@
    ============================================================ */
 
 .bw-detail {
-  max-width: 1240px;
+  /* max-width: 1240px; */
   margin: 0 auto;
   padding: var(--s-7) var(--s-7) var(--s-9);
 }
@@ -169,7 +178,7 @@
   border-radius: var(--r);
   box-shadow: inset 0 0 0 1.5px var(--bw-navy);
   padding: var(--s-6) var(--s-5) var(--s-5);
-  aspect-ratio: 4 / 5.4;
+  aspect-ratio: 2 / 3;
   overflow: hidden;
   display: grid;
   place-items: end center;
