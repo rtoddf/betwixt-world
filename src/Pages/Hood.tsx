@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
-import type { HoodType, ResidentType } from './types';
-import HoodStatus from './components/HoodStatus';
-import './styles/colors-and-type.scss';
-import './styles/hoods.scss';
-import './styles/styles.css';
-import './styles/character.css';
+import type { HoodType, ResidentType } from '../types';
+import HoodStatus from '../components/HoodStatus';
+import '../styles/colors-and-type.scss';
+import '../styles/hoods.scss';
+import '../styles/styles.css';
+import '../styles/character.css';
 
-import Card from './components/Card';
-import Player from './components/Player';
+import Card from '../components/Card';
+import Player from '../components/Player';
 
 function Hood() {
   const [hood, setHood] = useState<HoodType | null>(null);

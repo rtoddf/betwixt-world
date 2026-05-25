@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
-import type { ResidentType } from './types';
-import './styles/colors-and-type.scss';
-import './styles/character-details.scss';
+import type { ResidentType } from '../types';
+import '../styles/colors-and-type.scss';
+import '../styles/character-details.scss';
 
 function Resident() {
   const [resident, setResident] = useState<ResidentType | null>(null);

@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
-import type { HoodType, ResidentType } from './types';
-import HoodStatus from './components/HoodStatus';
-import './styles/colors-and-type.scss';
-import './styles/homepage.css';
-import './styles/card.scss';
+import type { HoodType, ResidentType } from '../types';
+import HoodStatus from '../components/HoodStatus';
+import '../styles/colors-and-type.scss';
+import '../styles/homepage.css';
+import '../styles/card.scss';
 
 function Home() {
   const [hood, setHood] = useState<HoodType | null>(null);

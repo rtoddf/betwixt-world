@@ -1,8 +1,8 @@
 import { Routes, Route } from 'react-router';
-import Home from './Home';
-import Hood from './Hood';
-import Hoods from './Hoods';
-import Resident from './Resident';
+import Home from './Pages/Home';
+import Hood from './Pages/Hood';
+import Hoods from './Pages/Hoods';
+import Resident from './Pages/Resident';
 
 function App() {
   return (

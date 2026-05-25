@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
-import type { HoodType } from './types';
-import './styles/colors-and-type.scss';
-import './styles/hoods.scss';
-import './styles/styles.css';
-import './styles/character.css';
+import type { HoodType } from '../types';
+import '../styles/colors-and-type.scss';
+import '../styles/hoods.scss';
+import '../styles/styles.css';
+import '../styles/character.css';
 
 function Hoods() {
   const [hoods, setHoods] = useState<HoodType[]>([]);
