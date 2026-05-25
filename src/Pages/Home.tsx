@@ -48,7 +48,7 @@ function Home() {
   return (
     <>
       <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
-        <HoodTease hood={hood} residents={residents} />
+        <HoodTease hood={hood} residents={residents} usage="tease" />
       </section>
     </>
   );

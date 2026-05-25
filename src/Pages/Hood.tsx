@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
+import HoodTease from '../components/HoodTease';
 import HoodStatus from '../components/HoodStatus';
 import '../styles/colors-and-type.scss';
 import '../styles/hoods.scss';
@@ -59,37 +60,10 @@ function Hood() {
         <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
           <Link to={`/hoods`}>← Back to the neighborhood map</Link>
         </button>
-        <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden">
-          <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-[32px] relative items-center z-[1]">
-            <div className="relative w-full h-full lg:w-[168px] lg:h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent">
-              {hood.slug ? (
-                <img
-                  className="block w-full h-full drop-shadow-[0_3px_0_rgba(26,74,74,0.18)]"
-                  src={`/assets/hoods/badge-${hood.slug}.svg`}
-                  alt={hood.name}
-                />
-              ) : (
-                <p className="w-[128px] h-[128px] bg-[var(--hood-accent)] shadow-[0_0_0_6px var(--bg-elevated),0_0_07.5px var(--bw-navy);]">
-                  filler image
-                </p>
-              )}
-            </div>
-            <div className="bw-hood-head-text">
-              <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
-                {hood.tagline}
-              </div>
-              <div className="max-w-[56ch] m-0 mb-[20px] text-[var(--fg)] text-[17px] leading-[1.55] text-center md:text-left">
-                {hood.description}
-              </div>
 
-              <HoodStatus
-                date={hood.date}
-                res={residents.filter((r) => r.active).length}
-                active={hood.active}
-              />
-            </div>
-          </div>
-        </header>
+        <HoodTease hood={hood} residents={residents} usage="page" />
+
+        {/* <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden"></header> */}
 
         {/* Theme song — fat audio band */}
         <section className="bw-theme-song">
