@@ -43,7 +43,7 @@ function Resident() {
       }
     }
     getData();
-  }, [slug]);
+  }, [slug, hood]);
 
   if (loading) {
     return <div>Loading...</div>;
