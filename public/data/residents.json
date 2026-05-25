@@ -210,6 +210,20 @@
     "active": true
   },
   {
+    "slug": "wilma",
+    "image": "wilma.svg",
+    "name": "Wilma",
+    "pronunciation": "WIL-muh",
+    "tag": "Brain Freeze",
+    "hood": "weirdford",
+    "nationality": "Irish American",
+    "pronouns": "she/her",
+    "age": "13",
+    "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+    "shortBio": "",
+    "active": true
+  },
+  {
     "slug": "the-morrigan",
     "image": "the-morrigan.svg",
     "name": "The Morrigan",

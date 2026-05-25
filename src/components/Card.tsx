@@ -19,12 +19,13 @@ function Card({
   image: string;
   active: boolean;
 }) {
+  console.log('hood: ', hood);
   const inner = (
     <div className="p-[10px]">
       <div className="rounded-[8px] flex flex-col overflow-hidden bg-(--bw-cream) shadow-[inset_0_0_0_1.5px_var(--bw-navy),_0_4px_0_rgba(26,74,74,0.1)]">
         <div className="relative w-full grid aspect-[2/3] place-items-center p-4 color-(--bw-navy) border-b-[1.5px] border-b-solid border-b-(--bw-navy) text-[64px] leading-none tracking-normal">
           {active ? (
-            <img src={`/assets/characters/${image}`} alt={name} />
+            <img src={`/assets/characters/${hood}/${image}`} alt={name} />
           ) : (
             <div className="text-[var(--bw-navy)] text-[22px] text-center font-[family-name:var(--font-display)] tracking-[0.05em] leading-[1.2]">
               A neighbor is moving in soon

@@ -1,0 +1,118 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { Link } from 'react-router';
+import type { HoodType, ResidentType } from '../types';
+import HoodTease from '../components/HoodTease';
+import '../styles/colors-and-type.scss';
+import '../styles/hoods.scss';
+import '../styles/styles.css';
+import '../styles/character.css';
+
+import Card from '../components/Card';
+import Player from '../components/Player';
+
+function Hood() {
+  const [hood, setHood] = useState<HoodType | null>(null);
+  const [residents, setResidents] = useState<ResidentType[]>([]);
+  const [loading, setLoading] = useState(true);
+  const { slug } = useParams();
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const response = await fetch('/data/hoods.json');
+        const data = await response.json();
+        const thisHood = data.filter((h: HoodType) => h.slug === slug);
+        setHood(thisHood[0]);
+
+        const responseRes = await fetch('/data/residents.json');
+        const dataRes = await responseRes.json();
+        const hoodResidents = dataRes.filter(
+          (resident: ResidentType) => resident.hood === slug,
+        );
+        setResidents(
+          hoodResidents.sort((a: ResidentType, b: ResidentType) =>
+            a.name.localeCompare(b.name),
+          ),
+        );
+        setLoading(false);
+      } catch (error) {
+        console.error('Error loading data:', error);
+        setLoading(false);
+      }
+    }
+    getData();
+  }, [slug]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  } else {
+    console.log('residents: ', residents);
+    console.log('hood: ', hood);
+  }
+
+  if (!hood) return null;
+
+  return (
+    <>
+      <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
+        <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
+          <Link to={`/hoods`}>← Back to the neighborhood map</Link>
+        </button>
+
+        <HoodTease hood={hood} residents={residents} usage="page" />
+
+        {/* <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden"></header> */}
+
+        {/* Theme song — fat audio band */}
+        <section className="bw-theme-song">
+          <div className="bw-theme-song-eyebrow">
+            <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
+            <span className="bw-theme-song-subtitle">
+              A two-minute walk through the block.
+            </span>
+          </div>
+          <Player />
+          {/* <VoicePlayer
+            label={n.themeSong.title}
+            duration={n.themeSong.duration}
+            palette="theme"
+          /> */}
+          <div className="bw-theme-song-credit">Artist</div>
+        </section>
+
+        {/* Residents */}
+        <section className="bw-hood-residents">
+          <header className="bw-section-header bw-section-header-l">
+            <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
+              Who lives here
+            </div>
+            <div className="font-[family-name:var(--font-display)] text-[30px] md:text-[48px] text-[clamp(30px, 6.5vw, 56px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
+              Meet the residents
+            </div>
+          </header>
+          <div
+            className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
+          >
+            {residents.map(function (resident) {
+              return (
+                <Card
+                  key={resident.slug}
+                  slug={resident.slug}
+                  hood={resident.hood}
+                  name={resident.name}
+                  tag={resident.tag}
+                  miniBio={resident.miniBio}
+                  image={resident.image}
+                  active={resident.active}
+                />
+              );
+            })}
+          </div>
+        </section>
+      </section>
+    </>
+  );
+}
+
+export default Hood;
