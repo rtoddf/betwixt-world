@@ -4,7 +4,7 @@ import HoodStatus from './HoodStatus';
 import '../styles/colors-and-type.scss';
 import '../styles/card.scss';
 
-function Hood({
+function HoodTease({
   hood,
   residents,
 }: {
@@ -66,4 +66,4 @@ function Hood({
   );
 }
 
-export default Hood;
+export default HoodTease;

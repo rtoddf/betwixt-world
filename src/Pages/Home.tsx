@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { HoodType, ResidentType } from '../types';
-import Hood from '../components/Hood';
+import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
 import '../styles/homepage.css';
 import '../styles/card.scss';
@@ -48,7 +48,7 @@ function Home() {
   return (
     <>
       <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
-        <Hood hood={hood} residents={residents} />
+        <HoodTease hood={hood} residents={residents} />
       </section>
     </>
   );
