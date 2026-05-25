@@ -3,7 +3,6 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import HoodTease from '../components/HoodTease';
-import HoodStatus from '../components/HoodStatus';
 import '../styles/colors-and-type.scss';
 import '../styles/hoods.scss';
 import '../styles/styles.css';
