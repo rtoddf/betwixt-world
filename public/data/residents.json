@@ -9,7 +9,7 @@
     "nationality": "Greek",
     "pronouns": "He/Him",
     "age": "12",
-    "miniBio": "<p>There is more to words than rhythm and rhyme.<br />More to the colors of a sunset in Summertime.<br />Every blank slate<br />Is a chance to create<br />All this and more, all before your bedtime</p>",
+    "miniBio": "<p>There is more to words than rhythm and rhyme.<br />More to the colors of a sunset in Summertime.<br />Every blank slate<br />Is a chance to create<br />All this and more, all before your bedtime.</p>",
     "shortBio": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Nunc porttitor diam eget ex ultricies faucibus. Duis eleifend porttitor erat eget dapibus. Sed gravida risus non dapibus porta. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><p>Integer dapibus massa in metus sagittis fringilla.</p><p>Praesent tempor tincidunt gravida. Integer quis ipsum hendrerit, pulvinar tortor vel, placerat lacus.</p><p>Fusce ultricies urna sollicitudin, viverra elit et, pharetra ligula. Nulla placerat nisl vel mauris ornare fringilla.</p><p>Etiam cursus, ligula vitae dignissim pharetra, eros dui porta elit, quis molestie massa metus vitae sapien.</p>",
     "active": true
   },
@@ -37,7 +37,7 @@
     "nationality": "Filipino",
     "pronouns": "They/Them",
     "age": "10",
-    "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+    "miniBio": "<p>Order was awful, they had to confess.<br />Straight lines were a menace. They liked things a mess.<br />It wasn't a phase<br />when they set things ablaze.<br />Their hair different colors, and a dog in a dress.</p>",
     "shortBio": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Nunc porttitor diam eget ex ultricies faucibus. Duis eleifend porttitor erat eget dapibus. Sed gravida risus non dapibus porta. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><p>Integer dapibus massa in metus sagittis fringilla.</p><p>Praesent tempor tincidunt gravida. Integer quis ipsum hendrerit, pulvinar tortor vel, placerat lacus.</p><p>Fusce ultricies urna sollicitudin, viverra elit et, pharetra ligula. Nulla placerat nisl vel mauris ornare fringilla.</p><p>Etiam cursus, ligula vitae dignissim pharetra, eros dui porta elit, quis molestie massa metus vitae sapien.</p>",
     "active": true
   },
