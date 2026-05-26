@@ -82,11 +82,14 @@ function Hood() {
         {/* Residents */}
         <section className="bw-hood-residents">
           <header className="bw-section-header bw-section-header-l">
-            <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
-              Who lives here
-            </div>
+            {hood.active && (
+              <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
+                Who lives here
+              </div>
+            )}
+
             <div className="font-[family-name:var(--font-display)] text-[30px] md:text-[48px] text-[clamp(30px, 6.5vw, 56px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
-              Meet the residents
+              {hood.active ? 'Meet the residents' : 'Moving in soon'}
             </div>
           </header>
           <div
