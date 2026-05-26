@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214.33 187.74">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1a4a4a;
+        font-family: Quicksand-Bold, Quicksand;
+        font-size: 28.84px;
+        font-variation-settings: 'wght' 700;
+        font-weight: 700;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #f5edd6;
+      }
+
+      .cls-4 {
+        opacity: .75;
+        stroke-width: 1.67px;
+      }
+
+      .cls-4, .cls-5, .cls-3, .cls-6 {
+        stroke: #1a4a4a;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4, .cls-5, .cls-6 {
+        fill: none;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        opacity: .5;
+      }
+
+      .cls-5 {
+        stroke-width: 2.45px;
+      }
+
+      .cls-9 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-3 {
+        stroke-width: 2.5px;
+      }
+
+      .cls-6 {
+        stroke-dasharray: 2.46 2.46;
+        stroke-width: 1.64px;
+      }
+    </style>
+  </defs>
+  <g id="bg_cream" data-name="bg cream">
+    <circle class="cls-2" cx="106.66" cy="89.58" r="88.35"/>
+  </g>
+  <g id="ring-turq">
+    <circle class="cls-5" cx="106.66" cy="89.58" r="88.35"/>
+    <g class="cls-8">
+      <circle class="cls-6" cx="106.66" cy="89.58" r="81.49"/>
+    </g>
+  </g>
+  <g id="frame-turg">
+    <rect class="cls-3" x="1.7" y="114.9" width="210.45" height="45.55" rx="8.97" ry="8.97"/>
+    <rect class="cls-4" x="7.24" y="119.63" width="199.36" height="36.08" rx="7.77" ry="7.77"/>
+  </g>
+  <g id="Layer_6_copy_4" data-name="Layer 6 copy 4">
+    <text class="cls-1" transform="translate(11.42 148.08) scale(.81 1)"><tspan x="0" y="0">J</tspan><tspan class="cls-9" x="15.92" y="0">U</tspan><tspan class="cls-7" x="35.96" y="0">ST IS HEIGHTS</tspan></text>
+  </g>
+</svg>

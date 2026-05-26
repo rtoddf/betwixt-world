@@ -306,5 +306,47 @@
     "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
     "shortBio": "",
     "active": false
+  },
+  {
+    "slug": "cadence",
+    "image": "cadence.svg",
+    "name": "Cadence",
+    "pronunciation": "KAY-dens",
+    "tag": "Bipolar",
+    "hood": "just-is-heights",
+    "nationality": "Pacific Islander",
+    "pronouns": "He/Him",
+    "age": "16",
+    "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+    "shortBio": "",
+    "active": true
+  },
+  {
+    "slug": "drystan",
+    "image": "drystan.svg",
+    "name": "Drystan",
+    "pronunciation": "DRIS-tan",
+    "tag": "Despression",
+    "hood": "just-is-heights",
+    "nationality": "Bitish",
+    "pronouns": "He/Him",
+    "age": "16",
+    "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+    "shortBio": "",
+    "active": true
+  },
+  {
+    "slug": "lex",
+    "image": "lex.svg",
+    "name": "Lex",
+    "pronunciation": "LEX",
+    "tag": "Dyslexia",
+    "hood": "just-is-heights",
+    "nationality": "Indian",
+    "pronouns": "He/Him",
+    "age": "14",
+    "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+    "shortBio": "",
+    "active": true
   }
 ]
