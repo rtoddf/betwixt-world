@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import type { HoodType, ResidentType } from '../types';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
-import '../styles/homepage.css';
-import '../styles/card.scss';
+import '../styles/final.scss';
 
 function Home() {
   const [hood, setHood] = useState<HoodType | null>(null);
@@ -40,14 +39,14 @@ function Home() {
     // console.log('hoods: ', hoods);
   }
 
-  console.log('hood: ', hood);
-  console.log('residents: ', residents);
+  // console.log('hood: ', hood);
+  // console.log('residents: ', residents);
 
   if (!hood) return null;
 
   return (
     <>
-      <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
+      <section className="w-full md:w-[768px] lg:w-[1024px] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
         <HoodTease hood={hood} residents={residents} usage="tease" />
       </section>
     </>

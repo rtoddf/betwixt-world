@@ -40,6 +40,14 @@
     "active": true
   },
   {
+    "slug": "just-is-heights",
+    "name": "Just Is Heights",
+    "tagline": "Tagline",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar eu turpis eu tincidunt. Nunc eleifend pellentesque ante vulputate volutpat. Maecenas a orci magna. Nulla facilisi. Quisque augue arcu, ultrices et enim sit amet, eleifend posuere augue.",
+    "date": "winter 2026",
+    "active": false
+  },
+  {
     "slug": "buffer-zone",
     "name": "Buffer Zone",
     "tagline": "Somewhere between here and there",

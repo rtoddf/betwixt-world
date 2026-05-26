@@ -2,7 +2,6 @@ import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import HoodStatus from './HoodStatus';
 import '../styles/colors-and-type.scss';
-import '../styles/card.scss';
 
 function HoodTease({
   hood,
