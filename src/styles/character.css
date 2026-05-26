@@ -304,10 +304,12 @@
   gap: 2px;
   border-bottom: 1px dashed rgba(26, 74, 74, 0.2);
 }
-.bw-meta-pin:last-child,
+
+/* .bw-meta-pin:last-child,
 .bw-meta-pin:nth-last-child(2):not(:nth-child(odd)) {
   border-bottom: 0;
-}
+} */
+
 @media (max-width: 540px) {
   .bw-meta-pin {
     border-bottom: 1px dashed rgba(26, 74, 74, 0.2);

@@ -103,7 +103,7 @@ function Resident() {
             <div className="bw-eyebrow bw-eyebrow-amber">The story</div>
             <div
               className="bw-detail-prose"
-              dangerouslySetInnerHTML={{ __html: resident.miniBio }}
+              dangerouslySetInnerHTML={{ __html: resident.shortBio }}
             />
           </section>
 
