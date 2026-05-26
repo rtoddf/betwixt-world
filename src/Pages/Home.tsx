@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { HoodType, ResidentType } from '../types';
+import { fetchNeighborhoods } from '../lib/sanity';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
 import '../styles/final.scss';
@@ -12,9 +13,8 @@ function Home() {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch('/data/hoods.json');
-        const data = await response.json();
-        const randomHood = data[Math.floor(Math.random() * data.length)];
+        const hoods = await fetchNeighborhoods();
+        const randomHood = hoods[Math.floor(Math.random() * hoods.length)];
         setHood(randomHood);
 
         const responseRes = await fetch('/data/residents.json');
