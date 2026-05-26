@@ -524,19 +524,6 @@
   letter-spacing: 0.06em;
 }
 
-/* Residents section */
-.bw-hood-residents {
-  margin-top: var(--s-8);
-}
-.bw-section-header-l {
-  text-align: left;
-  max-width: none;
-  margin-bottom: var(--s-6);
-}
-.bw-section-header-l h2 {
-  margin-top: var(--s-2);
-}
-
 /* ============================================================
    Image slot — let it sit transparent inside the rect backdrop
    ============================================================ */

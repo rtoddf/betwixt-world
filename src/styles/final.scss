@@ -240,3 +240,94 @@
     font-size: 8px;
   }
 }
+
+/* Residents section */
+.bw-hood-residents {
+  margin-top: var(--s-8);
+}
+.bw-section-header-l {
+  text-align: left;
+  max-width: none;
+  margin-bottom: var(--s-6);
+}
+.bw-section-header-l h2 {
+  margin-top: var(--s-2);
+}
+
+/* ---------- Buttons ---------- */
+.bw-btn {
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1;
+  padding: var(--s-3) var(--s-5);
+  border-radius: var(--r);
+  border: 0;
+  cursor: pointer;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+.bw-btn-primary {
+  background: var(--bw-teal);
+  color: var(--bw-cream);
+  box-shadow: 0 4px 0 var(--bw-navy);
+}
+.bw-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--bw-navy);
+}
+.bw-btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 var(--bw-navy);
+}
+
+.bw-btn-amber {
+  background: var(--bw-amber);
+  color: var(--bw-navy);
+  box-shadow: 0 4px 0 var(--bw-navy);
+}
+.bw-btn-amber:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--bw-navy);
+}
+
+.bw-btn-ghost {
+  background: transparent;
+  color: var(--bw-navy);
+  box-shadow: inset 0 0 0 1.5px var(--bw-navy);
+}
+.bw-btn-ghost:hover {
+  background: rgba(26, 74, 74, 0.05);
+}
+
+.bw-hood-head {
+  box-shadow:
+    inset 0 0 0 1.5px var(--bw-navy),
+    0 4px 0 rgba(26, 74, 74, 0.1);
+}
+// hoods
+.bw-hood-head::before {
+  content: '';
+  position: absolute;
+  right: -80px;
+  top: -60px;
+  width: 240px;
+  height: 280px;
+  background: var(--bw-amber);
+  opacity: 0.1;
+  transform: rotate(8deg);
+  border-radius: 12px;
+}
+.bw-hood-head::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  bottom: -90px;
+  width: 200px;
+  height: 220px;
+  background: var(--bw-burnt);
+  opacity: 0.1;
+  transform: rotate(-6deg);
+  border-radius: 12px;
+}

@@ -4,8 +4,6 @@ import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
-import '../styles/hoods.scss';
-import '../styles/styles.css';
 import '../styles/character.css';
 
 import Card from '../components/Card';
