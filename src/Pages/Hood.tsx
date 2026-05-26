@@ -108,7 +108,11 @@ function Hood() {
                   tag={resident.tag}
                   miniBio={resident.miniBio}
                   image={resident.image}
-                  active={resident.active}
+                  active={
+                    hood.active && residents.length !== 0
+                      ? resident.active
+                      : false
+                  }
                 />
               );
             })}

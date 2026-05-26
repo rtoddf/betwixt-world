@@ -152,11 +152,16 @@
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--bw-amber);
-  box-shadow:
-    0 0 0 2px rgba(240, 165, 0, 0.28),
-    0 0 10px rgba(240, 165, 0, 0.55);
-  animation: bw-porch-flicker 2.4s var(--ease-out) infinite;
+  border: 1px solid #000;
+
+  &.on {
+    border: none;
+    background: var(--bw-amber);
+    box-shadow:
+      0 0 0 2px rgba(240, 165, 0, 0.28),
+      0 0 10px rgba(240, 165, 0, 0.55);
+    animation: bw-porch-flicker 2.4s var(--ease-out) infinite;
+  }
 }
 @keyframes bw-porch-flicker {
   0%,
