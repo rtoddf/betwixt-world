@@ -69,7 +69,9 @@ function Resident() {
           <div className="bw-eyebrow">
             Resident · {neighborhood?.name} · #{resident.name}
           </div>
-          <h1 className="font-(family-name:--font-display)">{resident.name}</h1>
+          <h1 className="bw-detail-name font-(family-name:--font-display)">
+            {resident.name}
+          </h1>
           {/* <h1 className="bw-detail-name">{resident.name}</h1> */}
           {resident.pronunciation && (
             <div className="bw-detail-pron">/{resident.pronunciation}/</div>
