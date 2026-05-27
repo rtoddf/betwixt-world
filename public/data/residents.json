@@ -348,5 +348,19 @@
     "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
     "shortBio": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Nunc porttitor diam eget ex ultricies faucibus. Duis eleifend porttitor erat eget dapibus. Sed gravida risus non dapibus porta. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><p>Integer dapibus massa in metus sagittis fringilla.</p><p>Praesent tempor tincidunt gravida. Integer quis ipsum hendrerit, pulvinar tortor vel, placerat lacus.</p><p>Fusce ultricies urna sollicitudin, viverra elit et, pharetra ligula. Nulla placerat nisl vel mauris ornare fringilla.</p><p>Etiam cursus, ligula vitae dignissim pharetra, eros dui porta elit, quis molestie massa metus vitae sapien.</p>",
     "active": true
+  },
+  {
+    "slug": "barbarian",
+    "image": "barbarian.svg",
+    "name": "Barbarian",
+    "pronunciation": "BBOB",
+    "tag": "",
+    "hood": "the-realm",
+    "nationality": "RACE",
+    "pronouns": "She/Her",
+    "age": "10",
+    "miniBio": "There once was a girl with deep pockets, Full of acorns and string and old lockets. She'd count them by name, Each evening the same, Then sleep with them tucked in their sockets.",
+    "shortBio": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Nunc porttitor diam eget ex ultricies faucibus. Duis eleifend porttitor erat eget dapibus. Sed gravida risus non dapibus porta. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p><p>Integer dapibus massa in metus sagittis fringilla.</p><p>Praesent tempor tincidunt gravida. Integer quis ipsum hendrerit, pulvinar tortor vel, placerat lacus.</p><p>Fusce ultricies urna sollicitudin, viverra elit et, pharetra ligula. Nulla placerat nisl vel mauris ornare fringilla.</p><p>Etiam cursus, ligula vitae dignissim pharetra, eros dui porta elit, quis molestie massa metus vitae sapien.</p>",
+    "active": true
   }
 ]

@@ -54,5 +54,13 @@
     "description": "Not every block is ready for visitors. Some hoods are still figuring out who lives there. The lights are on. The porch is swept. Somebody's moving in soon. Mind the dust.",
     "date": "",
     "active": false
+  },
+  {
+    "slug": "the-realm",
+    "name": "The Realm",
+    "tagline": "Lorem ipsum dolor",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis at dui imperdiet congue. Donec porttitor lacus eros, ut pharetra nisl condimentum ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum sed quam porta, porta quam a, dictum mi. Nam at laoreet libero.",
+    "date": "summer 2026",
+    "active": true
   }
 ]
