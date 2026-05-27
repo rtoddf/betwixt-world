@@ -18,7 +18,7 @@ function Card({
   image: string;
   active: boolean;
 }) {
-  console.log('hood: ', hood);
+  console.log('active: ', active);
   const inner = (
     <div>
       <div className="p-[10px]">
@@ -56,7 +56,7 @@ function Card({
         </div>
       </div>
       <div className="visible md:hidden text-(--fg-display) font-(family-name:--font-body) font-bold text-[18px] text-center">
-        {name}
+        {active ? name : ''}
       </div>
     </div>
   );
