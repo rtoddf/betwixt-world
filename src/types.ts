@@ -4,6 +4,7 @@ export interface HoodType {
   tagline: string;
   description: string;
   date: string;
+  theme: boolean;
   active: boolean;
 }
 

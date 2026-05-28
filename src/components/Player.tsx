@@ -1,10 +1,10 @@
-import mySound from '/assets/music/intangimere.mp3'; // Import local file
+import type { HoodType } from '../types';
 import '../styles/colors-and-type.scss';
 
-function Player() {
+function Player({ hood }: { hood: HoodType }) {
   return (
     <div>
-      <audio src={mySound} controls />
+      <audio src={`/assets/music/${hood.slug}.mp3`} controls />
     </div>
   );
 }

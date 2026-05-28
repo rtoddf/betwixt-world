@@ -13,7 +13,7 @@ function Hoods() {
         const data = await response.json();
         const hoodsSorted = data
           .sort((a: HoodType, b: HoodType) => a.name.localeCompare(b.name))
-          .filter((hood) => hood.active);
+          .filter((hood: HoodType) => hood.active);
 
         setHoods(hoodsSorted);
 
