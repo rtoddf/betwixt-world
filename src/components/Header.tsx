@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import Button from './Button';
 import '../styles/layout.scss';
 
@@ -20,11 +20,14 @@ function Header() {
         <ul>
           {nav.map((n) => (
             <li key={n.id}>
-              <Link className="bw-link" to={n.path}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? 'bw-link is-active' : 'bw-link'
+                }
+                to={n.path}
+              >
                 {n.label}
-              </Link>
-              {/* className={route === n.id ? 'is-active' : ''}
-              setRoute(n.id); */}
+              </NavLink>
             </li>
           ))}
         </ul>
