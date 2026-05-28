@@ -50,11 +50,11 @@ function Hood() {
   }
 
   if (!hood) return null;
-  console.log('residents.lentgh: ', residents.length);
+  console.log('hood: ', hood);
 
   return (
     <>
-      <section className="bw-hood w-full md:w-[768px] lg:w-[1024px] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
+      <section className="bw-hood w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
         <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
           <Link to={`/hoods`}>← Back to the neighborhood map</Link>
         </button>
@@ -63,22 +63,23 @@ function Hood() {
 
         {/* <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden"></header> */}
 
-        {/* Theme song — fat audio band */}
-        <section className="bw-theme-song">
-          <div className="bw-theme-song-eyebrow">
-            <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
-            <span className="bw-theme-song-subtitle">
-              A two-minute walk through the block.
-            </span>
-          </div>
-          <Player />
-          {/* <VoicePlayer
+        {hood.theme && (
+          <section className="bw-theme-song">
+            <div className="bw-theme-song-eyebrow">
+              <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
+              <span className="bw-theme-song-subtitle">
+                A two-minute walk through {hood.name}.
+              </span>
+            </div>
+            <Player hood={hood} />
+            {/* <VoicePlayer
             label={n.themeSong.title}
             duration={n.themeSong.duration}
             palette="theme"
           /> */}
-          <div className="bw-theme-song-credit">Artist</div>
-        </section>
+            {/* <div className="bw-theme-song-credit">Artist</div> */}
+          </section>
+        )}
 
         {/* Residents */}
         <section className="bw-hood-residents">

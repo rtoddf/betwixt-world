@@ -54,7 +54,7 @@ function Resident() {
   if (!resident) return null;
 
   return (
-    <article className="bw-detail w-full">
+    <section className="bw-hood w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
       <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
         <Link to={`/${neighborhood?.slug}`}>← Back to the hood</Link>
       </button>
@@ -69,7 +69,9 @@ function Resident() {
           <div className="bw-eyebrow">
             Resident · {neighborhood?.name} · #{resident.name}
           </div>
-          <h1 className="font-(family-name:--font-display)">{resident.name}</h1>
+          <h1 className="bw-detail-name font-(family-name:--font-display)">
+            {resident.name}
+          </h1>
           {/* <h1 className="bw-detail-name">{resident.name}</h1> */}
           {resident.pronunciation && (
             <div className="bw-detail-pron">/{resident.pronunciation}/</div>
@@ -103,7 +105,7 @@ function Resident() {
             <div className="bw-eyebrow bw-eyebrow-amber">The story</div>
             <div
               className="bw-detail-prose"
-              dangerouslySetInnerHTML={{ __html: resident.miniBio }}
+              dangerouslySetInnerHTML={{ __html: resident.shortBio }}
             />
           </section>
 
@@ -120,7 +122,7 @@ function Resident() {
         </div>
         {/* <div className="content-holder col-span-2 p-[10px]"> */}
       </div>
-    </article>
+    </section>
   );
 }
 

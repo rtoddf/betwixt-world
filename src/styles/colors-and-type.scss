@@ -202,3 +202,8 @@
 .bw-on-teal h3 {
   color: var(--fg-inverse);
 }
+
+// TODO: putting this here for now
+.resident-name-card {
+  font-size: clamp(48px, 13vw, 40px);
+}
