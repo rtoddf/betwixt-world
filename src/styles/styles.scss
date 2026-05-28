@@ -24,59 +24,6 @@ body.bw-root {
   padding: 0 var(--s-7);
 }
 
-/* ---------- Header ---------- */
-.bw-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--s-6) var(--s-7);
-  max-width: 1280px;
-  margin: 0 auto;
-  border-bottom: 1.5px solid rgba(26, 74, 74, 0.15);
-}
-.bw-brand {
-  display: flex;
-  align-items: center;
-  gap: var(--s-4);
-  text-decoration: none;
-}
-.bw-brand img {
-  width: 56px;
-  height: 56px;
-  display: block;
-  filter: drop-shadow(0 2px 0 rgba(26, 74, 74, 0.1));
-}
-.bw-brand span {
-  font-family: var(--font-display);
-  font-size: 38px;
-  letter-spacing: 0.06em;
-  color: var(--fg-display);
-  line-height: 1;
-}
-.bw-nav ul {
-  display: flex;
-  gap: var(--s-6);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.bw-nav a {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--fg);
-  text-decoration: none;
-  padding: var(--s-2) 2px;
-  border-bottom: 2px solid transparent;
-  transition: border-color var(--dur-fast) var(--ease-out);
-  cursor: pointer;
-}
-.bw-nav a:hover {
-  border-bottom-color: var(--bw-amber);
-}
-.bw-nav a.is-active {
-  border-bottom-color: var(--bw-teal);
-}
-
 /* 
 .bw-link {
   background: transparent;
@@ -382,76 +329,6 @@ body.bw-root {
 .bw-note-arrow {
   font-size: 22px;
   color: var(--bw-teal);
-}
-
-/* ---------- Footer ---------- */
-.bw-footer {
-  background: var(--bw-navy);
-  color: var(--bw-cream);
-  margin-top: var(--s-9);
-}
-.bw-footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--s-8) var(--s-7);
-  display: grid;
-  grid-template-columns: 1.4fr 1.6fr;
-  gap: var(--s-7);
-}
-.bw-footer-brand {
-  display: flex;
-  gap: var(--s-4);
-  align-items: flex-start;
-}
-.bw-footer-brand img {
-  width: 56px;
-  height: 56px;
-}
-.bw-footer-wm {
-  font-family: var(--font-display);
-  font-size: 32px;
-  letter-spacing: 0.05em;
-  line-height: 1;
-  color: var(--bw-cream);
-}
-.bw-footer-tag {
-  font-size: 14px;
-  opacity: 0.78;
-  margin-top: var(--s-2);
-}
-.bw-footer-cols {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s-5);
-}
-.bw-footer-h {
-  font-family: var(--font-display);
-  font-size: 18px;
-  letter-spacing: 0.05em;
-  color: var(--bw-amber);
-  margin-bottom: var(--s-3);
-}
-.bw-footer-cols a {
-  display: block;
-  font-size: 14px;
-  line-height: 1.9;
-  color: var(--bw-cream);
-  opacity: 0.82;
-  cursor: pointer;
-  text-decoration: none;
-}
-.bw-footer-cols a:hover {
-  opacity: 1;
-}
-.bw-footer-strip {
-  border-top: 1.5px solid rgba(245, 237, 214, 0.18);
-  padding: var(--s-4) var(--s-7);
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  opacity: 0.7;
 }
 
 /* ---------- Character profile ---------- */
