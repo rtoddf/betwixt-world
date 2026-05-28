@@ -15,7 +15,7 @@
     "tagline": "Everyone's got something to say about it",
     "description": "Nobody moves to Dramaside by accident. They audition. The streets are loud, the neighbors are louder, and someone is always watching from behind that fence. Every argument is a performance. Every reconciliation deserves applause.",
     "date": "summer 2026",
-    "theme": false,
+    "theme": true,
     "theme-color": "#231f20",
     "active": true
   },
@@ -45,7 +45,7 @@
     "tagline": "Where normal lost its footing",
     "description": "Nobody planned to cross the bridge into Weirdford. Nobody plans anything in Weirdford. Your body just does a thing — hiccups, sneezes, shivers for no reason — and suddenly you're here. The bridge is slightly wrong. The houses lean. Don't worry. It passes. Probably.",
     "date": "summer 2026",
-    "theme": false,
+    "theme": true,
     "theme-color": "#2c8080",
     "active": true
   },
