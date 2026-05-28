@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { HoodType, ResidentType } from '../types';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
 import '../styles/final.scss';
@@ -46,9 +48,11 @@ function Home() {
 
   return (
     <>
+      <Header />
       <section className="w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:pb-[var(--s-9)] lg:px-[var(--s-7)]">
         <HoodTease hood={hood} residents={residents} usage="tease" />
       </section>
+      <Footer />
     </>
   );
 }
