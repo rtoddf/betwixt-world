@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import Button from './Button';
 import '../styles/layout.scss';
 
-function Header({}: {}) {
+function Header() {
   const nav = [
     { id: 'hoods', label: 'Hoods', path: '/hoods' },
     { id: 'residents', label: 'Residents', path: '/residents' },
