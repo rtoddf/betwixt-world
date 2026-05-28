@@ -11,7 +11,11 @@ function Hoods() {
       try {
         const response = await fetch('/data/hoods.json');
         const data = await response.json();
-        setHoods(data);
+        const hoodsSorted = data
+          .sort((a: HoodType, b: HoodType) => a.name.localeCompare(b.name))
+          .filter((hood) => hood.active);
+
+        setHoods(hoodsSorted);
 
         setLoading(false);
       } catch (error) {
