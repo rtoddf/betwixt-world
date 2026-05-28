@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import HoodStatus from './HoodStatus';
+import Button from './Button';
 import '../styles/colors-and-type.scss';
 
 function HoodTease({
@@ -70,18 +71,9 @@ function HoodTease({
         </div>
       </div>
       {usage === 'tease' && (
-        <div className="grid grid-cols-2 gap-[10px] justify-items-center mt-[30px]">
-          <Link to={`/${hood.slug}`}>
-            <button type="button" className="bw-btn bw-btn-primary">
-              Visit <span className="hidden md:inline-block">{hood.name}</span>
-            </button>
-          </Link>
-
-          <Link to={`/hoods`}>
-            <button type="button" className="bw-btn bw-btn-primary">
-              All Hoods
-            </button>
-          </Link>
+        <div className="grid grid-cols-2 gap-[10px] justify-items-center mt-[30px] font-(family-name:--font-body)">
+          <Button slug={`/${hood.slug}`} pretext={`Visit `} text={hood.name} />
+          <Button slug={`/hoods`} pretext="" text="All Hoods" />
         </div>
       )}
     </article>

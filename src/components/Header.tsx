@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import Button from './Button';
 import '../styles/layout.scss';
 
 function Header({}: {}) {
@@ -19,16 +20,16 @@ function Header({}: {}) {
         <ul>
           {nav.map((n) => (
             <li key={n.id}>
-              <Link to={n.path}>{n.label}</Link>
+              <Link className="bw-link" to={n.path}>
+                {n.label}
+              </Link>
               {/* className={route === n.id ? 'is-active' : ''}
               setRoute(n.id); */}
             </li>
           ))}
         </ul>
       </nav>
-      <Link to="/say-hello" className="bw-btn bw-btn-primary">
-        Say hello
-      </Link>
+      <Button slug={`/say-hello`} pretext="" text="Say hello" />
       {/* setRoute('visit'); */}
     </header>
   );

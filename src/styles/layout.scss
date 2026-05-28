@@ -7,6 +7,7 @@
   width: 100%;
   margin: 0 auto;
   border-bottom: 1.5px solid rgba(26, 74, 74, 0.15);
+  font-family: var(--font-body);
 }
 .bw-brand {
   display: flex;
@@ -34,7 +35,8 @@
   margin: 0;
   padding: 0;
 }
-.bw-nav a {
+.bw-nav .bw-link {
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
   color: var(--fg);
