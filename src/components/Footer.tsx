@@ -11,7 +11,7 @@ function Footer() {
 
   return (
     <footer className="bw-footer">
-      <div className="bw-footer-inner">
+      <div className="bw-footer-inner grid grid-cols-[1fr] md:grid-cols-[1.4fr_1.6fr]">
         <div className="bw-footer-brand">
           <img src="../../assets/logo-icon-on-navy.svg" alt="" />
           <div>
@@ -22,16 +22,13 @@ function Footer() {
           </div>
         </div>
         <div className="bw-footer-cols">
-          <div>
+          <div className="bw-nav">
             <div className="bw-footer-h">Visit</div>
             {footerNav.map((n) => (
               <Link className="bw-link" to={n.path}>
                 {n.label}
               </Link>
             ))}
-            {/* <a onClick={() => setRoute && setRoute('home')}>The neighborhood</a>
-            <a onClick={() => setRoute && setRoute('about')}>About Betwixt</a>
-            <a onClick={() => setRoute && setRoute('visit')}>Say hello</a> */}
           </div>
           {/* <div>
             <div className="bw-footer-h">Read</div>

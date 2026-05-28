@@ -14,7 +14,7 @@ function Button({
     <Link to={slug}>
       <button type="button" className="bw-btn bw-btn-primary">
         {pretext !== '' ? pretext : ''}
-        <span className="hidden md:inline-block">{text}</span>
+        <span className="inline-block">{text}</span>
       </button>
     </Link>
   );

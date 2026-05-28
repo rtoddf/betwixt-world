@@ -7,14 +7,12 @@ function Header() {
     { id: 'hoods', label: 'Hoods', path: '/hoods' },
     { id: 'residents', label: 'Residents', path: '/residents' },
     { id: 'about', label: 'About', path: '/about' },
-    // { id: 'notes', label: 'Field notes' },
   ];
   return (
     <header className="bw-header">
       <Link to="/" className="bw-brand">
         <img src="../../assets/logo-icon-primary.svg" alt="Betwixt Home" />
         <span>Betwixt</span>
-        {/* setRoute('home'); */}
       </Link>
       <nav className="bw-nav">
         <ul>
@@ -33,7 +31,6 @@ function Header() {
         </ul>
       </nav>
       <Button slug={`/say-hello`} pretext="" text="Say hello" />
-      {/* setRoute('visit'); */}
     </header>
   );
 }
