@@ -4,24 +4,22 @@ import Card from '../components/Card';
 import '../styles/colors-and-type.scss';
 
 function Residents() {
-  // const [hood, setHood] = useState<HoodType | null>(null);
   const [residents, setResidents] = useState<ResidentType[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getData() {
       try {
-        // const response = await fetch('/data/hoods.json');
-        // const data = await response.json();
-        // const randomHood = data[Math.floor(Math.random() * data.length)];
-        // setHood(randomHood);
+        const response = await fetch('/data/residents.json');
+        const data = await response.json();
 
-        const responseRes = await fetch('/data/residents.json');
-        const dataRes = await responseRes.json();
-        // const hoodResidents = dataRes.filter(
-        //   (resident: ResidentType) => resident.hood === randomHood.slug,
-        // );
-        setResidents(dataRes);
+        const residentsSorted = data
+          .sort((a: ResidentType, b: ResidentType) =>
+            a.name.localeCompare(b.name),
+          )
+          .filter((resident: ResidentType) => resident.active);
+
+        setResidents(residentsSorted);
 
         setLoading(false);
       } catch (error) {

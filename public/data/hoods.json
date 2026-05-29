@@ -6,7 +6,7 @@
     "description": "Intangimere is a place that's a bit hard to grasp. Time forgets to hurry. Death knocks as a courtesy. Fate loses the thread of the conversation. The question isn't - is anyone home? The question is - did they ever live there at all?",
     "date": "summer 2026",
     "theme": true,
-    "theme-color": "#efa61f",
+    "theme-color": "#F0A500",
     "active": true
   },
   {
@@ -46,7 +46,7 @@
     "description": "Nobody planned to cross the bridge into Weirdford. Nobody plans anything in Weirdford. Your body just does a thing — hiccups, sneezes, shivers for no reason — and suddenly you're here. The bridge is slightly wrong. The houses lean. Don't worry. It passes. Probably.",
     "date": "summer 2026",
     "theme": true,
-    "theme-color": "#2c8080",
+    "theme-color": "#2A7F7F",
     "active": true
   },
   {
@@ -66,7 +66,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis at dui imperdiet congue. Donec porttitor lacus eros, ut pharetra nisl condimentum ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum sed quam porta, porta quam a, dictum mi. Nam at laoreet libero.",
     "date": "summer 2026",
     "theme": false,
-    "theme-color": "#e7452a",
+    "theme-color": "#E8442A",
     "active": true
   },
   {
