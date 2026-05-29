@@ -33,7 +33,7 @@ function Hoods() {
   }
 
   return (
-    <>
+    <section className="w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:px-[var(--s-7)]">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {hoods.map(function (hood: HoodType) {
           return (
@@ -52,7 +52,7 @@ function Hoods() {
           );
         })}
       </div>
-    </>
+    </section>
   );
 }
 
