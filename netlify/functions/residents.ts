@@ -8,7 +8,7 @@ const client = createClient({
   useCdn: true,
 });
 
-const handler: Handler = async (event, context) => {
+const handler: Handler = async () => {
   console.log('Dataset: pr');
   console.log('Query: *[_type == "resident"]');
   try {
