@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
-import { fetchNeighborhoods } from '../lib/sanity';
+import { fetchNeighborhoods } from '../lib/api';
 import '../styles/colors-and-type.scss';
 
 // ────────────────────────────────────────────────────────────────────

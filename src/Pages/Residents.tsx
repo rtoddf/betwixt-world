@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { ResidentType } from '../types';
-import { fetchResidents } from '../lib/sanity';
+import { fetchResidents } from '../lib/api';
 import Card from '../components/Card';
 import '../styles/colors-and-type.scss';
 

@@ -1,12 +1,5 @@
+import { client } from '../lib/sanity';
 import { Handler } from '@netlify/functions';
-import { createClient } from '@sanity/client';
-
-const client = createClient({
-  projectId: 'cizm0hkb',
-  dataset: 'pr',
-  apiVersion: '2025-01-01',
-  useCdn: true,
-});
 
 const handler: Handler = async () => {
   console.log('Dataset: pr');

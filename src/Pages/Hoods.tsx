@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import type { HoodType } from '../types';
-import { fetchNeighborhoods } from '../lib/sanity';
+import { fetchNeighborhoods } from '../lib/api';
 
 function Hoods() {
   const [hoods, setHoods] = useState<HoodType[]>([]);

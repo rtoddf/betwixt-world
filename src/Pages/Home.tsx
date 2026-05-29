@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { HoodType, ResidentType } from '../types';
-import { fetchNeighborhoods } from '../lib/sanity';
+import { fetchNeighborhoods } from '../lib/api';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
 import '../styles/final.scss';
