@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useLocation } from 'react-router';
 import Button from './Button';
 import '../styles/layout.scss';
 
@@ -8,6 +8,15 @@ function Header() {
     { id: 'residents', label: 'Residents', path: '/residents' },
     { id: 'about', label: 'About', path: '/about' },
   ];
+
+  const location = useLocation();
+  const knownPaths = ['/', '/hoods', '/residents', '/about', '/say-hello'];
+  const isOnHoodDetail =
+    !knownPaths.includes(location.pathname) &&
+    location.pathname.split('/').filter(Boolean).length === 1;
+  const isOnResidentDetail =
+    location.pathname.split('/').filter(Boolean).length === 2;
+
   return (
     <header className="bw-header">
       <Link to="/" className="bw-brand">
@@ -20,7 +29,11 @@ function Header() {
             <li key={n.id}>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? 'bw-link is-active' : 'bw-link'
+                  isActive ||
+                  (n.id === 'hoods' && isOnHoodDetail) ||
+                  (n.id === 'residents' && isOnResidentDetail)
+                    ? 'bw-link is-active'
+                    : 'bw-link'
                 }
                 to={n.path}
               >
