@@ -166,7 +166,11 @@
   line-height: var(--lh-body);
   color: var(--fg);
   margin: var(--s-4) 0 var(--s-8);
-  max-width: 60ch;
+  // max-width: 60ch;
+
+  p {
+    margin-bottom: 20px;
+  }
 }
 .bw-about-grid {
   display: grid;
