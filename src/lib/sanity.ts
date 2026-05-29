@@ -8,3 +8,14 @@ export async function fetchNeighborhoods() {
     return [];
   }
 }
+
+export async function fetchResidents() {
+  try {
+    const response = await fetch('/.netlify/functions/residents');
+    const residents = await response.json();
+    return residents;
+  } catch (error) {
+    console.error('Error fetching residents:', error);
+    return [];
+  }
+}

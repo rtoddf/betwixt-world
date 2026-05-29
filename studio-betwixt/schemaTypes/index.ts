@@ -1,2 +1,3 @@
 import {neighborhood} from './hoods'
-export const schemaTypes = [neighborhood]
+import {resident} from './residents'
+export const schemaTypes = [neighborhood, resident]
