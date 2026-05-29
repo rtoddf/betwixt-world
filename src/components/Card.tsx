@@ -20,7 +20,6 @@ function Card({
   image: SanityImageSource;
   active: boolean;
 }) {
-  console.log('active: ', active);
   const inner = (
     <div>
       <div className="p-[10px]">
@@ -28,7 +27,6 @@ function Card({
           <div className="relative w-full grid aspect-[2/3] place-items-center p-4 color-(--bw-navy) border-b-[1.5px] border-b-solid border-b-(--bw-navy) text-[64px] leading-none tracking-normal">
             {/* TODO:you need check to see if there's an image!! */}
             {active ? (
-              // <img src={`/assets/characters/${hood}/${image}`} alt={name} />
               <img src={urlFor(image)} alt={name} />
             ) : (
               <div className="text-[var(--bw-navy)] text-[22px] text-center font-[family-name:var(--font-display)] tracking-[0.05em] leading-[1.2]">

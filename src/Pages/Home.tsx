@@ -36,11 +36,8 @@ function Home() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('hoods: ', hoods);
+    // console.log('hood: ', hood);
   }
-
-  // console.log('hood: ', hood);
-  // console.log('residents: ', residents);
 
   if (!hood) return null;
 

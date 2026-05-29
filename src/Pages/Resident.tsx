@@ -50,8 +50,8 @@ function Resident() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('resident: ', resident);
-    console.log('neighborhood: ', neighborhood);
+    // console.log('resident: ', resident);
+    // console.log('neighborhood: ', neighborhood);
   }
 
   if (!resident) return null;

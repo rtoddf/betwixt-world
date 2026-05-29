@@ -46,12 +46,11 @@ function Hood() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('residents: ', residents);
-    console.log('hood: ', hood);
+    // console.log('residents: ', residents);
+    // console.log('hood: ', hood);
   }
 
   if (!hood) return null;
-  console.log('hood: ', hood);
 
   return (
     <>
