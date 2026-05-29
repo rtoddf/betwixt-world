@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import type { HoodType } from '../types';
+import { fetchNeighborhoods } from '../lib/sanity';
 
 function Hoods() {
   const [hoods, setHoods] = useState<HoodType[]>([]);
@@ -9,9 +10,8 @@ function Hoods() {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch('/data/hoods.json');
-        const data = await response.json();
-        const hoodsSorted = data
+        const hoods = await fetchNeighborhoods();
+        const hoodsSorted = hoods
           .sort((a: HoodType, b: HoodType) => a.name.localeCompare(b.name))
           .filter((hood: HoodType) => hood.active);
 
