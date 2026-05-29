@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
+import { fetchNeighborhoods } from '../lib/api';
+import { fetchResidents } from '../lib/api';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
 import '../styles/character.css';
@@ -18,15 +20,14 @@ function Hood() {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch('/data/hoods.json');
-        const data = await response.json();
-        const thisHood = data.filter((h: HoodType) => h.slug === slug);
+        const hoods = await fetchNeighborhoods();
+        const thisHood = hoods.filter((h: HoodType) => h.slug === slug);
         setHood(thisHood[0]);
 
-        const responseRes = await fetch('/data/residents.json');
-        const dataRes = await responseRes.json();
-        const hoodResidents = dataRes.filter(
-          (resident: ResidentType) => resident.hood === slug,
+        const residents = await fetchResidents();
+        const hoodResidents = residents.filter(
+          (resident: ResidentType) =>
+            resident.hood.toLocaleLowerCase() === slug,
         );
         setResidents(
           hoodResidents.sort((a: ResidentType, b: ResidentType) =>
@@ -45,12 +46,11 @@ function Hood() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('residents: ', residents);
-    console.log('hood: ', hood);
+    // console.log('residents: ', residents);
+    // console.log('hood: ', hood);
   }
 
   if (!hood) return null;
-  console.log('hood: ', hood);
 
   return (
     <>
@@ -63,7 +63,7 @@ function Hood() {
 
         {/* <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden"></header> */}
 
-        {hood.theme && (
+        {hood.themeSong && (
           <section className="bw-theme-song">
             <div className="bw-theme-song-eyebrow">
               <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>

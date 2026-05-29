@@ -5,8 +5,8 @@
     "tagline": "We feel you",
     "description": "Intangimere is a place that's a bit hard to grasp. Time forgets to hurry. Death knocks as a courtesy. Fate loses the thread of the conversation. The question isn't - is anyone home? The question is - did they ever live there at all?",
     "date": "summer 2026",
-    "theme": true,
-    "theme-color": "#F0A500",
+    "themeSong": true,
+    "themeColor": "#F0A500",
     "active": true
   },
   {
@@ -15,8 +15,8 @@
     "tagline": "Everyone's got something to say about it",
     "description": "Nobody moves to Dramaside by accident. They audition. The streets are loud, the neighbors are louder, and someone is always watching from behind that fence. Every argument is a performance. Every reconciliation deserves applause.",
     "date": "summer 2026",
-    "theme": true,
-    "theme-color": "#231f20",
+    "themeSong": true,
+    "themeColor": "#231f20",
     "active": true
   },
   {
@@ -25,8 +25,8 @@
     "tagline": "It's quiet here. Come sit a spell",
     "description": "The neighborhood where all the residents have lost one thing or another. The lights seem dimmer. Where silence has settled in. But everyone who lives there knows - one day, they'll find what they lost, the lights will get brighter, and the laughter will fill the vacancies.",
     "date": "summer 2026",
-    "theme": true,
-    "theme-color": "#231f20",
+    "themeSong": true,
+    "themeColor": "#231f20",
     "active": true
   },
   {
@@ -35,8 +35,8 @@
     "tagline": "We want you!",
     "description": "More.More. That's the only word anyone in Gimmewood knows. More stars. More trees with things carved in them. More of whatever you just had. The street smells like want and fresh wood shavings. Nobody's unhappy here. Nobody's finished either.",
     "date": "summer 2026",
-    "theme": false,
-    "theme-color": "#231f20",
+    "themeSong": false,
+    "themeColor": "#231f20",
     "active": true
   },
   {
@@ -45,8 +45,8 @@
     "tagline": "Where normal lost its footing",
     "description": "Nobody planned to cross the bridge into Weirdford. Nobody plans anything in Weirdford. Your body just does a thing — hiccups, sneezes, shivers for no reason — and suddenly you're here. The bridge is slightly wrong. The houses lean. Don't worry. It passes. Probably.",
     "date": "summer 2026",
-    "theme": true,
-    "theme-color": "#2A7F7F",
+    "themeSong": true,
+    "themeColor": "#2A7F7F",
     "active": true
   },
   {
@@ -55,8 +55,8 @@
     "tagline": "Tagline",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pulvinar eu turpis eu tincidunt. Nunc eleifend pellentesque ante vulputate volutpat. Maecenas a orci magna. Nulla facilisi. Quisque augue arcu, ultrices et enim sit amet, eleifend posuere augue.",
     "date": "winter 2026",
-    "theme": false,
-    "theme-color": "#231f20",
+    "themeSong": false,
+    "themeColor": "#231f20",
     "active": true
   },
   {
@@ -65,8 +65,8 @@
     "tagline": "Lorem ipsum dolor",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis at dui imperdiet congue. Donec porttitor lacus eros, ut pharetra nisl condimentum ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum sed quam porta, porta quam a, dictum mi. Nam at laoreet libero.",
     "date": "summer 2026",
-    "theme": false,
-    "theme-color": "#E8442A",
+    "themeSong": false,
+    "themeColor": "#E8442A",
     "active": true
   },
   {
@@ -75,8 +75,8 @@
     "tagline": "Lorem ipsum dolor",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam convallis at dui imperdiet congue. Donec porttitor lacus eros, ut pharetra nisl condimentum ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum sed quam porta, porta quam a, dictum mi. Nam at laoreet libero.",
     "date": "summer 2026",
-    "theme": false,
-    "theme-color": "#474747",
+    "themeSong": false,
+    "themeColor": "#474747",
     "active": true
   },
   {
@@ -85,8 +85,8 @@
     "tagline": "Somewhere between here and there",
     "description": "Not every block is ready for visitors. Some hoods are still figuring out who lives there. The lights are on. The porch is swept. Somebody's moving in soon. Mind the dust.",
     "date": "",
-    "theme": false,
-    "theme-color": "",
+    "themeSong": false,
+    "themeColor": "",
     "active": true
   },
   {
@@ -95,8 +95,8 @@
     "tagline": "Somewhere between here and there",
     "description": "Not every block is ready for visitors. Some hoods are still figuring out who lives there. The lights are on. The porch is swept. Somebody's moving in soon. Mind the dust.",
     "date": "Fall 2026",
-    "theme": false,
-    "theme-color": "F0A500",
+    "themeSong": false,
+    "themeColor": "F0A500",
     "active": true
   }
 ]

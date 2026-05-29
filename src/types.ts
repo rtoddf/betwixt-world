@@ -1,10 +1,14 @@
+import { type SanityImageSource } from '@sanity/image-url';
+
 export interface HoodType {
   slug: string;
   name: string;
   tagline: string;
   description: string;
+  image: SanityImageSource;
   date: string;
-  theme: boolean;
+  themeSong: boolean;
+  themeColor: string;
   active: boolean;
 }
 

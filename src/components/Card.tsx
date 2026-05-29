@@ -1,4 +1,6 @@
 import { Link } from 'react-router';
+import { urlFor } from '../lib/api';
+import { type SanityImageSource } from '@sanity/image-url';
 import '../styles/colors-and-type.scss';
 
 function Card({
@@ -15,17 +17,17 @@ function Card({
   hood: string;
   tag: string;
   miniBio: string;
-  image: string;
+  image: SanityImageSource;
   active: boolean;
 }) {
-  console.log('active: ', active);
   const inner = (
     <div>
       <div className="p-[10px]">
         <div className="rounded-[8px] flex flex-col overflow-hidden bg-(--bw-cream) shadow-[inset_0_0_0_1.5px_var(--bw-navy),_0_4px_0_rgba(26,74,74,0.1)]">
           <div className="relative w-full grid aspect-[2/3] place-items-center p-4 color-(--bw-navy) border-b-[1.5px] border-b-solid border-b-(--bw-navy) text-[64px] leading-none tracking-normal">
+            {/* TODO:you need check to see if there's an image!! */}
             {active ? (
-              <img src={`/assets/characters/${hood}/${image}`} alt={name} />
+              <img src={urlFor(image)} alt={name} />
             ) : (
               <div className="text-[var(--bw-navy)] text-[22px] text-center font-[family-name:var(--font-display)] tracking-[0.05em] leading-[1.2]">
                 A neighbor is moving in soon

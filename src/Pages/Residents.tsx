@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { ResidentType } from '../types';
+import { fetchResidents } from '../lib/api';
 import Card from '../components/Card';
 import '../styles/colors-and-type.scss';
 
@@ -10,10 +11,9 @@ function Residents() {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch('/data/residents.json');
-        const data = await response.json();
+        const residents = await fetchResidents();
 
-        const residentsSorted = data
+        const residentsSorted = residents
           .sort((a: ResidentType, b: ResidentType) =>
             a.name.localeCompare(b.name),
           )
@@ -33,7 +33,7 @@ function Residents() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('residents: ', residents);
+    // console.log('residents: ', residents);
   }
 
   if (!residents) return null;

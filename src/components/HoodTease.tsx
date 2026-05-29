@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
+import { urlFor } from '../lib/api';
 import HoodStatus from './HoodStatus';
 import Button from './Button';
 import '../styles/colors-and-type.scss';
@@ -29,11 +30,12 @@ function HoodTease({
 
       <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-0 md:gap-[32px] relative items-center z-[2]">
         <div className="relative w-[200px] h-[200px] lg:w-[168px] lg:h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent mt-0 mb-0 ml-[auto] mr-[auto]">
-          {hood.slug && usage === 'tease' ? (
+          {/* TODO: you need a placeholder image */}
+          {hood.image && usage === 'tease' ? (
             <Link to={`/${hood.slug}`}>
               <img
                 className="block w-full h-full drop-shadow-[0_3px_0_rgba(26,74,74,0.18)]"
-                src={`/assets/hoods/badge-${hood.slug}.svg`}
+                src={urlFor(hood.image)}
                 alt={hood.name}
               />
             </Link>
