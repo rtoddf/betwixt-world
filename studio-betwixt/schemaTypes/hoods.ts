@@ -21,6 +21,11 @@ export const neighborhood = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',

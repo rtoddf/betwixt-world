@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
+import { urlFor } from '../lib/api';
 import HoodStatus from './HoodStatus';
 import Button from './Button';
 import '../styles/colors-and-type.scss';
@@ -33,7 +34,7 @@ function HoodTease({
             <Link to={`/${hood.slug}`}>
               <img
                 className="block w-full h-full drop-shadow-[0_3px_0_rgba(26,74,74,0.18)]"
-                src={`/assets/hoods/badge-${hood.slug}.svg`}
+                src={urlFor(hood.image)}
                 alt={hood.name}
               />
             </Link>

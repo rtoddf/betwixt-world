@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
+import { fetchResidents } from '../lib/api';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
 import '../styles/character.css';
@@ -23,10 +24,10 @@ function Hood() {
         const thisHood = hoods.filter((h: HoodType) => h.slug === slug);
         setHood(thisHood[0]);
 
-        const responseRes = await fetch('/data/residents.json');
-        const dataRes = await responseRes.json();
-        const hoodResidents = dataRes.filter(
-          (resident: ResidentType) => resident.hood === slug,
+        const residents = await fetchResidents();
+        const hoodResidents = residents.filter(
+          (resident: ResidentType) =>
+            resident.hood.toLocaleLowerCase() === slug,
         );
         setResidents(
           hoodResidents.sort((a: ResidentType, b: ResidentType) =>
