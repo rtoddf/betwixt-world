@@ -17,11 +17,18 @@ const builder = createImageUrlBuilder(client);
 export const urlFor = (source: SanityImageSource) =>
   builder.image(source).url();
 
-export const fileUrl = (source: any) => {
+interface SanityFileSource {
+  asset: {
+    _ref: string;
+    _type: 'reference';
+  };
+}
+
+export const fileUrl = (source: SanityFileSource) => {
   const { asset } = source;
   if (!asset) return '';
   const ref = asset._ref;
-  const [, id, ext] = ref.split('-'); // Remove extra comma
+  const [, id, ext] = ref.split('-');
   return `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${ext}`;
 };
 
