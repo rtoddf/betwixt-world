@@ -4,5 +4,10 @@ export default [
   {
     ignores: ['eslint.config.mjs'],
   },
-  ...studio
+  ...studio,
+  {
+    rules: {
+      'react/no-direct-mutation-state': 'off',
+    },
+  },
 ]
