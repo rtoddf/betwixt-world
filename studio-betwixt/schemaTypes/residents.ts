@@ -44,6 +44,13 @@ export const resident = defineType({
       name: 'pronouns',
       title: 'Pronouns',
       type: 'string',
+      options: {
+        list: [
+          { title: 'He/Him', value: 'he/him' },
+          { title: 'She/Her', value: 'she/her' },
+          { title: 'They/Them', value: 'they/them' },
+        ],
+      },
     }),
     defineField({
       name: 'age',
