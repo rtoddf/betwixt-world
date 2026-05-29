@@ -24,7 +24,7 @@ function Card({
     dataset: 'pr',
   });
 
-  const urlFor = (source: any) => builder.image(source).url();
+  const urlFor = (source: object) => builder.image(source).url();
 
   console.log('active: ', active);
   const inner = (
