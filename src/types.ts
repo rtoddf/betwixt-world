@@ -22,7 +22,10 @@ export interface ResidentType {
   slug: string;
   name: string;
   pronunciation: string;
-  hood: string;
+  hood: {
+    _ref: string;
+    _type: 'reference';
+  };
   hoodslug: string;
   nationality: string;
   pronouns: string;

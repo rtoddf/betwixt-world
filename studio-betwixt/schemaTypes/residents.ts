@@ -33,7 +33,8 @@ export const resident = defineType({
     defineField({
       name: 'hood',
       title: 'Hood',
-      type: 'string',
+      type: 'reference',
+      to: [{type: 'neighborhood'}],
     }),
     defineField({
       name: 'nationality',
