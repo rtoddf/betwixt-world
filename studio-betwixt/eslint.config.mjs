@@ -1,10 +1,8 @@
+import studio from '@sanity/eslint-config-studio'
+
 export default [
   {
     ignores: ['eslint.config.mjs'],
   },
-  // ... rest of your config below
+  ...studio
 ]
-
-import studio from '@sanity/eslint-config-studio'
-
-export default [...studio]
