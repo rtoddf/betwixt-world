@@ -88,5 +88,15 @@
     "theme": false,
     "theme-color": "",
     "active": true
+  },
+  {
+    "slug": "emotions",
+    "name": "Emotions",
+    "tagline": "Somewhere between here and there",
+    "description": "Not every block is ready for visitors. Some hoods are still figuring out who lives there. The lights are on. The porch is swept. Somebody's moving in soon. Mind the dust.",
+    "date": "Fall 2026",
+    "theme": false,
+    "theme-color": "F0A500",
+    "active": true
   }
 ]
