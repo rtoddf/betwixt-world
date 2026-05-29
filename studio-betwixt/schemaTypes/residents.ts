@@ -68,6 +68,11 @@ export const resident = defineType({
       type: 'text',
     }),
     defineField({
+      name: 'voiceFile',
+      title: 'File For Voice',
+      type: 'file',
+    }),
+    defineField({
       name: 'active',
       title: 'Active',
       type: 'boolean',

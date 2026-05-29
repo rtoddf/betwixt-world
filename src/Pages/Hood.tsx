@@ -52,6 +52,8 @@ function Hood() {
 
   if (!hood) return null;
 
+  console.log('hood: ', hood);
+
   return (
     <>
       <section className="bw-hood w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:px-[var(--s-7)]">

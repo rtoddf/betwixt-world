@@ -7,7 +7,13 @@ export interface HoodType {
   description: string;
   image: SanityImageSource;
   date: string;
-  themeSong: boolean;
+  themeSong?: {
+    _type: 'file';
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+  };
   themeColor: string;
   active: boolean;
 }
