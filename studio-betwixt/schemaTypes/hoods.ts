@@ -31,6 +31,16 @@ export const neighborhood = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'themeSong',
+      title: 'Theme Song Available',
+      type: 'boolean',
+    }),
+    defineField({
+      name: 'themeColor',
+      title: 'Theme Color',
+      type: 'string',
+    }),
+    defineField({
       name: 'active',
       title: 'Active',
       type: 'boolean',
