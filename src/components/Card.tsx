@@ -1,5 +1,8 @@
 import { Link } from 'react-router';
-import { createImageUrlBuilder } from '@sanity/image-url';
+import {
+  createImageUrlBuilder,
+  type SanityImageSource,
+} from '@sanity/image-url';
 import '../styles/colors-and-type.scss';
 
 function Card({
@@ -16,7 +19,7 @@ function Card({
   hood: string;
   tag: string;
   miniBio: string;
-  image: string;
+  image: SanityImageSource;
   active: boolean;
 }) {
   const builder = createImageUrlBuilder({
@@ -24,7 +27,7 @@ function Card({
     dataset: 'pr',
   });
 
-  const urlFor = (source: object) => builder.image(source).url();
+  const urlFor = (source: SanityImageSource) => builder.image(source).url();
 
   console.log('active: ', active);
   const inner = (
