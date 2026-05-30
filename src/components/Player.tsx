@@ -3,11 +3,11 @@ import { fileUrl } from '../lib/api';
 import '../styles/colors-and-type.scss';
 
 function Player({ hood }: { hood: HoodType }) {
-  console.log('hood: ', hood.themeSong);
+  console.log('hood: ', hood);
   return (
     <div>
       {/* <audio src={`/assets/music/${hood.slug}.mp3`} controls /> */}
-      <audio src={fileUrl(hood.themeSong)} controls />
+      {hood.themeSong ? <audio src={fileUrl(hood.themeSong)} controls /> : null}
     </div>
   );
 }
