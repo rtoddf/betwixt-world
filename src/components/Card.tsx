@@ -1,5 +1,4 @@
 import { Link } from 'react-router';
-import type { HoodType } from '../types';
 import { urlFor } from '../lib/api';
 import { type SanityImageSource } from '@sanity/image-url';
 import '../styles/colors-and-type.scss';
