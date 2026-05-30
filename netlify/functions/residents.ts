@@ -4,8 +4,14 @@ import { Handler } from '@netlify/functions';
 const handler: Handler = async (event) => {
   const slug = event.queryStringParameters?.slug;
   const query = slug
-    ? `*[_type == "resident" && hood->slug == "${slug}"]`
-    : `*[_type == "resident"]`;
+    ? `*[_type == "resident" && hood->slug == "${slug}"]{
+        ...,
+        hood->{slug, name}
+      }`
+    : `*[_type == "resident"]{
+        ...,
+        hood->{slug, name}
+      }`;
 
   try {
     const residents = await client.fetch(query);

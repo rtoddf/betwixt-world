@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import type { HoodType } from '../types';
 import { urlFor } from '../lib/api';
 import { type SanityImageSource } from '@sanity/image-url';
 import '../styles/colors-and-type.scss';
@@ -6,7 +7,7 @@ import '../styles/colors-and-type.scss';
 function Card({
   slug,
   name,
-  hood,
+  hoodSlug,
   tag,
   miniBio,
   image,
@@ -14,12 +15,13 @@ function Card({
 }: {
   slug: string;
   name: string;
-  hood: object;
+  hoodSlug: string;
   tag: string;
   miniBio: string;
   image: SanityImageSource;
   active: boolean;
 }) {
+  // console.log('hood.slug: ', hood.slug);
   const inner = (
     <div>
       <div className="p-[10px]">
@@ -65,7 +67,7 @@ function Card({
 
   return active ? (
     <Link
-      to={`/${hood}/${slug}`}
+      to={`/${hoodSlug}/${slug}`}
       className="nth-[1n]:rotate-[-0.6deg] nth-[2n]:rotate-[0.8deg] nth-[3n]:rotate-[-0.3deg] hover:animate-wiggle-card"
     >
       {inner}

@@ -44,12 +44,9 @@ function Hood() {
     return <div>Loading...</div>;
   } else {
     console.log('residents: ', residents);
-    console.log('hood: ', hood);
   }
 
   if (!hood) return null;
-
-  console.log('hood: ', hood);
 
   return (
     <>
@@ -99,11 +96,12 @@ function Hood() {
             className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
           >
             {residents.map(function (resident) {
+              console.log('resident: ', resident);
               return (
                 <Card
                   key={resident.slug}
                   slug={resident.slug}
-                  hood={resident.hood}
+                  hoodSlug={resident.hood.slug}
                   name={resident.name}
                   tag={resident.tag}
                   miniBio={resident.miniBio}

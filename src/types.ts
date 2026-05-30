@@ -24,8 +24,8 @@ export interface ResidentType {
   name: string;
   pronunciation: string;
   hood: {
-    _ref: string;
-    _type: 'reference';
+    slug: string;
+    name: string;
   };
   hoodslug: string;
   nationality: string;
