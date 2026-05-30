@@ -43,9 +43,12 @@ export async function fetchNeighborhoods() {
   }
 }
 
-export async function fetchResidents() {
+export async function fetchResidents(slug?: string) {
   try {
-    const response = await fetch('/.netlify/functions/residents');
+    const url = slug
+      ? `/.netlify/functions/residents?slug=${slug}`
+      : '/.netlify/functions/residents';
+    const response = await fetch(url);
     const residents = await response.json();
     return residents;
   } catch (error) {

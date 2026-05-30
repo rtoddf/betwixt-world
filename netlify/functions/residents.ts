@@ -1,13 +1,14 @@
 import { client } from '../lib/sanity';
 import { Handler } from '@netlify/functions';
 
-const handler: Handler = async () => {
-  console.log('Dataset: pr');
-  console.log('Query: *[_type == "resident"]');
+const handler: Handler = async (event) => {
+  const slug = event.queryStringParameters?.slug;
+  const query = slug
+    ? `*[_type == "resident" && hood->slug == "${slug}"]`
+    : `*[_type == "resident"]`;
+
   try {
-    const residents = await client.fetch('*[_type == "resident"]');
-    console.log('Result count:', residents.length);
-    console.log('Result:', residents);
+    const residents = await client.fetch(query);
     return {
       statusCode: 200,
       headers: {
