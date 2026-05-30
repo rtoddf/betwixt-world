@@ -20,7 +20,6 @@ function Card({
   image: SanityImageSource;
   active: boolean;
 }) {
-  console.log('hoodSlug: ', hoodSlug);
   const inner = (
     <div>
       <div className="p-[10px]">

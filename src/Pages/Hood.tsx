@@ -43,7 +43,7 @@ function Hood() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('residents: ', residents);
+    // console.log('residents: ', residents);
   }
 
   if (!hood) return null;
@@ -96,7 +96,6 @@ function Hood() {
             className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
           >
             {residents.map(function (resident) {
-              console.log('resident: ', resident);
               return (
                 <Card
                   key={resident.slug}
