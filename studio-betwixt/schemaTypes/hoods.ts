@@ -33,7 +33,7 @@ export const neighborhood = defineType({
     defineField({
       name: 'date',
       title: 'Date Moved In',
-      type: 'string',
+      type: 'date',
     }),
     defineField({
       name: 'themeSong',

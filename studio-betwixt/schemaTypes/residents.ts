@@ -74,6 +74,11 @@ export const resident = defineType({
       type: 'file',
     }),
     defineField({
+      name: 'date',
+      title: 'Date Moved In',
+      type: 'date',
+    }),
+    defineField({
       name: 'active',
       title: 'Active',
       type: 'boolean',

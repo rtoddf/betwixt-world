@@ -14,7 +14,7 @@ function Card({
 }: {
   slug: string;
   name: string;
-  hood: string;
+  hood: object;
   tag: string;
   miniBio: string;
   image: SanityImageSource;

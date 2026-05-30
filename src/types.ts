@@ -1,6 +1,7 @@
 import { type SanityImageSource } from '@sanity/image-url';
 
 export interface HoodType {
+  _id: string;
   slug: string;
   name: string;
   tagline: string;

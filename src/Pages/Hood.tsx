@@ -25,9 +25,10 @@ function Hood() {
         setHood(thisHood[0]);
 
         const residents = await fetchResidents();
+        console.log('raw residents:', residents);
+        console.log('hood at filter time:', hood?._id);
         const hoodResidents = residents.filter(
-          (resident: ResidentType) =>
-            resident.hood.toLocaleLowerCase() === slug,
+          (resident: ResidentType) => resident.hood._ref === hood?._id,
         );
         setResidents(
           hoodResidents.sort((a: ResidentType, b: ResidentType) =>
@@ -48,6 +49,11 @@ function Hood() {
   } else {
     // console.log('residents: ', residents);
     // console.log('hood: ', hood);
+    console.log('hood._id:', hood?._id);
+    console.log(
+      'resident.hood._ref:',
+      residents.map((r) => r.hood._ref),
+    );
   }
 
   if (!hood) return null;

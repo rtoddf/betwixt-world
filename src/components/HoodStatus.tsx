@@ -9,7 +9,7 @@ function HoodStatus({
   res: number;
   active: boolean;
 }) {
-  console.log('res: ', res);
+  console.log('date: ', date);
   return (
     <div className="bw-hood-stats grid grid-cols-3 place-items-center font-(family-name:--font-body) text-[13px] text-[var(--fg-muted)]">
       <div className="grid items-center w-full p-[5px] text-center">
