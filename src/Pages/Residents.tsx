@@ -48,7 +48,7 @@ function Residents() {
             <Card
               key={resident.slug}
               slug={resident.slug}
-              hood={resident.hood}
+              hoodSlug={resident.hood.slug}
               name={resident.name}
               tag={resident.tag}
               miniBio={resident.miniBio}
