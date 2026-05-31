@@ -109,17 +109,18 @@ function Resident() {
           </section>
 
           {/* Disclaimer for grown-ups */}
-          <aside className="bw-detail-aside">
-            <div className="bw-eyebrow bw-eyebrow-amber">For grown-ups</div>
-            <p>
-              {resident.name} is a character, not a diagnosis. {resident.name}{' '}
-              is not <em>about</em> {resident.tag.toLowerCase()} any more than a
-              kid is <em>about</em> their hair color. Please introduce them as a
-              neighbor.
-            </p>
-          </aside>
+          {resident.tag && (
+            <aside className="bw-detail-aside">
+              <div className="bw-eyebrow bw-eyebrow-amber">For grown-ups</div>
+              <p>
+                {resident.name} is a character, not a diagnosis. {resident.name}{' '}
+                is not <em>about</em> {resident.tag.toLowerCase()} any more than
+                a kid is <em>about</em> their hair color. Please introduce them
+                as a neighbor.
+              </p>
+            </aside>
+          )}
         </div>
-        {/* <div className="content-holder col-span-2 p-[10px]"> */}
       </div>
     </section>
   );

@@ -4,6 +4,12 @@ export const neighborhood = defineType({
   name: 'neighborhood',
   title: 'Neighborhood',
   type: 'document',
+  groups: [
+    {name: 'media', title: 'media'},
+    // { name: 'content', title: 'Content' },
+    // { name: 'media', title: 'Media' },
+    // { name: 'settings', title: 'Settings' },
+  ],
   fields: [
     defineField({
       name: 'slug',
@@ -21,11 +27,6 @@ export const neighborhood = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-    }),
-    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
@@ -36,14 +37,22 @@ export const neighborhood = defineType({
       type: 'date',
     }),
     defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      group: 'media',
+    }),
+    defineField({
       name: 'themeSong',
       title: 'Theme Song Available',
       type: 'file',
+      group: 'media',
     }),
     defineField({
       name: 'themeColor',
       title: 'Theme Color',
       type: 'string',
+      group: 'media',
     }),
     defineField({
       name: 'active',
