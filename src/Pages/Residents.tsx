@@ -32,7 +32,7 @@ function Residents() {
       }
     }
     getData();
-  }, []);
+  }, [isPreview]);
 
   if (loading) {
     return <div>Loading...</div>;
