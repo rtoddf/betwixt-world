@@ -58,7 +58,7 @@ function Residents() {
               miniBio={resident.miniBio}
               image={resident.image}
               active={resident.active}
-              isPreview={isPreview}
+              isPreview={isPreview ? isPreview : false}
             />
           );
         })}
