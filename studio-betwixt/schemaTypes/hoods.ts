@@ -5,36 +5,45 @@ export const neighborhood = defineType({
   title: 'Neighborhood',
   type: 'document',
   groups: [
-    {name: 'media', title: 'media'},
-    // { name: 'content', title: 'Content' },
-    // { name: 'media', title: 'Media' },
-    // { name: 'settings', title: 'Settings' },
+    {name: 'content', title: 'Content', default: true},
+    {name: 'media', title: 'Theme & Media'},
   ],
   fields: [
-    defineField({
-      name: 'slug',
-      title: 'Slug',
-      type: 'string',
-    }),
     defineField({
       name: 'name',
       title: 'Hood Name',
       type: 'string',
+      group: 'content',
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'string',
+      group: 'content',
     }),
     defineField({
       name: 'tagline',
       title: 'Tagline',
       type: 'string',
+      group: 'content',
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
+      group: 'content',
     }),
     defineField({
       name: 'date',
       title: 'Date Moved In',
       type: 'date',
+      group: 'content',
+    }),
+    defineField({
+      name: 'active',
+      title: 'Active',
+      type: 'boolean',
+      group: 'content',
     }),
     defineField({
       name: 'image',
@@ -53,11 +62,6 @@ export const neighborhood = defineType({
       title: 'Theme Color',
       type: 'string',
       group: 'media',
-    }),
-    defineField({
-      name: 'active',
-      title: 'Active',
-      type: 'boolean',
     }),
   ],
 })
