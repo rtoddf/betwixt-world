@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useSearchParams } from 'react-router';
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
@@ -16,6 +16,8 @@ function Hood() {
   const [residents, setResidents] = useState<ResidentType[]>([]);
   const [loading, setLoading] = useState(true);
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const isPreview = searchParams.get('preview') === 'true';
 
   useEffect(() => {
     async function getData() {
@@ -110,6 +112,7 @@ function Hood() {
                       ? resident.active
                       : false
                   }
+                  isPreview={isPreview ? isPreview : false}
                 />
               );
             })}
