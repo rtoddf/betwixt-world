@@ -63,10 +63,8 @@ function Hood() {
       </section>
       {/* audio */}
       {hood.themeSong && (
-        <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)]">
-          <section className="bw-theme-song">
-            <Player hood={hood} />
-          </section>
+        <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-2 gap-[20px]">
+          <Player hood={hood} />
         </section>
       )}
       {/* Residents */}
