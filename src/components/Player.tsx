@@ -4,11 +4,10 @@ import { fileUrl } from '../lib/api';
 import '../styles/colors-and-type.scss';
 
 function Player({ hood }: { hood: HoodType }) {
-  const playing = true;
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [currentTime, setCurrentTime] = useState<number>(0);
-  const [duration, setDuration] = useState<number>(0);
+  // const [currentTime, setCurrentTime] = useState<number>(0);
+  // const [duration, setDuration] = useState<number>(0);
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
   useEffect(() => {
