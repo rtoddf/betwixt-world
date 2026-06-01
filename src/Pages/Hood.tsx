@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useSearchParams } from 'react-router';
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
@@ -16,6 +16,8 @@ function Hood() {
   const [residents, setResidents] = useState<ResidentType[]>([]);
   const [loading, setLoading] = useState(true);
   const { slug } = useParams();
+  const [searchParams] = useSearchParams();
+  const isPreview = searchParams.get('preview') === 'true';
 
   useEffect(() => {
     async function getData() {
@@ -24,13 +26,10 @@ function Hood() {
         const thisHood = hoods.filter((h: HoodType) => h.slug === slug);
         setHood(thisHood[0]);
 
-        const residents = await fetchResidents();
-        const hoodResidents = residents.filter(
-          (resident: ResidentType) =>
-            resident.hood.toLocaleLowerCase() === slug,
-        );
+        // server side filter
+        const residents = await fetchResidents(slug);
         setResidents(
-          hoodResidents.sort((a: ResidentType, b: ResidentType) =>
+          residents.sort((a: ResidentType, b: ResidentType) =>
             a.name.localeCompare(b.name),
           ),
         );
@@ -47,7 +46,6 @@ function Hood() {
     return <div>Loading...</div>;
   } else {
     // console.log('residents: ', residents);
-    // console.log('hood: ', hood);
   }
 
   if (!hood) return null;
@@ -104,7 +102,7 @@ function Hood() {
                 <Card
                   key={resident.slug}
                   slug={resident.slug}
-                  hood={resident.hood}
+                  hoodSlug={resident.hood.slug}
                   name={resident.name}
                   tag={resident.tag}
                   miniBio={resident.miniBio}
@@ -114,6 +112,7 @@ function Hood() {
                       ? resident.active
                       : false
                   }
+                  isPreview={isPreview ? isPreview : false}
                 />
               );
             })}

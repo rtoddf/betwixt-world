@@ -51,7 +51,6 @@ function Resident() {
     return <div>Loading...</div>;
   } else {
     // console.log('resident: ', resident);
-    // console.log('neighborhood: ', neighborhood);
   }
 
   if (!resident) return null;
@@ -67,7 +66,7 @@ function Resident() {
         </figure>
         <div className="bw-detail-body">
           <div className="bw-eyebrow">
-            Resident · {neighborhood?.name} · #{resident.name}
+            Resident · {neighborhood?.name || 'Relocating'} · #{resident.name}
           </div>
           <h1 className="bw-detail-name font-(family-name:--font-display)">
             {resident.name}
@@ -78,49 +77,65 @@ function Resident() {
           )}
 
           {/* Concept stamp */}
-          <div className="bw-concept-stamp">
-            <span className="bw-concept-stamp-eyebrow">Represents</span>
-            <span className="bw-concept-stamp-value">{resident.tag}</span>
-          </div>
+          {resident.tag && (
+            <div className="bw-concept-stamp">
+              <span className="bw-concept-stamp-eyebrow">Represents</span>
+              <span className="bw-concept-stamp-value">{resident.tag}</span>
+            </div>
+          )}
 
           {/* Meta grid — 2x2 pinboard */}
           <dl className="bw-meta-grid">
-            <MetaPin label="Hood" value={neighborhood?.name || 'Buffer Zone'} />
-            <MetaPin label="Ethnicity / mix" value={resident.nationality} />
-            <MetaPin label="Pronouns" value={resident.pronouns} />
-            <MetaPin label="Age" value={`${resident.age} years`} />
+            <MetaPin label="Hood" value={neighborhood?.name || 'Relocating'} />
+            <MetaPin
+              label="Ethnicity / mix"
+              value={resident.nationality || 'Unkown'}
+            />
+            <MetaPin
+              label="Pronouns"
+              value={resident.pronouns || 'Still figuring it out'}
+            />
+            <MetaPin
+              label="Age"
+              value={resident.age ? `${resident.age} years` : 'Timeless'}
+            />
           </dl>
 
           {/* The Verse */}
-          <section className="bw-detail-section bw-detail-verse-section">
-            <div className="bw-eyebrow bw-eyebrow-amber">The verse</div>
-            <blockquote
-              className="bw-detail-verse"
-              dangerouslySetInnerHTML={{ __html: resident.miniBio }}
-            />
-          </section>
+          {resident.miniBio && (
+            <section className="bw-detail-section bw-detail-verse-section">
+              <div className="bw-eyebrow bw-eyebrow-amber">The verse</div>
+              <blockquote
+                className="bw-detail-verse"
+                dangerouslySetInnerHTML={{ __html: resident.miniBio }}
+              />
+            </section>
+          )}
 
           {/* The Story */}
-          <section className="bw-detail-section">
-            <div className="bw-eyebrow bw-eyebrow-amber">The story</div>
-            <div
-              className="bw-detail-prose"
-              dangerouslySetInnerHTML={{ __html: resident.shortBio }}
-            />
-          </section>
+          {resident.shortBio && (
+            <section className="bw-detail-section">
+              <div className="bw-eyebrow bw-eyebrow-amber">The story</div>
+              <div
+                className="bw-detail-prose"
+                dangerouslySetInnerHTML={{ __html: resident.shortBio }}
+              />
+            </section>
+          )}
 
           {/* Disclaimer for grown-ups */}
-          <aside className="bw-detail-aside">
-            <div className="bw-eyebrow bw-eyebrow-amber">For grown-ups</div>
-            <p>
-              {resident.name} is a character, not a diagnosis. {resident.name}{' '}
-              is not <em>about</em> {resident.tag.toLowerCase()} any more than a
-              kid is <em>about</em> their hair color. Please introduce them as a
-              neighbor.
-            </p>
-          </aside>
+          {resident.tag && (
+            <aside className="bw-detail-aside">
+              <div className="bw-eyebrow bw-eyebrow-amber">For grown-ups</div>
+              <p>
+                {resident.name} is a character, not a diagnosis. {resident.name}{' '}
+                is not <em>about</em> {resident.tag.toLowerCase()} any more than
+                a kid is <em>about</em> their hair color. Please introduce them
+                as a neighbor.
+              </p>
+            </aside>
+          )}
         </div>
-        {/* <div className="content-holder col-span-2 p-[10px]"> */}
       </div>
     </section>
   );

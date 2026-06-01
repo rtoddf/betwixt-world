@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router';
 import type { ResidentType } from '../types';
 import { fetchResidents } from '../lib/api';
 import Card from '../components/Card';
@@ -7,6 +8,9 @@ import '../styles/colors-and-type.scss';
 function Residents() {
   const [residents, setResidents] = useState<ResidentType[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const [searchParams] = useSearchParams();
+  const isPreview = searchParams.get('preview') === 'true';
 
   useEffect(() => {
     async function getData() {
@@ -17,7 +21,7 @@ function Residents() {
           .sort((a: ResidentType, b: ResidentType) =>
             a.name.localeCompare(b.name),
           )
-          .filter((resident: ResidentType) => resident.active);
+          .filter((resident: ResidentType) => isPreview || resident.active);
 
         setResidents(residentsSorted);
 
@@ -28,7 +32,7 @@ function Residents() {
       }
     }
     getData();
-  }, []);
+  }, [isPreview]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -48,12 +52,13 @@ function Residents() {
             <Card
               key={resident.slug}
               slug={resident.slug}
-              hood={resident.hood}
+              hoodSlug={resident.hood.slug}
               name={resident.name}
               tag={resident.tag}
               miniBio={resident.miniBio}
               image={resident.image}
               active={resident.active}
+              isPreview={isPreview ? isPreview : false}
             />
           );
         })}

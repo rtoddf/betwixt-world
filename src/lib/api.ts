@@ -2,9 +2,12 @@ import { createImageUrlBuilder } from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url';
 import { createClient } from '@sanity/client';
 
+const projectId = 'cizm0hkb';
+const dataset = 'pr';
+
 export const client = createClient({
-  projectId: 'cizm0hkb',
-  dataset: 'pr',
+  projectId: projectId,
+  dataset: dataset,
   apiVersion: '2025-01-01',
   useCdn: true,
 });
@@ -13,6 +16,21 @@ const builder = createImageUrlBuilder(client);
 
 export const urlFor = (source: SanityImageSource) =>
   builder.image(source).url();
+
+interface SanityFileSource {
+  asset: {
+    _ref: string;
+    _type: 'reference';
+  };
+}
+
+export const fileUrl = (source: SanityFileSource) => {
+  const { asset } = source;
+  if (!asset) return '';
+  const ref = asset._ref;
+  const [, id, ext] = ref.split('-');
+  return `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${ext}`;
+};
 
 export async function fetchNeighborhoods() {
   try {
@@ -25,9 +43,12 @@ export async function fetchNeighborhoods() {
   }
 }
 
-export async function fetchResidents() {
+export async function fetchResidents(slug?: string) {
   try {
-    const response = await fetch('/.netlify/functions/residents');
+    const url = slug
+      ? `/.netlify/functions/residents?slug=${slug}`
+      : '/.netlify/functions/residents';
+    const response = await fetch(url);
     const residents = await response.json();
     return residents;
   } catch (error) {
