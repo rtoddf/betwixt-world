@@ -3,7 +3,10 @@ import type { HoodType } from '../../types';
 import { fileUrl } from '../../lib/api';
 import Pause from '@/assets/svgs/pause';
 import Play from '@/assets/svgs/play';
-import '../../styles/colors-and-type.scss';
+import Mute from '@/assets/svgs/mute';
+import Muted from '@/assets/svgs/muted';
+import '@/styles/colors-and-type.scss';
+import '@/styles/voice-player.css';
 
 const WAVEFORM_BARS = Array.from(
   { length: 56 },
@@ -66,6 +69,66 @@ function Player({ hood }: { hood: HoodType }) {
     setIsMuted(!isMuted);
   };
 
+  // const variant = 'hood';
+  const iconKind = 'music';
+  // const iconKind = icon || (variant === 'resident' ? 'voice' : 'music');
+
+  // Head icon — music note for hoods (theme songs), microphone for resident voices.
+  function VpIcon({ kind }: { kind: string }) {
+    if (kind === 'voice') {
+      return (
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+          <rect
+            x="9"
+            y="2.5"
+            width="6"
+            height="11"
+            rx="3"
+            fill="currentColor"
+          />
+          <path
+            d="M5.5 11 A6.5 6.5 0 0 0 18.5 11"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="12"
+            y1="17.5"
+            x2="12"
+            y2="21"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <line
+            x1="8.5"
+            y1="21"
+            x2="15.5"
+            y2="21"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+    }
+    return (
+      <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+        <path
+          d="M9 16.5 V4.5 L20 2.2 V14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+        <circle cx="6.4" cy="16.6" r="2.8" fill="currentColor" />
+        <circle cx="17.4" cy="14.1" r="2.8" fill="currentColor" />
+      </svg>
+    );
+  }
+
   return (
     <>
       {hood.themeSong ? (
@@ -75,94 +138,75 @@ function Player({ hood }: { hood: HoodType }) {
           preload="metadata"
         />
       ) : null}
-      <div>
-        <div className={`bw-voice bw-voice`}>
+      <div className={`vp`}>
+        {/* <div
+        className={`vp${isMuted ? ' is-muted' : ''}$isPlaying ? ' is-playing' : ''}`}
+        data-variant={variant}
+      ></div> */}
+        {/* Row 1 — title */}
+        <div className="vp-head">
+          <span className="vp-note">
+            <VpIcon kind={iconKind} />
+          </span>
+          <span className="vp-label">Walk through {hood.name}</span>
+        </div>
+
+        {/* Row 2 — waveform / scrubber */}
+        <div
+          className="vp-wave"
+          role="slider"
+          tabIndex={0}
+          // aria-label={`Seek ${label}`}
+          aria-valuemin={0}
+          aria-valuemax={Math.round(currentTime)}
+          aria-valuenow={Math.round(currentTime)}
+          onClick={(e) => {
+            if (!audioRef.current || !duration) return;
+            const r = e.currentTarget.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width;
+            const newTime = Math.max(0, Math.min(duration, x * duration));
+            audioRef.current.currentTime = newTime;
+            setCurrentTime(newTime);
+          }}
+        >
+          {bars.map((h, i) => {
+            const reached = (i / bars.length) * 100 <= pct;
+            return (
+              <span
+                key={i}
+                className={`bw-voice-bar ${reached ? 'is-on' : ''}`}
+                style={{ height: `${Math.round(h * 100)}%` }}
+              />
+            );
+          })}
+        </div>
+
+        {/* Row 3 — transport */}
+        <div className="vp-transport">
           <button
             type="button"
-            className="bw-voice-btn"
+            className="vp-play"
             aria-label={isPlaying ? 'Pause' : 'Play'}
             onClick={togglePlay}
           >
             {isPlaying ? <Play /> : <Pause />}
           </button>
 
-          <div className="bw-voice-stack">
-            <div className="bw-voice-label">Walk through {hood.name}</div>
-            <div
-              className="bw-voice-wave"
-              role="slider"
-              aria-valuemin={0}
-              aria-valuemax={Math.round(currentTime)}
-              aria-valuenow={Math.round(currentTime)}
-              onClick={(e) => {
-                if (!audioRef.current || !duration) return;
-                const r = e.currentTarget.getBoundingClientRect();
-                const x = (e.clientX - r.left) / r.width;
-                const newTime = Math.max(0, Math.min(duration, x * duration));
-                audioRef.current.currentTime = newTime;
-                setCurrentTime(newTime);
-              }}
-            >
-              {bars.map((h, i) => {
-                const reached = (i / bars.length) * 100 <= pct;
-                return (
-                  <span
-                    key={i}
-                    className={`bw-voice-bar ${reached ? 'is-on' : ''}`}
-                    style={{ height: `${Math.round(h * 100)}%` }}
-                  />
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="bw-voice-time">
-            <span>{formatTime(currentTime)}</span>
-            <span className="bw-voice-time-sep">/</span>
-            <span>{formatTime(duration)}</span>
+          <div className="vp-right">
+            <span className="vp-time">
+              <span>{formatTime(currentTime)}</span>
+              <span className="bw-voice-time-sep">/</span>
+              <span>{formatTime(duration)}</span>
+            </span>
           </div>
 
           <div>
             <button
               onClick={toggleMute}
-              className="p-2 text-slate-400 hover:text-white transition-colors focus:outline-none"
+              className="vp-mute"
               aria-label={isMuted ? 'Unmute' : 'Mute'}
             >
-              {isMuted ? (
-                <svg
-                  viewBox="0 0 24 24"
-                  width="22"
-                  height="22"
-                  aria-hidden="true"
-                >
-                  <rect
-                    x="6"
-                    y="5"
-                    width="4.5"
-                    height="14"
-                    rx="1"
-                    fill="currentColor"
-                  />
-                  <rect
-                    x="13.5"
-                    y="5"
-                    width="4.5"
-                    height="14"
-                    rx="1"
-                    fill="currentColor"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  viewBox="0 0 24 24"
-                  width="22"
-                  height="22"
-                  aria-hidden="true"
-                >
-                  <path d="M7 5 L19 12 L7 19 Z" fill="currentColor" />
-                </svg>
-              )}
-              {/* {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />} */}
+              {isMuted ? <Muted /> : <Mute />}
             </button>
           </div>
         </div>
