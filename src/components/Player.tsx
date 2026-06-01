@@ -41,11 +41,11 @@ function Player({ hood }: { hood: HoodType }) {
     setIsPlaying(!isPlaying);
   };
 
-  const toggleMute = (): void => {
-    if (!audioRef.current) return;
-    audioRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
-  };
+  // const toggleMute = (): void => {
+  //   if (!audioRef.current) return;
+  //   audioRef.current.muted = !isMuted;
+  //   setIsMuted(!isMuted);
+  // };
 
   const formatTime = (time: number): string => {
     if (isNaN(time)) return '0:00';
