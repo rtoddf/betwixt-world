@@ -3,8 +3,14 @@ import type { HoodType } from '../types';
 import { fileUrl } from '../lib/api';
 import '../styles/colors-and-type.scss';
 
+const WAVEFORM_BARS = Array.from(
+  { length: 56 },
+  () => 0.25 + Math.random() * 0.75,
+);
+
 function Player({ hood }: { hood: HoodType }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const tickRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
@@ -12,6 +18,10 @@ function Player({ hood }: { hood: HoodType }) {
 
   useEffect(() => {
     const audio = audioRef.current;
+    // if (!playing) {
+    //   clearInterval(tickRef.current);
+    //   return;
+    // }
     if (!audio) return;
 
     const updateTime = () => setCurrentTime(audio.currentTime);
@@ -39,9 +49,7 @@ function Player({ hood }: { hood: HoodType }) {
   };
 
   // 56 bars at ~3-4px each — proper waveform density
-  const bars = useRef(
-    Array.from({ length: 56 }, () => 0.25 + Math.random() * 0.75),
-  ).current;
+  const bars = useRef(WAVEFORM_BARS).current;
 
   const togglePlay = (): void => {
     if (!audioRef.current) return;
@@ -61,6 +69,7 @@ function Player({ hood }: { hood: HoodType }) {
   //   setIsMuted(!isMuted);
   // };
 
+  // console.log('hood: ', hood);
   return (
     <>
       {/* <audio ref={audioRef} src={src} preload="metadata" /> */}
