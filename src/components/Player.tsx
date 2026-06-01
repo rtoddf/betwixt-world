@@ -27,7 +27,21 @@ function Player({ hood }: { hood: HoodType }) {
       audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
     };
-  }, []);
+  }, [isPlaying, duration]);
+
+  const pct = (currentTime / duration) * 100;
+
+  const formatTime = (time: number): string => {
+    if (isNaN(time)) return '0:00';
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  // 56 bars at ~3-4px each — proper waveform density
+  const bars = useRef(
+    Array.from({ length: 56 }, () => 0.25 + Math.random() * 0.75),
+  ).current;
 
   const togglePlay = (): void => {
     if (!audioRef.current) return;
@@ -47,14 +61,6 @@ function Player({ hood }: { hood: HoodType }) {
   //   setIsMuted(!isMuted);
   // };
 
-  const formatTime = (time: number): string => {
-    if (isNaN(time)) return '0:00';
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  };
-
-  // console.log('hood: ', hood);
   return (
     <>
       {/* <audio ref={audioRef} src={src} preload="metadata" /> */}
@@ -116,69 +122,26 @@ function Player({ hood }: { hood: HoodType }) {
               className="bw-voice-wave"
               role="slider"
               aria-valuemin={0}
-              // aria-valuemax={Math.round(duration)}
-              // aria-valuenow={Math.round(elapsed)}
-              // onClick={(e) => {
-              //   const r = e.currentTarget.getBoundingClientRect();
-              //   const x = (e.clientX - r.left) / r.width;
-              //   setElapsed(Math.max(0, Math.min(duration, x * duration)));
-              // }}
+              aria-valuemax={Math.round(duration)}
+              aria-valuenow={Math.round(duration)}
+              onClick={(e) => {
+                const r = e.currentTarget.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width;
+                setCurrentTime(Math.max(0, Math.min(duration, x * duration)));
+              }}
             >
-              {/* {bars.map((h, i) => {
-            const reached = (i / bars.length) * 100 <= pct;
-            return (
-              <span
-                key={i}
-                className={`bw-voice-bar ${reached ? 'is-on' : ''}`}
-                style={{ height: `${Math.round(h * 100)}%` }}
-              />
-            );
-          })} */}
+              {bars.map((h, i) => {
+                const reached = (i / bars.length) * 100 <= pct;
+                return (
+                  <span
+                    key={i}
+                    className={`bw-voice-bar ${reached ? 'is-on' : ''}`}
+                    style={{ height: `${Math.round(h * 100)}%` }}
+                  />
+                );
+              })}
             </div>
           </div>
-
-          {/* Mute/Volume Button */}
-          {/* <button
-            onClick={toggleMute}
-            className="p-2 text-slate-400 hover:text-white transition-colors focus:outline-none"
-            aria-label={isMuted ? 'Unmute' : 'Mute'}
-          >
-            {isMuted ? (
-              <svg
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
-                aria-hidden="true"
-              >
-                <rect
-                  x="6"
-                  y="5"
-                  width="4.5"
-                  height="14"
-                  rx="1"
-                  fill="currentColor"
-                />
-                <rect
-                  x="13.5"
-                  y="5"
-                  width="4.5"
-                  height="14"
-                  rx="1"
-                  fill="currentColor"
-                />
-              </svg>
-            ) : (
-              <svg
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
-                aria-hidden="true"
-              >
-                <path d="M7 5 L19 12 L7 19 Z" fill="currentColor" />
-              </svg>
-            )}
-            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-          </button> */}
 
           <div className="bw-voice-time">
             <span>{formatTime(currentTime)}</span>
