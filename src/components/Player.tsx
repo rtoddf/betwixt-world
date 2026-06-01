@@ -13,14 +13,10 @@ function Player({ hood }: { hood: HoodType }) {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
-  // const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [isMuted, setIsMuted] = useState<boolean>(false);
 
   useEffect(() => {
     const audio = audioRef.current;
-    // if (!playing) {
-    //   clearInterval(tickRef.current);
-    //   return;
-    // }
     if (!audio) return;
 
     const updateTime = () => setCurrentTime(audio.currentTime);
@@ -62,11 +58,11 @@ function Player({ hood }: { hood: HoodType }) {
     setIsPlaying(!isPlaying);
   };
 
-  // const toggleMute = (): void => {
-  //   if (!audioRef.current) return;
-  //   audioRef.current.muted = !isMuted;
-  //   setIsMuted(!isMuted);
-  // };
+  const toggleMute = (): void => {
+    if (!audioRef.current) return;
+    audioRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
 
   return (
     <>
@@ -74,7 +70,6 @@ function Player({ hood }: { hood: HoodType }) {
         <audio
           ref={audioRef}
           src={fileUrl(hood.themeSong)}
-          controls
           preload="metadata"
         />
       ) : null}
@@ -128,12 +123,15 @@ function Player({ hood }: { hood: HoodType }) {
               className="bw-voice-wave"
               role="slider"
               aria-valuemin={0}
-              aria-valuemax={Math.round(duration)}
-              aria-valuenow={Math.round(duration)}
+              aria-valuemax={Math.round(currentTime)}
+              aria-valuenow={Math.round(currentTime)}
               onClick={(e) => {
+                if (!audioRef.current || !duration) return;
                 const r = e.currentTarget.getBoundingClientRect();
                 const x = (e.clientX - r.left) / r.width;
-                setCurrentTime(Math.max(0, Math.min(duration, x * duration)));
+                const newTime = Math.max(0, Math.min(duration, x * duration));
+                audioRef.current.currentTime = newTime;
+                setCurrentTime(newTime);
               }}
             >
               {bars.map((h, i) => {
@@ -153,6 +151,50 @@ function Player({ hood }: { hood: HoodType }) {
             <span>{formatTime(currentTime)}</span>
             <span className="bw-voice-time-sep">/</span>
             <span>{formatTime(duration)}</span>
+          </div>
+
+          <div>
+            <button
+              onClick={toggleMute}
+              className="p-2 text-slate-400 hover:text-white transition-colors focus:outline-none"
+              aria-label={isMuted ? 'Unmute' : 'Mute'}
+            >
+              {isMuted ? (
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  aria-hidden="true"
+                >
+                  <rect
+                    x="6"
+                    y="5"
+                    width="4.5"
+                    height="14"
+                    rx="1"
+                    fill="currentColor"
+                  />
+                  <rect
+                    x="13.5"
+                    y="5"
+                    width="4.5"
+                    height="14"
+                    rx="1"
+                    fill="currentColor"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  aria-hidden="true"
+                >
+                  <path d="M7 5 L19 12 L7 19 Z" fill="currentColor" />
+                </svg>
+              )}
+              {/* {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />} */}
+            </button>
           </div>
         </div>
       </div>
