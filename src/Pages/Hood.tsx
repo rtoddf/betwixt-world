@@ -63,19 +63,7 @@ function Hood() {
 
         {hood.themeSong && (
           <section className="bw-theme-song">
-            <div className="bw-theme-song-eyebrow">
-              <span className="bw-eyebrow bw-eyebrow-amber">Theme song</span>
-              <span className="bw-theme-song-subtitle">
-                A two-minute walk through {hood.name}.
-              </span>
-            </div>
             <Player hood={hood} />
-            {/* <VoicePlayer
-            label={n.themeSong.title}
-            duration={n.themeSong.duration}
-            palette="theme"
-          /> */}
-            {/* <div className="bw-theme-song-credit">Artist</div> */}
           </section>
         )}
 

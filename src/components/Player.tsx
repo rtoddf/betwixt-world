@@ -6,27 +6,27 @@ import '../styles/colors-and-type.scss';
 function Player({ hood }: { hood: HoodType }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  // const [currentTime, setCurrentTime] = useState<number>(0);
-  // const [duration, setDuration] = useState<number>(0);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(0);
   const [isMuted, setIsMuted] = useState<boolean>(false);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    // const updateTime = () => setCurrentTime(audio.currentTime);
-    // const updateDuration = () => setDuration(audio.duration || 0);
-    // const handleEnded = () => setIsPlaying(false);
+    const updateTime = () => setCurrentTime(audio.currentTime);
+    const updateDuration = () => setDuration(audio.duration || 0);
+    const handleEnded = () => setIsPlaying(false);
 
-    // audio.addEventListener('timeupdate', updateTime);
-    // audio.addEventListener('loadedmetadata', updateDuration);
-    // audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('timeupdate', updateTime);
+    audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('ended', handleEnded);
 
-    // return () => {
-    //   audio.removeEventListener('timeupdate', updateTime);
-    //   audio.removeEventListener('loadedmetadata', updateDuration);
-    //   audio.removeEventListener('ended', handleEnded);
-    // };
+    return () => {
+      audio.removeEventListener('timeupdate', updateTime);
+      audio.removeEventListener('loadedmetadata', updateDuration);
+      audio.removeEventListener('ended', handleEnded);
+    };
   }, []);
 
   const togglePlay = (): void => {
@@ -45,6 +45,13 @@ function Player({ hood }: { hood: HoodType }) {
     if (!audioRef.current) return;
     audioRef.current.muted = !isMuted;
     setIsMuted(!isMuted);
+  };
+
+  const formatTime = (time: number): string => {
+    if (isNaN(time)) return '0:00';
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
   // console.log('hood: ', hood);
@@ -104,7 +111,7 @@ function Player({ hood }: { hood: HoodType }) {
           </button>
 
           <div className="bw-voice-stack">
-            <div className="bw-voice-label">label</div>
+            <div className="bw-voice-label">Walk through {hood.name}</div>
             <div
               className="bw-voice-wave"
               role="slider"
@@ -131,7 +138,7 @@ function Player({ hood }: { hood: HoodType }) {
           </div>
 
           {/* Mute/Volume Button */}
-          <button
+          {/* <button
             onClick={toggleMute}
             className="p-2 text-slate-400 hover:text-white transition-colors focus:outline-none"
             aria-label={isMuted ? 'Unmute' : 'Mute'}
@@ -170,13 +177,13 @@ function Player({ hood }: { hood: HoodType }) {
                 <path d="M7 5 L19 12 L7 19 Z" fill="currentColor" />
               </svg>
             )}
-            {/* {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />} */}
-          </button>
+            {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+          </button> */}
 
           <div className="bw-voice-time">
-            {/* <span>{fmt(elapsed)}</span> */}
+            <span>{formatTime(currentTime)}</span>
             <span className="bw-voice-time-sep">/</span>
-            {/* <span>{fmt(duration)}</span> */}
+            <span>{formatTime(duration)}</span>
           </div>
         </div>
       </div>
