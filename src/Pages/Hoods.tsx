@@ -33,14 +33,13 @@ function Hoods() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('hoods: ', hoods);
+    // console.log('hoods: ', hoods);
   }
 
   return (
     <section className="w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:px-[var(--s-7)]">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {hoods.map(function (hood: HoodType) {
-          console.log('hood.active: ', hood.active);
           return (
             <div key={hood.slug}>
               <div className="text-center p-[10px] nth-[1n]:rotate-[-1deg] nth-[2n]:rotate-[0.8deg] nth-[3n]:rotate-[-0.3deg]">

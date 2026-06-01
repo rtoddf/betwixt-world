@@ -22,8 +22,6 @@ function Card({
   active: boolean;
   isPreview: boolean;
 }) {
-  console.log('isPreview: ', isPreview);
-
   const inner = (
     <div>
       <div className="p-[10px]">
