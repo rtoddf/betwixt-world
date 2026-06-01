@@ -33,7 +33,7 @@ function Hoods() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('isPreview: ', isPreview);
+    console.log('hoods: ', hoods);
   }
 
   return (
