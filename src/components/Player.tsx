@@ -10,7 +10,6 @@ const WAVEFORM_BARS = Array.from(
 
 function Player({ hood }: { hood: HoodType }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const tickRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
@@ -49,7 +48,7 @@ function Player({ hood }: { hood: HoodType }) {
   };
 
   // 56 bars at ~3-4px each — proper waveform density
-  const bars = useRef(WAVEFORM_BARS).current;
+  const bars = WAVEFORM_BARS;
 
   const togglePlay = (): void => {
     if (!audioRef.current) return;
@@ -69,10 +68,8 @@ function Player({ hood }: { hood: HoodType }) {
   //   setIsMuted(!isMuted);
   // };
 
-  // console.log('hood: ', hood);
   return (
     <>
-      {/* <audio ref={audioRef} src={src} preload="metadata" /> */}
       {hood.themeSong ? (
         <audio
           ref={audioRef}
