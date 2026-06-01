@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import type { HoodType } from '../types';
-import { fileUrl } from '../lib/api';
-import '../styles/colors-and-type.scss';
+import type { HoodType } from '../../types';
+import { fileUrl } from '../../lib/api';
+import Play from '../../assets/svgs/play';
+import Pause from '../../assets/svgs/pause';
+import '../../styles/colors-and-type.scss';
 
 const WAVEFORM_BARS = Array.from(
   { length: 56 },
@@ -81,40 +83,7 @@ function Player({ hood }: { hood: HoodType }) {
             aria-label={isPlaying ? 'Pause' : 'Play'}
             onClick={togglePlay}
           >
-            {isPlaying ? (
-              <svg
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
-                aria-hidden="true"
-              >
-                <rect
-                  x="6"
-                  y="5"
-                  width="4.5"
-                  height="14"
-                  rx="1"
-                  fill="currentColor"
-                />
-                <rect
-                  x="13.5"
-                  y="5"
-                  width="4.5"
-                  height="14"
-                  rx="1"
-                  fill="currentColor"
-                />
-              </svg>
-            ) : (
-              <svg
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
-                aria-hidden="true"
-              >
-                <path d="M7 5 L19 12 L7 19 Z" fill="currentColor" />
-              </svg>
-            )}
+            {isPlaying ? <Play /> : <Pause />}
           </button>
 
           <div className="bw-voice-stack">

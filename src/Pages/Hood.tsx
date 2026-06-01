@@ -9,7 +9,7 @@ import '../styles/colors-and-type.scss';
 import '../styles/character.css';
 
 import Card from '../components/Card';
-import Player from '../components/Player';
+import Player from '../components/audio/Player';
 
 function Hood() {
   const [hood, setHood] = useState<HoodType | null>(null);
