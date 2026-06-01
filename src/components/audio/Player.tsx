@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import type { HoodType } from '../../types';
 import { fileUrl } from '../../lib/api';
-import Play from '../../assets/svgs/play';
-import Pause from '../../assets/svgs/pause';
+import Pause from '@/assets/svgs/pause';
+import Play from '@/assets/svgs/play';
 import '../../styles/colors-and-type.scss';
 
 const WAVEFORM_BARS = Array.from(
