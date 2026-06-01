@@ -8,7 +8,7 @@ function Player({ hood }: { hood: HoodType }) {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
-  const [isMuted, setIsMuted] = useState<boolean>(false);
+  // const [isMuted, setIsMuted] = useState<boolean>(false);
 
   useEffect(() => {
     const audio = audioRef.current;
