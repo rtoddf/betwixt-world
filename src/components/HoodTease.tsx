@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { urlFor } from '../lib/api';
+import Stamp from './branding/stamp';
 import HoodStatus from './HoodStatus';
 import Button from './Button';
 import '../styles/colors-and-type.scss';
@@ -17,16 +18,7 @@ function HoodTease({
   return (
     <article className="bw-featured-hood-card p-[0 auto] p-[24px] ">
       {/* Tilted postmark — the "this is the one right now" mark */}
-      {usage === 'tease' && (
-        <div
-          className="bw-featured-stamp top-[var(--s-4)] right-[var(--s-4)]"
-          aria-hidden="true"
-        >
-          <span className="bw-featured-stamp-top">Now on</span>
-          <span className="bw-featured-stamp-mid">the Block</span>
-          {/* <span className="bw-featured-stamp-bot">No. 01</span> */}
-        </div>
-      )}
+      {usage === 'tease' && <Stamp lineOne="Now on" lineTwo="the Block" />}
 
       <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-0 md:gap-[32px] relative items-center z-[2]">
         <div className="relative w-[200px] h-[200px] lg:w-[168px] lg:h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent mt-0 mb-0 ml-[auto] mr-[auto]">

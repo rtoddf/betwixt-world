@@ -196,11 +196,11 @@
 }
 /* The tilted postmark — circular ink stamp in the top-right. */
 .bw-featured-stamp {
-  position: absolute;
+  // position: absolute;
   /* top: var(--s-6); */
   /* right: var(--s-6); */
-  width: 96px;
-  height: 96px;
+  // width: 96px;
+  // height: 96px;
   border-radius: 50%;
   background: transparent;
   display: grid;
@@ -212,7 +212,7 @@
     inset 0 0 0 1.5px var(--bw-burnt),
     inset 0 0 0 5px var(--bg-elevated),
     inset 0 0 0 6.5px var(--bw-burnt);
-  color: var(--bw-burnt);
+  // color: var(--bw-burnt);
   font-family: var(--font-display);
   letter-spacing: 0.06em;
   line-height: 1;
