@@ -36,4 +36,11 @@ export interface ResidentType {
   tag: string;
   image: string;
   active: boolean;
+  voiceFile?: {
+    _type: 'file';
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+  };
 }

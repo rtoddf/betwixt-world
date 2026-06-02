@@ -6,6 +6,7 @@ import { fetchNeighborhoods } from '../lib/api';
 import { fetchResidents } from '../lib/api';
 import { urlFor } from '../lib/api';
 import PageLayout from '@/components/PageLayout';
+import Voicer from '../components/audio/Voicer';
 import '../styles/colors-and-type.scss';
 
 // ────────────────────────────────────────────────────────────────────
@@ -51,7 +52,7 @@ function Resident() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('resident: ', resident);
+    console.log('resident: ', resident);
   }
 
   if (!resident) return null;
@@ -101,6 +102,13 @@ function Resident() {
               value={resident.age ? `${resident.age} years` : 'Timeless'}
             />
           </dl>
+
+          {/* audio */}
+          {resident.voiceFile && (
+            <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+              <Voicer resident={resident} />
+            </section>
+          )}
 
           {/* The Verse */}
           {resident.miniBio && (
