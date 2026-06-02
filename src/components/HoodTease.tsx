@@ -52,7 +52,7 @@ function HoodTease({
 
         <div className="bw-featured-hood-body">
           {usage === 'tease' && (
-            <div className="bw-eyebrow font-(family-name:--font-body) text-(--bw-burnt) text-[14px] font-semibold uppercase text-center md:text-left">
+            <div className="bw-eyebrow font-(family-name:--font-body) text-burnt text-[14px] font-semibold uppercase text-center md:text-left">
               Featured neighborhood
             </div>
           )}

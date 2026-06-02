@@ -10,7 +10,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--ls-allcaps);
-  color: var(--bw-burnt);
+  /* color: var(--bw-burnt); */
 }
 
 .bw-card-v2 {
