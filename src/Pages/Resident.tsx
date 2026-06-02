@@ -5,6 +5,7 @@ import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
 import { fetchResidents } from '../lib/api';
 import { urlFor } from '../lib/api';
+import PageLayout from '@/components/PageLayout';
 import '../styles/colors-and-type.scss';
 
 // ────────────────────────────────────────────────────────────────────
@@ -56,7 +57,7 @@ function Resident() {
   if (!resident) return null;
 
   return (
-    <section className="bw-hood w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:px-[var(--s-7)]">
+    <PageLayout>
       <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
         <Link to={`/${neighborhood?.slug}`}>← Back to the hood</Link>
       </button>
@@ -137,7 +138,7 @@ function Resident() {
           )}
         </div>
       </div>
-    </section>
+    </PageLayout>
   );
 }
 

@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router';
 import type { HoodType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
 import { urlFor } from '../lib/api';
+import PageLayout from '@/components/PageLayout';
 
 function Hoods() {
   const [hoods, setHoods] = useState<HoodType[]>([]);
@@ -37,7 +38,7 @@ function Hoods() {
   }
 
   return (
-    <section className="w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:px-[var(--s-7)]">
+    <PageLayout>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {hoods.map(function (hood: HoodType) {
           return (
@@ -64,7 +65,7 @@ function Hoods() {
           );
         })}
       </div>
-    </section>
+    </PageLayout>
   );
 }
 

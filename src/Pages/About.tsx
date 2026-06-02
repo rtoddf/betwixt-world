@@ -1,9 +1,9 @@
+import PageLayout from '@/components/PageLayout';
 import '../styles/colors-and-type.scss';
 
 function About() {
   return (
-    <section className="bw-about w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:px-[var(--s-7)]">
-      {/* lg:pb-[var(--s-9)]  */}
+    <PageLayout>
       <div className="bw-eyebrow">About Betwixt</div>
       <h1 className="bw-display">
         A neighborhood,
@@ -114,7 +114,7 @@ function About() {
           </p>
         </section>
       </div>
-    </section>
+    </PageLayout>
   );
 }
 

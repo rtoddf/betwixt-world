@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 import type { ResidentType } from '../types';
 import { fetchResidents } from '../lib/api';
+import PageLayout from '@/components/PageLayout';
 import Card from '../components/Card';
 import '../styles/colors-and-type.scss';
 
@@ -43,7 +44,7 @@ function Residents() {
   if (!residents) return null;
 
   return (
-    <section className="w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:px-[var(--s-7)]">
+    <PageLayout>
       <div
         className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-3 lg:grid-cols-4 gap-4`}
       >
@@ -63,7 +64,7 @@ function Residents() {
           );
         })}
       </div>
-    </section>
+    </PageLayout>
   );
 }
 

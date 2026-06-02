@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
 import { fetchResidents } from '../lib/api';
+import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
 import '../styles/character.css';
@@ -51,64 +52,63 @@ function Hood() {
   if (!hood) return null;
 
   return (
-    <>
-      <section className="bw-hood w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:px-[var(--s-7)]">
-        <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
-          <Link to={`/hoods`}>← Back to the neighborhood map</Link>
-        </button>
+    <PageLayout>
+      <button className="bw-back m-0 p-0 bg-transparent text-[var(--bw-teal)] border-none font-[family-name:var(--font-body)] font-semibold leading-normal cursor-pointer">
+        <Link to={`/hoods`}>← Back to the neighborhood map</Link>
+      </button>
 
-        <HoodTease hood={hood} residents={residents} usage="page" />
+      <HoodTease hood={hood} residents={residents} usage="page" />
 
-        {/* <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden"></header> */}
+      {/* <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden"></header> */}
 
-        {/* audio */}
-        {hood.themeSong && (
-          <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 md:grid-cols-2 gap-[20px]">
-            <Player hood={hood} />
-          </section>
-        )}
-
-        {/* Residents */}
-        <section className="bw-hood-residents w-[100%] p-[0 auto] lg:px-[var(--s-7)]">
-          <header className="bw-section-header bw-section-header-l">
-            {hood.active && residents.length !== 0 && (
-              <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
-                Who lives here
-              </div>
-            )}
-
-            <div className="font-[family-name:var(--font-display)] text-[30px] md:text-[48px] text-[clamp(30px, 6.5vw, 56px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
-              {hood.active && residents.length !== 0
-                ? 'Meet the residents'
-                : 'Moving in soon'}
-            </div>
-          </header>
-          <div
-            className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
-          >
-            {residents.map(function (resident) {
-              return (
-                <Card
-                  key={resident.slug}
-                  slug={resident.slug}
-                  hoodSlug={resident.hood.slug}
-                  name={resident.name}
-                  tag={resident.tag}
-                  miniBio={resident.miniBio}
-                  image={resident.image}
-                  active={
-                    hood.active && residents.length !== 0
-                      ? resident.active
-                      : false
-                  }
-                  isPreview={isPreview ? isPreview : false}
-                />
-              );
-            })}
-          </div>
+      {/* audio */}
+      {hood.themeSong && (
+        <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+          <Player hood={hood} />
         </section>
+      )}
+
+      {/* Residents */}
+      <section className="bw-hood-residents w-[100%] p-[0 auto]">
+        {/* lg:px-[var(--s-7)] */}
+        <header className="bw-section-header bw-section-header-l">
+          {hood.active && residents.length !== 0 && (
+            <div className="mb-[var(--s-3)] font-[family-name:var(--font-body)] text-[14px] text-[var(--bw-burnt)] font-bold uppercase tracking-[var(--ls-allcaps)] text-center md:text-left">
+              Who lives here
+            </div>
+          )}
+
+          <div className="font-[family-name:var(--font-display)] text-[30px] md:text-[48px] text-[clamp(30px, 6.5vw, 56px)] leading-[0.95] tracking-[0.05em] text-center md:text-left mt-[var(--s-2)] mx-0 mb-[var(--s-3)] text-[var(--fg-display)]">
+            {hood.active && residents.length !== 0
+              ? 'Meet the residents'
+              : 'Moving in soon'}
+          </div>
+        </header>
+        <div
+          className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
+        >
+          {residents.map(function (resident) {
+            return (
+              <Card
+                key={resident.slug}
+                slug={resident.slug}
+                hoodSlug={resident.hood.slug}
+                name={resident.name}
+                tag={resident.tag}
+                miniBio={resident.miniBio}
+                image={resident.image}
+                active={
+                  hood.active && residents.length !== 0
+                    ? resident.active
+                    : false
+                }
+                isPreview={isPreview ? isPreview : false}
+              />
+            );
+          })}
+        </div>
       </section>
-    </>
+    </PageLayout>
   );
 }
 
