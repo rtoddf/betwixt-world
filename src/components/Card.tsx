@@ -10,6 +10,7 @@ function Card({
   tag,
   miniBio,
   image,
+  imageInactive,
   active,
   isPreview,
 }: {
@@ -33,9 +34,7 @@ function Card({
             {active || isPreview ? (
               <img src={urlFor(image)} alt={name} />
             ) : (
-              <div className="text-[var(--bw-navy)] text-[22px] text-center font-[family-name:var(--font-display)] tracking-[0.05em] leading-[1.2]">
-                A neighbor is moving in soon
-              </div>
+              <img src={urlFor(imageInactive)} alt={name} />
             )}
           </div>
 
@@ -44,7 +43,7 @@ function Card({
               {active || isPreview ? name : '???'}
             </h3>
             <span className="text-(--bw-amber) text-[14px] font-bold tracking-[0.16em] uppercase">
-              {active || isPreview ? tag : 'intro to be made soon'}
+              {active || isPreview ? tag : 'A neighbor is moving in soon'}
             </span>
             {active || isPreview ? (
               <div

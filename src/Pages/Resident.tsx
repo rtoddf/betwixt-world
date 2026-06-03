@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useSearchParams } from 'react-router';
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
@@ -27,6 +27,9 @@ function Resident() {
   const [neighborhood, setNeighborhood] = useState<HoodType | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const [searchParams] = useSearchParams();
+  const isPreview = searchParams.get('preview') === 'true';
+
   useEffect(() => {
     async function getData() {
       try {
@@ -52,7 +55,7 @@ function Resident() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('resident: ', resident);
+    // console.log('resident: ', resident);
   }
 
   if (!resident) return null;
@@ -64,54 +67,66 @@ function Resident() {
       </button>
       <div className="bw-detail-grid">
         <figure className="bw-detail-art">
-          <img src={urlFor(resident.image)} alt={resident.name} />
+          {resident.active || isPreview ? (
+            <img src={urlFor(resident.image)} alt={resident.name} />
+          ) : (
+            <img src={urlFor(resident.imageInactive)} alt={resident.name} />
+          )}
         </figure>
         <div className="bw-detail-body">
           <div className="bw-eyebrow">
-            Resident · {neighborhood?.name || 'Relocating'} · #{resident.name}
+            Resident · {neighborhood?.name || 'Relocating'}{' '}
+            {resident.name &&
+              resident.active &&
+              isPreview &&
+              ` · #${resident.name}`}
           </div>
           <h1 className="bw-detail-name font-(family-name:--font-display)">
-            {resident.name}
+            {resident.active || isPreview ? resident.name : '???'}
           </h1>
-          {/* <h1 className="bw-detail-name">{resident.name}</h1> */}
-          {resident.pronunciation && (
+
+          {resident.pronunciation && (resident.active || isPreview) && (
             <div className="bw-detail-pron">/{resident.pronunciation}/</div>
           )}
 
           {/* Concept stamp */}
-          {resident.tag && (
+          {resident.tag && (resident.active || isPreview) && (
             <div className="bw-concept-stamp">
               <span className="bw-concept-stamp-eyebrow">Represents</span>
               <span className="bw-concept-stamp-value">{resident.tag}</span>
             </div>
           )}
 
-          {/* Meta grid — 2x2 pinboard */}
-          <dl className="bw-meta-grid">
-            <MetaPin label="Hood" value={neighborhood?.name || 'Relocating'} />
-            <MetaPin
-              label="Ethnicity / mix"
-              value={resident.nationality || 'Unkown'}
-            />
-            <MetaPin
-              label="Pronouns"
-              value={resident.pronouns || 'Still figuring it out'}
-            />
-            <MetaPin
-              label="Age"
-              value={resident.age ? `${resident.age} years` : 'Timeless'}
-            />
-          </dl>
+          {resident.tag && (resident.active || isPreview) && (
+            <dl className="bw-meta-grid">
+              <MetaPin
+                label="Hood"
+                value={neighborhood?.name || 'Relocating'}
+              />
+              <MetaPin
+                label="Ethnicity / mix"
+                value={resident.nationality || 'Unkown'}
+              />
+              <MetaPin
+                label="Pronouns"
+                value={resident.pronouns || 'Still figuring it out'}
+              />
+              <MetaPin
+                label="Age"
+                value={resident.age ? `${resident.age} years` : 'Timeless'}
+              />
+            </dl>
+          )}
 
           {/* audio */}
-          {resident.voiceFile && (
+          {resident.voiceFile && (resident.active || isPreview) && (
             <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 md:grid-cols-2 gap-[20px]">
               <Voicer resident={resident} />
             </section>
           )}
 
           {/* The Verse */}
-          {resident.miniBio && (
+          {resident.miniBio && (resident.active || isPreview) && (
             <section className="bw-detail-section bw-detail-verse-section">
               <div className="bw-eyebrow bw-eyebrow-amber">The verse</div>
               <blockquote
@@ -122,7 +137,7 @@ function Resident() {
           )}
 
           {/* The Story */}
-          {resident.shortBio && (
+          {resident.shortBio && (resident.active || isPreview) && (
             <section className="bw-detail-section">
               <div className="bw-eyebrow bw-eyebrow-amber">The story</div>
               <div
@@ -133,7 +148,7 @@ function Resident() {
           )}
 
           {/* Disclaimer for grown-ups */}
-          {resident.tag && (
+          {resident.tag && (resident.active || isPreview) && (
             <aside className="bw-detail-aside">
               <div className="bw-eyebrow bw-eyebrow-amber">For grown-ups</div>
               <p>
