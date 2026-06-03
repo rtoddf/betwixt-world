@@ -35,6 +35,7 @@ export interface ResidentType {
   shortBio: string;
   tag: string;
   image: string;
+  imageInactive: string;
   active: boolean;
   voiceFile?: {
     _type: 'file';

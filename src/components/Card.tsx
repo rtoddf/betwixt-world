@@ -19,9 +19,11 @@ function Card({
   tag: string;
   miniBio: string;
   image: SanityImageSource;
+  imageInactive: SanityImageSource;
   active: boolean;
   isPreview: boolean;
 }) {
+  console.log('active: ', active);
   const inner = (
     <div>
       <div className="p-[10px]">

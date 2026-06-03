@@ -97,6 +97,12 @@ export const resident = defineType({
       group: 'media',
     }),
     defineField({
+      name: 'imageInactive',
+      title: 'Inactive Image',
+      type: 'image',
+      group: 'media',
+    }),
+    defineField({
       name: 'voiceFile',
       title: 'File For Voice',
       type: 'file',
