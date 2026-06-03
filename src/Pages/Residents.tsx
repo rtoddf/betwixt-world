@@ -58,6 +58,7 @@ function Residents() {
               tag={resident.tag}
               miniBio={resident.miniBio}
               image={resident.image}
+              imageInactive={resident.imageInactive}
               active={resident.active}
               isPreview={isPreview ? isPreview : false}
             />
