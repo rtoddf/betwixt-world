@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import type { HoodType, ResidentType } from '../../types';
 import { fileUrl } from '../../lib/api';
-import VpIcon from './VPIcon';
+import Stamp from '../branding/stamp';
+import Music from '@/assets/svgs/music';
+import Voice from '@/assets/svgs/voice';
 import Pause from '@/assets/svgs/pause';
 import Play from '@/assets/svgs/play';
 import Mute from '@/assets/svgs/mute';
@@ -70,12 +72,9 @@ function Player({ source }: { source: HoodType | ResidentType }) {
     setIsMuted(!isMuted);
   };
 
-  // const variant = 'hood';
-  const iconKind = 'music';
-  // const iconKind = icon || (variant === 'resident' ? 'voice' : 'music');
-
   return (
-    <>
+    <div className="relative">
+      <Stamp lineOne="From" lineTwo="the Block" usage="player" />
       {source._type === 'resident' && source.voiceFile ? (
         <audio
           ref={audioRef}
@@ -97,9 +96,12 @@ function Player({ source }: { source: HoodType | ResidentType }) {
         {/* Row 1 — title */}
         <div className="vp-head">
           <span className="vp-note">
-            <VpIcon kind={iconKind} />
+            {source._type === 'resident' ? <Voice /> : <Music />}
           </span>
-          <span className="vp-label">Walk through {source.name}</span>
+          <span className="vp-label">
+            {source._type === 'resident' ? 'Hear ' : 'Walk through '}
+            {source.name}
+          </span>
         </div>
 
         {/* Row 2 — waveform / scrubber */}
@@ -162,7 +164,7 @@ function Player({ source }: { source: HoodType | ResidentType }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

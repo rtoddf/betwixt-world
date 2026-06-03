@@ -18,7 +18,9 @@ function HoodTease({
   return (
     <article className="bw-featured-hood-card p-[0 auto] p-[24px] ">
       {/* Tilted postmark — the "this is the one right now" mark */}
-      {usage === 'tease' && <Stamp lineOne="Now on" lineTwo="the Block" />}
+      {usage === 'tease' && (
+        <Stamp lineOne="Now on" lineTwo="the Block" usage="hood" />
+      )}
 
       <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-0 md:gap-[32px] relative items-center z-[2]">
         <div className="relative w-[200px] h-[200px] lg:w-[168px] lg:h-[168px] grid place-items-center shrink-0 rounded-[50%] bg-transparent mt-0 mb-0 ml-[auto] mr-[auto]">

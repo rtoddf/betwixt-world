@@ -120,7 +120,7 @@ function Resident() {
 
           {/* audio */}
           {resident.voiceFile && (resident.active || isPreview) && (
-            <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+            <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 gap-[20px]">
               <Player source={resident} />
             </section>
           )}

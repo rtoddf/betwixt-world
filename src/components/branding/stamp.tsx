@@ -1,9 +1,18 @@
 import '../../styles/styles.scss';
+import '../../styles/voice-player.css';
 
-function Stamp({ lineOne, lineTwo }: { lineOne: string; lineTwo: string }) {
+function Stamp({
+  lineOne,
+  lineTwo,
+  usage,
+}: {
+  lineOne: string;
+  lineTwo: string;
+  usage: string;
+}) {
   return (
     <div
-      className="bw-featured-stamp absolute w-[96px] h-[96px] top-[var(--s-4)] right-[var(--s-4)] text-burnt"
+      className={`bw-featured-stamp ${usage === 'player' && 'vp-stamp'}`}
       aria-hidden="true"
     >
       <span className="bw-featured-stamp-top">{lineOne}</span>
