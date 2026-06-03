@@ -16,7 +16,8 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 520px; /* ~half the old full-width band */
+  /* max-width: 520px; */
+  /* ~half the old full-width band */
   display: flex;
   flex-direction: column;
   gap: 16px;

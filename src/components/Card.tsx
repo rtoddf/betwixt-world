@@ -24,7 +24,7 @@ function Card({
   active: boolean;
   isPreview: boolean;
 }) {
-  console.log('active: ', active);
+  console.log('slug: ', slug);
   const inner = (
     <div>
       <div className="p-[10px]">
@@ -33,8 +33,16 @@ function Card({
             {/* TODO:you need check to see if there's an image!! */}
             {active || isPreview ? (
               <img src={urlFor(image)} alt={name} />
-            ) : (
+            ) : imageInactive ? (
               <img src={urlFor(imageInactive)} alt={name} />
+            ) : (
+              <div className="bw-card-art bw-card-empty-art">
+                <div className="bw-card-empty-text">
+                  A neighbor is
+                  <br />
+                  moving in soon.
+                </div>
+              </div>
             )}
           </div>
 

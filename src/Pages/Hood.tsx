@@ -63,7 +63,7 @@ function Hood() {
 
       {/* audio */}
       {hood.themeSong && (
-        <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+        <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 min-[768px]:grid-cols-2 gap-[20px]">
           <Player source={hood} />
         </section>
       )}
@@ -88,6 +88,7 @@ function Hood() {
           className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
         >
           {residents.map(function (resident) {
+            console.log('resident: ', resident);
             return (
               <Card
                 key={resident.slug}
@@ -97,7 +98,9 @@ function Hood() {
                 tag={resident.tag}
                 miniBio={resident.miniBio}
                 image={resident.image}
-                imageInactive={resident.imageInactive}
+                imageInactive={
+                  resident.imageInactive ? resident.imageInactive : ''
+                }
                 active={
                   hood.active && residents.length !== 0
                     ? resident.active
