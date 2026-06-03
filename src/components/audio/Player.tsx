@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import type { HoodType } from '../../types';
+import type { HoodType, ResidentType } from '../../types';
 import { fileUrl } from '../../lib/api';
 import VpIcon from './VPIcon';
 import Pause from '@/assets/svgs/pause';
@@ -14,7 +14,7 @@ const WAVEFORM_BARS = Array.from(
   () => 0.25 + Math.random() * 0.75,
 );
 
-function Player({ hood }: { hood: HoodType }) {
+function Player({ source }: { source: HoodType | ResidentType }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -76,10 +76,16 @@ function Player({ hood }: { hood: HoodType }) {
 
   return (
     <>
-      {hood.themeSong ? (
+      {source._type === 'resident' && source.voiceFile ? (
         <audio
           ref={audioRef}
-          src={fileUrl(hood.themeSong)}
+          src={fileUrl(source.voiceFile)}
+          preload="metadata"
+        />
+      ) : source._type === 'neighborhood' && source.themeSong ? (
+        <audio
+          ref={audioRef}
+          src={fileUrl(source.themeSong)}
           preload="metadata"
         />
       ) : null}
@@ -93,7 +99,7 @@ function Player({ hood }: { hood: HoodType }) {
           <span className="vp-note">
             <VpIcon kind={iconKind} />
           </span>
-          <span className="vp-label">Walk through {hood.name}</span>
+          <span className="vp-label">Walk through {source.name}</span>
         </div>
 
         {/* Row 2 — waveform / scrubber */}

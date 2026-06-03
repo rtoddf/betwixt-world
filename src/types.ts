@@ -1,6 +1,7 @@
 import { type SanityImageSource } from '@sanity/image-url';
 
 export interface HoodType {
+  _type: 'neighborhood';
   _id: string;
   slug: string;
   name: string;
@@ -20,6 +21,7 @@ export interface HoodType {
 }
 
 export interface ResidentType {
+  _type: 'resident';
   slug: string;
   name: string;
   pronunciation: string;

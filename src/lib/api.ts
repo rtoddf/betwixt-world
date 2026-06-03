@@ -28,7 +28,9 @@ export const fileUrl = (source: SanityFileSource) => {
   const { asset } = source;
   if (!asset) return '';
   const ref = asset._ref;
-  const [, id, ext] = ref.split('-');
+  const parts = ref.split('-');
+  const ext = parts[parts.length - 1];
+  const id = parts.slice(1, -1).join('-');
   return `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${ext}`;
 };
 
