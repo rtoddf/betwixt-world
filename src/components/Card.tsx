@@ -24,7 +24,6 @@ function Card({
   active: boolean;
   isPreview: boolean;
 }) {
-  console.log('slug: ', slug);
   const inner = (
     <div>
       <div className="p-[10px]">
@@ -53,7 +52,7 @@ function Card({
             <span className="text-(--bw-amber) text-[14px] font-bold tracking-[0.16em] uppercase">
               {active || isPreview ? tag : 'A neighbor is moving in soon'}
             </span>
-            {active || isPreview ? (
+            {miniBio && (active || isPreview) ? (
               <div
                 className="m-[2px 0 0] text-[12px] text-(--bw-cream) leading-[1.45] italic whitespace-pre-line"
                 dangerouslySetInnerHTML={{ __html: miniBio }}
