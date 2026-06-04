@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import type { HoodType, ResidentType } from '../../types';
 import { fileUrl } from '../../lib/api';
+import { getTaglines } from '@/helperFunctions/getTaglines';
 import Stamp from '../branding/stamp';
 import Music from '@/assets/svgs/music';
 import Voice from '@/assets/svgs/voice';
@@ -99,7 +100,7 @@ function Player({ source }: { source: HoodType | ResidentType }) {
             {source._type === 'resident' ? <Voice /> : <Music />}
           </span>
           <span className="vp-label">
-            {source._type === 'resident' ? 'Hear ' : 'Walk through '}
+            {getTaglines(source._type === 'resident' ? 'resident' : 'hood')}{' '}
             {source.name}
           </span>
         </div>
