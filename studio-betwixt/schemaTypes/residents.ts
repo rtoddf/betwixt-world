@@ -15,12 +15,14 @@ export const resident = defineType({
       title: 'Name',
       type: 'string',
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'string',
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'pronunciation',
@@ -65,6 +67,7 @@ export const resident = defineType({
       type: 'reference',
       to: [{type: 'neighborhood'}],
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'date',
