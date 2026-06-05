@@ -55,7 +55,7 @@ function Resident() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('resident: ', resident);
+    // console.log('isPreview: ', isPreview);
   }
 
   if (!resident) return null;
@@ -80,7 +80,7 @@ function Resident() {
         <div className="bw-detail-body">
           <div className="bw-eyebrow">
             Resident · {neighborhood?.name || 'Relocating'}{' '}
-            {resident.name && isPreview && ` · #${resident.name}`}
+            {resident.name && isLive && ` · #${resident.name}`}
           </div>
           <h1 className="bw-detail-name font-(family-name:--font-display)">
             {isLive ? resident.name : '???'}
