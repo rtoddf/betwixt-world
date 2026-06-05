@@ -40,7 +40,7 @@ function Card({
             {/* TODO:you need check to see if there's an image!! */}
             {isLive ? (
               <img src={urlFor(image)} alt={name} />
-            ) : imageInactive ? (
+            ) : isComingSoon ? (
               <img src={urlFor(imageInactive)} alt={name} />
             ) : (
               <div className="bw-card-art bw-card-empty-art">
