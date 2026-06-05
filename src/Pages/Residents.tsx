@@ -23,7 +23,11 @@ function Residents() {
           .sort((a: ResidentType, b: ResidentType) =>
             a.name.localeCompare(b.name),
           )
-          .filter((resident: ResidentType) => isPreview || resident.active);
+          .filter(
+            (resident: ResidentType) =>
+              isPreview ||
+              resident.date <= new Date().toISOString().split('T')[0],
+          );
 
         setResidents(residentsSorted);
 
@@ -65,7 +69,7 @@ function Residents() {
                 imageInactive={
                   resident.imageInactive ? resident.imageInactive : ''
                 }
-                active={resident.active}
+                date={resident.date}
                 isPreview={isPreview ? isPreview : false}
               />
             );

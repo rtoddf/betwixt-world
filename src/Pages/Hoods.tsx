@@ -15,10 +15,10 @@ function Hoods() {
   useEffect(() => {
     async function getData() {
       try {
-        const hoods = await fetchNeighborhoods();
-        const hoodsSorted = hoods
-          .sort((a: HoodType, b: HoodType) => a.name.localeCompare(b.name))
-          .filter((hood: HoodType) => isPreview || hood.active);
+        const hoods = await fetchNeighborhoods(isPreview);
+        const hoodsSorted = hoods.sort((a: HoodType, b: HoodType) =>
+          a.name.localeCompare(b.name),
+        );
 
         setHoods(hoodsSorted);
 

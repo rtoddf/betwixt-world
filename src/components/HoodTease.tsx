@@ -63,7 +63,12 @@ function HoodTease({
 
           <HoodStatus
             date={hood.date}
-            res={residents.filter((r) => r.active).length}
+            res={
+              residents.filter(
+                (r) =>
+                  r.date && r.date <= new Date().toISOString().split('T')[0],
+              ).length
+            }
             active={hood.active}
           />
         </div>

@@ -11,7 +11,7 @@ function Card({
   miniBio,
   image,
   imageInactive,
-  active,
+  date,
   isPreview,
 }: {
   slug: string;
@@ -21,16 +21,19 @@ function Card({
   miniBio: string;
   image: SanityImageSource;
   imageInactive: SanityImageSource;
-  active: boolean;
+  date: string;
   isPreview: boolean;
 }) {
+  const isLive =
+    isPreview || (!!date && date <= new Date().toISOString().split('T')[0]);
+
   const inner = (
     <div>
       <div className="p-[10px]">
         <div className="rounded-[8px] flex flex-col overflow-hidden bg-(--bw-cream) shadow-[inset_0_0_0_1.5px_var(--bw-navy),_0_4px_0_rgba(26,74,74,0.1)]">
           <div className="relative w-full grid aspect-[2/3] place-items-center p-4 color-(--bw-navy) border-b-[1.5px] border-b-solid border-b-(--bw-navy) text-[64px] leading-none tracking-normal">
             {/* TODO:you need check to see if there's an image!! */}
-            {active || isPreview ? (
+            {isLive ? (
               <img src={urlFor(image)} alt={name} />
             ) : imageInactive ? (
               <img src={urlFor(imageInactive)} alt={name} />
@@ -47,12 +50,12 @@ function Card({
 
           <div className="hidden md:block flex flex-col gap-[6px] pt-[14px] px-[16px] pb-[16px] bg-(--bw-navy-soft) font-(family-name:--font-body)">
             <h3 className="resident-name-card mb-[10px] text-(--bw-cream) font-(family-name:--font-display) border-b border-b-solid border-b-(--bw-cream) tracking-[0.05em] leading-[1.1]">
-              {active || isPreview ? name : '???'}
+              {isLive ? name : '???'}
             </h3>
             <span className="text-(--bw-amber) text-[14px] font-bold tracking-[0.16em] uppercase">
-              {active || isPreview ? tag : 'A neighbor is moving in soon'}
+              {isLive ? tag : 'A neighbor is moving in soon'}
             </span>
-            {miniBio && (active || isPreview) ? (
+            {miniBio && isLive ? (
               <div
                 className="m-[2px 0 0] text-[12px] text-(--bw-cream) leading-[1.45] italic whitespace-pre-line"
                 dangerouslySetInnerHTML={{ __html: miniBio }}
@@ -68,12 +71,12 @@ function Card({
         </div>
       </div>
       <div className="visible md:hidden text-(--fg-display) font-(family-name:--font-body) font-bold text-[18px] text-center">
-        {active || isPreview ? name : ''}
+        {isLive ? name : ''}
       </div>
     </div>
   );
 
-  return active || isPreview ? (
+  return isLive ? (
     <Link
       to={`/${hoodSlug}/${slug}`}
       className="nth-[1n]:rotate-[-0.6deg] nth-[2n]:rotate-[0.8deg] nth-[3n]:rotate-[-0.3deg] hover:animate-wiggle-card"

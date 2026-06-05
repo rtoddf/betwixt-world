@@ -76,12 +76,6 @@ export const resident = defineType({
       group: 'content',
     }),
     defineField({
-      name: 'active',
-      title: 'Active',
-      type: 'boolean',
-      group: 'content',
-    }),
-    defineField({
       name: 'miniBio',
       title: 'Mini Bio Copy',
       type: 'text',

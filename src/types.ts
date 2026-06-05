@@ -38,7 +38,7 @@ export interface ResidentType {
   tag: string;
   image: string;
   imageInactive: SanityImageSource;
-  active: boolean;
+  date: string;
   voiceFile?: {
     _type: 'file';
     asset: {

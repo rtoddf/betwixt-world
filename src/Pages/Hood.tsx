@@ -23,7 +23,7 @@ function Hood() {
   useEffect(() => {
     async function getData() {
       try {
-        const hoods = await fetchNeighborhoods();
+        const hoods = await fetchNeighborhoods(isPreview);
         const thisHood = hoods.filter((h: HoodType) => h.slug === slug);
         setHood(thisHood[0]);
 
@@ -101,11 +101,7 @@ function Hood() {
                 imageInactive={
                   resident.imageInactive ? resident.imageInactive : ''
                 }
-                active={
-                  hood.active && residents.length !== 0
-                    ? resident.active
-                    : false
-                }
+                date={resident.date}
                 isPreview={isPreview ? isPreview : false}
               />
             );
