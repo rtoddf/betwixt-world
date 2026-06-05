@@ -1,7 +1,7 @@
 import PageLayout from '@/components/PageLayout';
-import PageNotFound from '@/components/pageNotFound';
+import PageNotFound from '@/components/PageNotFound';
 
-function notFound() {
+function NotFound() {
   return (
     <PageLayout>
       <PageNotFound />
@@ -9,4 +9,4 @@ function notFound() {
   );
 }
 
-export default notFound;
+export default NotFound;
