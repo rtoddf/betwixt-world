@@ -105,5 +105,23 @@ export const resident = defineType({
       type: 'file',
       group: 'media',
     }),
+    defineField({
+      name: 'voiceId',
+      title: 'Id For Voice',
+      type: 'string',
+      group: 'media',
+    }),
+    defineField({
+      name: 'voicePrompt',
+      title: 'Prompt For Voice',
+      type: 'text',
+      group: 'media',
+    }),
+    defineField({
+      name: 'voiceScript',
+      title: 'Script For Voice',
+      type: 'text',
+      group: 'media',
+    }),
   ],
 })

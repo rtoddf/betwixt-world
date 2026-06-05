@@ -26,6 +26,11 @@ function Card({
 }) {
   const isLive =
     isPreview || (!!date && date <= new Date().toISOString().split('T')[0]);
+  const twoWeeksOut = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split('T')[0];
+  const isComingSoon = !isLive && !!date && date <= twoWeeksOut;
+  console.log('isComingSoon: ', isComingSoon);
 
   const inner = (
     <div>
