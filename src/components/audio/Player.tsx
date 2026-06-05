@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import type { HoodType, ResidentType } from '../../types';
 import { fileUrl } from '../../lib/api';
 import { getTaglines } from '@/helperFunctions/getTaglines';
@@ -41,7 +41,7 @@ function Player({ source }: { source: HoodType | ResidentType }) {
       audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
     };
-  }, [isPlaying, duration]);
+  }, []);
 
   const pct = (currentTime / duration) * 100;
 
@@ -73,6 +73,15 @@ function Player({ source }: { source: HoodType | ResidentType }) {
     setIsMuted(!isMuted);
   };
 
+  const tagline = useMemo(
+    () =>
+      getTaglines(
+        source._type === 'resident' ? 'resident' : 'hood',
+        source.name,
+      ),
+    [source._type, source.name],
+  );
+
   return (
     <div className="relative">
       <Stamp lineOne="From" lineTwo="the Block" usage="player" />
@@ -99,10 +108,7 @@ function Player({ source }: { source: HoodType | ResidentType }) {
           <span className="vp-note">
             {source._type === 'resident' ? <Voice /> : <Music />}
           </span>
-          <span className="vp-label">
-            {getTaglines(source._type === 'resident' ? 'resident' : 'hood')}{' '}
-            {source.name}
-          </span>
+          <span className="vp-label">{tagline}</span>
         </div>
 
         {/* Row 2 — waveform / scrubber */}
