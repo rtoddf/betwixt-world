@@ -8,7 +8,6 @@ const TWO_WEEKS_OUT = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)
   .toISOString()
   .split('T')[0];
 
-
 function Card({
   slug,
   name,
@@ -30,8 +29,7 @@ function Card({
   date: string;
   isPreview: boolean;
 }) {
-  const isLive =
-    isPreview || (!!date && date <= TODAY;
+  const isLive = isPreview || (!!date && date <= TODAY);
   const twoWeeksOut = TWO_WEEKS_OUT;
   const isComingSoon = !isLive && !!date && date <= twoWeeksOut;
   console.log('isComingSoon: ', isComingSoon);
