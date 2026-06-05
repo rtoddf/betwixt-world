@@ -15,12 +15,14 @@ export const resident = defineType({
       title: 'Name',
       type: 'string',
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'string',
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'pronunciation',
@@ -65,6 +67,7 @@ export const resident = defineType({
       type: 'reference',
       to: [{type: 'neighborhood'}],
       group: 'content',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'date',
@@ -93,6 +96,12 @@ export const resident = defineType({
     defineField({
       name: 'image',
       title: 'Image',
+      type: 'image',
+      group: 'media',
+    }),
+    defineField({
+      name: 'imageInactive',
+      title: 'Inactive Image',
       type: 'image',
       group: 'media',
     }),

@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { urlFor } from '../lib/api';
+import Stamp from './branding/stamp';
 import HoodStatus from './HoodStatus';
 import Button from './Button';
 import '../styles/colors-and-type.scss';
@@ -18,14 +19,7 @@ function HoodTease({
     <article className="bw-featured-hood-card p-[0 auto] p-[24px] ">
       {/* Tilted postmark — the "this is the one right now" mark */}
       {usage === 'tease' && (
-        <div
-          className="bw-featured-stamp top-[var(--s-4)] right-[var(--s-4)]"
-          aria-hidden="true"
-        >
-          <span className="bw-featured-stamp-top">Now on</span>
-          <span className="bw-featured-stamp-mid">the Block</span>
-          {/* <span className="bw-featured-stamp-bot">No. 01</span> */}
-        </div>
+        <Stamp lineOne="Now on" lineTwo="the Block" usage="hood" />
       )}
 
       <div className="bw-hood-head-grid grid grid-cols-none lg:grid-cols-[auto_1fr] gap-0 md:gap-[32px] relative items-center z-[2]">
@@ -52,7 +46,7 @@ function HoodTease({
 
         <div className="bw-featured-hood-body">
           {usage === 'tease' && (
-            <div className="bw-eyebrow font-(family-name:--font-body) text-(--bw-burnt) text-[14px] font-semibold uppercase text-center md:text-left">
+            <div className="bw-eyebrow font-(family-name:--font-body) text-burnt text-[14px] font-semibold uppercase text-center md:text-left">
               Featured neighborhood
             </div>
           )}

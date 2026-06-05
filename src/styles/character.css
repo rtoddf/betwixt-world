@@ -10,7 +10,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--ls-allcaps);
-  color: var(--bw-burnt);
+  /* color: var(--bw-burnt); */
 }
 
 .bw-card-v2 {
@@ -176,7 +176,7 @@
   position: relative;
   background: var(--bg);
   border-radius: var(--r);
-  box-shadow: inset 0 0 0 1.5px var(--bw-navy);
+  /* box-shadow: inset 0 0 0 1.5px var(--bw-navy); */
   padding: var(--s-6) var(--s-5) var(--s-5);
   aspect-ratio: 2 / 3;
   overflow: hidden;

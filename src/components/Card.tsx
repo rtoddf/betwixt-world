@@ -10,6 +10,7 @@ function Card({
   tag,
   miniBio,
   image,
+  imageInactive,
   active,
   isPreview,
 }: {
@@ -19,11 +20,10 @@ function Card({
   tag: string;
   miniBio: string;
   image: SanityImageSource;
+  imageInactive: SanityImageSource;
   active: boolean;
   isPreview: boolean;
 }) {
-  console.log('isPreview: ', isPreview);
-
   const inner = (
     <div>
       <div className="p-[10px]">
@@ -32,9 +32,15 @@ function Card({
             {/* TODO:you need check to see if there's an image!! */}
             {active || isPreview ? (
               <img src={urlFor(image)} alt={name} />
+            ) : imageInactive ? (
+              <img src={urlFor(imageInactive)} alt={name} />
             ) : (
-              <div className="text-[var(--bw-navy)] text-[22px] text-center font-[family-name:var(--font-display)] tracking-[0.05em] leading-[1.2]">
-                A neighbor is moving in soon
+              <div className="bw-card-art bw-card-empty-art">
+                <div className="bw-card-empty-text">
+                  A neighbor is
+                  <br />
+                  moving in soon.
+                </div>
               </div>
             )}
           </div>
@@ -44,9 +50,9 @@ function Card({
               {active || isPreview ? name : '???'}
             </h3>
             <span className="text-(--bw-amber) text-[14px] font-bold tracking-[0.16em] uppercase">
-              {active || isPreview ? tag : 'intro to be made soon'}
+              {active || isPreview ? tag : 'A neighbor is moving in soon'}
             </span>
-            {active || isPreview ? (
+            {miniBio && (active || isPreview) ? (
               <div
                 className="m-[2px 0 0] text-[12px] text-(--bw-cream) leading-[1.45] italic whitespace-pre-line"
                 dangerouslySetInnerHTML={{ __html: miniBio }}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
+import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
 import '../styles/final.scss';
@@ -42,11 +43,9 @@ function Home() {
   if (!hood) return null;
 
   return (
-    <>
-      <section className="w-[100%] p-[0 auto] p-[24px] lg:pt-[var(--s-7)] lg:px-[var(--s-7)]">
-        <HoodTease hood={hood} residents={residents} usage="tease" />
-      </section>
-    </>
+    <PageLayout>
+      <HoodTease hood={hood} residents={residents} usage="tease" />
+    </PageLayout>
   );
 }
 
