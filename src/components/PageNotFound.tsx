@@ -4,8 +4,10 @@ import '../styles/colors-and-type.scss';
 function PageNotFound() {
   return (
     <>
-      <div className="grid grid-cols-1 gap-[40px] text-center">
-        <h1>No one is home at the moment</h1>
+      <div className="grid grid-cols-1 gap-[20px] text-center font-(family-name:--font-body)">
+        <div className="my-[var(--s-4)] mx-0 text-[var(--fg-display)] text-[48px] font-(family-name:--font-display) font-normal tracking-[var(--ls-display] leading-[1.04] text-center">
+          No one is home at the moment
+        </div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
           sed velit dapibus, elementum ex eu, congue tortor. Quisque magna
