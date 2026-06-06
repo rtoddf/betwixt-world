@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
 import { fetchResidents } from '../lib/api';
+import { prioritizeResidents } from '@/helperFunctions/dateHelpers';
 import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
@@ -30,9 +31,15 @@ function Hood() {
         // server side filter
         const residents = await fetchResidents(slug);
         setResidents(
-          residents.sort((a: ResidentType, b: ResidentType) =>
-            a.name.localeCompare(b.name),
-          ),
+          residents.sort((a: ResidentType, b: ResidentType) => {
+            const diff =
+              prioritizeResidents(a.date, isPreview) -
+              prioritizeResidents(b.date, isPreview);
+
+            if (diff !== 0) return diff;
+
+            return a.name.localeCompare(b.name);
+          }),
         );
         setLoading(false);
       } catch (error) {
@@ -46,7 +53,7 @@ function Hood() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('residents: ', residents);
+    console.log('residents: ', residents);
   }
 
   if (!hood) return null;

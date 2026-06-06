@@ -1,12 +1,8 @@
 import { Link } from 'react-router';
 import { urlFor } from '../lib/api';
 import { type SanityImageSource } from '@sanity/image-url';
+import { TODAY, TWO_WEEKS_OUT } from '@/helperFunctions/dateHelpers';
 import '../styles/colors-and-type.scss';
-
-const TODAY = new Date().toISOString().split('T')[0];
-const TWO_WEEKS_OUT = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000)
-  .toISOString()
-  .split('T')[0];
 
 function Card({
   slug,
@@ -32,7 +28,7 @@ function Card({
   const isLive = isPreview || (!!date && date <= TODAY);
   const twoWeeksOut = TWO_WEEKS_OUT;
   const isComingSoon = !isLive && !!date && date <= twoWeeksOut;
-  console.log('isComingSoon: ', isComingSoon);
+  // console.log('isComingSoon: ', isComingSoon);
 
   const inner = (
     <div>
