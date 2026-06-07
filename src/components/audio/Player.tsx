@@ -84,6 +84,7 @@ function Player({
       getTaglines(
         source._type === 'resident' ? 'resident' : 'hood',
         source.name,
+        audiotype,
       ),
     [source._type, source.name],
   );
