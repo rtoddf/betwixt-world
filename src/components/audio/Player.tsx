@@ -17,7 +17,13 @@ const WAVEFORM_BARS = Array.from(
   () => 0.25 + Math.random() * 0.75,
 );
 
-function Player({ source }: { source: HoodType | ResidentType }) {
+function Player({
+  source,
+  audiotype,
+}: {
+  source: HoodType | ResidentType;
+  audiotype: string;
+}) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -85,10 +91,20 @@ function Player({ source }: { source: HoodType | ResidentType }) {
   return (
     <div className="relative">
       <Stamp lineOne="From" lineTwo="the Block" usage="player" />
-      {source._type === 'resident' && source.voiceFile ? (
+      {source._type === 'resident' &&
+      source.voiceFile &&
+      audiotype === 'voice' ? (
         <audio
           ref={audioRef}
           src={fileUrl(source.voiceFile)}
+          preload="metadata"
+        />
+      ) : source._type === 'resident' &&
+        source.voiceMusicFile &&
+        audiotype === 'music' ? (
+        <audio
+          ref={audioRef}
+          src={fileUrl(source.voiceMusicFile)}
           preload="metadata"
         />
       ) : source._type === 'neighborhood' && source.themeSong ? (

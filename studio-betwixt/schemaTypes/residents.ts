@@ -106,6 +106,12 @@ export const resident = defineType({
       group: 'media',
     }),
     defineField({
+      name: 'voiceMusicFile',
+      title: 'File For Music under Voice',
+      type: 'file',
+      group: 'media',
+    }),
+    defineField({
       name: 'voiceId',
       title: 'Id For Voice',
       type: 'string',

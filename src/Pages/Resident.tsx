@@ -55,7 +55,7 @@ function Resident() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('isPreview: ', isPreview);
+    console.log('resident: ', resident);
   }
 
   if (!resident) return null;
@@ -122,7 +122,14 @@ function Resident() {
           {/* audio */}
           {resident.voiceFile && isLive && (
             <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 gap-[20px] mt-[40px]">
-              <Player source={resident} />
+              <Player source={resident} audiotype="voice" />
+            </section>
+          )}
+
+          {/* audio */}
+          {resident.voiceMusicFile && isLive && (
+            <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 gap-[20px] mt-[40px]">
+              <Player source={resident} audiotype="music" />
             </section>
           )}
 

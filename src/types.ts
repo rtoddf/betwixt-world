@@ -46,4 +46,11 @@ export interface ResidentType {
       _type: 'reference';
     };
   };
+  voiceMusicFile?: {
+    _type: 'file';
+    asset: {
+      _ref: string;
+      _type: 'reference';
+    };
+  };
 }
