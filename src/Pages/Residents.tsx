@@ -5,6 +5,10 @@ import { fetchResidents } from '../lib/api';
 import PageLayout from '@/components/PageLayout';
 import Card from '../components/Card';
 import PageNotFound from '@/components/PageNotFound';
+import {
+  prioritizeResidents,
+  TWO_WEEKS_OUT,
+} from '@/helperFunctions/dateHelpers';
 import '../styles/colors-and-type.scss';
 
 function Residents() {
@@ -19,17 +23,17 @@ function Residents() {
       try {
         const residents = await fetchResidents();
 
-        const residentsSorted = residents
-          .sort((a: ResidentType, b: ResidentType) =>
-            a.name.localeCompare(b.name),
-          )
-          .filter(
-            (resident: ResidentType) =>
-              isPreview ||
-              resident.date <= new Date().toISOString().split('T')[0],
-          );
+        setResidents(
+          residents.sort((a: ResidentType, b: ResidentType) => {
+            const diff =
+              prioritizeResidents(a.date, isPreview) -
+              prioritizeResidents(b.date, isPreview);
 
-        setResidents(residentsSorted);
+            if (diff !== 0) return diff;
+
+            return a.name.localeCompare(b.name);
+          }),
+        );
 
         setLoading(false);
       } catch (error) {
@@ -43,37 +47,39 @@ function Residents() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('residents: ', residents);
+    // console.log('residents: ', residents);
   }
 
-  // if (!residents) return null;
+  if (!residents) return null;
 
-  if (residents.length > 0 && residents) {
+  if (residents.length > 0) {
     return (
       <PageLayout>
         <div
           className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-3 lg:grid-cols-4 gap-4`}
         >
-          {residents.map(function (resident) {
-            return (
-              <Card
-                key={resident.slug}
-                slug={resident.slug}
-                hoodSlug={
-                  resident.hood.slug ? resident.hood.slug : 'buffer-zone'
-                }
-                name={resident.name}
-                tag={resident.tag}
-                miniBio={resident.miniBio}
-                image={resident.image}
-                imageInactive={
-                  resident.imageInactive ? resident.imageInactive : ''
-                }
-                date={resident.date}
-                isPreview={isPreview ? isPreview : false}
-              />
-            );
-          })}
+          {residents
+            .filter((res) => !!res.date && res.date <= TWO_WEEKS_OUT)
+            .map(function (resident) {
+              return (
+                <Card
+                  key={resident.slug}
+                  slug={resident.slug}
+                  hoodSlug={
+                    resident.hood.slug ? resident.hood.slug : 'buffer-zone'
+                  }
+                  name={resident.name}
+                  tag={resident.tag}
+                  miniBio={resident.miniBio}
+                  image={resident.image}
+                  imageInactive={
+                    resident.imageInactive ? resident.imageInactive : ''
+                  }
+                  date={resident.date}
+                  isPreview={isPreview ? isPreview : false}
+                />
+              );
+            })}
         </div>
       </PageLayout>
     );
