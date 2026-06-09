@@ -6,6 +6,7 @@ import Residents from './Pages/Residents';
 import Resident from './Pages/Resident';
 import About from './Pages/About';
 import SayHello from './Pages/SayHello';
+import NotFound from './Pages/PageNotFound';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/:hood/:slug" element={<Resident />} />
       <Route path="/about" element={<About />} />
       <Route path="/say-hello" element={<SayHello />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

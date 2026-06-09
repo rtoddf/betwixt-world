@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
 import { fetchResidents } from '../lib/api';
+import { prioritizeResidents } from '@/helperFunctions/dateHelpers';
 import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
@@ -23,16 +24,22 @@ function Hood() {
   useEffect(() => {
     async function getData() {
       try {
-        const hoods = await fetchNeighborhoods();
+        const hoods = await fetchNeighborhoods(isPreview);
         const thisHood = hoods.filter((h: HoodType) => h.slug === slug);
         setHood(thisHood[0]);
 
         // server side filter
         const residents = await fetchResidents(slug);
         setResidents(
-          residents.sort((a: ResidentType, b: ResidentType) =>
-            a.name.localeCompare(b.name),
-          ),
+          residents.sort((a: ResidentType, b: ResidentType) => {
+            const diff =
+              prioritizeResidents(a.date, isPreview) -
+              prioritizeResidents(b.date, isPreview);
+
+            if (diff !== 0) return diff;
+
+            return a.name.localeCompare(b.name);
+          }),
         );
         setLoading(false);
       } catch (error) {
@@ -46,7 +53,7 @@ function Hood() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('residents: ', residents);
+    console.log('residents: ', residents);
   }
 
   if (!hood) return null;
@@ -64,7 +71,7 @@ function Hood() {
       {/* audio */}
       {hood.themeSong && (
         <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 min-[768px]:grid-cols-2 gap-[20px]">
-          <Player source={hood} />
+          <Player source={hood} audiotype="music" />
         </section>
       )}
 
@@ -101,11 +108,7 @@ function Hood() {
                 imageInactive={
                   resident.imageInactive ? resident.imageInactive : ''
                 }
-                active={
-                  hood.active && residents.length !== 0
-                    ? resident.active
-                    : false
-                }
+                date={resident.date}
                 isPreview={isPreview ? isPreview : false}
               />
             );

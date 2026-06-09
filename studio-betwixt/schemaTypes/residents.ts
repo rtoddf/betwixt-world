@@ -6,7 +6,8 @@ export const resident = defineType({
   type: 'document',
   groups: [
     {name: 'content', title: 'Content', default: true},
-    {name: 'media', title: 'Theme & Media'},
+    {name: 'images', title: 'Images'},
+    {name: 'audio', title: 'Audio'},
     {name: 'copy', title: 'Copy'},
   ],
   fields: [
@@ -76,12 +77,6 @@ export const resident = defineType({
       group: 'content',
     }),
     defineField({
-      name: 'active',
-      title: 'Active',
-      type: 'boolean',
-      group: 'content',
-    }),
-    defineField({
       name: 'miniBio',
       title: 'Mini Bio Copy',
       type: 'text',
@@ -97,19 +92,67 @@ export const resident = defineType({
       name: 'image',
       title: 'Image',
       type: 'image',
-      group: 'media',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
+    }),
+    defineField({
+      name: 'imagePng',
+      title: 'PNG Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
     }),
     defineField({
       name: 'imageInactive',
       title: 'Inactive Image',
       type: 'image',
-      group: 'media',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
+    }),
+    defineField({
+      name: 'imagePngInactive',
+      title: 'Inactive PNG Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
     }),
     defineField({
       name: 'voiceFile',
       title: 'File For Voice',
       type: 'file',
-      group: 'media',
+      group: 'audio',
+    }),
+    defineField({
+      name: 'voiceMusicFile',
+      title: 'File For Music under Voice',
+      type: 'file',
+      group: 'audio',
+    }),
+    defineField({
+      name: 'voiceId',
+      title: 'Id For Voice',
+      type: 'string',
+      group: 'audio',
+    }),
+    defineField({
+      name: 'voicePrompt',
+      title: 'Prompt For Voice',
+      type: 'text',
+      group: 'audio',
+    }),
+    defineField({
+      name: 'voiceScript',
+      title: 'Script For Voice',
+      type: 'text',
+      group: 'audio',
     }),
   ],
 })

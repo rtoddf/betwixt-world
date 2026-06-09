@@ -59,6 +59,10 @@ function Resident() {
   }
 
   if (!resident) return null;
+  const isLive =
+    isPreview ||
+    (!!resident.date &&
+      resident.date <= new Date().toISOString().split('T')[0]);
 
   return (
     <PageLayout>
@@ -67,7 +71,7 @@ function Resident() {
       </button>
       <div className="bw-detail-grid">
         <figure className="bw-detail-art">
-          {resident.active || isPreview ? (
+          {isLive ? (
             <img src={urlFor(resident.image)} alt={resident.name} />
           ) : (
             <img src={urlFor(resident.imageInactive)} alt={resident.name} />
@@ -76,28 +80,25 @@ function Resident() {
         <div className="bw-detail-body">
           <div className="bw-eyebrow">
             Resident · {neighborhood?.name || 'Relocating'}{' '}
-            {resident.name &&
-              resident.active &&
-              isPreview &&
-              ` · #${resident.name}`}
+            {resident.name && isLive && ` · #${resident.name}`}
           </div>
           <h1 className="bw-detail-name font-(family-name:--font-display)">
-            {resident.active || isPreview ? resident.name : '???'}
+            {isLive ? resident.name : '???'}
           </h1>
 
-          {resident.pronunciation && (resident.active || isPreview) && (
+          {resident.pronunciation && isLive && (
             <div className="bw-detail-pron">/{resident.pronunciation}/</div>
           )}
 
           {/* Concept stamp */}
-          {resident.tag && (resident.active || isPreview) && (
+          {resident.tag && isLive && (
             <div className="bw-concept-stamp">
               <span className="bw-concept-stamp-eyebrow">Represents</span>
               <span className="bw-concept-stamp-value">{resident.tag}</span>
             </div>
           )}
 
-          {resident.tag && (resident.active || isPreview) && (
+          {resident.tag && isLive && (
             <dl className="bw-meta-grid">
               <MetaPin
                 label="Hood"
@@ -119,14 +120,21 @@ function Resident() {
           )}
 
           {/* audio */}
-          {resident.voiceFile && (resident.active || isPreview) && (
+          {resident.voiceFile && isLive && (
             <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 gap-[20px] mt-[40px]">
-              <Player source={resident} />
+              <Player source={resident} audiotype="voice" />
+            </section>
+          )}
+
+          {/* audio */}
+          {resident.voiceMusicFile && isLive && (
+            <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 gap-[20px] mt-[40px]">
+              <Player source={resident} audiotype="music" />
             </section>
           )}
 
           {/* The Verse */}
-          {resident.miniBio && (resident.active || isPreview) && (
+          {resident.miniBio && isLive && (
             <section className="bw-detail-section bw-detail-verse-section">
               <div className="bw-eyebrow bw-eyebrow-amber">The verse</div>
               <blockquote
@@ -137,7 +145,7 @@ function Resident() {
           )}
 
           {/* The Story */}
-          {resident.shortBio && (resident.active || isPreview) && (
+          {resident.shortBio && isLive && (
             <section className="bw-detail-section">
               <div className="bw-eyebrow bw-eyebrow-amber">The story</div>
               <div
@@ -148,7 +156,7 @@ function Resident() {
           )}
 
           {/* Disclaimer for grown-ups */}
-          {resident.tag && (resident.active || isPreview) && (
+          {resident.tag && isLive && (
             <aside className="bw-detail-aside">
               <div className="bw-eyebrow bw-eyebrow-amber">For grown-ups</div>
               <p>

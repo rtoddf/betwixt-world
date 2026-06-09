@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import type { HoodType, ResidentType } from '../../types';
 import { fileUrl } from '../../lib/api';
 import { getTaglines } from '@/helperFunctions/getTaglines';
@@ -17,7 +17,13 @@ const WAVEFORM_BARS = Array.from(
   () => 0.25 + Math.random() * 0.75,
 );
 
-function Player({ source }: { source: HoodType | ResidentType }) {
+function Player({
+  source,
+  audiotype,
+}: {
+  source: HoodType | ResidentType;
+  audiotype: string;
+}) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -41,7 +47,7 @@ function Player({ source }: { source: HoodType | ResidentType }) {
       audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
     };
-  }, [isPlaying, duration]);
+  }, []);
 
   const pct = (currentTime / duration) * 100;
 
@@ -73,13 +79,33 @@ function Player({ source }: { source: HoodType | ResidentType }) {
     setIsMuted(!isMuted);
   };
 
+  const tagline = useMemo(
+    () =>
+      getTaglines(
+        source._type === 'resident' ? 'resident' : 'hood',
+        source.name,
+        audiotype,
+      ),
+    [source._type, source.name],
+  );
+
   return (
     <div className="relative">
       <Stamp lineOne="From" lineTwo="the Block" usage="player" />
-      {source._type === 'resident' && source.voiceFile ? (
+      {source._type === 'resident' &&
+      source.voiceFile &&
+      audiotype === 'voice' ? (
         <audio
           ref={audioRef}
           src={fileUrl(source.voiceFile)}
+          preload="metadata"
+        />
+      ) : source._type === 'resident' &&
+        source.voiceMusicFile &&
+        audiotype === 'music' ? (
+        <audio
+          ref={audioRef}
+          src={fileUrl(source.voiceMusicFile)}
           preload="metadata"
         />
       ) : source._type === 'neighborhood' && source.themeSong ? (
@@ -99,10 +125,7 @@ function Player({ source }: { source: HoodType | ResidentType }) {
           <span className="vp-note">
             {source._type === 'resident' ? <Voice /> : <Music />}
           </span>
-          <span className="vp-label">
-            {getTaglines(source._type === 'resident' ? 'resident' : 'hood')}{' '}
-            {source.name}
-          </span>
+          <span className="vp-label">{tagline}</span>
         </div>
 
         {/* Row 2 — waveform / scrubber */}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
-import { fetchNeighborhoods } from '../lib/api';
+import { fetchNeighborhoods, fetchResidents } from '../lib/api';
 import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
@@ -11,16 +12,18 @@ function Home() {
   const [residents, setResidents] = useState<ResidentType[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const [searchParams] = useSearchParams();
+  const isPreview = searchParams.get('preview') === 'true';
+
   useEffect(() => {
     async function getData() {
       try {
-        const hoods = await fetchNeighborhoods();
+        const hoods = await fetchNeighborhoods(isPreview);
         const randomHood = hoods[Math.floor(Math.random() * hoods.length)];
         setHood(randomHood);
 
-        const responseRes = await fetch('/data/residents.json');
-        const dataRes = await responseRes.json();
-        const hoodResidents = dataRes.filter(
+        const residents = await fetchResidents();
+        const hoodResidents = residents.filter(
           (resident: ResidentType) => resident.hood === randomHood.slug,
         );
         setResidents(hoodResidents);

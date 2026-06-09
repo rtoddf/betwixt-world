@@ -12,7 +12,7 @@ export const client = createClient({
   useCdn: true,
 });
 
-const builder = createImageUrlBuilder(client);
+export const builder = createImageUrlBuilder(client);
 
 export const urlFor = (source: SanityImageSource) =>
   builder.image(source).url();
@@ -34,9 +34,12 @@ export const fileUrl = (source: SanityFileSource) => {
   return `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${ext}`;
 };
 
-export async function fetchNeighborhoods() {
+export async function fetchNeighborhoods(preview = false) {
   try {
-    const response = await fetch('/.netlify/functions/neighborhoods');
+    const url = preview
+      ? '/.netlify/functions/neighborhoods?preview=true'
+      : '/.netlify/functions/neighborhoods';
+    const response = await fetch(url);
     const neighborhoods = await response.json();
     return neighborhoods;
   } catch (error) {
