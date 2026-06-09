@@ -91,12 +91,27 @@ export const resident = defineType({
       name: 'image',
       title: 'Image',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'media',
+    }),
+    defineField({
+      name: 'imageCroppable',
+      title: 'Croppable Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
       group: 'media',
     }),
     defineField({
       name: 'imageInactive',
       title: 'Inactive Image',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
       group: 'media',
     }),
     defineField({

@@ -12,10 +12,13 @@ export const client = createClient({
   useCdn: true,
 });
 
-const builder = createImageUrlBuilder(client);
+export const builder = createImageUrlBuilder(client);
 
 export const urlFor = (source: SanityImageSource) =>
   builder.image(source).url();
+
+export const urlForCropped = (source: SanityImageSource) =>
+  builder.image(source);
 
 interface SanityFileSource {
   asset: {

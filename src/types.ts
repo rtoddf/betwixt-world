@@ -1,4 +1,7 @@
-import { type SanityImageSource } from '@sanity/image-url';
+import {
+  type SanityImageSource,
+  type SanityImageObject,
+} from '@sanity/image-url';
 
 export interface HoodType {
   _type: 'neighborhood';
@@ -36,7 +39,8 @@ export interface ResidentType {
   miniBio: string;
   shortBio: string;
   tag: string;
-  image: string;
+  image: SanityImageObject;
+  imageCroppable: SanityImageObject;
   imageInactive: SanityImageSource;
   date: string;
   voiceFile?: {
