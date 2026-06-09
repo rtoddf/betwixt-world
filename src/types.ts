@@ -19,6 +19,7 @@ export interface HoodType {
       _type: 'reference';
     };
   };
+  transcript: string;
   themeColor: string;
   active: boolean;
 }
@@ -44,6 +45,7 @@ export interface ResidentType {
   imageInactive: SanityImageSource;
   imagePngInactive: SanityImageObject;
   date: string;
+  transcript: string;
   voiceFile?: {
     _type: 'file';
     asset: {

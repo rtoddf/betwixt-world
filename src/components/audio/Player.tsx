@@ -29,6 +29,7 @@ function Player({
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
   const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [showCC, setShowCC] = useState<boolean>(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -177,7 +178,18 @@ function Player({
             </span>
           </div>
 
-          <div>
+          <div
+            className={`${audiotype === 'voice' && source.transcript ? 'grid grid-cols-[1fr_1fr] gap-[10px]' : ''}`}
+          >
+            {audiotype === 'voice' && source.transcript && (
+              <button
+                type="button"
+                className="vp-cc-toggle"
+                onClick={() => setShowCC((s) => !s)}
+              >
+                CC
+              </button>
+            )}
             <button
               onClick={toggleMute}
               className="vp-mute"
@@ -187,6 +199,13 @@ function Player({
             </button>
           </div>
         </div>
+
+        {/* lines.length > 0 &&  */}
+        {source.transcript && audiotype == 'voice' && showCC && (
+          <div className="vp-cc" aria-label={`Transcript`}>
+            <div dangerouslySetInnerHTML={{ __html: source.transcript }} />
+          </div>
+        )}
       </div>
     </div>
   );

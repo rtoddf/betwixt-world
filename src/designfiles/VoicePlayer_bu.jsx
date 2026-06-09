@@ -86,20 +86,33 @@ const VP_STAMPS = {
 function VoicePlayer({ label, src, variant = 'hood', icon, stamp, transcript, barCount = 52, seed = 7 }) {
   const iconKind = icon || (variant === 'resident' ? 'voice' : 'music');
   const stampData = stamp || VP_STAMPS[variant] || VP_STAMPS.hood;
-  // Transcript is plain text — no timestamps. Accept a string (split on blank
-  // lines into paragraphs) or an array of strings / { text }. The reader opens
-  // it with CC and scrolls it themselves; nothing is synced to playback.
-  const lines = !transcript ? [] : (Array.isArray(transcript)
-    ? transcript.map((c) => (typeof c === 'string' ? c : c.text)).filter(Boolean)
-    : String(transcript).split(/\n+/).map((s) => s.trim()).filter(Boolean));
+  const cues = transcript || [];
   const ccId = `vp-cc-${variant}-${seed}`;
   const audioRef = useRefVP(null);
+  const ccRef = useRefVP(null);
   const [playing, setPlaying] = useStateVP(false);
   const [muted, setMuted] = useStateVP(false);
-  const [showCC, setShowCC] = useStateVP(false);   // closed by default — click CC to open
+  const [showCC, setShowCC] = useStateVP(true);
   const [elapsed, setElapsed] = useStateVP(0);
   const [duration, setDuration] = useStateVP(0);
   const bars = useRefVP(vpMakeBars(barCount, seed)).current;
+
+  // Which transcript line is currently being spoken.
+  let activeIdx = -1;
+  for (let i = 0; i < cues.length; i++) {
+    if (cues[i].t <= elapsed) activeIdx = i; else break;
+  }
+
+  // Keep the active caption line scrolled into view (manual scrollTop, not scrollIntoView).
+  useEffectVP(() => {
+    if (!showCC) return;
+    const c = ccRef.current;
+    if (!c) return;
+    const el = c.querySelector('.vp-cc-line.is-active');
+    if (!el) return;
+    const top = el.offsetTop - c.clientHeight / 2 + el.offsetHeight / 2;
+    c.scrollTop = Math.max(0, top);
+  }, [activeIdx, showCC]);
 
   // Keep the <audio> element's muted flag in sync with state.
   useEffectVP(() => {
@@ -119,6 +132,13 @@ function VoicePlayer({ label, src, variant = 'hood', icon, stamp, transcript, ba
     const x = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
     a.currentTime = x * duration;
     setElapsed(a.currentTime);
+  };
+
+  const seekTo = (sec) => {
+    const a = audioRef.current;
+    if (!a) return;
+    a.currentTime = sec;
+    setElapsed(sec);
   };
 
   const pct = duration ? (elapsed / duration) * 100 : 0;
@@ -202,7 +222,7 @@ function VoicePlayer({ label, src, variant = 'hood', icon, stamp, transcript, ba
             <span className="vp-time-dur">{vpFmt(duration)}</span>
           </span>
 
-          {lines.length > 0 && (
+          {cues.length > 0 && (
             <button
               type="button"
               className="vp-cc-toggle"
@@ -238,11 +258,17 @@ function VoicePlayer({ label, src, variant = 'hood', icon, stamp, transcript, ba
         </div>
       </div>
 
-      {/* Transcript — the text alternative to the audio. Open it and scroll. */}
-      {lines.length > 0 && showCC && (
-        <div className="vp-cc" id={ccId} role="region" aria-label={`Transcript: ${label}`}>
-          {lines.map((line, i) => (
-            <p className="vp-cc-line" key={i}>{line}</p>
+      {/* Transcript — scrolling captions, the text alternative to the audio */}
+      {cues.length > 0 && showCC && (
+        <div className="vp-cc" id={ccId} ref={ccRef} role="region" aria-label={`Transcript: ${label}`}>
+          {cues.map((cue, i) => (
+            <button
+              type="button"
+              key={i}
+              className={`vp-cc-line${i === activeIdx ? ' is-active' : ''}${i < activeIdx ? ' is-past' : ''}`}
+              aria-current={i === activeIdx ? 'true' : undefined}
+              onClick={() => seekTo(cue.t)}
+            >{cue.text}</button>
           ))}
         </div>
       )}

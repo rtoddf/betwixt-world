@@ -16,7 +16,8 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 520px; /* ~half the old full-width band */
+  /* max-width: 520px; */
+  /* ~half the old full-width band */
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -64,19 +65,32 @@
 }
 
 /* rubber-stamp roundel — sits above the waveform, top-right corner */
-.vp-stamp {
+/* .vp-stamp {
   position: absolute;
   top: 12px;
   right: 14px;
-  width: 66px;
-  height: 66px;
+  width: 96px;
+  height: 96px;
   z-index: 2;
+  display: grid;
+  text-align: center;
+  place-items: center;
+  line-height: 1;
+  padding: 18px 10px;
   pointer-events: none;
-  color: var(--vp-stamp-ink, var(--vp-ink));
-  transform: rotate(-7deg);
   opacity: 0.92;
-}
-.vp-stamp-top {
+  border-radius: 50%;
+  background: transparent;
+
+  transform: rotate(-7deg);
+  color: white;
+  box-shadow:
+    inset 0 0 0 1.5px var(--bw-cream),
+    inset 0 0 0 5px var(--bw-teal),
+    inset 0 0 0 6.5px var(--bw-cream);
+} */
+
+/* .bw-featured-stamp-top {
   font-family: var(--font-body);
   font-size: 8.5px;
   font-weight: 700;
@@ -84,7 +98,7 @@
   text-transform: uppercase;
   fill: currentColor;
 }
-.vp-stamp-main {
+.bw-featured-stamp-mid {
   font-family: var(--font-display);
   fill: currentColor;
 }
@@ -93,7 +107,7 @@
 }
 .vp-stamp-main-1 {
   font-size: 21px;
-}
+} */
 
 /* ---- Row 1: title ---- */
 .vp-head {
@@ -124,6 +138,7 @@
   display: flex;
   align-items: center;
   gap: 3px;
+  width: 80%;
   height: 46px;
   cursor: pointer;
   outline: none;
@@ -305,22 +320,40 @@
     transparent 100%
   );
 }
-
-.vp p {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
 .vp-cc-line {
-  margin: 0;
   text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
   font-family: var(--font-body);
   font-size: 13.5px;
-  line-height: 1.55;
+  line-height: 1.5;
   font-weight: 500;
   color: var(--vp-ink);
-  opacity: 0.82;
-  padding: 4px 8px;
+  opacity: 0.5;
+  padding: 5px 8px;
+  border-radius: 7px;
+  transition:
+    opacity var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    background var(--dur) var(--ease-out);
+}
+.vp-cc-line.is-past {
+  opacity: 0.38;
+}
+.vp-cc-line:hover {
+  opacity: 0.85;
+}
+.vp-cc-line.is-active {
+  opacity: 1;
+  font-weight: 700;
+  color: var(--vp-accent);
+  background: color-mix(in srgb, var(--vp-ink) 9%, transparent);
+}
+.vp-cc-line:focus-visible {
+  outline: 2px solid var(--vp-accent);
+  outline-offset: 1px;
+  opacity: 1;
 }
 /* slim, on-brand scrollbar */
 .vp-cc::-webkit-scrollbar {

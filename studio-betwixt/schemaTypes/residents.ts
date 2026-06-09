@@ -137,6 +137,12 @@ export const resident = defineType({
       group: 'audio',
     }),
     defineField({
+      name: 'transcript',
+      title: 'Transcript for Closed Caption',
+      type: 'text',
+      group: 'audio',
+    }),
+    defineField({
       name: 'voiceId',
       title: 'Id For Voice',
       type: 'string',

@@ -55,7 +55,7 @@ function Resident() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('resident: ', resident);
+    console.log('resident: ', resident);
   }
 
   if (!resident) return null;

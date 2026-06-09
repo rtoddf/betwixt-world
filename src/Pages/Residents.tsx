@@ -47,7 +47,7 @@ function Residents() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('residents: ', residents);
+    console.log('residents: ', residents);
   }
 
   if (!residents) return null;
