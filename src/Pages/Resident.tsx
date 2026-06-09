@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
 import { fetchResidents } from '../lib/api';
-import { urlFor, urlForCropped } from '../lib/api';
+import { urlFor } from '../lib/api';
 import PageLayout from '@/components/PageLayout';
 import Player from '../components/audio/Player';
 import { imageRefBuilder } from '@/helperFunctions/imageRefBuilder';
