@@ -6,7 +6,8 @@ export const resident = defineType({
   type: 'document',
   groups: [
     {name: 'content', title: 'Content', default: true},
-    {name: 'media', title: 'Theme & Media'},
+    {name: 'images', title: 'Images'},
+    {name: 'audio', title: 'Audio'},
     {name: 'copy', title: 'Copy'},
   ],
   fields: [
@@ -94,16 +95,16 @@ export const resident = defineType({
       options: {
         hotspot: true,
       },
-      group: 'media',
+      group: 'images',
     }),
     defineField({
-      name: 'imageCroppable',
-      title: 'Croppable Image',
+      name: 'imagePng',
+      title: 'PNG Image',
       type: 'image',
       options: {
         hotspot: true,
       },
-      group: 'media',
+      group: 'images',
     }),
     defineField({
       name: 'imageInactive',
@@ -112,37 +113,46 @@ export const resident = defineType({
       options: {
         hotspot: true,
       },
-      group: 'media',
+      group: 'images',
+    }),
+    defineField({
+      name: 'imagePngInactive',
+      title: 'Inactive PNG Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
     }),
     defineField({
       name: 'voiceFile',
       title: 'File For Voice',
       type: 'file',
-      group: 'media',
+      group: 'audio',
     }),
     defineField({
       name: 'voiceMusicFile',
       title: 'File For Music under Voice',
       type: 'file',
-      group: 'media',
+      group: 'audio',
     }),
     defineField({
       name: 'voiceId',
       title: 'Id For Voice',
       type: 'string',
-      group: 'media',
+      group: 'audio',
     }),
     defineField({
       name: 'voicePrompt',
       title: 'Prompt For Voice',
       type: 'text',
-      group: 'media',
+      group: 'audio',
     }),
     defineField({
       name: 'voiceScript',
       title: 'Script For Voice',
       type: 'text',
-      group: 'media',
+      group: 'audio',
     }),
   ],
 })
