@@ -7,7 +7,6 @@ import { fetchResidents } from '../lib/api';
 import { urlFor } from '../lib/api';
 import PageLayout from '@/components/PageLayout';
 import Player from '../components/audio/Player';
-import { imageRefBuilder } from '@/helperFunctions/imageRefBuilder';
 import '../styles/colors-and-type.scss';
 
 // ────────────────────────────────────────────────────────────────────
@@ -56,7 +55,7 @@ function Resident() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('resident: ', resident.image);
+    // console.log('resident: ', resident);
   }
 
   if (!resident) return null;
@@ -119,24 +118,6 @@ function Resident() {
               />
             </dl>
           )}
-
-          <div>this is the headshot</div>
-          <figure className="w-[200px] h-[200px] overflow-hidden">
-            {isLive ? (
-              <img
-                className=""
-                src={imageRefBuilder(resident.imageCroppable)
-                  .width(400)
-                  .height(400)
-                  .fit('crop')
-                  .crop('focalpoint')
-                  .url()}
-                alt={resident.name}
-              />
-            ) : (
-              <img src={urlFor(resident.imageInactive)} alt={resident.name} />
-            )}
-          </figure>
 
           {/* audio */}
           {resident.voiceFile && isLive && (

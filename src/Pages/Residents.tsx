@@ -4,6 +4,7 @@ import type { ResidentType } from '../types';
 import { fetchResidents } from '../lib/api';
 import PageLayout from '@/components/PageLayout';
 import Card from '../components/Card';
+import HeadShot from '@/components/images/HeadShot';
 import PageNotFound from '@/components/PageNotFound';
 import {
   prioritizeResidents,
@@ -62,22 +63,25 @@ function Residents() {
             .filter((res) => !!res.date && res.date <= TWO_WEEKS_OUT)
             .map(function (resident) {
               return (
-                <Card
-                  key={resident.slug}
-                  slug={resident.slug}
-                  hoodSlug={
-                    resident.hood.slug ? resident.hood.slug : 'buffer-zone'
-                  }
-                  name={resident.name}
-                  tag={resident.tag}
-                  miniBio={resident.miniBio}
-                  image={resident.image}
-                  imageInactive={
-                    resident.imageInactive ? resident.imageInactive : ''
-                  }
-                  date={resident.date}
-                  isPreview={isPreview ? isPreview : false}
-                />
+                <>
+                  <HeadShot res={resident} />
+                  {/* <Card
+                    key={resident.slug}
+                    slug={resident.slug}
+                    hoodSlug={
+                      resident.hood.slug ? resident.hood.slug : 'buffer-zone'
+                    }
+                    name={resident.name}
+                    tag={resident.tag}
+                    miniBio={resident.miniBio}
+                    image={resident.image}
+                    imageInactive={
+                      resident.imageInactive ? resident.imageInactive : ''
+                    }
+                    date={resident.date}
+                    isPreview={isPreview ? isPreview : false}
+                  /> */}
+                </>
               );
             })}
         </div>
