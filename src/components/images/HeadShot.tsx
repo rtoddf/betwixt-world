@@ -1,14 +1,23 @@
 import type { ResidentType } from '../../types';
 import { imageRefBuilder } from '@/helperFunctions/imageRefBuilder';
+import { TODAY } from '@/helperFunctions/dateHelpers';
 import '@/styles/colors-and-type.scss';
 
-function HeadShot({ res }: { res: ResidentType }) {
+function HeadShot({
+  res,
+  isPreview,
+}: {
+  res: ResidentType;
+  isPreview: boolean;
+}) {
   if (!res.imagePng) return null;
+
+  const isLive = isPreview || (!!res.date && res.date <= TODAY);
 
   return (
     <img
       className=""
-      src={imageRefBuilder(res.imagePng)
+      src={imageRefBuilder(isLive ? res.imagePng : res.imagePngInactive)
         .width(400)
         .height(400)
         .fit('crop')
