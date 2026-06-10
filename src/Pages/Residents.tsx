@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router';
 import type { ResidentType } from '../types';
 import { fetchResidents } from '../lib/api';
 import PageLayout from '@/components/PageLayout';
+import Tile from '@/components/Tile';
 import HeadShot from '@/components/images/HeadShot';
 import PageNotFound from '@/components/PageNotFound';
 import {
@@ -63,11 +64,11 @@ function Residents() {
             .map(function (resident) {
               return (
                 <>
-                  <HeadShot
+                  {/* <HeadShot
                     res={resident}
                     isPreview={isPreview ? isPreview : false}
-                  />
-                  {/* <Card
+                  /> */}
+                  <Tile
                     key={resident.slug}
                     slug={resident.slug}
                     hoodSlug={
@@ -77,12 +78,16 @@ function Residents() {
                     tag={resident.tag}
                     miniBio={resident.miniBio}
                     image={resident.image}
+                    imagePng={resident.imagePng}
                     imageInactive={
                       resident.imageInactive ? resident.imageInactive : ''
                     }
+                    imagePngInactive={
+                      resident.imagePngInactive ? resident.imagePngInactive : ''
+                    }
                     date={resident.date}
                     isPreview={isPreview ? isPreview : false}
-                  /> */}
+                  />
                 </>
               );
             })}

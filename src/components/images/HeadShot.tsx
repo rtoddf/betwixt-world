@@ -1,45 +1,40 @@
-import { Link } from 'react-router';
 import type { ResidentType } from '../../types';
+import { type SanityImageObject } from '@sanity/image-url';
 import { imageRefBuilder } from '@/helperFunctions/imageRefBuilder';
 import { TODAY } from '@/helperFunctions/dateHelpers';
 import '@/styles/colors-and-type.scss';
 
 function HeadShot({
-  res,
+  name,
+  imagePng,
+  imagePngInactive,
   isPreview,
+  date,
 }: {
-  res: ResidentType;
+  name: string;
+  imagePng: SanityImageObject;
+  imagePngInactive: SanityImageObject;
   isPreview: boolean;
+  date: string;
 }) {
-  if (!res.imagePng) return null;
+  if (!imagePng) return null;
 
-  const isLive = isPreview || (!!res.date && res.date <= TODAY);
+  const isLive = isPreview || (!!date && date <= TODAY);
 
   const inner = (
     <img
       className=""
-      src={imageRefBuilder(isLive ? res.imagePng : res.imagePngInactive)
+      src={imageRefBuilder(isLive ? imagePng : imagePngInactive)
         .width(400)
         .height(400)
         .fit('crop')
         .crop('focalpoint')
         .url()}
-      alt={res.name}
+      alt={name}
     />
   );
 
-  return isLive ? (
-    <Link
-      to={`/${res.hood.slug}/${res.slug}`}
-      className="nth-[1n]:rotate-[-0.6deg] nth-[2n]:rotate-[0.8deg] nth-[3n]:rotate-[-0.3deg] hover:animate-wiggle-card"
-    >
-      {inner}
-    </Link>
-  ) : (
-    <div className="nth-[1n]:rotate-[-0.6deg] nth-[2n]:rotate-[0.8deg] nth-[3n]:rotate-[-0.3deg]">
-      {inner}
-    </div>
-  );
+  return isLive ? <>{inner}</> : 'nothing';
 }
 
 export default HeadShot;
