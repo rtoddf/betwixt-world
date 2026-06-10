@@ -20,9 +20,11 @@ const WAVEFORM_BARS = Array.from(
 function Player({
   source,
   audiotype,
+  isPreview,
 }: {
   source: HoodType | ResidentType;
   audiotype: string;
+  isPreview: boolean;
 }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -118,22 +120,17 @@ function Player({
           preload="metadata"
         />
       ) : null}
-      <div className={`vp`}>
-        {/* <div
-        className={`vp${isMuted ? ' is-muted' : ''}$isPlaying ? ' is-playing' : ''}`}
-        data-variant={variant}
-      ></div> */}
-        {/* Row 1 — title */}
-        <div className="vp-head">
-          <span className="vp-note">
+      <div className="audio-player">
+        <div className="player-head">
+          <span className="player-head-note ">
             {source._type === 'resident' ? <Voice /> : <Music />}
           </span>
-          <span className="vp-label">{tagline}</span>
+          <span className="player-head-label">{tagline}</span>
         </div>
 
         {/* Row 2 — waveform / scrubber */}
         <div
-          className="vp-wave"
+          className="player-wave"
           role="slider"
           tabIndex={0}
           // aria-label={`Seek ${label}`}
@@ -162,7 +159,7 @@ function Player({
         </div>
 
         {/* Row 3 — transport */}
-        <div className="vp-transport">
+        <div className="player-controls">
           <button
             type="button"
             className="bt-button play"
@@ -172,18 +169,16 @@ function Player({
             {isPlaying ? <Play /> : <Pause />}
           </button>
 
-          <div className="">
-            <span className="vp-time">
-              <span>{formatTime(currentTime)}</span>
-              <span className="bw-voice-time-sep">/</span>
-              <span>{formatTime(duration)}</span>
-            </span>
+          <div className="player-time">
+            <span>{formatTime(currentTime)}</span>
+            <span className="bw-voice-time-sep">/</span>
+            <span>{formatTime(duration)}</span>
           </div>
 
           <div
-            className={`${audiotype === 'voice' && source.transcript ? 'grid grid-cols-[1fr_1fr] gap-[10px]' : ''}`}
+            className={`${audiotype === 'voice' && source.transcript && isPreview ? 'grid grid-cols-[1fr_1fr] gap-[10px]' : ''}`}
           >
-            {audiotype === 'voice' && source.transcript && (
+            {audiotype === 'voice' && source.transcript && isPreview && (
               <button
                 type="button"
                 className="bt-button toggle"
@@ -202,7 +197,7 @@ function Player({
           </div>
         </div>
 
-        {source.transcript && audiotype == 'voice' && showCC && (
+        {source.transcript && audiotype == 'voice' && isPreview && showCC && (
           <Transcript text={source.transcript} />
         )}
       </div>
