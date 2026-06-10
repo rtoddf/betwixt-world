@@ -3,14 +3,14 @@ import type { HoodType, ResidentType } from '../../types';
 import { fileUrl } from '../../lib/api';
 import { getTaglines } from '@/helperFunctions/getTaglines';
 import Stamp from '../branding/stamp';
+import Transcript from './Transcript';
 import Music from '@/assets/svgs/music';
 import Voice from '@/assets/svgs/voice';
 import Pause from '@/assets/svgs/pause';
 import Play from '@/assets/svgs/play';
 import Mute from '@/assets/svgs/mute';
 import Muted from '@/assets/svgs/muted';
-import '@/styles/colors-and-type.scss';
-import '@/styles/voice-player.css';
+import '@/styles/main.css';
 
 const WAVEFORM_BARS = Array.from(
   { length: 56 },
@@ -90,6 +90,8 @@ function Player({
     [source._type, source.name],
   );
 
+  console.log('source: ', source.transcript);
+
   return (
     <div className="relative">
       <Stamp lineOne="From" lineTwo="the Block" usage="player" />
@@ -163,14 +165,14 @@ function Player({
         <div className="vp-transport">
           <button
             type="button"
-            className="vp-play"
+            className="bt-button play"
             aria-label={isPlaying ? 'Pause' : 'Play'}
             onClick={togglePlay}
           >
             {isPlaying ? <Play /> : <Pause />}
           </button>
 
-          <div className="vp-right">
+          <div className="">
             <span className="vp-time">
               <span>{formatTime(currentTime)}</span>
               <span className="bw-voice-time-sep">/</span>
@@ -184,7 +186,7 @@ function Player({
             {audiotype === 'voice' && source.transcript && (
               <button
                 type="button"
-                className="vp-cc-toggle"
+                className="bt-button toggle"
                 onClick={() => setShowCC((s) => !s)}
               >
                 CC
@@ -192,7 +194,7 @@ function Player({
             )}
             <button
               onClick={toggleMute}
-              className="vp-mute"
+              className="bt-button mute"
               aria-label={isMuted ? 'Unmute' : 'Mute'}
             >
               {isMuted ? <Muted /> : <Mute />}
@@ -200,11 +202,8 @@ function Player({
           </div>
         </div>
 
-        {/* lines.length > 0 &&  */}
         {source.transcript && audiotype == 'voice' && showCC && (
-          <div className="vp-cc" aria-label={`Transcript`}>
-            <div dangerouslySetInnerHTML={{ __html: source.transcript }} />
-          </div>
+          <Transcript text={source.transcript} />
         )}
       </div>
     </div>

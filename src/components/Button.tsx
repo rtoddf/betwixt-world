@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import '../styles/styles.scss';
+import '../styles/buttons.css';
 
 function Button({
   slug,

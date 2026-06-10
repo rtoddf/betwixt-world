@@ -1,0 +1,22 @@
+/* animations */
+@keyframes changeColor {
+  0% {
+    border-color: color-mix(in srgb, var(--bw-cream) 45%, transparent);
+  }
+  50% {
+    border-color: color-mix(in srgb, var(--bw-cream) 100%, transparent);
+  }
+  100% {
+    border-color: color-mix(in srgb, var(--bw-cream) 45%, transparent);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
