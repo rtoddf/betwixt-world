@@ -1,14 +1,3 @@
-.tease {
-  box-sizing: border-box;
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  position: relative;
-  user-select: none;
-}
-.tease * {
-  box-sizing: border-box;
-}
-
 .mono {
   font-family: ui-monospace, Menlo, monospace;
   text-transform: uppercase;
@@ -42,6 +31,10 @@
   font-size: 16px;
   line-height: 1;
   margin-top: -2px;
+}
+
+.inf img {
+  width: 25px;
 }
 
 /* dot-pip stat rows */
@@ -81,11 +74,8 @@
   line-height: 1.4;
 }
 
-.B-wrap {
-  transform: rotate(1.6deg);
-}
-.B {
-  width: 332px;
+.tile {
+  width: 100%;
   background: var(--bw-teal);
   border-radius: 26px;
   /* die-cut white keyline */
@@ -97,23 +87,21 @@
   padding: 16px 18px 18px;
   color: var(--fg-inverse);
 }
-.B .head {
+.tile .head {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 6px;
 }
-.B .num {
-  color: rgba(245, 237, 214, 0.62);
-}
-.B .halo {
+
+.tile .halo {
   position: relative;
   height: 172px;
   display: grid;
   place-items: center;
   margin: 2px 0 6px;
 }
-.B .halo::before {
+.tile .halo::before {
   content: '';
   position: absolute;
   width: 168px;
@@ -125,7 +113,7 @@
     rgba(240, 165, 0, 0) 70%
   );
 }
-.B .disc {
+.tile .disc {
   position: relative;
   width: 150px;
   height: 150px;
@@ -137,16 +125,13 @@
   overflow: hidden;
   background: var(--bw-amber-tint);
 }
-.B image-slot {
-  width: 100%;
-  height: 100%;
-}
-.B .typewrap {
+
+.tile .typewrap {
   display: flex;
   justify-content: center;
   margin: -2px 0 4px;
 }
-.B .name {
+.tile .name {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 46px;
@@ -156,44 +141,14 @@
   text-align: center;
   margin: 8px 0 2px;
 }
-.B .hood {
+.tile .hood {
   text-align: center;
   color: var(--bw-amber);
   margin-bottom: 10px;
 }
-.B .verseline {
+.tile .verseline {
   text-align: center;
   color: rgba(245, 237, 214, 0.92);
   font-size: 13px;
   margin: 0 4px 12px;
-}
-
-/* ----- B cream colorway (Medallion scheme — color only, same silhouette) ----- */
-.B.cream {
-  background: var(--bg-elevated);
-  color: var(--fg);
-  box-shadow:
-    0 0 0 8px var(--bw-burnt),
-    0 0 0 11px var(--bw-teal),
-    0 13px 0 1px rgba(26, 74, 74, 0.16),
-    0 22px 34px rgba(26, 74, 74, 0.18);
-}
-.B.cream .num {
-  color: var(--fg-muted);
-}
-.B.cream .disc {
-  border-color: var(--bw-teal);
-}
-.B.cream .name {
-  color: var(--fg-display);
-}
-.B.cream .hood {
-  color: var(--bw-burnt);
-}
-.B.cream .verseline {
-  color: var(--fg);
-}
-
-.traits-h {
-  font-weight: 600;
 }

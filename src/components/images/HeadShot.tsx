@@ -1,4 +1,3 @@
-import type { ResidentType } from '../../types';
 import { type SanityImageObject } from '@sanity/image-url';
 import { imageRefBuilder } from '@/helperFunctions/imageRefBuilder';
 import { TODAY } from '@/helperFunctions/dateHelpers';
@@ -21,7 +20,7 @@ function HeadShot({
 
   const isLive = isPreview || (!!date && date <= TODAY);
 
-  const inner = (
+  return (
     <img
       className=""
       src={imageRefBuilder(isLive ? imagePng : imagePngInactive)
@@ -33,8 +32,6 @@ function HeadShot({
       alt={name}
     />
   );
-
-  return isLive ? <>{inner}</> : 'nothing';
 }
 
 export default HeadShot;

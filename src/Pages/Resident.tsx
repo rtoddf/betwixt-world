@@ -64,7 +64,7 @@ function Resident() {
     (!!resident.date &&
       resident.date <= new Date().toISOString().split('T')[0]);
 
-  console.log('isPreview: ', isPreview);
+  // console.log('isPreview: ', isPreview);
 
   return (
     <PageLayout>

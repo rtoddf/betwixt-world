@@ -77,6 +77,12 @@ export const resident = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'quote',
+      title: 'Quote',
+      type: 'string',
+      group: 'copy',
+    }),
+    defineField({
       name: 'miniBio',
       title: 'Mini Bio Copy',
       type: 'text',
@@ -87,6 +93,12 @@ export const resident = defineType({
       title: 'Short Bio Copy',
       type: 'text',
       group: 'copy',
+    }),
+    defineField({
+      name: 'stamp',
+      title: 'Stamp',
+      type: 'image',
+      group: 'images',
     }),
     defineField({
       name: 'image',
