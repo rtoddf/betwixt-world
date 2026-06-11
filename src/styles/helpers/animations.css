@@ -1,4 +1,62 @@
 /* animations */
+@keyframes bow {
+  0% {
+    transform: perspective(600px) rotateX(0deg);
+  }
+  30% {
+    transform: perspective(600px) rotateX(-10deg);
+  }
+  50% {
+    transform: perspective(600px) rotateX(-10deg);
+  }
+  70% {
+    transform: perspective(600px) rotateX(-10deg);
+  }
+  100% {
+    transform: perspective(600px) rotateX(-0deg);
+  }
+}
+
+@keyframes rattle {
+  0% {
+    transform: rotate(0deg) translateX(0) scale(1);
+  }
+  10% {
+    transform: rotate(-10deg) translateX(-3px) scale(1.05);
+  }
+  20% {
+    transform: rotate(10deg) translateX(3px) scale(1.05);
+  }
+  30% {
+    transform: rotate(-8deg) translateX(-2px) scale(1.05);
+  }
+  40% {
+    transform: rotate(8deg) translateX(2px) scale(1.05);
+  }
+  50% {
+    transform: rotate(-5deg) translateX(-1px) scale(1.05);
+  }
+  60% {
+    transform: rotate(5deg) translateX(1px) scale(1.05);
+  }
+  70% {
+    transform: rotate(-3deg) translateX(-1px) scale(1.05);
+  }
+  80% {
+    transform: rotate(3deg) translateX(1px) scale(1.05);
+  }
+  90% {
+    transform: rotate(-1deg) translateX(0) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0) scale(1);
+  }
+}
+
+.rattle {
+  animation: rattle 0.6s ease-in-out 1;
+}
+
 @keyframes changeColor {
   0% {
     border-color: color-mix(in srgb, var(--bw-cream) 45%, transparent);

@@ -47,7 +47,7 @@ function Residents() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('residents: ', residents);
+    // console.log('residents: ', residents);
   }
 
   if (!residents) return null;
@@ -55,9 +55,7 @@ function Residents() {
   if (residents.length > 0) {
     return (
       <PageLayout>
-        <div
-          className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-3 gap-[50px]`}
-        >
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-[50px]`}>
           {residents
             .filter((res) => !!res.date && res.date <= TWO_WEEKS_OUT)
             .map(function (resident) {
