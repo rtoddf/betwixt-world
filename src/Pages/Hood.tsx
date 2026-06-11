@@ -71,7 +71,7 @@ function Hood() {
       {/* audio */}
       {hood.themeSong && (
         <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 min-[768px]:grid-cols-2 gap-[20px]">
-          <Player source={hood} audiotype="music" />
+          <Player source={hood} audiotype="music" isPreview={isPreview} />
         </section>
       )}
 

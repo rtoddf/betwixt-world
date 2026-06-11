@@ -72,14 +72,8 @@ function Residents() {
                     }
                     name={resident.name}
                     tag={resident.tag}
-                    image={resident.image}
                     imagePng={resident.imagePng}
-                    imageInactive={
-                      resident.imageInactive ? resident.imageInactive : ''
-                    }
-                    imagePngInactive={
-                      resident.imagePngInactive ? resident.imagePngInactive : ''
-                    }
+                    imagePngInactive={resident.imagePngInactive}
                     stamp={resident.stamp}
                     date={resident.date}
                     isPreview={isPreview ? isPreview : false}

@@ -24,7 +24,7 @@ function Tile({
   hoodSlug: string;
   tag: string;
   imagePng: SanityImageObject;
-  imagePngInactive: SanityImageObject;
+  imagePngInactive?: SanityImageObject;
   stamp: SanityImageSource;
   date: string;
   isPreview: boolean;

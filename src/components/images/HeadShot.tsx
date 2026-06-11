@@ -12,7 +12,7 @@ function HeadShot({
 }: {
   name: string;
   imagePng: SanityImageObject;
-  imagePngInactive: SanityImageObject;
+  imagePngInactive?: SanityImageObject;
   isPreview: boolean;
   date: string;
 }) {
@@ -23,7 +23,7 @@ function HeadShot({
   return (
     <img
       className=""
-      src={imageRefBuilder(isLive ? imagePng : imagePngInactive)
+      src={imageRefBuilder(isLive ? imagePng : (imagePngInactive ?? imagePng))
         .width(400)
         .height(400)
         .fit('crop')
