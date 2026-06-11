@@ -168,7 +168,7 @@ function Player({
             type="button"
             className="bt-button play"
             aria-label={isPlaying ? 'Pause' : 'Play'}
-            disabled={!isLoaded}
+            // disabled={!isLoaded}
             onClick={togglePlay}
           >
             {isPlaying ? <Play /> : <Pause />}

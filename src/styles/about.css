@@ -1,0 +1,63 @@
+/* .bw-about {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--s-8) var(--s-7);
+} */
+
+.float-image {
+  width: 200px;
+  float: right;
+}
+
+.bw-about-lede {
+  font-size: 16px;
+  line-height: var(--lh-body);
+  color: var(--bw-navy);
+  /* margin: var(--s-4) 0 var(--s-8);
+  max-width: 60ch; */
+}
+
+.bw-display {
+  font-family: var(--font-display);
+  letter-spacing: var(--ls-display);
+  color: var(--fg-pop); /* coral on cream — large only */
+  /* font-size: clamp(56px, 8vw, 96px); */
+  line-height: 1.05;
+}
+
+.bt-about h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.05em;
+  color: var(--bw-teal);
+  font-weight: 400;
+}
+
+.bt-about p {
+  margin-bottom: 12px;
+}
+
+/* .bw-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-7);
+}
+@media (max-width: 720px) {
+  .bw-about-grid {
+    grid-template-columns: 1fr;
+  }
+} */
+
+.bw-about-grid h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.05em;
+  color: var(--bw-teal);
+  margin: 0 0 var(--s-3);
+  font-weight: 400;
+}
+.bw-about-grid p {
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+}
