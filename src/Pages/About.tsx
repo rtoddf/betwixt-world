@@ -14,12 +14,10 @@ function About() {
     <PageLayout>
       <div className="bt-about">
         <div className="bw-eyebrow">About Betwixt</div>
-
         <TextSlot
           headline="A neighborhood, not a curriculum."
           text={ledeText}
         />
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
           <section>
             <TextSlot headline="Who lives here" text={aboutText} />

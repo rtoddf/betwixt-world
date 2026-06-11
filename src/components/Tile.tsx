@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import { type SanityImageObject } from '@sanity/image-url';
 import { type SanityImageSource } from '@sanity/image-url';
 import { urlFor } from '../lib/api';
-import { TODAY, TWO_WEEKS_OUT } from '@/helperFunctions/dateHelpers';
+import { TODAY } from '@/helperFunctions/dateHelpers';
 import HeadShot from '@/components/images/HeadShot';
 import '../styles/colors-and-type.scss';
 
@@ -30,9 +30,9 @@ function Tile({
   isPreview: boolean;
 }) {
   const isLive = isPreview || (!!date && date <= TODAY);
-  const twoWeeksOut = TWO_WEEKS_OUT;
-  const isComingSoon = !isLive && !!date && date <= twoWeeksOut;
-  console.log('isComingSoon: ', isComingSoon);
+  // const twoWeeksOut = TWO_WEEKS_OUT;
+  // const isComingSoon = !isLive && !!date && date <= twoWeeksOut;
+  // console.log('isLive: ', isLive);
 
   const inner = (
     <div className="tile">
@@ -53,12 +53,18 @@ function Tile({
           <span className="inf">
             {stamp && <img src={urlFor(stamp)} alt={name} />}
           </span>
-          {tag}
+          {isLive ? tag : 'coming soon'}
         </span>
       </div>
-      <div className="name">{name}</div>
-      <div className="mono hood">{hoodSlug}</div>
-      <div className="verseline">{quote ? `"${quote}"` : ''}</div>
+      <div className="name">{isLive ? name : '???'}</div>
+      <div className="mono hood">
+        {isLive ? hoodSlug : `new ${hoodSlug} resident`}
+      </div>
+      <div className="verseline">
+        {isLive
+          ? `"${quote}"`
+          : `"Still deciding how they'll introduce themselves. Whatever they decide, we're sure it will be clever and worth the wait."`}
+      </div>
     </div>
   );
 

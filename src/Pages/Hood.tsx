@@ -4,7 +4,10 @@ import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
 import { fetchResidents } from '../lib/api';
-import { prioritizeResidents } from '@/helperFunctions/dateHelpers';
+import {
+  prioritizeResidents,
+  TWO_WEEKS_OUT,
+} from '@/helperFunctions/dateHelpers';
 import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
@@ -94,25 +97,26 @@ function Hood() {
         <div
           className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
         >
-          {residents.map(function (resident) {
-            console.log('resident: ', resident);
-            return (
-              <Card
-                key={resident.slug}
-                slug={resident.slug}
-                hoodSlug={resident.hood.slug}
-                name={resident.name}
-                tag={resident.tag}
-                miniBio={resident.miniBio}
-                image={resident.image}
-                imageInactive={
-                  resident.imageInactive ? resident.imageInactive : ''
-                }
-                date={resident.date}
-                isPreview={isPreview ? isPreview : false}
-              />
-            );
-          })}
+          {residents
+            .filter((res) => !!res.date && res.date <= TWO_WEEKS_OUT)
+            .map(function (resident) {
+              return (
+                <Card
+                  key={resident.slug}
+                  slug={resident.slug}
+                  hoodSlug={resident.hood.slug}
+                  name={resident.name}
+                  tag={resident.tag}
+                  miniBio={resident.miniBio}
+                  image={resident.image}
+                  imageInactive={
+                    resident.imageInactive ? resident.imageInactive : ''
+                  }
+                  date={resident.date}
+                  isPreview={isPreview ? isPreview : false}
+                />
+              );
+            })}
         </div>
       </section>
     </PageLayout>
