@@ -32,7 +32,8 @@ function HoodStatus({
     return `${MONTH_SEASON[month] ?? 'Unknown'} ${year}`;
   };
 
-  // const isLive = isPreview || (!!date && date <= TODAY);
+  const isLive = isPreview || (!!date && date <= TODAY);
+  console.log(isLive);
 
   return (
     <div className="bw-hood-stats grid grid-cols-3 place-items-center font-(family-name:--font-body) text-[13px] text-[var(--fg-muted)]">

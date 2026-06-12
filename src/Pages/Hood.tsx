@@ -67,7 +67,12 @@ function Hood() {
         <Link to={`/hoods`}>← Back to the neighborhood map</Link>
       </button>
 
-      <HoodTease hood={hood} residents={residents} usage="page" />
+      <HoodTease
+        hood={hood}
+        residents={residents}
+        isPreview={isPreview}
+        usage="page"
+      />
 
       {/* <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden"></header> */}
 
