@@ -1,5 +1,5 @@
 import GridSimple from './GridSimple';
-import TextBlock from '../features/TextBlock';
+import TextBlock from '../features/TextBlock/TextBlock';
 
 interface Component {
   _type: string;
@@ -19,10 +19,16 @@ interface PageBuilderProps {
   slots: Slot[];
 }
 
-const renderComponent = (component: Component) => {
+const renderComponent = (component: Component, columnCount: string) => {
   switch (component._type) {
     case 'textBlock':
-      return <TextBlock headline={component.headline} text={component.text} />;
+      return (
+        <TextBlock
+          headline={component.headline}
+          text={component.text}
+          columnCount={columnCount}
+        />
+      );
     default:
       return null;
   }
@@ -38,7 +44,9 @@ const PageBuilder = ({ slots }: PageBuilderProps) => {
           hide={slot.hide}
         >
           {slot.components?.map((component) => (
-            <div key={component._key}>{renderComponent(component)}</div>
+            <div key={component._key}>
+              {renderComponent(component, slot.columnCount)}
+            </div>
           ))}
         </GridSimple>
       ))}
