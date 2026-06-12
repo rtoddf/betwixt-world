@@ -4,7 +4,7 @@ import './textblock.css';
 
 interface TextBlockProps {
   headline?: string;
-  text?: any[];
+  text?: unknown[];
   columnCount: string;
 }
 

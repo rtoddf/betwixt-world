@@ -4,7 +4,7 @@ import PageBuilder from '@/components/layouts/PageBuilder';
 import '../styles/main.css';
 
 function About() {
-  const [pageData, setPageData] = useState<any>(null);
+  const [pageData, setPageData] = useState<unknown>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

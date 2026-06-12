@@ -5,7 +5,7 @@ interface Component {
   _type: string;
   _key: string;
   headline?: string;
-  text?: any[];
+  text?: unknown[];
 }
 
 interface Slot {
