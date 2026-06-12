@@ -32,7 +32,7 @@ function Tile({
   const isLive = isPreview || (!!date && date <= TODAY);
   // const twoWeeksOut = TWO_WEEKS_OUT;
   // const isComingSoon = !isLive && !!date && date <= twoWeeksOut;
-  // console.log('isLive: ', isLive);
+  console.log('quote: ', quote);
 
   const inner = (
     <div className="tile">
@@ -61,7 +61,7 @@ function Tile({
         {isLive ? hoodSlug : `new ${hoodSlug} resident`}
       </div>
       <div className="verseline">
-        {isLive
+        {isLive && quote
           ? `"${quote}"`
           : `"Still deciding how they'll introduce themselves. Whatever they decide, we're sure it will be clever and worth the wait."`}
       </div>
