@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react';
+import type { Slot } from '@/components/layouts/PageBuilder';
 import PageLayout from '@/components/PageLayout';
 import PageBuilder from '@/components/layouts/PageBuilder';
 import '../styles/main.css';
 
+interface PageData {
+  slots: Slot[];
+}
+
 function About() {
-  const [pageData, setPageData] = useState<unknown>(null);
+  const [pageData, setPageData] = useState<PageData | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

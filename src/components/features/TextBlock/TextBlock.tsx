@@ -1,10 +1,11 @@
+import type { PortableTextBlock } from '@portabletext/react';
 import { PortableText } from '@portabletext/react';
 import { urlFor } from '@/lib/api';
 import './textblock.css';
 
 interface TextBlockProps {
   headline?: string;
-  text?: unknown[];
+  text?: PortableTextBlock[];
   columnCount: string;
 }
 

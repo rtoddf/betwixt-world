@@ -1,3 +1,4 @@
+import type { PortableTextBlock } from '@portabletext/react';
 import GridSimple from './GridSimple';
 import TextBlock from '../features/TextBlock/TextBlock';
 
@@ -8,7 +9,7 @@ interface Component {
   text?: unknown[];
 }
 
-interface Slot {
+export interface Slot {
   _key: string;
   columnCount: 'one' | 'two' | 'three' | 'four' | 'five';
   hide?: boolean;
@@ -25,7 +26,7 @@ const renderComponent = (component: Component, columnCount: string) => {
       return (
         <TextBlock
           headline={component.headline}
-          text={component.text}
+          text={component.text as PortableTextBlock[]}
           columnCount={columnCount}
         />
       );
