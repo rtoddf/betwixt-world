@@ -175,13 +175,6 @@
   color: var(--fg-muted);
   line-height: var(--lh-tight);
 }
-.bw-display {
-  font-family: var(--font-display);
-  letter-spacing: var(--ls-display);
-  color: var(--fg-pop); /* coral on cream — large only */
-  font-size: clamp(56px, 8vw, 96px);
-  line-height: 1.05;
-}
 
 /* Inverse surface — cream type on navy / teal */
 .bw-on-dark {

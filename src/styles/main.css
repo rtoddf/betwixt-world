@@ -1,0 +1,6 @@
+@import './colors-and-type.scss';
+@import './buttons.css';
+@import './players.css';
+@import './helpers/animations.css';
+@import './tile.css';
+@import './about.css';

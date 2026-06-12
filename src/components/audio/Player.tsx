@@ -3,14 +3,14 @@ import type { HoodType, ResidentType } from '../../types';
 import { fileUrl } from '../../lib/api';
 import { getTaglines } from '@/helperFunctions/getTaglines';
 import Stamp from '../branding/stamp';
+import Transcript from './Transcript';
 import Music from '@/assets/svgs/music';
 import Voice from '@/assets/svgs/voice';
 import Pause from '@/assets/svgs/pause';
 import Play from '@/assets/svgs/play';
 import Mute from '@/assets/svgs/mute';
 import Muted from '@/assets/svgs/muted';
-import '@/styles/colors-and-type.scss';
-import '@/styles/voice-player.css';
+import '@/styles/main.css';
 
 const WAVEFORM_BARS = Array.from(
   { length: 56 },
@@ -20,15 +20,19 @@ const WAVEFORM_BARS = Array.from(
 function Player({
   source,
   audiotype,
+  isPreview,
 }: {
   source: HoodType | ResidentType;
   audiotype: string;
+  isPreview: boolean;
 }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
   const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [showCC, setShowCC] = useState<boolean>(false);
+  // const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -37,15 +41,18 @@ function Player({
     const updateTime = () => setCurrentTime(audio.currentTime);
     const updateDuration = () => setDuration(audio.duration || 0);
     const handleEnded = () => setIsPlaying(false);
+    // const handleCanPlay = () => setIsLoaded(true);
 
     audio.addEventListener('timeupdate', updateTime);
     audio.addEventListener('loadedmetadata', updateDuration);
     audio.addEventListener('ended', handleEnded);
+    // audio.addEventListener('canplay', handleCanPlay);
 
     return () => {
       audio.removeEventListener('timeupdate', updateTime);
       audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
+      // audio.removeEventListener('canplay', handleCanPlay);
     };
   }, []);
 
@@ -89,6 +96,8 @@ function Player({
     [source._type, source.name],
   );
 
+  console.log('source: ', source.transcript);
+
   return (
     <div className="relative">
       <Stamp lineOne="From" lineTwo="the Block" usage="player" />
@@ -115,22 +124,17 @@ function Player({
           preload="metadata"
         />
       ) : null}
-      <div className={`vp`}>
-        {/* <div
-        className={`vp${isMuted ? ' is-muted' : ''}$isPlaying ? ' is-playing' : ''}`}
-        data-variant={variant}
-      ></div> */}
-        {/* Row 1 — title */}
-        <div className="vp-head">
-          <span className="vp-note">
+      <div className="audio-player">
+        <div className="player-head">
+          <span className="player-head-note ">
             {source._type === 'resident' ? <Voice /> : <Music />}
           </span>
-          <span className="vp-label">{tagline}</span>
+          <span className="player-head-label">{tagline}</span>
         </div>
 
         {/* Row 2 — waveform / scrubber */}
         <div
-          className="vp-wave"
+          className="player-wave"
           role="slider"
           tabIndex={0}
           // aria-label={`Seek ${label}`}
@@ -159,34 +163,48 @@ function Player({
         </div>
 
         {/* Row 3 — transport */}
-        <div className="vp-transport">
+        <div className="player-controls">
           <button
             type="button"
-            className="vp-play"
+            className="bt-button play"
             aria-label={isPlaying ? 'Pause' : 'Play'}
+            // disabled={!isLoaded}
             onClick={togglePlay}
           >
             {isPlaying ? <Play /> : <Pause />}
           </button>
 
-          <div className="vp-right">
-            <span className="vp-time">
-              <span>{formatTime(currentTime)}</span>
-              <span className="bw-voice-time-sep">/</span>
-              <span>{formatTime(duration)}</span>
-            </span>
+          <div className="player-time">
+            <span>{formatTime(currentTime)}</span>
+            <span className="bw-voice-time-sep">/</span>
+            <span>{formatTime(duration)}</span>
           </div>
 
-          <div>
+          <div
+            className={`${audiotype === 'voice' && source.transcript && isPreview ? 'grid grid-cols-[1fr_1fr] gap-[10px]' : ''}`}
+          >
+            {audiotype === 'voice' && source.transcript && isPreview && (
+              <button
+                type="button"
+                className="bt-button toggle"
+                onClick={() => setShowCC((s) => !s)}
+              >
+                CC
+              </button>
+            )}
             <button
               onClick={toggleMute}
-              className="vp-mute"
+              className="bt-button mute"
               aria-label={isMuted ? 'Unmute' : 'Mute'}
             >
               {isMuted ? <Muted /> : <Mute />}
             </button>
           </div>
         </div>
+
+        {source.transcript && audiotype == 'voice' && isPreview && showCC && (
+          <Transcript text={source.transcript} />
+        )}
       </div>
     </div>
   );

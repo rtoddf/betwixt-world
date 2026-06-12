@@ -19,6 +19,7 @@ export interface HoodType {
       _type: 'reference';
     };
   };
+  transcript: string;
   themeColor: string;
   active: boolean;
 }
@@ -36,14 +37,17 @@ export interface ResidentType {
   nationality: string;
   pronouns: string;
   age: string;
+  quote: string;
   miniBio: string;
   shortBio: string;
   tag: string;
   image: SanityImageSource;
+  stamp: SanityImageSource;
   imagePng: SanityImageObject;
   imageInactive: SanityImageSource;
   imagePngInactive: SanityImageObject;
   date: string;
+  transcript: string;
   voiceFile?: {
     _type: 'file';
     asset: {

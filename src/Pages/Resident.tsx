@@ -55,7 +55,7 @@ function Resident() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    // console.log('resident: ', resident);
+    console.log('resident: ', resident);
   }
 
   if (!resident) return null;
@@ -63,6 +63,8 @@ function Resident() {
     isPreview ||
     (!!resident.date &&
       resident.date <= new Date().toISOString().split('T')[0]);
+
+  // console.log('isPreview: ', isPreview);
 
   return (
     <PageLayout>
@@ -122,14 +124,22 @@ function Resident() {
           {/* audio */}
           {resident.voiceFile && isLive && (
             <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 gap-[20px] mt-[40px]">
-              <Player source={resident} audiotype="voice" />
+              <Player
+                source={resident}
+                audiotype="voice"
+                isPreview={isPreview}
+              />
             </section>
           )}
 
           {/* audio */}
           {resident.voiceMusicFile && isLive && (
             <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 gap-[20px] mt-[40px]">
-              <Player source={resident} audiotype="music" />
+              <Player
+                source={resident}
+                audiotype="music"
+                isPreview={isPreview}
+              />
             </section>
           )}
 

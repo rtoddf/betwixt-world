@@ -4,7 +4,10 @@ import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods } from '../lib/api';
 import { fetchResidents } from '../lib/api';
-import { prioritizeResidents } from '@/helperFunctions/dateHelpers';
+import {
+  prioritizeResidents,
+  TWO_WEEKS_OUT,
+} from '@/helperFunctions/dateHelpers';
 import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
@@ -53,7 +56,7 @@ function Hood() {
   if (loading) {
     return <div>Loading...</div>;
   } else {
-    console.log('residents: ', residents);
+    // console.log('residents: ', residents);
   }
 
   if (!hood) return null;
@@ -64,14 +67,19 @@ function Hood() {
         <Link to={`/hoods`}>← Back to the neighborhood map</Link>
       </button>
 
-      <HoodTease hood={hood} residents={residents} usage="page" />
+      <HoodTease
+        hood={hood}
+        residents={residents}
+        isPreview={isPreview}
+        usage="page"
+      />
 
       {/* <header className="bw-hood-head relative bg-[var(--bg-elevated)] p-[24px] lg:p-[48px] rounded-[var(--r)] overflow-hidden"></header> */}
 
       {/* audio */}
       {hood.themeSong && (
         <section className="w-[100%] p-[0 auto] lg:px-[var(--s-7)] grid grid-cols-1 min-[768px]:grid-cols-2 gap-[20px]">
-          <Player source={hood} audiotype="music" />
+          <Player source={hood} audiotype="music" isPreview={isPreview} />
         </section>
       )}
 
@@ -94,25 +102,26 @@ function Hood() {
         <div
           className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-2 lg:grid-cols-3 gap-4`}
         >
-          {residents.map(function (resident) {
-            console.log('resident: ', resident);
-            return (
-              <Card
-                key={resident.slug}
-                slug={resident.slug}
-                hoodSlug={resident.hood.slug}
-                name={resident.name}
-                tag={resident.tag}
-                miniBio={resident.miniBio}
-                image={resident.image}
-                imageInactive={
-                  resident.imageInactive ? resident.imageInactive : ''
-                }
-                date={resident.date}
-                isPreview={isPreview ? isPreview : false}
-              />
-            );
-          })}
+          {residents
+            .filter((res) => !!res.date && res.date <= TWO_WEEKS_OUT)
+            .map(function (resident) {
+              return (
+                <Card
+                  key={resident.slug}
+                  slug={resident.slug}
+                  hoodSlug={resident.hood.slug}
+                  name={resident.name}
+                  tag={resident.tag}
+                  miniBio={resident.miniBio}
+                  image={resident.image}
+                  imageInactive={
+                    resident.imageInactive ? resident.imageInactive : ''
+                  }
+                  date={resident.date}
+                  isPreview={isPreview ? isPreview : false}
+                />
+              );
+            })}
         </div>
       </section>
     </PageLayout>

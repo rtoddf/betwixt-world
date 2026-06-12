@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { urlFor } from '../lib/api';
+import { TWO_WEEKS_OUT } from '@/helperFunctions/dateHelpers';
 import Stamp from './branding/stamp';
 import HoodStatus from './HoodStatus';
 import Button from './Button';
@@ -9,10 +10,12 @@ import '../styles/colors-and-type.scss';
 function HoodTease({
   hood,
   residents,
+  isPreview,
   usage,
 }: {
   hood: HoodType;
   residents: Array<ResidentType>;
+  isPreview: boolean;
   usage: string;
 }) {
   return (
@@ -64,11 +67,9 @@ function HoodTease({
           <HoodStatus
             date={hood.date}
             res={
-              residents.filter(
-                (r) =>
-                  r.date && r.date <= new Date().toISOString().split('T')[0],
-              ).length
+              residents.filter((r) => r.date && r.date <= TWO_WEEKS_OUT).length
             }
+            isPreview={isPreview}
             active={hood.active}
           />
         </div>

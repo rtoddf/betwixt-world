@@ -1,0 +1,51 @@
+/* general button styles */
+.bt-button {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--bw-cream);
+  border: 1.5px solid color-mix(in srgb, var(--bw-cream) 45%, transparent);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.bt-button:hover {
+  border-color: var(--bw-cream);
+  animation: changeColor 1s linear infinite; /* Name, duration, timing, loop */
+}
+.bt-button:active {
+  /* transform: translateY(1px); */
+}
+
+.play {
+  width: 48px;
+  height: 48px;
+  /* background: var(--bw-cream);
+  color: var(--vp-btn-ink);
+  border: 0;
+  box-shadow: 0 3px 0 var(--bw-navy); */
+  /* transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out); */
+}
+
+/* ON (muted) state — button fills so it reads as "engaged / silenced" */
+.mute[aria-pressed='true'] {
+  background: var(--bw-cream);
+  color: var(--vp-bg);
+  border-color: var(--bw-cream);
+}
+
+/* CC (transcript) toggle — shares the ghost-button language with mute */
+.toggle {
+  font: 700 11px/1 var(--font-body);
+  letter-spacing: 0.04em;
+}
+
+/* .toggle[aria-pressed='true'] {
+  background: var(--bw-cream);
+  color: var(--vp-bg);
+  border-color: var(--bw-cream);
+} */

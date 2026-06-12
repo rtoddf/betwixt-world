@@ -77,6 +77,12 @@ export const resident = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'quote',
+      title: 'Quote',
+      type: 'string',
+      group: 'copy',
+    }),
+    defineField({
       name: 'miniBio',
       title: 'Mini Bio Copy',
       type: 'text',
@@ -87,6 +93,12 @@ export const resident = defineType({
       title: 'Short Bio Copy',
       type: 'text',
       group: 'copy',
+    }),
+    defineField({
+      name: 'stamp',
+      title: 'Stamp',
+      type: 'image',
+      group: 'images',
     }),
     defineField({
       name: 'image',
@@ -134,6 +146,12 @@ export const resident = defineType({
       name: 'voiceMusicFile',
       title: 'File For Music under Voice',
       type: 'file',
+      group: 'audio',
+    }),
+    defineField({
+      name: 'transcript',
+      title: 'Transcript for Closed Caption',
+      type: 'text',
       group: 'audio',
     }),
     defineField({

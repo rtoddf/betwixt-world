@@ -3,8 +3,7 @@ import { useSearchParams } from 'react-router';
 import type { ResidentType } from '../types';
 import { fetchResidents } from '../lib/api';
 import PageLayout from '@/components/PageLayout';
-// import Card from '../components/Card';
-import HeadShot from '@/components/images/HeadShot';
+import Tile from '@/components/Tile';
 import PageNotFound from '@/components/PageNotFound';
 import {
   prioritizeResidents,
@@ -56,31 +55,27 @@ function Residents() {
   if (residents.length > 0) {
     return (
       <PageLayout>
-        <div
-          className={`grid grid-cols-${residents.length > 1 ? 2 : 1} md:grid-cols-3 lg:grid-cols-4 gap-4`}
-        >
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-[50px]`}>
           {residents
             .filter((res) => !!res.date && res.date <= TWO_WEEKS_OUT)
             .map(function (resident) {
               return (
                 <>
-                  <HeadShot res={resident} />
-                  {/* <Card
+                  <Tile
                     key={resident.slug}
                     slug={resident.slug}
+                    quote={resident.quote}
                     hoodSlug={
                       resident.hood.slug ? resident.hood.slug : 'buffer-zone'
                     }
                     name={resident.name}
                     tag={resident.tag}
-                    miniBio={resident.miniBio}
-                    image={resident.image}
-                    imageInactive={
-                      resident.imageInactive ? resident.imageInactive : ''
-                    }
+                    imagePng={resident.imagePng}
+                    imagePngInactive={resident.imagePngInactive}
+                    stamp={resident.stamp}
                     date={resident.date}
                     isPreview={isPreview ? isPreview : false}
-                  /> */}
+                  />
                 </>
               );
             })}

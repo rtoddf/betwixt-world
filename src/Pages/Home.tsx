@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router';
 import type { HoodType, ResidentType } from '../types';
 import { fetchNeighborhoods, fetchResidents } from '../lib/api';
+import { prioritizeResidents } from '@/helperFunctions/dateHelpers';
 import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
 import '../styles/colors-and-type.scss';
@@ -23,10 +24,19 @@ function Home() {
         setHood(randomHood);
 
         const residents = await fetchResidents();
-        const hoodResidents = residents.filter(
-          (resident: ResidentType) => resident.hood === randomHood.slug,
+        setResidents(
+          residents
+            .filter((r: ResidentType) => r.hood.slug === randomHood.slug)
+            .sort((a: ResidentType, b: ResidentType) => {
+              const diff =
+                prioritizeResidents(a.date, isPreview) -
+                prioritizeResidents(b.date, isPreview);
+
+              if (diff !== 0) return diff;
+
+              return a.name.localeCompare(b.name);
+            }),
         );
-        setResidents(hoodResidents);
 
         setLoading(false);
       } catch (error) {
@@ -47,7 +57,12 @@ function Home() {
 
   return (
     <PageLayout>
-      <HoodTease hood={hood} residents={residents} usage="tease" />
+      <HoodTease
+        hood={hood}
+        residents={residents}
+        isPreview={isPreview}
+        usage="tease"
+      />
     </PageLayout>
   );
 }
