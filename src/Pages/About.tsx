@@ -1,37 +1,48 @@
+import { useState, useEffect } from 'react';
+import type { Slot } from '@/components/layouts/PageBuilder';
 import PageLayout from '@/components/PageLayout';
-import TextSlot from '@/components/about/TextSlot';
-import {
-  ledeText,
-  aboutText,
-  makeText,
-  dontText,
-  hopeText,
-} from '@/components/about/text';
+import PageBuilder from '@/components/layouts/PageBuilder';
 import '../styles/main.css';
 
+interface PageData {
+  slots: Slot[];
+}
+
 function About() {
+  const [pageData, setPageData] = useState<PageData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/.netlify/functions/pages?slug=about')
+      .then((res) => res.json())
+      .then((data) => {
+        setPageData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Failed to fetch page:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading)
+    return (
+      <PageLayout>
+        <div>Loading...</div>
+      </PageLayout>
+    );
+  if (!pageData)
+    return (
+      <PageLayout>
+        <div>Page not found.</div>
+      </PageLayout>
+    );
+
   return (
     <PageLayout>
       <div className="bt-about">
         <div className="bw-eyebrow">About Betwixt</div>
-        <TextSlot
-          headline="A neighborhood, not a curriculum."
-          text={ledeText}
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
-          <section>
-            <TextSlot headline="Who lives here" text={aboutText} />
-          </section>
-          <section>
-            <TextSlot headline="How we make things" text={makeText} />
-          </section>
-          <section>
-            <TextSlot headline="What we don't do" text={dontText} />
-          </section>
-          <section>
-            <TextSlot headline="What we hope" text={hopeText} />
-          </section>
-        </div>
+        <PageBuilder slots={pageData.slots} />
       </div>
     </PageLayout>
   );
