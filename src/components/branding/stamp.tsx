@@ -1,6 +1,3 @@
-import '../../styles/styles.scss';
-// import '../../styles/voice-player.css';
-
 function Stamp({
   lineOne,
   lineTwo,

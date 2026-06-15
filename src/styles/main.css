@@ -1,5 +1,10 @@
-@import './colors-and-type.scss';
+@import './colors-and-type.css';
 @import './buttons.css';
 @import './players.css';
 @import './helpers/animations.css';
 @import './tile.css';
+@import './styles.css';
+@import './final.css';
+@import './character.css';
+@import './layout.css';
+@import './homepage.css';

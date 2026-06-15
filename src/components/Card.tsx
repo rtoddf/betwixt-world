@@ -2,7 +2,6 @@ import { Link } from 'react-router';
 import { urlFor } from '../lib/api';
 import { type SanityImageSource } from '@sanity/image-url';
 import { TODAY, TWO_WEEKS_OUT } from '@/helperFunctions/dateHelpers';
-import '../styles/colors-and-type.scss';
 
 function Card({
   slug,

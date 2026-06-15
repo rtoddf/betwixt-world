@@ -163,12 +163,7 @@
   max-width: 62ch;
 }
 .bw-eyebrow {
-  // font-family: var(--font-body);
-  // font-size: var(--t-small);
-  // font-weight: 600;
-  // text-transform: uppercase;
   letter-spacing: var(--ls-allcaps);
-  // color: var(--bw-burnt);
 }
 .bw-caption {
   font-size: var(--t-small);
@@ -196,7 +191,6 @@
   color: var(--fg-inverse);
 }
 
-// TODO: putting this here for now
 .resident-name-card {
   font-size: clamp(48px, 13vw, 40px);
 }

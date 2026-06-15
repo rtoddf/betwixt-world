@@ -5,7 +5,6 @@ import { TWO_WEEKS_OUT } from '@/helperFunctions/dateHelpers';
 import Stamp from './branding/stamp';
 import HoodStatus from './HoodStatus';
 import Button from './Button';
-import '../styles/colors-and-type.scss';
 
 function HoodTease({
   hood,

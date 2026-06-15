@@ -7,7 +7,6 @@ import { fetchResidents } from '../lib/api';
 import { urlFor } from '../lib/api';
 import PageLayout from '@/components/PageLayout';
 import Player from '../components/audio/Player';
-import '../styles/colors-and-type.scss';
 
 // ────────────────────────────────────────────────────────────────────
 // MetaPin — a labeled stat cell. Reused for Neighborhood/Pronouns/etc

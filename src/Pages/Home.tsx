@@ -5,7 +5,6 @@ import { fetchNeighborhoods, fetchResidents } from '../lib/api';
 import { prioritizeResidents } from '@/helperFunctions/dateHelpers';
 import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
-import '../styles/colors-and-type.scss';
 import '../styles/final.scss';
 
 function Home() {

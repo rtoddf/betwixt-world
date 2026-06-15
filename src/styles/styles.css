@@ -80,14 +80,6 @@ body.bw-root {
 }
 
 /* ---------- Display type helpers ---------- */
-// .bw-display {
-//   font-family: var(--font-display);
-//   font-size: clamp(48px, 7vw, 88px);
-//   line-height: 1.04;
-//   letter-spacing: var(--ls-display);
-//   color: var(--fg-display);
-//   margin: var(--s-3) 0 var(--s-5);
-// }
 .bw-display-pop {
   color: var(--fg-pop);
 }

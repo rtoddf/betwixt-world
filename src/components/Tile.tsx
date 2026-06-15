@@ -4,7 +4,6 @@ import { type SanityImageSource } from '@sanity/image-url';
 import { urlFor } from '../lib/api';
 import { TODAY } from '@/helperFunctions/dateHelpers';
 import HeadShot from '@/components/images/HeadShot';
-import '../styles/colors-and-type.scss';
 
 function Tile({
   slug,

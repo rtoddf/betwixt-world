@@ -10,8 +10,6 @@ import {
 } from '@/helperFunctions/dateHelpers';
 import PageLayout from '@/components/PageLayout';
 import HoodTease from '../components/HoodTease';
-import '../styles/colors-and-type.scss';
-import '../styles/character.css';
 
 import Card from '../components/Card';
 import Player from '../components/audio/Player';

@@ -1,5 +1,4 @@
 import { TODAY } from '@/helperFunctions/dateHelpers';
-import '../styles/colors-and-type.scss';
 
 const MONTH_SEASON: Record<string, string> = {
   '12': 'Winter',

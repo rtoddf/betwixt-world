@@ -10,7 +10,6 @@ import Pause from '@/assets/svgs/pause';
 import Play from '@/assets/svgs/play';
 import Mute from '@/assets/svgs/mute';
 import Muted from '@/assets/svgs/muted';
-import '@/styles/main.css';
 
 const WAVEFORM_BARS = Array.from(
   { length: 56 },

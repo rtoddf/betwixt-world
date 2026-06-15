@@ -1,5 +1,4 @@
 import PageLayout from '@/components/PageLayout';
-import '../styles/colors-and-type.scss';
 
 function SayHello() {
   return (

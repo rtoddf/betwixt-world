@@ -1,5 +1,4 @@
 import notFound from '../assets/404.svg';
-import '../styles/colors-and-type.scss';
 
 function PageNotFound() {
   return (

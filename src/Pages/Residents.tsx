@@ -9,7 +9,6 @@ import {
   prioritizeResidents,
   TWO_WEEKS_OUT,
 } from '@/helperFunctions/dateHelpers';
-import '../styles/colors-and-type.scss';
 
 function Residents() {
   const [residents, setResidents] = useState<ResidentType[]>([]);
