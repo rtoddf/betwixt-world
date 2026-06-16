@@ -91,7 +91,8 @@ export const resident = defineType({
     defineField({
       name: 'shortBio',
       title: 'Short Bio Copy',
-      type: 'text',
+      type: 'array',
+      of: [{type: 'block'}],
       group: 'copy',
     }),
     defineField({
