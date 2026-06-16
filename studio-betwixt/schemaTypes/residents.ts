@@ -9,6 +9,7 @@ export const resident = defineType({
     {name: 'images', title: 'Images'},
     {name: 'audio', title: 'Audio'},
     {name: 'copy', title: 'Copy'},
+    {name: 'meta', title: 'Meta'},
   ],
   fields: [
     defineField({
@@ -172,6 +173,12 @@ export const resident = defineType({
       title: 'Script For Voice',
       type: 'text',
       group: 'audio',
+    }),
+    defineField({
+      name: 'shareText',
+      title: 'Share Text',
+      type: 'string',
+      group: 'meta',
     }),
   ],
 })

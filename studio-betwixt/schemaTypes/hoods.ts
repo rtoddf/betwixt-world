@@ -7,6 +7,7 @@ export const neighborhood = defineType({
   groups: [
     {name: 'content', title: 'Content', default: true},
     {name: 'media', title: 'Theme & Media'},
+    {name: 'meta', title: 'Meta'},
   ],
   fields: [
     defineField({
@@ -63,6 +64,12 @@ export const neighborhood = defineType({
       title: 'Theme Color',
       type: 'string',
       group: 'media',
+    }),
+    defineField({
+      name: 'shareText',
+      title: 'Share Text',
+      type: 'string',
+      group: 'meta',
     }),
   ],
 })
