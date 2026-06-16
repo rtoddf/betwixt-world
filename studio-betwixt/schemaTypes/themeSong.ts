@@ -4,12 +4,17 @@ export const themeSong = defineType({
   name: 'themeSong',
   title: 'Theme Song',
   type: 'document',
+  groups: [
+    {name: 'content', title: 'Content', default: true},
+    {name: 'prompts', title: 'Prompts'},
+  ],
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
+      group: 'content',
     }),
     defineField({
       name: 'slug',
@@ -20,11 +25,13 @@ export const themeSong = defineType({
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
+      group: 'content',
     }),
     defineField({
       name: 'style',
       title: 'Style',
       type: 'string',
+      group: 'content',
     }),
     defineField({
       name: 'audioFile',
@@ -34,6 +41,13 @@ export const themeSong = defineType({
         accept: 'audio/*',
       },
       validation: (Rule) => Rule.required(),
+      group: 'content',
+    }),
+    defineField({
+      name: 'stylePrompt',
+      title: 'Style Prompts',
+      type: 'text',
+      group: 'prompts',
     }),
   ],
 })
