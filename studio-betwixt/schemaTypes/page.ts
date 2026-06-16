@@ -94,6 +94,18 @@ export const page = defineType({
                     }),
                   ],
                 },
+                {
+                  type: 'object',
+                  name: 'tileGrid',
+                  title: 'Tile Grid',
+                  fields: [
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                  ],
+                },
               ],
             }),
           ],
