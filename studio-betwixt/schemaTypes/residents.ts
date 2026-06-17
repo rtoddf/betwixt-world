@@ -104,7 +104,16 @@ export const resident = defineType({
     }),
     defineField({
       name: 'image',
-      title: 'Image',
+      title: 'SVG Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
+    }),
+    defineField({
+      name: 'imageInactive',
+      title: 'Inactive SVG Image',
       type: 'image',
       options: {
         hotspot: true,
@@ -119,15 +128,7 @@ export const resident = defineType({
         hotspot: true,
       },
       group: 'images',
-    }),
-    defineField({
-      name: 'imageInactive',
-      title: 'Inactive Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      group: 'images',
+      description: 'Do the hotspot and crop',
     }),
     defineField({
       name: 'imagePngInactive',
@@ -137,6 +138,7 @@ export const resident = defineType({
         hotspot: true,
       },
       group: 'images',
+      description: 'Do the hotspot and crop',
     }),
     defineField({
       name: 'voiceFile',
