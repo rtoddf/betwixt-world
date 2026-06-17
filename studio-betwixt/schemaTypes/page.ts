@@ -142,6 +142,30 @@ export const page = defineType({
                     }),
                   ],
                 },
+                {
+                  type: 'object',
+                  name: 'tile',
+                  title: 'Tile',
+                  fields: [
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'dataSource',
+                      title: 'Data Source',
+                      type: 'string',
+                      options: {
+                        list: [
+                          {title: 'Random', value: 'random'},
+                          {title: 'Static', value: 'static'},
+                        ],
+                      },
+                      initialValue: 'random',
+                    }),
+                  ],
+                },
               ],
             }),
           ],
