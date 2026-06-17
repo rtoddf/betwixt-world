@@ -120,8 +120,8 @@ export const page = defineType({
                 },
                 {
                   type: 'object',
-                  name: 'hoodTease',
-                  title: 'Hood Tease',
+                  name: 'hoodHeader',
+                  title: 'Hood Header',
                   fields: [
                     defineField({
                       name: 'headline',
@@ -138,6 +138,7 @@ export const page = defineType({
                           {title: 'Static', value: 'static'},
                         ],
                       },
+                      initialValue: 'random',
                     }),
                   ],
                 },
