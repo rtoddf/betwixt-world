@@ -22,7 +22,11 @@ export const resident = defineType({
     defineField({
       name: 'slug',
       title: 'Slug',
-      type: 'string',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
       group: 'content',
       validation: (Rule) => Rule.required(),
     }),
