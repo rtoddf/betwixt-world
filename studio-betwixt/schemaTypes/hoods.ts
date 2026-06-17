@@ -54,6 +54,16 @@ export const neighborhood = defineType({
       group: 'media',
     }),
     defineField({
+      name: 'imagePng',
+      title: 'PNG Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'media',
+      description: 'Do the hotspot and crop',
+    }),
+    defineField({
       name: 'themeSong',
       title: 'Theme Song Available',
       type: 'file',
