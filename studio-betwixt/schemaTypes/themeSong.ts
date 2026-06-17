@@ -1,0 +1,53 @@
+import {defineField, defineType} from 'sanity'
+
+export const themeSong = defineType({
+  name: 'themeSong',
+  title: 'Theme Song',
+  type: 'document',
+  groups: [
+    {name: 'content', title: 'Content', default: true},
+    {name: 'prompts', title: 'Prompts'},
+  ],
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      group: 'content',
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+      group: 'content',
+    }),
+    defineField({
+      name: 'style',
+      title: 'Style',
+      type: 'string',
+      group: 'content',
+    }),
+    defineField({
+      name: 'audioFile',
+      title: 'Audio File',
+      type: 'file',
+      options: {
+        accept: 'audio/*',
+      },
+      validation: (Rule) => Rule.required(),
+      group: 'content',
+    }),
+    defineField({
+      name: 'stylePrompt',
+      title: 'Style Prompts',
+      type: 'text',
+      group: 'prompts',
+    }),
+  ],
+})

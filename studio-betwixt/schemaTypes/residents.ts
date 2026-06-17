@@ -9,6 +9,7 @@ export const resident = defineType({
     {name: 'images', title: 'Images'},
     {name: 'audio', title: 'Audio'},
     {name: 'copy', title: 'Copy'},
+    {name: 'meta', title: 'Meta'},
   ],
   fields: [
     defineField({
@@ -91,7 +92,8 @@ export const resident = defineType({
     defineField({
       name: 'shortBio',
       title: 'Short Bio Copy',
-      type: 'text',
+      type: 'array',
+      of: [{type: 'block'}],
       group: 'copy',
     }),
     defineField({
@@ -102,7 +104,16 @@ export const resident = defineType({
     }),
     defineField({
       name: 'image',
-      title: 'Image',
+      title: 'SVG Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
+    }),
+    defineField({
+      name: 'imageInactive',
+      title: 'Inactive SVG Image',
       type: 'image',
       options: {
         hotspot: true,
@@ -117,15 +128,7 @@ export const resident = defineType({
         hotspot: true,
       },
       group: 'images',
-    }),
-    defineField({
-      name: 'imageInactive',
-      title: 'Inactive Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      group: 'images',
+      description: 'Do the hotspot and crop',
     }),
     defineField({
       name: 'imagePngInactive',
@@ -135,6 +138,7 @@ export const resident = defineType({
         hotspot: true,
       },
       group: 'images',
+      description: 'Do the hotspot and crop',
     }),
     defineField({
       name: 'voiceFile',
@@ -171,6 +175,12 @@ export const resident = defineType({
       title: 'Script For Voice',
       type: 'text',
       group: 'audio',
+    }),
+    defineField({
+      name: 'shareText',
+      title: 'Share Text',
+      type: 'string',
+      group: 'meta',
     }),
   ],
 })
