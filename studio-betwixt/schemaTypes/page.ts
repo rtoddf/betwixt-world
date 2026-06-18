@@ -118,6 +118,54 @@ export const page = defineType({
                     }),
                   ],
                 },
+                {
+                  type: 'object',
+                  name: 'hoodHeader',
+                  title: 'Hood Header',
+                  fields: [
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'dataSource',
+                      title: 'Data Source',
+                      type: 'string',
+                      options: {
+                        list: [
+                          {title: 'Random', value: 'random'},
+                          {title: 'Static', value: 'static'},
+                        ],
+                      },
+                      initialValue: 'random',
+                    }),
+                  ],
+                },
+                {
+                  type: 'object',
+                  name: 'tile',
+                  title: 'Tile',
+                  fields: [
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'dataSource',
+                      title: 'Data Source',
+                      type: 'string',
+                      options: {
+                        list: [
+                          {title: 'Random', value: 'random'},
+                          {title: 'Static', value: 'static'},
+                        ],
+                      },
+                      initialValue: 'random',
+                    }),
+                  ],
+                },
               ],
             }),
           ],
