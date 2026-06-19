@@ -44,16 +44,16 @@ export const neighborhood = defineType({
     }),
     defineField({
       name: 'date',
-      title: 'Date Moved In',
+      title: 'Date Hood Launched',
       type: 'date',
       group: 'content',
     }),
-    defineField({
-      name: 'active',
-      title: 'Active',
-      type: 'boolean',
-      group: 'content',
-    }),
+    // defineField({
+    //   name: 'active',
+    //   title: 'Active',
+    //   type: 'boolean',
+    //   group: 'content',
+    // }),
     defineField({
       name: 'image',
       title: 'Image',
