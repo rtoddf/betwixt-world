@@ -36,6 +36,13 @@ export const neighborhood = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'region',
+      title: 'Region',
+      type: 'reference',
+      to: [{type: 'region'}],
+      group: 'content',
+    }),
+    defineField({
       name: 'date',
       title: 'Date Moved In',
       type: 'date',

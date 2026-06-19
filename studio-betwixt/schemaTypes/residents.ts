@@ -76,6 +76,14 @@ export const resident = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'regions',
+      title: 'Regions',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'region'}]}],
+      group: 'content',
+      validation: (Rule) => Rule.max(2).error('You can add a maximum of 2 regions.'),
+    }),
+    defineField({
       name: 'date',
       title: 'Date Moved In',
       type: 'date',
