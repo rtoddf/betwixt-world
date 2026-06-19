@@ -28,6 +28,12 @@ export const themeSong = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'date',
+      title: 'Theme Song Launched',
+      type: 'date',
+      group: 'content',
+    }),
+    defineField({
       name: 'style',
       title: 'Style',
       type: 'string',
