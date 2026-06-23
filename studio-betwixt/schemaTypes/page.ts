@@ -21,6 +21,11 @@ export const page = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'metaDescription',
+      title: 'Meta Description',
+      type: 'string',
+    }),
+    defineField({
       name: 'slots',
       title: 'Slots',
       type: 'array',
