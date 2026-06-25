@@ -28,6 +28,12 @@ export const neighborhood = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'pronunciation',
+      title: 'Pronunciation',
+      type: 'string',
+      group: 'content',
+    }),
+    defineField({
       name: 'tagline',
       title: 'Tagline',
       type: 'string',
