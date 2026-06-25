@@ -177,6 +177,11 @@ export const page = defineType({
                   title: 'Shop Tease',
                   fields: [
                     defineField({
+                      name: 'eyebrowText',
+                      title: 'Eyebrow Text',
+                      type: 'string',
+                    }),
+                    defineField({
                       name: 'headline',
                       title: 'Headline',
                       type: 'string',
