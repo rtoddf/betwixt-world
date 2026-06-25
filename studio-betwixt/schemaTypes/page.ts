@@ -171,6 +171,18 @@ export const page = defineType({
                     }),
                   ],
                 },
+                {
+                  type: 'object',
+                  name: 'shopTease',
+                  title: 'Shop Tease',
+                  fields: [
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                  ],
+                },
               ],
             }),
           ],
