@@ -186,6 +186,28 @@ export const page = defineType({
                       title: 'Headline',
                       type: 'string',
                     }),
+                    defineField({
+                      name: 'text',
+                      title: 'Text',
+                      type: 'array',
+                      of: [{type: 'block'}],
+                      validation: (Rule) => Rule.required().max(160),
+                    }),
+                    defineField({
+                      name: 'buttonPretext',
+                      title: 'Button Pretext',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'buttonText',
+                      title: 'Button Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'buttonLink',
+                      title: 'Button Link',
+                      type: 'string',
+                    }),
                   ],
                 },
               ],
