@@ -196,7 +196,7 @@ export const page = defineType({
                       title: 'Text',
                       type: 'array',
                       of: [{type: 'block'}],
-                      validation: (Rule) => Rule.required().max(160),
+                      validation: (Rule) => Rule.required().max(235),
                     }),
                     defineField({
                       name: 'buttonPretext',
@@ -211,6 +211,40 @@ export const page = defineType({
                     defineField({
                       name: 'buttonLink',
                       title: 'Button Link',
+                      type: 'string',
+                    }),
+                  ],
+                },
+                {
+                  type: 'object',
+                  name: 'fieldNotesTease',
+                  title: 'Field Notes Tease',
+                  fields: [
+                    defineField({
+                      name: 'eyebrowText',
+                      title: 'Eyebrow Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'image',
+                      title: 'Image',
+                      type: 'image',
+                    }),
+                    defineField({
+                      name: 'text',
+                      title: 'Text',
+                      type: 'array',
+                      of: [{type: 'block'}],
+                      validation: (Rule) => Rule.required().max(235),
+                    }),
+                    defineField({
+                      name: 'buttonText',
+                      title: 'Button Text',
                       type: 'string',
                     }),
                   ],
