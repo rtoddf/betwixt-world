@@ -187,6 +187,11 @@ export const page = defineType({
                       type: 'string',
                     }),
                     defineField({
+                      name: 'image',
+                      title: 'Background Image',
+                      type: 'image',
+                    }),
+                    defineField({
                       name: 'text',
                       title: 'Text',
                       type: 'array',
