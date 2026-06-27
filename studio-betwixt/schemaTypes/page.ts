@@ -247,6 +247,11 @@ export const page = defineType({
                       title: 'Button Text',
                       type: 'string',
                     }),
+                    defineField({
+                      name: 'disclaimerText',
+                      title: 'Disclaimer Text',
+                      type: 'string',
+                    }),
                   ],
                 },
               ],
