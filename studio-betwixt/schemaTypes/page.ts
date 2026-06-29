@@ -221,6 +221,11 @@ export const page = defineType({
                   title: 'Field Notes Tease',
                   fields: [
                     defineField({
+                      name: 'tabText',
+                      title: 'Tab Text',
+                      type: 'string',
+                    }),
+                    defineField({
                       name: 'eyebrowText',
                       title: 'Eyebrow Text',
                       type: 'string',
