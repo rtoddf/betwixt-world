@@ -257,6 +257,12 @@ export const page = defineType({
                       title: 'Disclaimer Text',
                       type: 'string',
                     }),
+                    defineField({
+                      name: 'hideForm',
+                      title: 'Hide Form',
+                      type: 'boolean',
+                      initialValue: false,
+                    }),
                   ],
                 },
               ],
