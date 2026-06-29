@@ -40,6 +40,22 @@ export const neighborhood = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'color',
+      title: 'Theme Color',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Amber', value: 'amber'},
+          {title: 'Burnt', value: 'burnt'},
+          {title: 'Coral', value: 'coral'},
+          {title: 'Navy', value: 'navy'},
+          {title: 'Teal', value: 'teal'},
+          {title: 'Violet', value: 'violet'},
+        ],
+      },
+      group: 'content',
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'array',
