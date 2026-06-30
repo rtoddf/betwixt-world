@@ -40,6 +40,17 @@ export const themeSong = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'resident',
+      title: 'Resident',
+      type: 'reference',
+      to: [{type: 'resident'}],
+      options: {
+        filter: 'hood->slug.current == $hood',
+        filterParams: {hood: 'jukebox'},
+      },
+      group: 'content',
+    }),
+    defineField({
       name: 'audioFile',
       title: 'Audio File',
       type: 'file',
