@@ -6,6 +6,7 @@ export const themeSong = defineType({
   type: 'document',
   groups: [
     {name: 'content', title: 'Content', default: true},
+    {name: 'audio', title: 'Audio'},
     {name: 'prompts', title: 'Prompts'},
   ],
   fields: [
@@ -58,7 +59,16 @@ export const themeSong = defineType({
         accept: 'audio/*',
       },
       validation: (Rule) => Rule.required(),
-      group: 'content',
+      group: 'audio',
+    }),
+    defineField({
+      name: 'previewAudioFile',
+      title: 'Preview Audio File',
+      type: 'file',
+      options: {
+        accept: 'audio/*',
+      },
+      group: 'audio',
     }),
     defineField({
       name: 'stylePrompt',
