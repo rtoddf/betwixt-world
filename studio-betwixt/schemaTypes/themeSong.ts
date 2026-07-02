@@ -6,6 +6,7 @@ export const themeSong = defineType({
   type: 'document',
   groups: [
     {name: 'content', title: 'Content', default: true},
+    {name: 'audio', title: 'Audio'},
     {name: 'prompts', title: 'Prompts'},
   ],
   fields: [
@@ -28,9 +29,26 @@ export const themeSong = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'date',
+      title: 'Theme Song Launched',
+      type: 'date',
+      group: 'content',
+    }),
+    defineField({
       name: 'style',
       title: 'Style',
       type: 'string',
+      group: 'content',
+    }),
+    defineField({
+      name: 'resident',
+      title: 'Resident',
+      type: 'reference',
+      to: [{type: 'resident'}],
+      options: {
+        filter: 'hood->slug.current == $hood',
+        filterParams: {hood: 'jukebox'},
+      },
       group: 'content',
     }),
     defineField({
@@ -41,7 +59,16 @@ export const themeSong = defineType({
         accept: 'audio/*',
       },
       validation: (Rule) => Rule.required(),
-      group: 'content',
+      group: 'audio',
+    }),
+    defineField({
+      name: 'previewAudioFile',
+      title: 'Preview Audio File',
+      type: 'file',
+      options: {
+        accept: 'audio/*',
+      },
+      group: 'audio',
     }),
     defineField({
       name: 'stylePrompt',

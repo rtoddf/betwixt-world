@@ -21,6 +21,11 @@ export const page = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'metaDescription',
+      title: 'Meta Description',
+      type: 'string',
+    }),
+    defineField({
       name: 'slots',
       title: 'Slots',
       type: 'array',
@@ -164,6 +169,150 @@ export const page = defineType({
                       },
                       initialValue: 'random',
                     }),
+                  ],
+                },
+                {
+                  type: 'object',
+                  name: 'shopTease',
+                  title: 'Shop Tease',
+                  fields: [
+                    defineField({
+                      name: 'eyebrowText',
+                      title: 'Eyebrow Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'image',
+                      title: 'Background Image',
+                      type: 'image',
+                    }),
+                    defineField({
+                      name: 'text',
+                      title: 'Text',
+                      type: 'array',
+                      of: [{type: 'block'}],
+                      validation: (Rule) => Rule.required().max(235),
+                    }),
+                    defineField({
+                      name: 'buttonPretext',
+                      title: 'Button Pretext',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'buttonText',
+                      title: 'Button Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'buttonLink',
+                      title: 'Button Link',
+                      type: 'string',
+                    }),
+                  ],
+                },
+                {
+                  type: 'object',
+                  name: 'fieldNotesTease',
+                  title: 'Field Notes Tease',
+                  fields: [
+                    defineField({
+                      name: 'tabText',
+                      title: 'Tab Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'eyebrowText',
+                      title: 'Eyebrow Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'image',
+                      title: 'Image',
+                      type: 'image',
+                    }),
+                    defineField({
+                      name: 'text',
+                      title: 'Text',
+                      type: 'array',
+                      of: [{type: 'block'}],
+                      validation: (Rule) => Rule.required().max(235),
+                    }),
+                    defineField({
+                      name: 'buttonText',
+                      title: 'Button Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'disclaimerText',
+                      title: 'Disclaimer Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'hideForm',
+                      title: 'Hide Form',
+                      type: 'boolean',
+                      initialValue: false,
+                    }),
+                  ],
+                },
+                {
+                  type: 'object',
+                  name: 'juekboxTease',
+                  title: 'Jukebox Tease',
+                  fields: [
+                    defineField({
+                      name: 'tabText',
+                      title: 'Tab Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'eyebrowText',
+                      title: 'Eyebrow Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    // defineField({
+                    //   name: 'image',
+                    //   title: 'Image',
+                    //   type: 'image',
+                    // }),
+                    // defineField({
+                    //   name: 'text',
+                    //   title: 'Text',
+                    //   type: 'array',
+                    //   of: [{type: 'block'}],
+                    //   validation: (Rule) => Rule.required().max(235),
+                    // }),
+                    // defineField({
+                    //   name: 'buttonText',
+                    //   title: 'Button Text',
+                    //   type: 'string',
+                    // }),
+                    // defineField({
+                    //   name: 'disclaimerText',
+                    //   title: 'Disclaimer Text',
+                    //   type: 'string',
+                    // }),
+                    // defineField({
+                    //   name: 'hideForm',
+                    //   title: 'Hide Form',
+                    //   type: 'boolean',
+                    //   initialValue: false,
+                    // }),
                   ],
                 },
               ],

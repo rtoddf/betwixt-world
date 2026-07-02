@@ -19,6 +19,17 @@ export const neighborhood = defineType({
     defineField({
       name: 'slug',
       title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
+      group: 'content',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'pronunciation',
+      title: 'Pronunciation',
       type: 'string',
       group: 'content',
     }),
@@ -26,6 +37,22 @@ export const neighborhood = defineType({
       name: 'tagline',
       title: 'Tagline',
       type: 'string',
+      group: 'content',
+    }),
+    defineField({
+      name: 'color',
+      title: 'Theme Color',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Amber', value: 'amber'},
+          {title: 'Burnt', value: 'burnt'},
+          {title: 'Coral', value: 'coral'},
+          {title: 'Navy', value: 'navy'},
+          {title: 'Teal', value: 'teal'},
+          {title: 'Violet', value: 'violet'},
+        ],
+      },
       group: 'content',
     }),
     defineField({
@@ -44,16 +71,16 @@ export const neighborhood = defineType({
     }),
     defineField({
       name: 'date',
-      title: 'Date Moved In',
+      title: 'Date Hood Launched',
       type: 'date',
       group: 'content',
     }),
-    defineField({
-      name: 'active',
-      title: 'Active',
-      type: 'boolean',
-      group: 'content',
-    }),
+    // defineField({
+    //   name: 'active',
+    //   title: 'Active',
+    //   type: 'boolean',
+    //   group: 'content',
+    // }),
     defineField({
       name: 'image',
       title: 'Image',
