@@ -263,6 +263,11 @@ export const page = defineType({
                       type: 'boolean',
                       initialValue: false,
                     }),
+                    defineField({
+                      name: 'formReplacementText',
+                      title: 'Form Replacement Text',
+                      type: 'string',
+                    }),
                   ],
                 },
                 {
@@ -285,11 +290,11 @@ export const page = defineType({
                       title: 'Headline',
                       type: 'string',
                     }),
-                    // defineField({
-                    //   name: 'image',
-                    //   title: 'Image',
-                    //   type: 'image',
-                    // }),
+                    defineField({
+                      name: 'disclaimerText',
+                      title: 'Disclaimer Text',
+                      type: 'string',
+                    }),
                     // defineField({
                     //   name: 'text',
                     //   title: 'Text',
