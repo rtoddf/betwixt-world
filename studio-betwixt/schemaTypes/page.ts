@@ -93,6 +93,25 @@ export const page = defineType({
                               },
                               initialValue: 'none',
                             }),
+                            defineField({
+                              name: 'size',
+                              title: 'Size',
+                              type: 'string',
+                              options: {
+                                list: [
+                                  {title: 'Small', value: 'small'},
+                                  {title: 'Medium', value: 'medium'},
+                                  {title: 'Lage', value: 'large'},
+                                ],
+                              },
+                              initialValue: 'medium',
+                            }),
+                            defineField({
+                              name: 'dropshadow',
+                              title: 'Dropshadow',
+                              type: 'boolean',
+                              initialValue: false,
+                            }),
                           ],
                         },
                       ],
