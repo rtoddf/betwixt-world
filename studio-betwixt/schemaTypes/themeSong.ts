@@ -35,6 +35,13 @@ export const themeSong = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'songPreview',
+      title: 'Preview',
+      type: 'boolean',
+      group: 'content',
+      initialValue: false,
+    }),
+    defineField({
       name: 'style',
       title: 'Style',
       type: 'string',

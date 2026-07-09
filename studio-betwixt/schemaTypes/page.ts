@@ -132,18 +132,6 @@ export const page = defineType({
                 },
                 {
                   type: 'object',
-                  name: 'jukebox',
-                  title: 'Jukebox',
-                  fields: [
-                    defineField({
-                      name: 'headline',
-                      title: 'Headline',
-                      type: 'string',
-                    }),
-                  ],
-                },
-                {
-                  type: 'object',
                   name: 'hoodHeader',
                   title: 'Hood Header',
                   fields: [
@@ -291,19 +279,26 @@ export const page = defineType({
                 },
                 {
                   type: 'object',
+                  name: 'jukebox',
+                  title: 'Jukebox',
+                  fields: [
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'disclaimerText',
+                      title: 'Disclaimer Text',
+                      type: 'string',
+                    }),
+                  ],
+                },
+                {
+                  type: 'object',
                   name: 'juekboxTease',
                   title: 'Jukebox Tease',
                   fields: [
-                    defineField({
-                      name: 'tabText',
-                      title: 'Tab Text',
-                      type: 'string',
-                    }),
-                    defineField({
-                      name: 'eyebrowText',
-                      title: 'Eyebrow Text',
-                      type: 'string',
-                    }),
                     defineField({
                       name: 'headline',
                       title: 'Headline',
