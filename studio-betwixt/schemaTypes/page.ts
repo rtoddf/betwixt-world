@@ -45,6 +45,8 @@ export const page = defineType({
                   {title: 'Two Columns', value: 'two'},
                   {title: 'Three Columns', value: 'three'},
                   {title: 'Four Columns', value: 'four'},
+                  {title: '2/3 - 1/3', value: 'twoOne'},
+                  {title: '1/3 - 2/3', value: 'oneTwo'},
                 ],
               },
               validation: (Rule) => Rule.required(),
@@ -122,18 +124,6 @@ export const page = defineType({
                   type: 'object',
                   name: 'tileGrid',
                   title: 'Tile Grid',
-                  fields: [
-                    defineField({
-                      name: 'headline',
-                      title: 'Headline',
-                      type: 'string',
-                    }),
-                  ],
-                },
-                {
-                  type: 'object',
-                  name: 'jukebox',
-                  title: 'Jukebox',
                   fields: [
                     defineField({
                       name: 'headline',
@@ -291,19 +281,26 @@ export const page = defineType({
                 },
                 {
                   type: 'object',
+                  name: 'jukebox',
+                  title: 'Jukebox',
+                  fields: [
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'disclaimerText',
+                      title: 'Disclaimer Text',
+                      type: 'string',
+                    }),
+                  ],
+                },
+                {
+                  type: 'object',
                   name: 'juekboxTease',
                   title: 'Jukebox Tease',
                   fields: [
-                    defineField({
-                      name: 'tabText',
-                      title: 'Tab Text',
-                      type: 'string',
-                    }),
-                    defineField({
-                      name: 'eyebrowText',
-                      title: 'Eyebrow Text',
-                      type: 'string',
-                    }),
                     defineField({
                       name: 'headline',
                       title: 'Headline',
