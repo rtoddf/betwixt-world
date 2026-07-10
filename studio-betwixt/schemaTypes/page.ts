@@ -45,6 +45,8 @@ export const page = defineType({
                   {title: 'Two Columns', value: 'two'},
                   {title: 'Three Columns', value: 'three'},
                   {title: 'Four Columns', value: 'four'},
+                  {title: '2/3 - 1/3', value: 'twoOne'},
+                  {title: '1/3 - 2/3', value: 'oneTwo'},
                 ],
               },
               validation: (Rule) => Rule.required(),

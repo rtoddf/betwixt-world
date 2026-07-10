@@ -46,8 +46,10 @@ export const neighborhood = defineType({
       options: {
         list: [
           {title: 'Amber', value: 'amber'},
+          {title: 'Blue', value: 'blue'},
           {title: 'Burnt', value: 'burnt'},
           {title: 'Coral', value: 'coral'},
+          {title: 'Gray', value: 'gray'},
           {title: 'Navy', value: 'navy'},
           {title: 'Teal', value: 'teal'},
           {title: 'Violet', value: 'violet'},
