@@ -8,6 +8,7 @@ export const neighborhood = defineType({
     {name: 'content', title: 'Content', default: true},
     {name: 'media', title: 'Theme & Media'},
     {name: 'meta', title: 'Meta'},
+    {name: 'shop', title: 'Shop'},
   ],
   fields: [
     defineField({
@@ -116,6 +117,12 @@ export const neighborhood = defineType({
       title: 'Share Text',
       type: 'string',
       group: 'meta',
+    }),
+    defineField({
+      name: 'etsySectionId',
+      title: 'Etsy Shop Id',
+      type: 'string',
+      group: 'shop',
     }),
   ],
 })
