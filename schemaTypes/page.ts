@@ -101,6 +101,7 @@ export const page = defineType({
                               type: 'string',
                               options: {
                                 list: [
+                                  {title: 'X-Small', value: 'xsmall'},
                                   {title: 'Small', value: 'small'},
                                   {title: 'Medium', value: 'medium'},
                                   {title: 'Lage', value: 'large'},
