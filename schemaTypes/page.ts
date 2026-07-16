@@ -144,6 +144,20 @@ export const page = defineType({
                       type: 'string',
                     }),
                     defineField({
+                      name: 'numberOfParas',
+                      title: 'Number of Paragraphs',
+                      type: 'number',
+                      options: {
+                        list: [
+                          {title: '1', value: 1},
+                          {title: '2', value: 2},
+                          {title: '3', value: 3},
+                          {title: '4', value: 3},
+                        ],
+                      },
+                      initialValue: 2,
+                    }),
+                    defineField({
                       name: 'dataSource',
                       title: 'Data Source',
                       type: 'string',
