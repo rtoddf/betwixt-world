@@ -33,13 +33,16 @@ export const resident = defineType({
     defineField({
       name: 'pronunciation',
       title: 'Pronunciation',
-      type: 'string',
+      // Localized: internationalizedArrayString renders one input per
+      // language (English/Spanish) instead of a single plain string.
+      // Registered in sanity.config.ts's internationalizedArray plugin.
+      type: 'internationalizedArrayString',
       group: 'content',
     }),
     defineField({
       name: 'tag',
       title: 'Tag',
-      type: 'string',
+      type: 'internationalizedArrayString',
       group: 'content',
     }),
     defineField({
@@ -92,20 +95,25 @@ export const resident = defineType({
     defineField({
       name: 'quote',
       title: 'Quote',
-      type: 'string',
+      type: 'internationalizedArrayString',
       group: 'copy',
     }),
     defineField({
       name: 'miniBio',
       title: 'Mini Bio Copy',
-      type: 'text',
+      // internationalizedArrayText, not ...String, because miniBio was a
+      // multi-line 'text' field, not a single-line 'string'.
+      type: 'internationalizedArrayText',
       group: 'copy',
     }),
     defineField({
       name: 'shortBio',
       title: 'Short Bio Copy',
-      type: 'array',
-      of: [{type: 'block'}],
+      // internationalizedArrayBlockContent matches the 'blockContent' shape
+      // registered in sanity.config.ts. No 'of' here — the plugin-generated
+      // type already fully defines the field, unlike the plain array type
+      // this replaced.
+      type: 'internationalizedArrayBlockContent',
       group: 'copy',
     }),
     defineField({
@@ -191,7 +199,7 @@ export const resident = defineType({
     defineField({
       name: 'shareText',
       title: 'Share Text',
-      type: 'string',
+      type: 'internationalizedArrayString',
       group: 'meta',
     }),
   ],
