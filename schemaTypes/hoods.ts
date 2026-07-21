@@ -107,12 +107,6 @@ export const neighborhood = defineType({
       group: 'media',
     }),
     defineField({
-      name: 'themeColor',
-      title: 'Theme Color',
-      type: 'string',
-      group: 'media',
-    }),
-    defineField({
       name: 'shareText',
       title: 'Share Text',
       type: 'string',
