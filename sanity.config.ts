@@ -27,6 +27,7 @@ export default defineConfig({
       languages: [
         {id: 'en', title: 'English'},
         {id: 'es', title: 'Spanish'},
+        {id: 'it', title: 'Italian'},
       ],
       fieldTypes: [
         'string',
