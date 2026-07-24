@@ -265,6 +265,11 @@ export const page = defineType({
                       type: 'image',
                     }),
                     defineField({
+                      name: 'imageAltText',
+                      title: 'Image Alt Text',
+                      type: 'string',
+                    }),
+                    defineField({
                       name: 'text',
                       title: 'Text',
                       type: 'array',
@@ -281,17 +286,7 @@ export const page = defineType({
                       title: 'Disclaimer Text',
                       type: 'string',
                     }),
-                    defineField({
-                      name: 'hideForm',
-                      title: 'Hide Form',
-                      type: 'boolean',
-                      initialValue: false,
-                    }),
-                    defineField({
-                      name: 'formReplacementText',
-                      title: 'Form Replacement Text',
-                      type: 'string',
-                    }),
+                    
                   ],
                 },
                 {
