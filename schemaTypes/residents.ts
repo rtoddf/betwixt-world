@@ -99,6 +99,16 @@ export const resident = defineType({
       group: 'copy',
     }),
     defineField({
+      name: 'etymology',
+      title: 'Etymology Copy',
+      // internationalizedArrayBlockContent matches the 'blockContent' shape
+      // registered in sanity.config.ts. No 'of' here — the plugin-generated
+      // type already fully defines the field, unlike the plain array type
+      // this replaced.
+      type: 'internationalizedArrayBlockContent',
+      group: 'copy',
+    }),
+    defineField({
       name: 'miniBio',
       title: 'Mini Bio Copy',
       // internationalizedArrayText, not ...String, because miniBio was a
