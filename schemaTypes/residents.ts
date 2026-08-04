@@ -118,7 +118,7 @@ export const resident = defineType({
     }),
     defineField({
       name: 'shortBio',
-      title: 'Short Bio Copy',
+      title: 'Concept Copy',
       // internationalizedArrayBlockContent matches the 'blockContent' shape
       // registered in sanity.config.ts. No 'of' here — the plugin-generated
       // type already fully defines the field, unlike the plain array type
