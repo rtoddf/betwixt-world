@@ -151,6 +151,15 @@ export const resident = defineType({
       group: 'images',
     }),
     defineField({
+      name: 'imageNoBg',
+      title: 'SVG Image - No Background',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
+    }),
+    defineField({
       name: 'imagePng',
       title: 'PNG Image',
       type: 'image',
