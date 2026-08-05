@@ -286,7 +286,6 @@ export const page = defineType({
                       title: 'Disclaimer Text',
                       type: 'string',
                     }),
-                    
                   ],
                 },
                 {
@@ -315,6 +314,12 @@ export const page = defineType({
                       name: 'headline',
                       title: 'Headline',
                       type: 'string',
+                    }),
+                    defineField({
+                      name: 'copy',
+                      title: 'Copy',
+                      type: 'array',
+                      of: [{type: 'block'}],
                     }),
                     defineField({
                       name: 'disclaimerText',
