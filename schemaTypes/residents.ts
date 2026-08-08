@@ -6,7 +6,7 @@ export const resident = defineType({
   type: 'document',
   groups: [
     {name: 'content', title: 'Content', default: true},
-    {name: 'images', title: 'Images'},
+    {name: 'images', title: 'Images & Colors'},
     {name: 'audio', title: 'Audio'},
     {name: 'copy', title: 'Copy'},
     {name: 'meta', title: 'Meta'},
@@ -125,6 +125,12 @@ export const resident = defineType({
       // this replaced.
       type: 'internationalizedArrayBlockContent',
       group: 'copy',
+    }),
+    defineField({
+      name: 'djColor',
+      title: 'DJ Color - Hex Value',
+      type: 'color',
+      group: 'images',
     }),
     defineField({
       name: 'stamp',
