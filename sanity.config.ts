@@ -5,6 +5,7 @@ import {imageHotspotArrayPlugin} from 'sanity-plugin-hotspot-array'
 import {internationalizedArray} from 'sanity-plugin-internationalized-array'
 import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
+import {colorInput} from '@sanity/color-input'
 
 export default defineConfig({
   name: 'default',
@@ -17,6 +18,7 @@ export default defineConfig({
     structureTool({structure}),
     visionTool(),
     imageHotspotArrayPlugin(),
+    colorInput(),
     // Powers field-level translation on resident fields (quote, miniBio,
     // shortBio, tag, shareText, pronunciation — see residents.ts). Each
     // registered field type below becomes an `internationalizedArray<Type>`
@@ -27,6 +29,7 @@ export default defineConfig({
       languages: [
         {id: 'en', title: 'English'},
         {id: 'es', title: 'Spanish'},
+        {id: 'it', title: 'Italian'},
       ],
       fieldTypes: [
         'string',

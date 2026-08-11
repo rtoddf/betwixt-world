@@ -265,6 +265,11 @@ export const page = defineType({
                       type: 'image',
                     }),
                     defineField({
+                      name: 'imageAltText',
+                      title: 'Image Alt Text',
+                      type: 'string',
+                    }),
+                    defineField({
                       name: 'text',
                       title: 'Text',
                       type: 'array',
@@ -279,17 +284,6 @@ export const page = defineType({
                     defineField({
                       name: 'disclaimerText',
                       title: 'Disclaimer Text',
-                      type: 'string',
-                    }),
-                    defineField({
-                      name: 'hideForm',
-                      title: 'Hide Form',
-                      type: 'boolean',
-                      initialValue: false,
-                    }),
-                    defineField({
-                      name: 'formReplacementText',
-                      title: 'Form Replacement Text',
                       type: 'string',
                     }),
                   ],
@@ -313,6 +307,39 @@ export const page = defineType({
                 },
                 {
                   type: 'object',
+                  name: 'djsTease',
+                  title: 'DJs Tease',
+                  fields: [
+                    defineField({
+                      name: 'eyebrowText',
+                      title: 'Eyebrow Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'headline',
+                      title: 'Headline',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'text',
+                      title: 'Text',
+                      type: 'array',
+                      of: [{type: 'block'}],
+                    }),
+                    defineField({
+                      name: 'buttonText',
+                      title: 'Button Text',
+                      type: 'string',
+                    }),
+                    defineField({
+                      name: 'buttonLink',
+                      title: 'Button Link',
+                      type: 'string',
+                    }),
+                  ],
+                },
+                {
+                  type: 'object',
                   name: 'juekboxTease',
                   title: 'Jukebox Tease',
                   fields: [
@@ -322,33 +349,16 @@ export const page = defineType({
                       type: 'string',
                     }),
                     defineField({
+                      name: 'copy',
+                      title: 'Copy',
+                      type: 'array',
+                      of: [{type: 'block'}],
+                    }),
+                    defineField({
                       name: 'disclaimerText',
                       title: 'Disclaimer Text',
                       type: 'string',
                     }),
-                    // defineField({
-                    //   name: 'text',
-                    //   title: 'Text',
-                    //   type: 'array',
-                    //   of: [{type: 'block'}],
-                    //   validation: (Rule) => Rule.required().max(235),
-                    // }),
-                    // defineField({
-                    //   name: 'buttonText',
-                    //   title: 'Button Text',
-                    //   type: 'string',
-                    // }),
-                    // defineField({
-                    //   name: 'disclaimerText',
-                    //   title: 'Disclaimer Text',
-                    //   type: 'string',
-                    // }),
-                    // defineField({
-                    //   name: 'hideForm',
-                    //   title: 'Hide Form',
-                    //   type: 'boolean',
-                    //   initialValue: false,
-                    // }),
                   ],
                 },
               ],

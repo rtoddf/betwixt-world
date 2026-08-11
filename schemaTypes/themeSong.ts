@@ -42,6 +42,13 @@ export const themeSong = defineType({
       initialValue: false,
     }),
     defineField({
+      name: 'includeInJukeboxPreview',
+      title: 'Preview (testing only)',
+      type: 'boolean',
+      group: 'content',
+      initialValue: false,
+    }),
+    defineField({
       name: 'style',
       title: 'Style',
       type: 'string',

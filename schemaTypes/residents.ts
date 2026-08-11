@@ -6,7 +6,7 @@ export const resident = defineType({
   type: 'document',
   groups: [
     {name: 'content', title: 'Content', default: true},
-    {name: 'images', title: 'Images'},
+    {name: 'images', title: 'Images & Colors'},
     {name: 'audio', title: 'Audio'},
     {name: 'copy', title: 'Copy'},
     {name: 'meta', title: 'Meta'},
@@ -99,6 +99,16 @@ export const resident = defineType({
       group: 'copy',
     }),
     defineField({
+      name: 'etymology',
+      title: 'Etymology Copy',
+      // internationalizedArrayBlockContent matches the 'blockContent' shape
+      // registered in sanity.config.ts. No 'of' here — the plugin-generated
+      // type already fully defines the field, unlike the plain array type
+      // this replaced.
+      type: 'internationalizedArrayBlockContent',
+      group: 'copy',
+    }),
+    defineField({
       name: 'miniBio',
       title: 'Mini Bio Copy',
       // internationalizedArrayText, not ...String, because miniBio was a
@@ -108,13 +118,19 @@ export const resident = defineType({
     }),
     defineField({
       name: 'shortBio',
-      title: 'Short Bio Copy',
+      title: 'Concept Copy',
       // internationalizedArrayBlockContent matches the 'blockContent' shape
       // registered in sanity.config.ts. No 'of' here — the plugin-generated
       // type already fully defines the field, unlike the plain array type
       // this replaced.
       type: 'internationalizedArrayBlockContent',
       group: 'copy',
+    }),
+    defineField({
+      name: 'djColor',
+      title: 'DJ Color - Hex Value',
+      type: 'color',
+      group: 'images',
     }),
     defineField({
       name: 'stamp',
@@ -134,6 +150,15 @@ export const resident = defineType({
     defineField({
       name: 'imageInactive',
       title: 'Inactive SVG Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
+    }),
+    defineField({
+      name: 'imageNoBg',
+      title: 'SVG Image - No Background',
       type: 'image',
       options: {
         hotspot: true,
