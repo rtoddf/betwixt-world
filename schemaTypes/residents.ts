@@ -10,6 +10,7 @@ export const resident = defineType({
     {name: 'audio', title: 'Audio'},
     {name: 'copy', title: 'Copy'},
     {name: 'meta', title: 'Meta'},
+    {name: 'sales', title: 'Sales & Social Media'},
   ],
   fields: [
     defineField({
@@ -226,6 +227,34 @@ export const resident = defineType({
       title: 'Share Text',
       type: 'internationalizedArrayString',
       group: 'meta',
+    }),
+    defineField({
+      name: 'etsyMug',
+      title: 'Etsy Tee',
+      type: 'array',
+      of: [{type: 'block'}],
+      group: 'sales',
+    }),
+    defineField({
+      name: 'etsyTee',
+      title: 'Etsy Tee',
+      type: 'array',
+      of: [{type: 'block'}],
+      group: 'sales',
+    }),
+    defineField({
+      name: 'etsyHoodie',
+      title: 'Etsy Hoodie',
+      type: 'array',
+      of: [{type: 'block'}],
+      group: 'sales',
+    }),
+    defineField({
+      name: 'pinterestCharacter',
+      title: 'Pinterest Character',
+      type: 'array',
+      of: [{type: 'block'}],
+      group: 'sales',
     }),
   ],
 })
