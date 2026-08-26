@@ -230,7 +230,7 @@ export const resident = defineType({
     }),
     defineField({
       name: 'etsyMug',
-      title: 'Etsy Tee',
+      title: 'Etsy Mug',
       type: 'array',
       of: [{type: 'block'}],
       group: 'sales',
