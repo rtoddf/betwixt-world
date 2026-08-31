@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {slotsField} from './slots'
 
 export const neighborhood = defineType({
   name: 'neighborhood',
@@ -118,5 +119,6 @@ export const neighborhood = defineType({
       type: 'string',
       group: 'shop',
     }),
+    slotsField,
   ],
 })
