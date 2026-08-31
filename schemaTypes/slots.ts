@@ -4,6 +4,7 @@ export const slotsField = defineField({
   name: 'slots',
   title: 'Slots',
   type: 'array',
+  group: 'slots',
   of: [
     {
       type: 'object',
@@ -37,6 +38,18 @@ export const slotsField = defineField({
           title: 'Components',
           type: 'array',
           of: [
+            {
+              type: 'object',
+              name: 'audioPlayer',
+              title: 'Audio Player',
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+              ],
+            },
             {
               type: 'object',
               name: 'textBlock',
@@ -142,7 +155,7 @@ export const slotsField = defineField({
                       {title: 'Static', value: 'static'},
                     ],
                   },
-                  initialValue: 'random',
+                  initialValue: 'static',
                 }),
               ],
             },

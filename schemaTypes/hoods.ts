@@ -10,6 +10,7 @@ export const neighborhood = defineType({
     {name: 'media', title: 'Theme & Media'},
     {name: 'meta', title: 'Meta'},
     {name: 'shop', title: 'Shop'},
+    {name: 'slots', title: 'Slots'},
   ],
   fields: [
     defineField({
