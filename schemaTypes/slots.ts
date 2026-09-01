@@ -52,6 +52,30 @@ export const slotsField = defineField({
             },
             {
               type: 'object',
+              name: 'cardGrid',
+              title: 'Card Grid',
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'pageCap',
+              title: 'Page Cap',
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
               name: 'textBlock',
               title: 'Text Block',
               fields: [
