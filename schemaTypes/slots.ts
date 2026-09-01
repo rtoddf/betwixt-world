@@ -42,6 +42,12 @@ export const slotsField = defineField({
               type: 'object',
               name: 'audioPlayer',
               title: 'Audio Player',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Audio Player'}
+                },
+              },
               fields: [
                 defineField({
                   name: 'headline',
@@ -54,6 +60,12 @@ export const slotsField = defineField({
               type: 'object',
               name: 'cardGrid',
               title: 'Card Grid',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Card Grid'}
+                },
+              },
               fields: [
                 defineField({
                   name: 'headline',
@@ -66,6 +78,12 @@ export const slotsField = defineField({
               type: 'object',
               name: 'pageCap',
               title: 'Page Cap',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Page Cap'}
+                },
+              },
               fields: [
                 defineField({
                   name: 'headline',
@@ -137,6 +155,12 @@ export const slotsField = defineField({
               type: 'object',
               name: 'tileGrid',
               title: 'Tile Grid',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Tile Grid'}
+                },
+              },
               fields: [
                 defineField({
                   name: 'headline',
@@ -149,6 +173,12 @@ export const slotsField = defineField({
               type: 'object',
               name: 'hoodHeader',
               title: 'Hood Header',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Hood Header'}
+                },
+              },
               fields: [
                 defineField({
                   name: 'headline',
