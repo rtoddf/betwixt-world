@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {slotsField} from './slots'
 
 export const resident = defineType({
   name: 'resident',
@@ -6,9 +7,10 @@ export const resident = defineType({
   type: 'document',
   groups: [
     {name: 'content', title: 'Content', default: true},
-    {name: 'images', title: 'Images & Colors'},
-    {name: 'audio', title: 'Audio'},
     {name: 'copy', title: 'Copy'},
+    {name: 'images', title: 'Images & Colors'},
+    {name: 'slots', title: 'Slots'},
+    {name: 'audio', title: 'Audio'},
     {name: 'meta', title: 'Meta'},
     {name: 'sales', title: 'Sales & Social Media'},
   ],
@@ -256,5 +258,6 @@ export const resident = defineType({
       of: [{type: 'block'}],
       group: 'sales',
     }),
+    slotsField,
   ],
 })
