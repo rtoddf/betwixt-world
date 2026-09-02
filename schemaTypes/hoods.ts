@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {slotsField} from './slots'
 
 export const neighborhood = defineType({
   name: 'neighborhood',
@@ -9,6 +10,7 @@ export const neighborhood = defineType({
     {name: 'media', title: 'Theme & Media'},
     {name: 'meta', title: 'Meta'},
     {name: 'shop', title: 'Shop'},
+    {name: 'slots', title: 'Slots'},
   ],
   fields: [
     defineField({
@@ -118,5 +120,6 @@ export const neighborhood = defineType({
       type: 'string',
       group: 'shop',
     }),
+    slotsField,
   ],
 })
