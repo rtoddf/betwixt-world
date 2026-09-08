@@ -66,22 +66,31 @@ export const themeSong = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'previewAudioFile',
+      title: 'Preview Audio File - Before Launch',
+      type: 'file',
+      options: {
+        accept: 'audio/*',
+      },
+      group: 'audio',
+    }),
+    defineField({
+      name: 'previewAudioFilePost',
+      title: 'Preview Audio File - After Launch',
+      type: 'file',
+      options: {
+        accept: 'audio/*',
+      },
+      group: 'audio',
+    }),
+    defineField({
       name: 'audioFile',
-      title: 'Audio File',
+      title: 'Full Audio File - for Radio',
       type: 'file',
       options: {
         accept: 'audio/*',
       },
       validation: (Rule) => Rule.required(),
-      group: 'audio',
-    }),
-    defineField({
-      name: 'previewAudioFile',
-      title: 'Preview Audio File',
-      type: 'file',
-      options: {
-        accept: 'audio/*',
-      },
       group: 'audio',
     }),
     defineField({
