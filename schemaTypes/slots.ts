@@ -486,8 +486,8 @@ export const slotsField = defineField({
             },
             {
               type: 'object',
-              name: 'jukebox',
-              title: 'Jukebox',
+              name: 'radio',
+              title: 'Radio',
               fields: [
                 defineField({
                   name: 'headline',
