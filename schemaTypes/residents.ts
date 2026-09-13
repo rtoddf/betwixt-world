@@ -189,6 +189,15 @@ export const resident = defineType({
       description: 'Do the hotspot and crop',
     }),
     defineField({
+      name: 'imageTetherComm',
+      title: 'TetherComm Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      group: 'images',
+    }),
+    defineField({
       name: 'voiceFile',
       title: 'File For Voice',
       type: 'file',
