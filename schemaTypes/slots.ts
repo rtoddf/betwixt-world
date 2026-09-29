@@ -40,6 +40,31 @@ export const slotsField = defineField({
           of: [
             {
               type: 'object',
+              name: 'hoodsMap',
+              title: 'Hoods Map',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Hoods Map'}
+                },
+              },
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'text',
+                  title: 'Text',
+                  type: 'array',
+                  of: [{type: 'block'}],
+                  validation: (Rule) => Rule.required().max(235),
+                }),
+              ],
+            },
+            {
+              type: 'object',
               name: 'shinyButton',
               title: 'Shiny Button',
               preview: {
