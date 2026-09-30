@@ -9,11 +9,16 @@ export const structure = (S: StructureBuilder) =>
         .id('world')
         .child(S.document().schemaType('world').documentId('world')),
       S.listItem()
+        .title('Not Found')
+        .id('notFound')
+        .child(S.document().schemaType('notFound').documentId('notFound')),
+      S.listItem()
         .title('Hood Map')
         .id('hoodMap')
         .child(S.document().schemaType('hoodMap').documentId('hoodMap')),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (item) => item.getId() !== 'world' && item.getId() !== 'hoodMap',
+        (item) =>
+          item.getId() !== 'world' && item.getId() !== 'notFound' && item.getId() !== 'hoodMap',
       ),
     ])
