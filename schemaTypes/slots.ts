@@ -582,6 +582,29 @@ export const slotsField = defineField({
                 }),
               ],
             },
+            {
+              type: 'object',
+              name: 'hangingCard',
+              title: 'Hanging Card',
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+                // defineField({
+                //   name: 'copy',
+                //   title: 'Copy',
+                //   type: 'array',
+                //   of: [{type: 'block'}],
+                // }),
+                // defineField({
+                //   name: 'disclaimerText',
+                //   title: 'Disclaimer Text',
+                //   type: 'string',
+                // }),
+              ],
+            },
           ],
         }),
       ],
