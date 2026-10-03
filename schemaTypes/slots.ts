@@ -592,17 +592,18 @@ export const slotsField = defineField({
                   title: 'Headline',
                   type: 'string',
                 }),
-                // defineField({
-                //   name: 'copy',
-                //   title: 'Copy',
-                //   type: 'array',
-                //   of: [{type: 'block'}],
-                // }),
-                // defineField({
-                //   name: 'disclaimerText',
-                //   title: 'Disclaimer Text',
-                //   type: 'string',
-                // }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'butterflies',
+              title: 'Butterflies',
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
               ],
             },
           ],
