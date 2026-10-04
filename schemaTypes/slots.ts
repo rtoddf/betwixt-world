@@ -606,6 +606,24 @@ export const slotsField = defineField({
                 }),
               ],
             },
+            {
+              type: 'object',
+              name: 'tetherComm',
+              title: 'TetherComm',
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'text',
+                  title: 'Text',
+                  type: 'array',
+                  of: [{type: 'block'}],
+                }),
+              ],
+            },
           ],
         }),
       ],
