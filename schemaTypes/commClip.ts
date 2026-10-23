@@ -4,11 +4,17 @@ export const commClip = defineType({
   name: 'commClip',
   title: 'Comm Clips',
   type: 'document',
+  groups: [
+    {name: 'content', title: 'Content', default: true},
+    {name: 'copy', title: 'Copy'},
+    {name: 'audio', title: 'Audio'},
+  ],
   fields: [
     defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      group: 'content',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -19,15 +25,7 @@ export const commClip = defineType({
         source: 'title',
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'audioFile',
-      title: 'Audio File',
-      type: 'file',
-      options: {
-        accept: 'audio/*',
-      },
+      group: 'content',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -42,6 +40,7 @@ export const commClip = defineType({
           {title: 'Radio Call In', value: 'radiocallin'},
         ],
       },
+      group: 'content',
     }),
     defineField({
       name: 'resident',
@@ -51,12 +50,31 @@ export const commClip = defineType({
       options: {
         filter: 'defined(imageTetherComm)',
       },
+      group: 'content',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'date',
       title: 'Launched',
       type: 'date',
+      group: 'content',
+    }),
+    defineField({
+      name: 'audioFile',
+      title: 'Audio File',
+      type: 'file',
+      options: {
+        accept: 'audio/*',
+      },
+      group: 'audio',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'script',
+      title: 'Script',
+      type: 'array',
+      of: [{type: 'block'}],
+      group: 'audio',
     }),
   ],
 })
