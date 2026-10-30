@@ -1,9 +1,14 @@
 import {defineField, defineType} from 'sanity'
+import {slotsField} from './slots'
 
 export const notFound = defineType({
   name: 'notFound',
   title: 'Not Found',
   type: 'document',
+  groups: [
+    {name: 'content', title: 'Content', default: true},
+    {name: 'slots', title: 'Slots'},
+  ],
   fields: [
     defineField({
       name: 'headline',
@@ -27,5 +32,6 @@ export const notFound = defineType({
       },
       description: 'Do the hotspot and crop',
     }),
+    slotsField,
   ],
 })
