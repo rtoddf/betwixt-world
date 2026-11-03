@@ -145,6 +145,20 @@ export const resident = defineType({
       group: 'images',
     }),
     defineField({
+      name: 'djTextColor',
+      title: 'DJ TextColor',
+      type: 'string',
+      options: {
+        layout: 'radio',
+        list: [
+          {title: 'Light', value: 'light'},
+          {title: 'Dark', value: 'dark'},
+        ],
+      },
+      hidden: ({document}) => !document?.djColor,
+      group: 'images',
+    }),
+    defineField({
       name: 'stamp',
       title: 'Stamp',
       type: 'image',
