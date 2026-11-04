@@ -1,4 +1,4 @@
-import {defineConfig, defineField} from 'sanity'
+import {defineConfig, defineField, Template} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {imageHotspotArrayPlugin} from 'sanity-plugin-hotspot-array'
@@ -40,6 +40,26 @@ const sharedPlugins = [
   }),
 ]
 
+// top of file, near sharedPlugins
+// Starter docs for the "+" menu. Each one creates a resident
+// with residentType already filled in.
+const sharedTemplates = (prev: Template[]) => [
+  ...prev, // keep Sanity's default templates
+  {
+    id: 'resident-sidekick', // unique id, used again later in structure.ts
+    title: 'New Sidekick', // button text
+    schemaType: 'resident', // which doc type it creates
+    value: {residentType: 'sidekick'}, // fields to pre-fill
+  },
+  {
+    id: 'resident-visitor', // unique id, used again later in structure.ts
+    title: 'New Visitor', // button text
+    schemaType: 'resident', // which doc type it creates
+    value: {residentType: 'visitor'}, // fields to pre-fill
+  },
+  // Visitor: same shape, swap the words
+]
+
 export default defineConfig([
   {
     name: 'sandbox',
@@ -53,6 +73,7 @@ export default defineConfig([
 
     schema: {
       types: schemaTypes,
+      templates: sharedTemplates,
     },
   },
   {
@@ -67,6 +88,7 @@ export default defineConfig([
 
     schema: {
       types: schemaTypes,
+      templates: sharedTemplates,
     },
   },
 ])

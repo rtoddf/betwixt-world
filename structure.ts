@@ -24,7 +24,9 @@ export const structure = (S: StructureBuilder) =>
         .child(
           S.documentList()
             .title('Sidekicks')
-            .filter('_type == "resident" && residentType == "sidekick"'),
+            .filter('_type == "resident" && residentType == "sidekick"')
+            .schemaType('resident')
+            .initialValueTemplates(S.initialValueTemplateItem('resident-sidekick')),
         ),
 
       S.listItem()
@@ -33,7 +35,9 @@ export const structure = (S: StructureBuilder) =>
         .child(
           S.documentList()
             .title('Visitors')
-            .filter('_type == "resident" && residentType == "visitor"'),
+            .filter('_type == "resident" && residentType == "visitor"')
+            .schemaType('resident')
+            .initialValueTemplates(S.initialValueTemplateItem('resident-visitor')),
         ),
 
       ...S.documentTypeListItems().filter(
