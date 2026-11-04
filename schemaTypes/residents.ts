@@ -43,6 +43,33 @@ export const resident = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'residentType',
+      title: 'Resident Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Resident', value: 'resident'},
+          {title: 'Sidekick', value: 'sidekick'},
+          {title: 'Visitor', value: 'visitor'},
+        ],
+      },
+      initialValue: 'resident',
+      group: 'content',
+    }),
+    defineField({
+      name: 'residentHost',
+      title: 'Resident Host',
+      type: 'reference',
+      to: [{type: 'resident'}],
+      options: {
+        filter: '!defined(residentType) || residentType == "resident"',
+      },
+      // initialValue: 'resident',
+      hidden: ({document}) =>
+        document?.residentType != 'sidekick' && document?.residentType != 'visitor',
+      group: 'content',
+    }),
+    defineField({
       name: 'pronunciation',
       title: 'Pronunciation',
       // Localized: internationalizedArrayString renders one input per
@@ -144,20 +171,7 @@ export const resident = defineType({
       type: 'color',
       group: 'images',
     }),
-    defineField({
-      name: 'djTextColor',
-      title: 'DJ TextColor',
-      type: 'string',
-      options: {
-        layout: 'radio',
-        list: [
-          {title: 'Light', value: 'light'},
-          {title: 'Dark', value: 'dark'},
-        ],
-      },
-      hidden: ({document}) => !document?.djColor,
-      group: 'images',
-    }),
+
     defineField({
       name: 'stamp',
       title: 'Stamp',
