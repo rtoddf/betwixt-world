@@ -132,6 +132,13 @@ export const resident = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'dateLeaving',
+      title: 'Date Leaving',
+      type: 'date',
+      hidden: ({document}) => document?.residentType != 'visitor',
+      group: 'content',
+    }),
+    defineField({
       name: 'quote',
       title: 'Quote',
       type: 'internationalizedArrayString',
@@ -326,4 +333,28 @@ export const resident = defineType({
     }),
     slotsField,
   ],
+  preview: {
+    // plain object, sibling of fields
+    select: {
+      // select is also an object
+      name: 'name', // your key: 'field path'
+      type: 'residentType',
+      hostName: 'residentHost.name', // dot path follows the reference to the host's name
+    },
+    prepare({name, type, hostName}) {
+      // destructure your select keys
+      // build the subtitle from the type
+      const subtitle =
+        type === 'sidekick'
+          ? `Sidekick of ${hostName}`
+          : type === 'visitor'
+            ? `Visiting ${hostName}`
+            : undefined // residents: no subtitle
+
+      return {
+        title: name,
+        subtitle, // shorthand for subtitle: subtitle
+      }
+    },
+  },
 })
