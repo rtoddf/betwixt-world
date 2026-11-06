@@ -52,4 +52,23 @@ export const video = defineType({
       options: {accept: '.vtt'},
     }),
   ],
+  preview: {
+    // plain object, sibling of fields
+    select: {
+      // select is also an object
+      title: 'title', // your key: 'field path'
+      name: 'resident.name',
+      poster: 'image',
+    },
+    prepare({title, name, poster}) {
+      // destructure your select keys
+      const resName = name ? name : ''
+
+      return {
+        title,
+        subtitle: resName,
+        media: poster,
+      }
+    },
+  },
 })

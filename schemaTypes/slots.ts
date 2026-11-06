@@ -40,6 +40,24 @@ export const slotsField = defineField({
           of: [
             {
               type: 'object',
+              name: 'videoTease',
+              title: 'Video Tease',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Video Tease'}
+                },
+              },
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
               name: 'hoodsMap',
               title: 'Hoods Map',
               preview: {
