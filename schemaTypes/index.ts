@@ -2,6 +2,7 @@ import {world} from './world'
 import {region} from './region'
 import {themeSong} from './themeSong'
 import {commClip} from './commClip'
+import {video} from './video'
 import {neighborhood} from './hoods'
 import {resident} from './residents'
 import {page} from './page'
@@ -14,6 +15,7 @@ export const schemaTypes = [
   notFound,
   themeSong,
   commClip,
+  video,
   neighborhood,
   resident,
   page,
