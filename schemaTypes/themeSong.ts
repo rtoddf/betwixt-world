@@ -61,7 +61,7 @@ export const themeSong = defineType({
       to: [{type: 'resident'}],
       options: {
         filter: 'hood->slug.current == $hood',
-        filterParams: {hood: 'jukebox'},
+        filterParams: {hood: 'radio'},
       },
       group: 'content',
     }),
