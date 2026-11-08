@@ -54,6 +54,11 @@ export const slotsField = defineField({
                   title: 'Headline',
                   type: 'string',
                 }),
+                defineField({
+                  name: 'disclaimerText',
+                  title: 'Disclaimer Text',
+                  type: 'string',
+                }),
               ],
             },
             {
