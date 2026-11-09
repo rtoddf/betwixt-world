@@ -85,10 +85,17 @@ export const resident = defineType({
       group: 'content',
     }),
     defineField({
+      name: 'tagOverride',
+      title: 'Big Kids override for tag',
+      type: 'internationalizedArrayString',
+      description: 'This to override the tag field in the Big Kids feature if needed',
+      group: 'content',
+    }),
+    defineField({
       name: 'heritage',
       title: 'Heritage',
       type: 'string',
-      // description: 'Do the hotspot and crop',
+
       group: 'content',
     }),
     defineField({
@@ -102,6 +109,7 @@ export const resident = defineType({
           {title: 'They/Them', value: 'they/them'},
         ],
       },
+      validation: (Rule) => Rule.required(),
       group: 'content',
     }),
     defineField({
