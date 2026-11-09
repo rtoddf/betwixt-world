@@ -85,9 +85,10 @@ export const resident = defineType({
       group: 'content',
     }),
     defineField({
-      name: 'nationality',
-      title: 'Nationality',
+      name: 'heritage',
+      title: 'Heritage',
       type: 'string',
+      // description: 'Do the hotspot and crop',
       group: 'content',
     }),
     defineField({
