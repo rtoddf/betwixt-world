@@ -58,12 +58,12 @@ export const slotsField = defineField({
             },
             {
               type: 'object',
-              name: 'videoTease',
-              title: 'Video Tease',
+              name: 'audioPlayer',
+              title: 'Audio Player',
               preview: {
                 select: {title: 'headline'},
                 prepare({title}) {
-                  return {title: title || 'Video Tease'}
+                  return {title: title || 'Audio Player'}
                 },
               },
               fields: [
@@ -72,9 +72,152 @@ export const slotsField = defineField({
                   title: 'Headline',
                   type: 'string',
                 }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'cardGrid',
+              title: 'Card Grid',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Card Grid'}
+                },
+              },
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'djsTease',
+              title: 'DJs Tease',
+              fields: [
+                defineField({
+                  name: 'eyebrowText',
+                  title: 'Eyebrow Text',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'text',
+                  title: 'Text',
+                  type: 'array',
+                  of: [{type: 'block'}],
+                }),
+                defineField({
+                  name: 'buttonText',
+                  title: 'Button Text',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'buttonLink',
+                  title: 'Button Link',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'etymology',
+              title: 'Etymology',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Etymology'}
+                },
+              },
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'fieldNotesTease',
+              title: 'Field Notes Tease',
+              fields: [
+                defineField({
+                  name: 'tabText',
+                  title: 'Tab Text',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'eyebrowText',
+                  title: 'Eyebrow Text',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'image',
+                  title: 'Image',
+                  type: 'image',
+                }),
+                defineField({
+                  name: 'imageAltText',
+                  title: 'Image Alt Text',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'text',
+                  title: 'Text',
+                  type: 'array',
+                  of: [{type: 'block'}],
+                  validation: (Rule) => Rule.required().max(235),
+                }),
+                defineField({
+                  name: 'buttonText',
+                  title: 'Button Text',
+                  type: 'string',
+                }),
                 defineField({
                   name: 'disclaimerText',
                   title: 'Disclaimer Text',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'forParents',
+              title: 'For Parents',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'For Parents'}
+                },
+              },
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'hangingCard',
+              title: 'Hanging Card',
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
                   type: 'string',
                 }),
               ],
@@ -106,12 +249,12 @@ export const slotsField = defineField({
             },
             {
               type: 'object',
-              name: 'shinyButton',
-              title: 'Shiny Button',
+              name: 'hoodHeader',
+              title: 'Hood Header',
               preview: {
                 select: {title: 'headline'},
                 prepare({title}) {
-                  return {title: title || 'Shiny Button'}
+                  return {title: title || 'Hood Header'}
                 },
               },
               fields: [
@@ -121,13 +264,87 @@ export const slotsField = defineField({
                   type: 'string',
                 }),
                 defineField({
-                  name: 'buttonText',
-                  title: 'Button Text',
+                  name: 'numberOfParas',
+                  title: 'Number of Paragraphs',
+                  type: 'number',
+                  options: {
+                    list: [
+                      {title: '1', value: 1},
+                      {title: '2', value: 2},
+                      {title: '3', value: 3},
+                      {title: '4', value: 3},
+                    ],
+                  },
+                  initialValue: 2,
+                }),
+                defineField({
+                  name: 'dataSource',
+                  title: 'Data Source',
+                  type: 'string',
+                  options: {
+                    list: [
+                      {title: 'Random', value: 'random'},
+                      {title: 'Static', value: 'static'},
+                    ],
+                  },
+                  initialValue: 'static',
+                }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'pageCap',
+              title: 'Page Cap',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Page Cap'}
+                },
+              },
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'radio',
+              title: 'Radio',
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
                   type: 'string',
                 }),
                 defineField({
-                  name: 'buttonLink',
-                  title: 'Button Link',
+                  name: 'disclaimerText',
+                  title: 'Disclaimer Text',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
+              name: 'radioTease',
+              title: 'Radio Tease',
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'copy',
+                  title: 'Copy',
+                  type: 'array',
+                  of: [{type: 'block'}],
+                }),
+                defineField({
+                  name: 'disclaimerText',
+                  title: 'Disclaimer Text',
                   type: 'string',
                 }),
               ],
@@ -152,30 +369,12 @@ export const slotsField = defineField({
             },
             {
               type: 'object',
-              name: 'etymology',
-              title: 'Etymology',
+              name: 'residentHeader',
+              title: 'Resident Header',
               preview: {
                 select: {title: 'headline'},
                 prepare({title}) {
-                  return {title: title || 'Etymology'}
-                },
-              },
-              fields: [
-                defineField({
-                  name: 'headline',
-                  title: 'Headline',
-                  type: 'string',
-                }),
-              ],
-            },
-            {
-              type: 'object',
-              name: 'forParents',
-              title: 'For Parents',
-              preview: {
-                select: {title: 'headline'},
-                prepare({title}) {
-                  return {title: title || 'For Parents'}
+                  return {title: title || 'Resident Header'}
                 },
               },
               fields: [
@@ -224,12 +423,12 @@ export const slotsField = defineField({
             },
             {
               type: 'object',
-              name: 'translator',
-              title: 'Translator',
+              name: 'shinyButton',
+              title: 'Shiny Button',
               preview: {
                 select: {title: 'headline'},
                 prepare({title}) {
-                  return {title: title || 'Translator'}
+                  return {title: title || 'Shiny Button'}
                 },
               },
               fields: [
@@ -238,77 +437,77 @@ export const slotsField = defineField({
                   title: 'Headline',
                   type: 'string',
                 }),
-              ],
-            },
-            {
-              type: 'object',
-              name: 'residentHeader',
-              title: 'Resident Header',
-              preview: {
-                select: {title: 'headline'},
-                prepare({title}) {
-                  return {title: title || 'Resident Header'}
-                },
-              },
-              fields: [
                 defineField({
-                  name: 'headline',
-                  title: 'Headline',
+                  name: 'buttonText',
+                  title: 'Button Text',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'buttonLink',
+                  title: 'Button Link',
                   type: 'string',
                 }),
               ],
             },
             {
               type: 'object',
-              name: 'audioPlayer',
-              title: 'Audio Player',
-              preview: {
-                select: {title: 'headline'},
-                prepare({title}) {
-                  return {title: title || 'Audio Player'}
-                },
-              },
+              name: 'shopTease',
+              title: 'Shop Tease',
               fields: [
+                defineField({
+                  name: 'eyebrowText',
+                  title: 'Eyebrow Text',
+                  type: 'string',
+                }),
                 defineField({
                   name: 'headline',
                   title: 'Headline',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'image',
+                  title: 'Background Image',
+                  type: 'image',
+                }),
+                defineField({
+                  name: 'text',
+                  title: 'Text',
+                  type: 'array',
+                  of: [{type: 'block'}],
+                  validation: (Rule) => Rule.required().max(235),
+                }),
+                defineField({
+                  name: 'buttonPretext',
+                  title: 'Button Pretext',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'buttonText',
+                  title: 'Button Text',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'buttonLink',
+                  title: 'Button Link',
                   type: 'string',
                 }),
               ],
             },
             {
               type: 'object',
-              name: 'cardGrid',
-              title: 'Card Grid',
-              preview: {
-                select: {title: 'headline'},
-                prepare({title}) {
-                  return {title: title || 'Card Grid'}
-                },
-              },
+              name: 'tetherComm',
+              title: 'TetherComm',
               fields: [
                 defineField({
                   name: 'headline',
                   title: 'Headline',
                   type: 'string',
                 }),
-              ],
-            },
-            {
-              type: 'object',
-              name: 'pageCap',
-              title: 'Page Cap',
-              preview: {
-                select: {title: 'headline'},
-                prepare({title}) {
-                  return {title: title || 'Page Cap'}
-                },
-              },
-              fields: [
                 defineField({
-                  name: 'headline',
-                  title: 'Headline',
-                  type: 'string',
+                  name: 'text',
+                  title: 'Text',
+                  type: 'array',
+                  of: [{type: 'block'}],
                 }),
               ],
             },
@@ -373,68 +572,6 @@ export const slotsField = defineField({
             },
             {
               type: 'object',
-              name: 'tileGrid',
-              title: 'Tile Grid',
-              preview: {
-                select: {title: 'headline'},
-                prepare({title}) {
-                  return {title: title || 'Tile Grid'}
-                },
-              },
-              fields: [
-                defineField({
-                  name: 'headline',
-                  title: 'Headline',
-                  type: 'string',
-                }),
-              ],
-            },
-            {
-              type: 'object',
-              name: 'hoodHeader',
-              title: 'Hood Header',
-              preview: {
-                select: {title: 'headline'},
-                prepare({title}) {
-                  return {title: title || 'Hood Header'}
-                },
-              },
-              fields: [
-                defineField({
-                  name: 'headline',
-                  title: 'Headline',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'numberOfParas',
-                  title: 'Number of Paragraphs',
-                  type: 'number',
-                  options: {
-                    list: [
-                      {title: '1', value: 1},
-                      {title: '2', value: 2},
-                      {title: '3', value: 3},
-                      {title: '4', value: 3},
-                    ],
-                  },
-                  initialValue: 2,
-                }),
-                defineField({
-                  name: 'dataSource',
-                  title: 'Data Source',
-                  type: 'string',
-                  options: {
-                    list: [
-                      {title: 'Random', value: 'random'},
-                      {title: 'Static', value: 'static'},
-                    ],
-                  },
-                  initialValue: 'static',
-                }),
-              ],
-            },
-            {
-              type: 'object',
               name: 'tile',
               title: 'Tile',
               fields: [
@@ -459,101 +596,50 @@ export const slotsField = defineField({
             },
             {
               type: 'object',
-              name: 'shopTease',
-              title: 'Shop Tease',
+              name: 'tileGrid',
+              title: 'Tile Grid',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Tile Grid'}
+                },
+              },
               fields: [
-                defineField({
-                  name: 'eyebrowText',
-                  title: 'Eyebrow Text',
-                  type: 'string',
-                }),
                 defineField({
                   name: 'headline',
                   title: 'Headline',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'image',
-                  title: 'Background Image',
-                  type: 'image',
-                }),
-                defineField({
-                  name: 'text',
-                  title: 'Text',
-                  type: 'array',
-                  of: [{type: 'block'}],
-                  validation: (Rule) => Rule.required().max(235),
-                }),
-                defineField({
-                  name: 'buttonPretext',
-                  title: 'Button Pretext',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'buttonText',
-                  title: 'Button Text',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'buttonLink',
-                  title: 'Button Link',
                   type: 'string',
                 }),
               ],
             },
             {
               type: 'object',
-              name: 'fieldNotesTease',
-              title: 'Field Notes Tease',
+              name: 'translator',
+              title: 'Translator',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Translator'}
+                },
+              },
               fields: [
-                defineField({
-                  name: 'tabText',
-                  title: 'Tab Text',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'eyebrowText',
-                  title: 'Eyebrow Text',
-                  type: 'string',
-                }),
                 defineField({
                   name: 'headline',
                   title: 'Headline',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'image',
-                  title: 'Image',
-                  type: 'image',
-                }),
-                defineField({
-                  name: 'imageAltText',
-                  title: 'Image Alt Text',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'text',
-                  title: 'Text',
-                  type: 'array',
-                  of: [{type: 'block'}],
-                  validation: (Rule) => Rule.required().max(235),
-                }),
-                defineField({
-                  name: 'buttonText',
-                  title: 'Button Text',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'disclaimerText',
-                  title: 'Disclaimer Text',
                   type: 'string',
                 }),
               ],
             },
             {
               type: 'object',
-              name: 'radio',
-              title: 'Radio',
+              name: 'videoTease',
+              title: 'Video Tease',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Video Tease'}
+                },
+              },
               fields: [
                 defineField({
                   name: 'headline',
@@ -564,104 +650,6 @@ export const slotsField = defineField({
                   name: 'disclaimerText',
                   title: 'Disclaimer Text',
                   type: 'string',
-                }),
-              ],
-            },
-            {
-              type: 'object',
-              name: 'djsTease',
-              title: 'DJs Tease',
-              fields: [
-                defineField({
-                  name: 'eyebrowText',
-                  title: 'Eyebrow Text',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'headline',
-                  title: 'Headline',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'text',
-                  title: 'Text',
-                  type: 'array',
-                  of: [{type: 'block'}],
-                }),
-                defineField({
-                  name: 'buttonText',
-                  title: 'Button Text',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'buttonLink',
-                  title: 'Button Link',
-                  type: 'string',
-                }),
-              ],
-            },
-            {
-              type: 'object',
-              name: 'radioTease',
-              title: 'Radio Tease',
-              fields: [
-                defineField({
-                  name: 'headline',
-                  title: 'Headline',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'copy',
-                  title: 'Copy',
-                  type: 'array',
-                  of: [{type: 'block'}],
-                }),
-                defineField({
-                  name: 'disclaimerText',
-                  title: 'Disclaimer Text',
-                  type: 'string',
-                }),
-              ],
-            },
-            {
-              type: 'object',
-              name: 'hangingCard',
-              title: 'Hanging Card',
-              fields: [
-                defineField({
-                  name: 'headline',
-                  title: 'Headline',
-                  type: 'string',
-                }),
-              ],
-            },
-            {
-              type: 'object',
-              name: 'butterflies',
-              title: 'Butterflies',
-              fields: [
-                defineField({
-                  name: 'headline',
-                  title: 'Headline',
-                  type: 'string',
-                }),
-              ],
-            },
-            {
-              type: 'object',
-              name: 'tetherComm',
-              title: 'TetherComm',
-              fields: [
-                defineField({
-                  name: 'headline',
-                  title: 'Headline',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'text',
-                  title: 'Text',
-                  type: 'array',
-                  of: [{type: 'block'}],
                 }),
               ],
             },
