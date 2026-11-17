@@ -3,6 +3,8 @@ import {region} from './region'
 import {themeSong} from './themeSong'
 import {commClip} from './commClip'
 import {video} from './video'
+import {snackArt} from './snackArt'
+import {brainSnack} from './brainSnack'
 import {neighborhood} from './hoods'
 import {resident} from './residents'
 import {page} from './page'
@@ -16,6 +18,8 @@ export const schemaTypes = [
   themeSong,
   commClip,
   video,
+  snackArt,
+  brainSnack,
   neighborhood,
   resident,
   page,
