@@ -13,6 +13,7 @@ export const brainSnack = defineType({
   groups: [
     {name: 'content', title: 'Content', default: true},
     {name: 'question', title: 'Question Stuff'},
+    {name: 'more', title: 'More stuff for Claude to find that is wrong'},
   ],
   fields: [
     defineField({
@@ -99,6 +100,13 @@ export const brainSnack = defineType({
           preview: {
             select: {
               title: 'text',
+              isCorrect: 'isCorrect',
+            },
+            prepare({title, isCorrect}) {
+              return {
+                title: title,
+                subtitle: isCorrect == true ? '✓ Correct' : '',
+              }
             },
           },
         },
@@ -148,6 +156,33 @@ export const brainSnack = defineType({
       type: 'reference',
       to: {type: 'resident'},
       validation: (Rule) => Rule.required(),
+      group: 'content',
+    }),
+    defineField({
+      name: 'moreInfo',
+      title: 'More Info',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'label',
+          title: 'Label',
+          type: 'string',
+        }),
+        defineField({
+          name: 'url',
+          title: 'URL',
+          type: 'url',
+        }),
+      ],
+      group: 'more',
+    }),
+    defineField({
+      name: 'snackArt',
+      title: 'Snack Art (override)',
+      type: 'reference',
+      to: {type: 'snackArt'},
+      description: 'Leave empty to use the default art for this snack type.',
+      group: 'more',
     }),
   ],
   preview: {
