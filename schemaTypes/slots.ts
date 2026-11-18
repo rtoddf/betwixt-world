@@ -76,6 +76,24 @@ export const slotsField = defineField({
             },
             {
               type: 'object',
+              name: 'brainSnack',
+              title: 'Brain Snack',
+              preview: {
+                select: {title: 'headline'},
+                prepare({title}) {
+                  return {title: title || 'Brain Snack'}
+                },
+              },
+              fields: [
+                defineField({
+                  name: 'headline',
+                  title: 'Headline',
+                  type: 'string',
+                }),
+              ],
+            },
+            {
+              type: 'object',
               name: 'cardGrid',
               title: 'Card Grid',
               preview: {
