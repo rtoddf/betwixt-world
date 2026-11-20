@@ -26,9 +26,22 @@ export const snackArt = defineType({
         list: [
           {title: 'True/False', value: 'trueFalse'},
           {title: 'Multiple Choice', value: 'multipleChoice'},
+          {title: 'Word of the Day', value: 'wordOfTheDay'},
           {title: 'Info', value: 'info'},
         ],
       },
+    }),
+    defineField({
+      name: 'correctAnswerResponse',
+      title: 'Default correct answer response',
+      type: 'string',
+      description: 'Use {answer} where the correct answer goes',
+    }),
+    defineField({
+      name: 'incorrectAnswerResponse',
+      title: 'Default incorrect answer response',
+      type: 'string',
+      description: 'Use {answer} where the correct answer goes',
     }),
   ],
   preview: {

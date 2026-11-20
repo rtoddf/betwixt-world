@@ -3,6 +3,7 @@ import {defineField, defineType} from 'sanity'
 const snackTypeLabels: Record<string, string> = {
   trueFalse: 'True/False',
   multipleChoice: 'Multiple Choice',
+  wordOfTheDay: 'Word of the Day',
   info: 'Info',
 }
 
@@ -13,7 +14,7 @@ export const brainSnack = defineType({
   groups: [
     {name: 'content', title: 'Content', default: true},
     {name: 'question', title: 'Question Stuff'},
-    {name: 'more', title: 'More stuff for Claude to find that is wrong'},
+    {name: 'more', title: 'More stuff if needed'},
   ],
   fields: [
     defineField({
@@ -38,6 +39,7 @@ export const brainSnack = defineType({
         list: [
           {title: 'True/False', value: 'trueFalse'},
           {title: 'Multiple Choice', value: 'multipleChoice'},
+          {title: 'Word of the Day', value: 'wordOfTheDay'},
           {title: 'Info', value: 'info'},
         ],
       },
@@ -48,10 +50,15 @@ export const brainSnack = defineType({
       name: 'prompt',
       title: 'Prompt/Question',
       type: 'text',
-      hidden: ({document}) => document?.snackType == 'info',
+      hidden: ({document}) =>
+        document?.snackType == 'info' || document?.snackType == 'wordOfTheDay',
       validation: (Rule) =>
         Rule.custom((value, context) => {
-          if (context.document?.snackType === 'info') return true
+          if (
+            context.document?.snackType === 'info' ||
+            context.document?.snackType === 'wordOfTheDay'
+          )
+            return true
           if (!value) return 'Quiz snacks need a question'
           return true
         }),
@@ -128,10 +135,15 @@ export const brainSnack = defineType({
       title: 'Explanation of the answer',
       type: 'text',
       group: 'question',
-      hidden: ({document}) => document?.snackType == 'info',
+      hidden: ({document}) =>
+        document?.snackType == 'info' || document?.snackType == 'wordOfTheDay',
       validation: (Rule) =>
         Rule.custom((value, context) => {
-          if (context.document?.snackType === 'info') return true
+          if (
+            context.document?.snackType === 'info' ||
+            context.document?.snackType === 'wordOfTheDay'
+          )
+            return true
           if (!value) return 'Quiz snacks need a explanation'
           return true
         }),
@@ -142,11 +154,16 @@ export const brainSnack = defineType({
       type: 'array',
       of: [{type: 'block'}],
       group: 'question',
-      hidden: ({document}) => document?.snackType != 'info',
+      hidden: ({document}) =>
+        document?.snackType != 'info' && document?.snackType != 'wordOfTheDay',
       validation: (Rule) =>
         Rule.custom((value, context) => {
-          if (context.document?.snackType !== 'info') return true
-          if (!value || value.length === 0) return 'Info snacks need a body'
+          if (
+            context.document?.snackType !== 'info' &&
+            context.document?.snackType !== 'wordOfTheDay'
+          )
+            return true
+          if (!value || value.length === 0) return 'Info and Word of the Day snacks need a body'
           return true
         }),
     }),
